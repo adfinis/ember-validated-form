@@ -6,6 +6,8 @@
 
 Easily create forms with client side validations!
 
+[Try the live demo!](https://adfinis-sygroup.github.io/ember-validated-form/)
+
 This [ember-cli](http://www.ember-cli.com) addon is based on the following excellent addons:
 
 - ember-changeset
