@@ -6,6 +6,10 @@ module.exports = function(environment) {
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
+    'ember-validated-form': {
+      submitLabel: 'label.save',
+      cancelLabel: 'label.cancel'
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
