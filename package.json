@@ -1,12 +1,15 @@
 {
   "name": "ember-validated-form",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Easily create forms with client-side validations",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "forms",
+    "form validation",
+    "validation messages"
   ],
   "license": "MIT",
-  "author": "",
+  "author": "Adfinis SyGroup",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -50,6 +53,7 @@
     "node": ">= 0.12.0"
   },
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "demoURL": "https://adfinis-sygroup.github.io/ember-validated-form/"
   }
 }
