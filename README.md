@@ -46,6 +46,7 @@ Basic example:
 where `UserValidations` is a changeset:
 
 ```javascript
+// controller
 import Ember from 'ember';
 import UserValidations from 'dummy/validations/user';
 
@@ -55,6 +56,7 @@ export default Ember.Controller.extend({
 ```
 
 ```javascript
+// validations/user.js
 import {
   validatePresence,
   validateLength
