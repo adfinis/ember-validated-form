@@ -1,0 +1,28 @@
+<label class="control-label" for={{name}}>
+  {{label}}{{#if required}} *{{/if}}
+</label>
+{{#if (eq type "select")}}
+  {{component (concat "one-way-" type)
+    selected
+    options     = options
+    name        = name
+    class       = "form-control"
+    update      = (action "update")
+    focusOut    = (action "setDirty")
+    placeholder = placeholder
+    }}
+{{else}}
+  {{component (concat "one-way-" type)
+    value       = (get model name)
+    options     = options
+    name        = name
+    class       = "form-control"
+    update      = (action "update")
+    focusOut    = (action "setDirty")
+    placeholder = placeholder
+    }}
+{{/if}}
+{{#if showError}}
+  <span class="help-block">{{firstError}}</span>
+{{/if}}
+

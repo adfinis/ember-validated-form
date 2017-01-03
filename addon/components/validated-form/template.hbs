@@ -1,0 +1,13 @@
+<form class="{{if submitted 'submitted'}}" {{action "submit" on="submit"}}>
+  {{yield (hash
+    input=(component 'validated-input' model=model submitted=submitted)
+  )}}
+
+  <p>
+    <button class="btn btn-primary" type="submit">{{submit-label}}</button>
+    {{#if on-cancel}}
+      <button class="btn btn-default" {{action on-cancel}}>
+        {{cancel-label}}</button>
+    {{/if}}
+  </p>
+</form>
