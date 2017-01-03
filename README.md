@@ -1,12 +1,15 @@
+# ember-validated-form
 [![npm version](https://badge.fury.io/js/ember-validated-form.svg)](https://badge.fury.io/js/ember-validated-form)
 [![Ember Observer Score](http://emberobserver.com/badges/ember-validated-form.svg)](http://emberobserver.com/addons/ember-validated-form)
 [![Build Status](https://travis-ci.org/adfinis-sygroup/ember-validated-form.svg?branch=master)](https://travis-ci.org/adfinis-sygroup/ember-validated-form)
 
-# ember-validated-form
+Easily create forms with client side validations.
 
-Easily create forms with client side validations!
+## Demo
 
-[Try the live demo!](https://adfinis-sygroup.github.io/ember-validated-form/)
+![gif](demo.gif)
+
+Want to try it yourself? [See the live demo.](https://adfinis-sygroup.github.io/ember-validated-form/)
 
 This [ember-cli](http://www.ember-cli.com) addon is based on the following excellent addons:
 
