@@ -11,11 +11,18 @@ Easily create forms with client side validations.
 
 Want to try it yourself? [See the live demo.](https://adfinis-sygroup.github.io/ember-validated-form/)
 
-This [ember-cli](http://www.ember-cli.com) addon is based on the following excellent addons:
+This [ember-cli](http://www.ember-cli.com) addon is based on the following excellent addons
 
-- ember-changeset
-- ember-changeset-validations
-- ember-one-way-controls
+- [ember-changeset](https://github.com/DockYard/ember-changeset)
+- [ember-changeset-validations](https://github.com/DockYard/ember-changeset-validations/)
+- [ember-one-way-controls](https://github.com/DockYard/ember-one-way-controls)
+
+and provides a handy out-of-the-box setup for user-friendly client-side validations, featuring
+
+- Hiding of validation errors until field has been interacted with (or submit button was pressed)
+- Preventing submit action until form is valid
+- Live-updating validation errors
+- Bootstrap integration
 
 ## Usage
 
