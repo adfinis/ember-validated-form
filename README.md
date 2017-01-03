@@ -23,7 +23,7 @@ ember install ember-validated-form
 
 Basic example:
 
-```
+```Handlebars
 {{#validated-form
   model        = (changeset model UserValidations)
   on-submit    = (action "submit")

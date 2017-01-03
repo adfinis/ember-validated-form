@@ -3,6 +3,10 @@ form {
   max-width: 400px;
 }
 
+.github-fork-ribbon:after, .github-fork-ribbon:before {
+  box-sizing: initial;
+}
+
 
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
