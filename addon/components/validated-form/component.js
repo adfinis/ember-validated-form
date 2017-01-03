@@ -15,17 +15,23 @@ export default Ember.Component.extend({
     }
   },
 
-  'submit-label': Ember.computed('config', function() {
-    const i18n = this.get('i18n');
-    const submitLabel = this._config('submitLabel');
-    return i18n ? i18n.t(submitLabel) : submitLabel;
+  _submitLabel: Ember.computed('config', 'submit-label', function() {
+    return this._getLabel('submit-label');
   }),
 
-  'cancel-label': Ember.computed('config', function() {
-    const i18n = this.get('i18n');
-    const cancelLabel = this._config('cancelLabel');
-    return i18n ? i18n.t(cancelLabel) : cancelLabel;
+  _cancelLabel: Ember.computed('config', function() {
+    return this._getLabel('cancel-label');
   }),
+
+  _getLabel(key) {
+    const i18n = this.get('i18n');
+    const customLabel = this.get(key);
+    if (customLabel) {
+      return customLabel;
+    }
+    const defaultLabel = this._config(Ember.String.camelize(key));
+    return i18n ? i18n.t(defaultLabel) : defaultLabel;
+  },
 
   _config(property) {
     return this.get(`config.${property}`);

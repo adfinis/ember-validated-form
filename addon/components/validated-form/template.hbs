@@ -5,11 +5,11 @@
 
   <p>
     {{#if on-submit}}
-      <button class="btn btn-primary" type="submit">{{submit-label}}</button>
+      <button class="btn btn-primary" type="submit">{{_submitLabel}}</button>
     {{/if}}
     {{#if on-cancel}}
       <button class="btn btn-default" {{action on-cancel}}>
-        {{cancel-label}}</button>
+        {{_cancelLabel}}</button>
     {{/if}}
   </p>
 </form>
