@@ -5,6 +5,13 @@ export default Ember.Controller.extend({
   UserValidations,
 
   countries: ['United States', 'United Kingdom', 'Switzerland', 'Other'],
+  genders: [{
+    key: 'm',
+    label: 'Male'
+  }, {
+    key: 'f',
+    label: 'Female'
+  }],
 
   actions: {
     submit(model) {

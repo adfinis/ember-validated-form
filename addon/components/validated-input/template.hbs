@@ -1,17 +1,36 @@
 <label class="control-label" for={{name}}>
   {{label}}{{#if required}} *{{/if}}
 </label>
+
 {{#if (eq type "select")}}
-  {{component (concat "one-way-" type)
-    selected
-    options     = options
-    name        = name
-    class       = "form-control"
-    update      = (action "update")
-    focusOut    = (action "setDirty")
-    placeholder = placeholder
+  {{one-way-select
+    value        = (get model name)
+    options      = options
+    name         = name
+    class        = "form-control"
+    update       = (action "update")
+    focusOut     = (action "setDirty")
+    includeBlank = includeBlank
     }}
+
+{{else if (eq type "radioGroup")}}
+
+  {{#each options as |option|}}
+    <div class="radio">
+      <label>
+      {{one-way-radio
+        value    = (get model name)
+        option   = option.key
+        name     = name
+        update   = (action "update")
+        focusOut = (action "setDirty")
+        }}
+        {{option.label}}</label>
+    </div>
+  {{/each}}
+
 {{else}}
+
   {{component (concat "one-way-" type)
     value       = (get model name)
     options     = options
@@ -21,7 +40,9 @@
     focusOut    = (action "setDirty")
     placeholder = placeholder
     }}
+
 {{/if}}
+
 {{#if showError}}
   <span class="help-block">{{firstError}}</span>
 {{/if}}

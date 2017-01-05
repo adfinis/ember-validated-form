@@ -9,11 +9,13 @@
   {{f.input type="textarea" label="About me" name="aboutMe"}}
 
   {{f.input
-    type     = "select"
-    label    = "Country"
-    name     = "country"
-    options  = countries
-    selected = model.country
+    type         = "select"
+    label        = "Country"
+    name         = "country"
+    options      = countries
+    includeBlank = "Please choose..."
     }}
+
+  {{f.input type="radioGroup" label="Gender" name="gender" options=genders}}
 
 {{/validated-form}}

@@ -16,11 +16,11 @@ export default Ember.Component.extend({
   },
 
   _submitLabel: Ember.computed('config', 'submit-label', function() {
-    return this._getLabel('submit-label');
+    return this._getLabel('submit-label') || 'Save';
   }),
 
   _cancelLabel: Ember.computed('config', function() {
-    return this._getLabel('cancel-label');
+    return this._getLabel('cancel-label') || 'Cancel';
   }),
 
   _getLabel(key) {
