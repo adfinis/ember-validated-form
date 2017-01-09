@@ -7,8 +7,16 @@ module.exports = function(environment) {
     rootURL: '/',
     locationType: 'auto',
     'ember-validated-form': {
-      submitLabel: 'label.save',
-      cancelLabel: 'label.cancel'
+      label: {
+        submit: 'label.save',
+        cancel: 'label.cancel'
+      },
+      css: {
+        group: 'form-group',
+        control: 'form-control',
+        label: 'control-label',
+        help: 'help-block'
+      }
     },
     EmberENV: {
       FEATURES: {

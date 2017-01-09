@@ -180,7 +180,10 @@ genders: [{
 
 ## Config
 
-You can specify defaults for `submit-label` and `cancel-label`:
+Currently, the configuration supports
+
+- `label`: defaults for `submit-label` and `cancel-label`. If you're using [ember-i18n](https://github.com/jamesarosen/ember-i18n), you can also specify translation keys.
+- `css`: CSS Classes to add to the form elements (`group`, `control`, `label`, `help`). See an example integration of bootstrap CSS below.
 
 ```javascript
 // environment.js
@@ -188,14 +191,22 @@ You can specify defaults for `submit-label` and `cancel-label`:
 var ENV = {
   // ...
   'ember-validated-form': {
-    submitLabel: 'Go for it',
-    cancelLabel: 'Take me back'
+    label: {
+      submit: 'Go for it',
+      cancel: 'Take me back'
+    },
+    css: {
+      // bootstrap classes
+      group: 'form-group',
+      control: 'form-control',
+      label: 'form-label',
+      help: 'help-block'
+    }
   },
   // ...
 }
 ```
 
-If you're using [ember-i18n](https://github.com/jamesarosen/ember-i18n), you can also specify a translation key.
 
 # Contributing
 

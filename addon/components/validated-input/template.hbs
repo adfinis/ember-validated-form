@@ -1,4 +1,4 @@
-<label class="control-label" for={{name}}>
+<label class={{config.css.label}} for={{name}}>
   {{label}}{{#if required}} *{{/if}}
 </label>
 
@@ -7,7 +7,7 @@
     value        = (get model name)
     options      = options
     name         = name
-    class        = "form-control"
+    class        = config.css.control
     update       = (action "update")
     focusOut     = (action "setDirty")
     includeBlank = includeBlank
@@ -35,7 +35,7 @@
     value       = (get model name)
     options     = options
     name        = name
-    class       = "form-control"
+    class       = config.css.control
     update      = (action "update")
     focusOut    = (action "setDirty")
     placeholder = placeholder
@@ -44,6 +44,6 @@
 {{/if}}
 
 {{#if showError}}
-  <span class="help-block">{{firstError}}</span>
+  <span class={{config.css.help}}>{{firstError}}</span>
 {{/if}}
 
