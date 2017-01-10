@@ -7,7 +7,7 @@ Easily create forms with client side validations.
 
 ## Demo
 
-![gif](demo.gif)
+![gif](https://raw.githubusercontent.com/adfinis-sygroup/ember-validated-form/master/demo.gif)
 
 Want to try it yourself? [See the live demo.](https://adfinis-sygroup.github.io/ember-validated-form/)
 
