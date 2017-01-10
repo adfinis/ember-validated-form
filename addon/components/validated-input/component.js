@@ -22,9 +22,7 @@ export default Ember.Component.extend({
 
   type: 'input',
 
-  classNames: [ 'form-group' ],
-
-  classNameBindings: [ 'showError:has-error:valid', 'dirty' ],
+  classNameBindings: [ 'showError:has-error:valid', 'dirty', 'config.css.group' ],
 
   error: Ember.computed('model.error', function() {
     const error = this.get('model.error');

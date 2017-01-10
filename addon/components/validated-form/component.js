@@ -16,25 +16,25 @@ export default Ember.Component.extend({
   },
 
   _submitLabel: Ember.computed('config', 'submit-label', function() {
-    return this._getLabel('submit-label') || 'Save';
+    return this._getLabel('submit') || 'Save';
   }),
 
   _cancelLabel: Ember.computed('config', function() {
-    return this._getLabel('cancel-label') || 'Cancel';
+    return this._getLabel('cancel') || 'Cancel';
   }),
 
-  _getLabel(key) {
+  _getLabel(type) {
     const i18n = this.get('i18n');
-    const customLabel = this.get(key);
+    const customLabel = this.get(`${type}-label`);
     if (customLabel) {
       return customLabel;
     }
-    const defaultLabel = this._config(Ember.String.camelize(key));
+    const defaultLabel = this._config(type);
     return i18n ? i18n.t(defaultLabel) : defaultLabel;
   },
 
-  _config(property) {
-    return this.get(`config.${property}`);
+  _config(type) {
+    return this.get(`config.label.${type}`);
   },
 
   actions: {
