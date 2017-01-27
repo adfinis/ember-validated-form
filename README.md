@@ -143,10 +143,13 @@ If no field type is specified, a simple `<input type="text">` is rendered. Other
 
 ### Select
 
-The select element requires more options (see [{{one-way-select}}](https://github.com/DockYard/ember-one-way-controls/blob/master/docs/one-way-select.md):
+The select element requires more options (see [{{one-way-select}}](https://github.com/DockYard/ember-one-way-controls/blob/master/docs/one-way-select.md)):
 
 - `value`
 - `options`
+- `optionLabelPath`
+- `optionValuePath`
+- `optionTargetPath`
 - `includeBlank`
 
 ```Handlebars
