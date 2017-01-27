@@ -6,13 +6,15 @@ export default Ember.Component.extend({
 
   layout,
 
-  i18n: Ember.inject.service(),
-
   init() {
     this._super(...arguments);
     if (this.get('model') && this.get('model').validate) {
       this.get('model').validate();
     }
+
+    let owner = Ember.getOwner(this);
+    let factory = owner.factoryFor ? owner.factoryFor('service:i18n') : owner._lookupFactory('service:i18n');
+    this.set('i18n', factory ? factory.create() : null);
   },
 
   _submitLabel: Ember.computed('config', 'submit-label', function() {
