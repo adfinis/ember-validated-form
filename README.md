@@ -32,6 +32,8 @@ There are many [existing ember addons](https://emberobserver.com/categories/form
 - focus on forms that require client-side validations
 - provide good user experience out of the box
 
+For more information, see this [blog post](https://www.adfinis-sygroup.ch/blog/en/form-validation-with-ember-js/).
+
 ## Usage
 
 First, install the addon:
