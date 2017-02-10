@@ -46,6 +46,10 @@
 
 {{/if}}
 
+{{#if help}}
+  <p class={{config.css.help}}>{{help}}</p>
+{{/if}}
+
 {{#if showError}}
   <span class={{config.css.help}}>{{firstError}}</span>
 {{/if}}
