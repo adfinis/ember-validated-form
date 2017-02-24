@@ -1,6 +1,10 @@
-<label class={{config.css.label}} for={{name}}>
-  {{label}}{{#if required}} *{{/if}}
-</label>
+{{#if (not-eq type "checkbox")}}
+  {{#if label}}
+      <label class={{config.css.label}} for={{name}}>
+        {{label}}{{#if required}} *{{/if}}
+      </label>
+  {{/if}}
+{{/if}}
 
 {{#if (eq type "select")}}
   {{one-way-select
@@ -19,7 +23,7 @@
 {{else if (eq type "radioGroup")}}
 
   {{#each options as |option|}}
-    <div class="radio">
+    <div class="{{config.css.radio}}">
       <label>
       {{one-way-radio
         value    = (get model name)
@@ -31,7 +35,19 @@
         {{option.label}}</label>
     </div>
   {{/each}}
-
+{{else if (eq type "checkbox")}}
+  <div class="{{config.css.checkbox}}">
+    <label>
+      {{one-way-checkbox
+          checked
+          name       = name
+          value      = value
+          update     = (action "update")
+          focusOut   = (action "setDirty")
+      }}
+      {{label}}
+    </label>
+  </div>
 {{else}}
 
   {{component (concat "one-way-" type)

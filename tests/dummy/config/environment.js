@@ -13,6 +13,7 @@ module.exports = function(environment) {
       },
       css: {
         group: 'form-group',
+        radio: 'radio',
         control: 'form-control',
         label: 'control-label',
         help: 'help-block'
