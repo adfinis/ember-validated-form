@@ -39,9 +39,8 @@
   <div class="{{config.css.checkbox}}">
     <label>
       {{one-way-checkbox
-          checked
           name       = name
-          value      = value
+          checked    = (get model name)
           update     = (action "update")
           focusOut   = (action "setDirty")
       }}

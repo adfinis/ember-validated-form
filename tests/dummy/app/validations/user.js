@@ -1,6 +1,7 @@
 import {
   validatePresence,
-  validateLength
+  validateLength,
+  validateInclusion
 } from 'ember-changeset-validations/validators';
 
 
@@ -15,5 +16,6 @@ export default {
   ],
   aboutMe: [ validateLength({allowBlank: true, max: 200}) ],
   country: [ validatePresence(true) ],
-  gender: [ validatePresence(true) ]
+  gender: [ validatePresence(true) ],
+  terms: [ validateInclusion({list: [true], message: 'Please accept the terms and conditions!'}) ]
 };
