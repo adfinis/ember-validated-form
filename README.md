@@ -172,6 +172,14 @@ This component renders a list of [{{one-way-radio}}](https://github.com/DockYard
 {{f.input type="radioGroup" label="Gender" name="gender" options=genders}}
 ```
 
+### Other input elements
+
+If the input element you need is not explicitly supported, you can still use it like you normally would (Validation support you'll have to add yourself, though). If you're using the `changeset` view helper to create your changeset, you can also access the changeset as `f.model` inside the form. The following example shows how to use an `ember-pickaday` datepicker:
+
+```Handlebars
+{{pikaday-input onSelection=(action (mut f.model.birthday))}}
+```
+
 ```javascript
 // in your controller
 genders: [{
