@@ -43,6 +43,12 @@ export default Ember.Component.extend({
     submit() {
       this.set('submitted', true);
       const model = this.get('model');
+
+      if (!model || !model.validate) {
+        this.attrs['on-submit'](model);
+        return;
+      }
+
       model.validate().then(() => {
         if (model.get('isInvalid')) {
           return;
