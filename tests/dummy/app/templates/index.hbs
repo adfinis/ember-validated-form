@@ -1,7 +1,9 @@
 {{#validated-form
   model        = (changeset model UserValidations)
-  on-submit    = (action "submit")
-  submit-label = 'Save' as |f|}}
+  on-submit    = submit
+  on-cancel    = (action 'cancel')
+  submit-label = 'Save'
+  cancel-label = 'Cancel' as |f|}}
 
   {{f.input label="First name" name="firstName"}}
   {{f.input label="Last name" name="lastName"}}

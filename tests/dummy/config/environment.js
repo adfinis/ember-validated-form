@@ -15,7 +15,9 @@ module.exports = function(environment) {
         group: 'form-group',
         control: 'form-control',
         label: 'control-label',
-        help: 'help-block'
+        help: 'help-block',
+        button: 'btn btn-default',
+        submit: 'btn btn-primary'
       }
     },
     EmberENV: {
