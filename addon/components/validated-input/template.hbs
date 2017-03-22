@@ -14,6 +14,7 @@
     update           = (action "update")
     focusOut         = (action "setDirty")
     includeBlank     = includeBlank
+    disabled         = disabled
     }}
 
 {{else if (eq type "radioGroup")}}
@@ -27,6 +28,7 @@
         name     = name
         update   = (action "update")
         focusOut = (action "setDirty")
+        disabled = disabled
         }}
         {{option.label}}</label>
     </div>
@@ -42,6 +44,7 @@
     update      = (action "update")
     focusOut    = (action "setDirty")
     placeholder = placeholder
+    disabled    = disabled
     }}
 
 {{/if}}
