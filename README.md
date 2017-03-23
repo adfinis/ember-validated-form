@@ -188,6 +188,14 @@ The select element requires more options (see [{{one-way-select}}](https://githu
   }}
 ```
 
+### Checkbox
+
+This component renders a [{{one-way-checkbox}}](https://github.com/DockYard/ember-one-way-controls/blob/master/docs/one-way-checkbox.md).
+
+```Handlebars
+{{f.input type="checkbox" label="I agree with the terms and conditions" name="terms"}}
+```
+
 ### Radio button group
 
 This component renders a list of [{{one-way-radio}}](https://github.com/DockYard/ember-one-way-controls/blob/master/docs/one-way-radio.md) components.
