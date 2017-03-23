@@ -207,13 +207,16 @@ genders: [{
 }],
 ```
 
-### Other input elements
+### Custom input elements
 
-If the input element you need is not explicitly supported, you can still use it like you normally would (Validation support you'll have to add yourself, though). If you're using the `changeset` view helper to create your changeset, you can also access the changeset as `f.model` inside the form. The following example shows how to use an `ember-pickaday` datepicker:
+If the input element you need is not explicitly supported, you can easily integrate it with this addon by using `f.input` in block form:
 
 ```Handlebars
-{{pikaday-input onSelection=(action (mut f.model.birthday))}}
+{{#f.input label="Favorite Color" name="color" as |fi|}}
+  {{favorite-colors-component colors=colors onupdate=fi.update onhover=fi.setDirty}}
+{{/f.input}}
 ```
+All you need to update the model's value or mark your component as dirty is to call `fi.update` or `fi.setDirty`.
 
 ## Config
 
