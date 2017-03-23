@@ -4,11 +4,11 @@
 
 {{#if hasBlock}}
   {{yield (hash value=(get model name)
-            controlClass=config.css.control
-            update=(action 'update')
-            setDirty=(action 'setDirty')
-            model=model
-            name=name)}}
+    controlClass=config.css.control
+    update=(action 'update')
+    setDirty=(action 'setDirty')
+    model=model
+    name=name)}}
 {{else}}
   {{#if (eq type "select")}}
     {{one-way-select
@@ -46,14 +46,14 @@
   {{else}}
 
     {{component (concat "one-way-" type)
-                value       = (get model name)
-                options     = options
-                name        = name
-                class       = config.css.control
-                update      = (action "update")
-                focusOut    = (action "setDirty")
-                placeholder = placeholder
-                disabled    = disabled
+      value       = (get model name)
+      options     = options
+      name        = name
+      class       = config.css.control
+      update      = (action "update")
+      focusOut    = (action "setDirty")
+      placeholder = placeholder
+      disabled    = disabled
     }}
 
   {{/if}}

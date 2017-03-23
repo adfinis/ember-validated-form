@@ -1,9 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-
   hasSelected: Ember.computed.notEmpty('selected'),
-  isShowingColors:false,
+  isShowingColors: false,
 
   actions: {
     onColorSelected(color) {
