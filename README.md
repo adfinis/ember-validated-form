@@ -23,6 +23,7 @@ and provides a handy out-of-the-box setup for user-friendly client-side validati
 - Preventing submit action until form is valid
 - Live-updating validation errors
 - Bootstrap integration
+- Disabled submit button while async task is executed
 
 ## Why *YAEFA?
 **Yet another ember form addon*
@@ -109,10 +110,31 @@ export default {
 | Name         | Type     | Description                                                                                                                                |
 | ----         | ----     | -----------                                                                                                                                |
 | model        | `Object` | ember-changeset containing the model that backs the form                                                                                   |
-| on-submit    | `Action` | Action, that is triggered on form submit. The changeset is passed as a parameter. If specified, a submit button is rendered automatically. |
-| on-cancel    | `Action` | Same as `on-submit`, but for the `cancel` button.                                                                                          |
+| on-submit    | `Action|Task` | Action or Task, that is triggered on form submit. The changeset is passed as a parameter. If specified, a submit button is rendered automatically. If a task is specified, the button will be disabled until it is finished (see example below). |
+| on-cancel    | `Action|Task` | Same as `on-submit`, but for the `cancel` button.                                                                                          |
 | submit-label | `String` | Label for the submit button. Overrides the value specified in the config.                                                                  |
 | cancel-label | `String` | Label for the cancel button. Overrides the value specified in the config.                                                                  |
+
+When the submission of your form can take a little longer and your users are of the impatient kind, it is often necessary to disable the submit button to prevent the form from being submitted multiple times.
+All you have to do to achieve this is install [ember-concurrency](http://ember-concurrency.com/)
+
+```
+ember install ember-concurrency
+```
+
+and pass an ember-concurrency task instead of an action. Example:
+
+```javascript
+  // controller
+import { task } from 'ember-concurrency';
+
+export default Ember.Controller.extend({
+  submit: task(function * (model) {
+    yield model.save();
+    // ... more code to show success messages etc.
+  })
+});
+```
 
 ## Input fields
 
@@ -123,6 +145,8 @@ export default {
 | label | `String` | The label of the form field.                                               |
 | name  | `String` | This is is the name of the model property this input is bound to.          |
 | type  | `Action` | Type of the form field (see supported field types below). Default: `text`. |
+| disabled  | `Boolean` | Specifies if the input field is disabled. |
+
 
 The supported field types are essentially given by [ember-one-way-controls](https://github.com/DockYard/ember-one-way-controls). This addon does not much more than translating `{{f.input type="select"}}` to `{{one-way-select}}`.
 
@@ -183,12 +207,23 @@ genders: [{
 }],
 ```
 
+### Custom input elements
+
+If the input element you need is not explicitly supported, you can easily integrate it with this addon by using `f.input` in block form:
+
+```Handlebars
+{{#f.input label="Favorite Color" name="color" as |fi|}}
+  {{favorite-colors-component colors=colors onupdate=fi.update onhover=fi.setDirty}}
+{{/f.input}}
+```
+All you need to update the model's value or mark your component as dirty is to call `fi.update` or `fi.setDirty`.
+
 ## Config
 
 Currently, the configuration supports
 
 - `label`: defaults for `submit-label` and `cancel-label`. If you're using [ember-i18n](https://github.com/jamesarosen/ember-i18n), you can also specify translation keys.
-- `css`: CSS Classes to add to the form elements (`group`, `control`, `label`, `help`). See an example integration of bootstrap CSS below.
+- `css`: CSS Classes to add to the form elements (`group`, `control`, `label`, `help`, `button`, `submit`). See an example integration of bootstrap CSS below.
 
 ```javascript
 // environment.js
@@ -205,7 +240,9 @@ var ENV = {
       group: 'form-group',
       control: 'form-control',
       label: 'form-label',
-      help: 'help-block'
+      help: 'help-block',
+      button: 'btn btn-default',
+      submit: 'btn btn-primary'
     }
   },
   // ...

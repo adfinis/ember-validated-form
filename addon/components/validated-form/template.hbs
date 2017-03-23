@@ -1,15 +1,19 @@
 <form class="{{if submitted 'submitted'}}" {{action "submit" on="submit"}}>
   {{yield (hash
     input=(component 'validated-input' model=model submitted=submitted config=config)
+    model=model
   )}}
 
   <p>
     {{#if on-submit}}
-      <button class="btn btn-primary" type="submit">{{_submitLabel}}</button>
+      <button class={{submitClass}} type="submit" disabled={{submitTask.isRunning}}>
+        {{_submitLabel}}
+      </button>
     {{/if}}
     {{#if on-cancel}}
-      <button class="btn btn-default" {{action on-cancel}}>
-        {{_cancelLabel}}</button>
+      <button class={{config.css.button}} {{action 'cancel'}} disabled={{cancelTask.isRunning}}>
+          {{_cancelLabel}}
+      </button>
     {{/if}}
   </p>
 </form>

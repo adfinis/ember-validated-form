@@ -6,59 +6,77 @@
   {{/if}}
 {{/if}}
 
-{{#if (eq type "select")}}
-  {{one-way-select
-    value            = (get model name)
-    options          = options
-    optionLabelPath  = optionLabelPath
-    optionValuePath  = optionValuePath
-    optionTargetPath = optionTargetPath
-    name             = name
-    class            = config.css.control
-    update           = (action "update")
-    focusOut         = (action "setDirty")
-    includeBlank     = includeBlank
+{{#if hasBlock}}
+
+  {{yield (hash value=(get model name)
+    controlClass=config.css.control
+    update=(action 'update')
+    setDirty=(action 'setDirty')
+    model=model
+    name=name)}}
+
+{{else}}
+  {{#if (eq type "select")}}
+
+    {{one-way-select
+      value            = (get model name)
+      options          = options
+      optionLabelPath  = optionLabelPath
+      optionValuePath  = optionValuePath
+      optionTargetPath = optionTargetPath
+      name             = name
+      class            = config.css.control
+      update           = (action "update")
+      focusOut         = (action "setDirty")
+      includeBlank     = includeBlank
+      disabled         = disabled
+      multiple         = multiple
     }}
 
-{{else if (eq type "radioGroup")}}
+  {{else if (eq type "radioGroup")}}
 
-  {{#each options as |option|}}
-    <div class="{{config.css.radio}}">
+    {{#each options as |option|}}
+      <div class="radio">
+        <label>
+          {{one-way-radio
+            value    = (get model name)
+            option   = option.key
+            name     = name
+            update   = (action "update")
+            focusOut = (action "setDirty")
+            disabled = disabled
+          }}
+          {{option.label}}</label>
+      </div>
+    {{/each}}
+
+  {{else if (eq type "checkbox")}}
+    <div class="{{config.css.checkbox}}">
       <label>
-      {{one-way-radio
-        value    = (get model name)
-        option   = option.key
-        name     = name
-        update   = (action "update")
-        focusOut = (action "setDirty")
-        }}
-        {{option.label}}</label>
-    </div>
-  {{/each}}
-{{else if (eq type "checkbox")}}
-  <div class="{{config.css.checkbox}}">
-    <label>
-      {{one-way-checkbox
+        {{one-way-checkbox
           name       = name
           checked    = (get model name)
           update     = (action "update")
           focusOut   = (action "setDirty")
-      }}
-      {{label}}
-    </label>
-  </div>
-{{else}}
+        }}
+        {{label}}
+      </label>
+    </div>
 
-  {{component (concat "one-way-" type)
-    value       = (get model name)
-    options     = options
-    name        = name
-    class       = config.css.control
-    update      = (action "update")
-    focusOut    = (action "setDirty")
-    placeholder = placeholder
+  {{else}}
+
+    {{component (concat "one-way-" type)
+      value       = (get model name)
+      options     = options
+      name        = name
+      class       = config.css.control
+      update      = (action "update")
+      focusOut    = (action "setDirty")
+      placeholder = placeholder
+      disabled    = disabled
     }}
 
+  {{/if}}
 {{/if}}
 
 {{#if help}}
@@ -68,4 +86,3 @@
 {{#if showError}}
   <span class={{config.css.help}}>{{firstError}}</span>
 {{/if}}
-

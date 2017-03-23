@@ -1,6 +1,12 @@
 import Ember from 'ember';
 import layout from './template';
 
+function runTaskOrAction(taskOrAction, model) {
+  return taskOrAction.perform ?
+    taskOrAction.perform(model) :
+    taskOrAction(model);
+}
+
 export default Ember.Component.extend({
   submitted: false,
 
@@ -39,16 +45,35 @@ export default Ember.Component.extend({
     return this.get(`config.label.${type}`);
   },
 
+  submitClass: Ember.computed('config', function() {
+    return this.get(`config.css.submit`) || this.get('config.css.button');
+  }),
+
   actions: {
     submit() {
       this.set('submitted', true);
       const model = this.get('model');
+
+      if (!model || !model.validate) {
+        const task = this.get('on-submit');
+        runTaskOrAction(task, model);
+        return;
+      }
+
       model.validate().then(() => {
         if (model.get('isInvalid')) {
           return;
         }
-        this.attrs['on-submit'](model);
+        const task = this.get('on-submit');
+        runTaskOrAction(task, model);
+        this.set('submitTask', task);
       });
+    },
+
+    cancel() {
+      const task = this.get('on-cancel');
+      runTaskOrAction(task);
+      this.set('cancelTask', task);
     }
   }
 });

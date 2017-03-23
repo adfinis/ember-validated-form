@@ -20,7 +20,7 @@ export default Ember.Component.extend({
 
   type: 'input',
 
-  classNameBindings: [ 'showError:has-error:valid', 'dirty', 'config.css.group' ],
+  classNameBindings: ['showError:has-error:valid', 'dirty', 'config.css.group'],
 
   error: Ember.computed('model.error', function() {
     const error = this.get('model.error');
@@ -55,8 +55,7 @@ export default Ember.Component.extend({
     update(value) {
       if (this.attrs['on-update']) {
         this.attrs['on-update'](value);
-      }
-      else {
+      } else {
         this.set(`model.${this.get('name')}`, value);
       }
     }

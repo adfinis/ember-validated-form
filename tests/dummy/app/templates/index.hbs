@@ -1,7 +1,9 @@
 {{#validated-form
   model        = (changeset model UserValidations)
-  on-submit    = (action "submit")
-  submit-label = 'Save' as |f|}}
+  on-submit    = submit
+  on-cancel    = (action 'cancel')
+  submit-label = 'Save'
+  cancel-label = 'Cancel' as |f|}}
 
   {{f.input label="First name" name="firstName"}}
   {{f.input label="Last name" name="lastName"}}
@@ -16,8 +18,12 @@
     includeBlank = "Please choose..."
     }}
 
-    {{f.input type="radioGroup" label="Gender" name="gender" options=genders}}
+  {{f.input type="radioGroup" label="Gender" name="gender" options=genders}}
 
-    {{f.input type="checkbox" label="I agree with the terms and conditions" name="terms"}}
+  {{#f.input label="Favorite Color" name="color" as |fi|}}
+    {{favorite-colors-component colors=colors onupdate=fi.update onhover=fi.setDirty}}
+  {{/f.input}}
+
+  {{f.input type="checkbox" label="I agree with the terms and conditions" name="terms"}}
 
 {{/validated-form}}
