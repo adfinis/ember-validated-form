@@ -20,4 +20,12 @@
 
   {{f.input type="radioGroup" label="Gender" name="gender" options=genders}}
 
+
+  {{#f.input label="Favorite Color" name="color" as |fi|}}
+    {{favorite-colors-component colors=colors onupdate=fi.update onhover=fi.setDirty}}
+  {{/f.input}}
+
+  {{#f.input label="Accept the Terms" name="accepTheTerms" as |fi|}}
+    <input type="checkbox" onfocus={{fi.setDirty}} onchange={{action fi.update value='target.checked'}}>
+  {{/f.input}}
 {{/validated-form}}
