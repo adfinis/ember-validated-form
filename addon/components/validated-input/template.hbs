@@ -1,16 +1,23 @@
-<label class={{config.css.label}} for={{name}}>
-  {{label}}{{#if required}} *{{/if}}
-</label>
+{{#if (not-eq type "checkbox")}}
+  {{#if label}}
+      <label class={{config.css.label}} for={{name}}>
+        {{label}}{{#if required}} *{{/if}}
+      </label>
+  {{/if}}
+{{/if}}
 
 {{#if hasBlock}}
+
   {{yield (hash value=(get model name)
     controlClass=config.css.control
     update=(action 'update')
     setDirty=(action 'setDirty')
     model=model
     name=name)}}
+
 {{else}}
   {{#if (eq type "select")}}
+
     {{one-way-select
       value            = (get model name)
       options          = options
@@ -43,6 +50,19 @@
       </div>
     {{/each}}
 
+  {{else if (eq type "checkbox")}}
+    <div class="{{config.css.checkbox}}">
+      <label>
+        {{one-way-checkbox
+          name       = name
+          checked    = (get model name)
+          update     = (action "update")
+          focusOut   = (action "setDirty")
+        }}
+        {{label}}
+      </label>
+    </div>
+
   {{else}}
 
     {{component (concat "one-way-" type)
@@ -66,4 +86,3 @@
 {{#if showError}}
   <span class={{config.css.help}}>{{firstError}}</span>
 {{/if}}
-
