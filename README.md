@@ -231,7 +231,7 @@ All you need to update the model's value or mark your component as dirty is to c
 Currently, the configuration supports
 
 - `label`: defaults for `submit-label` and `cancel-label`. If you're using [ember-i18n](https://github.com/jamesarosen/ember-i18n), you can also specify translation keys.
-- `css`: CSS Classes to add to the form elements (`group`, `control`, `label`, `help`, `button`, `submit`). See an example integration of bootstrap CSS below.
+- `css`: CSS Classes to add to the form elements (`group`, `control`, `label`, `checkbox`, `help`, `button`, `submit`). See an example integration of bootstrap CSS below.
 
 ```javascript
 // environment.js
@@ -248,6 +248,7 @@ var ENV = {
       group: 'form-group',
       control: 'form-control',
       label: 'form-label',
+      checkbox: 'checkbox',
       help: 'help-block',
       button: 'btn btn-default',
       submit: 'btn btn-primary'
