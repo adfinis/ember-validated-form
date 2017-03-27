@@ -44,6 +44,16 @@ test('it renders submit buttons', function(assert) {
   assert.equal(this.$('form button').text().trim(), 'Save!');
 });
 
+test('does not render a <p> tag for buttons if no callbacks were passed', function(assert) {
+  this.render(hbs`
+    {{#validated-form as |f|}}
+      {{f.input label="First name"}}
+    {{/validated-form}}
+  `);
+
+  assert.equal(this.$('form > p').length, 0);
+});
+
 test('it supports default button labels with i18n support', function(assert) {
   this.on('stub', function() {});
 

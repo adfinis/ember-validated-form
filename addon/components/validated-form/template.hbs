@@ -4,6 +4,7 @@
     model=model
   )}}
 
+  {{#if (or on-submit on-cancel)}}
   <p>
     {{#if on-submit}}
       <button class={{submitClass}} type="submit" disabled={{submitTask.isRunning}}>
@@ -16,4 +17,5 @@
       </button>
     {{/if}}
   </p>
+  {{/if}}
 </form>
