@@ -27,18 +27,10 @@ export default Ember.Component.extend({
     return this._getLabel('submit') || 'Save';
   }),
 
-  _cancelLabel: Ember.computed('config', function() {
-    return this._getLabel('cancel') || 'Cancel';
-  }),
-
   _getLabel(type) {
     const i18n = this.get('i18n');
-    const customLabel = this.get(`${type}-label`);
-    if (customLabel) {
-      return customLabel;
-    }
-    const defaultLabel = this._config(type);
-    return i18n ? i18n.t(defaultLabel) : defaultLabel;
+    const label = this._config(type);
+    return i18n ? i18n.t(label) : label;
   },
 
   _config(type) {
@@ -68,12 +60,6 @@ export default Ember.Component.extend({
         runTaskOrAction(task, model);
         this.set('submitTask', task);
       });
-    },
-
-    cancel() {
-      const task = this.get('on-cancel');
-      runTaskOrAction(task);
-      this.set('cancelTask', task);
     }
   }
 });

@@ -1,21 +1,18 @@
-<form class="{{if submitted 'submitted'}}" {{action "submit" on="submit"}}>
+<form class="{{if submitted 'submitted'}}"
+  {{action "submit" on="submit"}}
+  >
   {{yield (hash
-    input=(component 'validated-input' model=model submitted=submitted config=config)
     model=model
+    input=(component 'validated-input'
+      model=model
+      submitted=submitted
+      config=config
+    )
+    submit=(component 'validated-button'
+      class    = submitClass
+      type     = "submit"
+      disabled = submitTask.isRunning
+      label    = _submitLabel
+    )
   )}}
-
-  {{#if (or on-submit on-cancel)}}
-  <p>
-    {{#if on-submit}}
-      <button class={{submitClass}} type="submit" disabled={{submitTask.isRunning}}>
-        {{_submitLabel}}
-      </button>
-    {{/if}}
-    {{#if on-cancel}}
-      <button class={{config.css.button}} {{action 'cancel'}} disabled={{cancelTask.isRunning}}>
-          {{_cancelLabel}}
-      </button>
-    {{/if}}
-  </p>
-  {{/if}}
 </form>

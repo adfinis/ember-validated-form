@@ -65,6 +65,13 @@ Basic example:
 
   {{f.input type="radioGroup" label="Gender" name="gender" options=genders}}
 
+  {{#f.input label="Favorite Color" name="color" as |fi|}}
+    {{favorite-colors-component colors=colors onupdate=fi.update onhover=fi.setDirty}}
+  {{/f.input}}
+
+  {{f.input type="checkbox" label="I agree with the terms and conditions" name="terms"}}
+
+  {{f.submit label="Save"}}
 {{/validated-form}}
 ```
 
@@ -84,22 +91,23 @@ export default Ember.Controller.extend({
 // validations/user.js
 import {
   validatePresence,
-  validateLength
+  validateLength,
+  validateInclusion
 } from 'ember-changeset-validations/validators';
 
-
 export default {
-  firstName: [
-    validatePresence(true),
-    validateLength({min: 3, max: 40})
+  firstName: [validatePresence(true), validateLength({ min: 3, max: 40 })],
+  lastName: [validatePresence(true), validateLength({ min: 3, max: 40 })],
+  aboutMe: [validateLength({ allowBlank: true, max: 200 })],
+  country: [validatePresence(true)],
+  gender: [validatePresence(true)],
+  terms: [
+    validateInclusion({
+      list: [true],
+      message: 'Please accept the terms and conditions!'
+    })
   ],
-  lastName: [
-    validatePresence(true),
-    validateLength({min: 3, max: 40})
-  ],
-  aboutMe: [ validateLength({allowBlank: true, max: 200}) ],
-  country: [ validatePresence(true) ],
-  gender: [ validatePresence(true) ]
+  color: [validatePresence(true)]
 };
 ```
 
@@ -111,9 +119,6 @@ export default {
 | ----         | ----     | -----------                                                                                                                                |
 | model        | `Object` | ember-changeset containing the model that backs the form                                                                                   |
 | on-submit    | `Action|Task` | Action or Task, that is triggered on form submit. The changeset is passed as a parameter. If specified, a submit button is rendered automatically. If a task is specified, the button will be disabled until it is finished (see example below). |
-| on-cancel    | `Action|Task` | Same as `on-submit`, but for the `cancel` button.                                                                                          |
-| submit-label | `String` | Label for the submit button. Overrides the value specified in the config.                                                                  |
-| cancel-label | `String` | Label for the cancel button. Overrides the value specified in the config.                                                                  |
 
 When the submission of your form can take a little longer and your users are of the impatient kind, it is often necessary to disable the submit button to prevent the form from being submitted multiple times.
 All you have to do to achieve this is install [ember-concurrency](http://ember-concurrency.com/)
@@ -226,11 +231,21 @@ If the input element you need is not explicitly supported, you can easily integr
 ```
 All you need to update the model's value or mark your component as dirty is to call `fi.update` or `fi.setDirty`.
 
+## Buttons
+
+`{{validated-form}}` also yields a submit button component that can be accessed with `{{f.submit}}`. It takes the following properties:
+
+| Name      | Type      | Description                                                                                 |
+| ----      | ----      | -----------                                                                                 |
+| label     | `String`  | The label of the form button.                                                               |
+| type      | `String`  | Type of the button. Default: `button`.                                                      |
+| disabled  | `Boolean` | Specifies if the button is disabled. Default: Automatic integration of `ember-concurrency`. |
+
 ## Config
 
 Currently, the configuration supports
 
-- `label`: defaults for `submit-label` and `cancel-label`. If you're using [ember-i18n](https://github.com/jamesarosen/ember-i18n), you can also specify translation keys.
+- `label.submit`: default label for the `submit` button. If you're using [ember-i18n](https://github.com/jamesarosen/ember-i18n), you can also specify a translation key.
 - `css`: CSS Classes to add to the form elements (`group`, `control`, `label`, `checkbox`, `help`, `button`, `submit`). See an example integration of bootstrap CSS below.
 
 ```javascript
@@ -240,8 +255,7 @@ var ENV = {
   // ...
   'ember-validated-form': {
     label: {
-      submit: 'Go for it',
-      cancel: 'Take me back'
+      submit: 'Go for it!',
     },
     css: {
       // bootstrap classes
