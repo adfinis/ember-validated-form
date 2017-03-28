@@ -1,9 +1,7 @@
 {{#validated-form
-  model        = (changeset model UserValidations)
-  on-submit    = submit
-  on-cancel    = (action 'cancel')
-  submit-label = 'Save'
-  cancel-label = 'Cancel' as |f|}}
+  on-submit = submit
+  model     = (changeset model UserValidations)
+  as |f|}}
 
   {{f.input label="First name" name="firstName"}}
   {{f.input label="Last name" name="lastName"}}
@@ -26,4 +24,5 @@
 
   {{f.input type="checkbox" label="I agree with the terms and conditions" name="terms"}}
 
+  {{f.submit label="Save"}}
 {{/validated-form}}

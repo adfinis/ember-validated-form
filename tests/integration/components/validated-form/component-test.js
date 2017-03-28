@@ -35,8 +35,9 @@ test('it renders submit buttons', function(assert) {
   this.render(hbs`
     {{#validated-form
       on-submit=(action "stub")
-      submit-label='Save!' as |f|}}
+      as |f|}}
       {{f.input label="First name"}}
+      {{f.submit label="Save!"}}
     {{/validated-form}}
   `);
 
@@ -44,25 +45,34 @@ test('it renders submit buttons', function(assert) {
   assert.equal(this.$('form button').text().trim(), 'Save!');
 });
 
+test('does not render a <p> tag for buttons if no callbacks were passed', function(assert) {
+  this.render(hbs`
+    {{#validated-form as |f|}}
+      {{f.input label="First name"}}
+    {{/validated-form}}
+  `);
+
+  assert.equal(this.$('form > p').length, 0);
+});
+
 test('it supports default button labels with i18n support', function(assert) {
   this.on('stub', function() {});
 
   this.registry.register('service:i18n', Ember.Object.extend({
     t(key) {
-      return key === 'label.save' ? 'Speichern' : 'Abbrechen';
+      return key === 'label.save' ? 'Speichern' : '';
     }
   }));
 
   this.render(hbs`
     {{#validated-form
       on-submit=(action "stub")
-      on-cancel=(action "stub")
       as |f|}}
+      {{f.submit}}
     {{/validated-form}}
   `);
 
   assert.equal(this.$('form button').first().text().trim(), 'Speichern');
-  assert.equal(this.$('form button').last().text().trim(), 'Abbrechen');
 });
 
 test('it supports default button labels without i18n support', function(assert) {
@@ -71,13 +81,12 @@ test('it supports default button labels without i18n support', function(assert) 
   this.render(hbs`
     {{#validated-form
       on-submit=(action "stub")
-      on-cancel=(action "stub")
       as |f|}}
+      {{f.submit}}
     {{/validated-form}}
   `);
 
   assert.equal(this.$('form button').first().text().trim(), 'label.save');
-  assert.equal(this.$('form button').last().text().trim(), 'label.cancel');
 });
 
 test('it performs basic validations on submit', function(assert) {
@@ -95,8 +104,9 @@ test('it performs basic validations on submit', function(assert) {
     {{#validated-form
       model=(changeset model UserValidations)
       on-submit=(action "submit")
-      submit-label='Save' as |f|}}
+      as |f|}}
       {{f.input label="First name" name="firstName"}}
+      {{f.submit}}
     {{/validated-form}}
   `);
   assert.equal(this.$('span.help-block').length, 0);
@@ -120,7 +130,7 @@ test('it performs basic validations on focus out', function(assert) {
     {{#validated-form
       model=(changeset model UserValidations)
       on-submit=(action "submit")
-      submit-label='Save' as |f|}}
+      as |f|}}
       {{f.input label="First name" name="firstName"}}
     {{/validated-form}}
   `);
