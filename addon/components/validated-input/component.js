@@ -54,7 +54,7 @@ export default Ember.Component.extend({
 
     update(value) {
       if (this.attrs['on-update']) {
-        this.attrs['on-update'](value);
+        this.attrs['on-update'](value, this.get('model'));
       } else {
         this.set(`model.${this.get('name')}`, value);
       }
