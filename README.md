@@ -151,6 +151,7 @@ export default Ember.Controller.extend({
 | name  | `String` | This is is the name of the model property this input is bound to.          |
 | type  | `Action` | Type of the form field (see supported field types below). Default: `text`. |
 | disabled  | `Boolean` | Specifies if the input field is disabled. |
+| value | `String` | Initial value of the form field. Default: model property defined by name. |
 
 
 The supported field types are essentially given by [ember-one-way-controls](https://github.com/DockYard/ember-one-way-controls). This addon does not much more than translating `{{f.input type="select"}}` to `{{one-way-select}}`.
