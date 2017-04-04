@@ -149,9 +149,10 @@ export default Ember.Controller.extend({
 | ----  | ----     | -----------                                                                |
 | label | `String` | The label of the form field.                                               |
 | name  | `String` | This is is the name of the model property this input is bound to.          |
-| type  | `Action` | Type of the form field (see supported field types below). Default: `text`. |
+| type  | `String` | Type of the form field (see supported field types below). Default: `text`. |
 | disabled  | `Boolean` | Specifies if the input field is disabled. |
 | value | `String` | Initial value of the form field. Default: model property defined by name. |
+| on-update | `Action` | Per default, the input elements are two-way-bound. If you want to implement custom update behavior, pass an action as `on-update`. The function receives two arguments: `update(value, changeset)`. |
 
 
 The supported field types are essentially given by [ember-one-way-controls](https://github.com/DockYard/ember-one-way-controls). This addon does not much more than translating `{{f.input type="select"}}` to `{{one-way-select}}`.
