@@ -8,7 +8,7 @@
 
 {{#if hasBlock}}
 
-  {{yield (hash value=(get model name)
+  {{yield (hash value=(or value (get model name))
     controlClass=config.css.control
     update=(action 'update')
     setDirty=(action 'setDirty')
@@ -19,7 +19,7 @@
   {{#if (eq type "select")}}
 
     {{one-way-select
-      value            = (get model name)
+      value            = (or value (get model name))
       options          = options
       optionLabelPath  = optionLabelPath
       optionValuePath  = optionValuePath
@@ -39,7 +39,7 @@
       <div class="radio">
         <label>
           {{one-way-radio
-            value    = (get model name)
+            value    = (or value (get model name))
             option   = option.key
             name     = name
             update   = (action "update")
@@ -66,7 +66,7 @@
   {{else}}
 
     {{component (concat "one-way-" type)
-      value       = (get model name)
+      value       = (or value (get model name))
       options     = options
       name        = name
       class       = config.css.control
