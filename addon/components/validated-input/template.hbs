@@ -39,7 +39,7 @@
       <div class="radio">
         <label>
           {{one-way-radio
-            value    = (or (get model name))
+            value    = (or value (get model name))
             option   = option.key
             name     = name
             update   = (action "update")
