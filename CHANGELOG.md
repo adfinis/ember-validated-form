@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.2.1]
+### Added
+- Override initial value of input field using `value` attribute (#22, credits to @kaldras)
+- Document `on-update` property for custom update functions of input elements,
+ and add `changeset` argument to its signature
+
 ## [0.2.0]
 ### Changed
 - yield `submit` button instead of automatically rendering it, removed `cancel` button. Migration is simple:
