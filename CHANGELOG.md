@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.2.2]
+- Upgrade to ember 2.12.0 (#24, credits to @sproj)
+
 ## [0.2.1]
 ### Added
 - Override initial value of input field using `value` attribute (#22, credits to @kaldras)
