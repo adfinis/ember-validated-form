@@ -39,14 +39,6 @@ export default Ember.Component.extend({
     return !this.get('isValid') && (this.get('dirty') || this.get('submitted'));
   }),
 
-  init() {
-    this._super(...arguments);
-    // mark field as required if validation errors are present during init.
-    if (this.get(`model.error.${this.get('name')}.validation`)) {
-      this.set('required', true);
-    }
-  },
-
   actions: {
     setDirty() {
       this.set('dirty', true);
