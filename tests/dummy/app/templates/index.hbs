@@ -3,8 +3,8 @@
   model     = (changeset model UserValidations)
   as |f|}}
 
-  {{f.input label="First name" name="firstName"}}
-  {{f.input label="Last name" name="lastName"}}
+  {{f.input label="First name" name="firstName" required=true}}
+  {{f.input label="Last name" name="lastName" required=true}}
 
   {{f.input type="textarea" label="About me" name="aboutMe" help="Example help text"}}
 
@@ -14,11 +14,12 @@
     name         = "country"
     options      = countries
     includeBlank = "Please choose..."
+    required     = true
     }}
 
-  {{f.input type="radioGroup" label="Gender" name="gender" options=genders}}
+  {{f.input type="radioGroup" label="Gender" name="gender" options=genders required=true}}
 
-  {{#f.input label="Favorite Color" name="color" as |fi|}}
+  {{#f.input label="Favorite Color" name="color" required=true as |fi|}}
     {{favorite-colors-component colors=colors onupdate=fi.update onhover=fi.setDirty}}
   {{/f.input}}
 
