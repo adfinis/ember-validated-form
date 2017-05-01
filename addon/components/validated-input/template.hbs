@@ -1,7 +1,7 @@
 {{#if (not-eq type "checkbox")}}
   {{#if label}}
       <label class={{config.css.label}} for={{name}}>
-        {{label}}{{#if required}} *{{/if}}
+        {{label}}{{#if required}} {{requiredLabel}}{{/if}}
       </label>
   {{/if}}
 {{/if}}

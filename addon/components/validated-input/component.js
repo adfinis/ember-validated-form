@@ -39,6 +39,10 @@ export default Ember.Component.extend({
     return !this.get('isValid') && (this.get('dirty') || this.get('submitted'));
   }),
 
+  requiredLabel: Ember.computed('config', function() {
+    return this.get('config.label.required') || '*';
+  }),
+
   actions: {
     setDirty() {
       this.set('dirty', true);

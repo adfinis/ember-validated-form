@@ -151,6 +151,7 @@ export default Ember.Controller.extend({
 | name  | `String` | This is is the name of the model property this input is bound to.          |
 | type  | `String` | Type of the form field (see supported field types below). Default: `text`. |
 | disabled  | `Boolean` | Specifies if the input field is disabled. |
+| required  | `Boolean` | If true, a "*" is appended to the field's label indicating that it is required. |
 | value | `String` | Initial value of the form field. Default: model property defined by name. |
 | on-update | `Action` | Per default, the input elements are two-way-bound. If you want to implement custom update behavior, pass an action as `on-update`. The function receives two arguments: `update(value, changeset)`. |
 
@@ -248,6 +249,7 @@ All you need to update the model's value or mark your component as dirty is to c
 Currently, the configuration supports
 
 - `label.submit`: default label for the `submit` button. If you're using [ember-i18n](https://github.com/jamesarosen/ember-i18n), you can also specify a translation key.
+- `label.required`: String that indicates that the field is required (default: "*")
 - `css`: CSS Classes to add to the form elements (`group`, `control`, `label`, `checkbox`, `help`, `button`, `submit`). See an example integration of bootstrap CSS below.
 
 ```javascript
