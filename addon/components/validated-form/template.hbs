@@ -1,4 +1,4 @@
-<form class="{{if submitted 'submitted'}}"
+<form class="{{config.css.form}} {{if submitted 'submitted'}}"
   {{action "submit" on="submit"}}
   >
   {{yield (hash

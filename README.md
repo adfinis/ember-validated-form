@@ -249,8 +249,21 @@ All you need to update the model's value or mark your component as dirty is to c
 Currently, the configuration supports
 
 - `label.submit`: default label for the `submit` button. If you're using [ember-i18n](https://github.com/jamesarosen/ember-i18n), you can also specify a translation key.
-- `label.required`: String that indicates that the field is required (default: "*")
-- `css`: CSS Classes to add to the form elements (`group`, `control`, `label`, `checkbox`, `help`, `button`, `submit`). See an example integration of bootstrap CSS below.
+- `css`: Custom CSS Classes
+  - `form`
+  - `group` (`div` wrapping every form element including label and validation messages)
+  - `control` (applied to form elements like `input`, `select`, ...)
+  - `label`
+  - `checkbox` (`div` wrapping checkboxes)
+  - `help` (`span` containing help texts and validation messages)
+  - `button`
+  - `submit` (Special styling for the submit button, overrides `button`)
+  - `error` (Name of the class added to `group` when the element is invalid)
+  - `valid` (Name of the class added to `group` when the element is valid)
+
+See an example integration of Bootstrap and Semantic UI below.
+
+### Bootstrap
 
 ```javascript
 // environment.js
@@ -276,6 +289,31 @@ var ENV = {
 }
 ```
 
+### Semantic UI
+
+```javascript
+// environment.js
+
+var ENV = {
+  // ...
+  'ember-validated-form': {
+    label: {
+      submit: 'Go for it!',
+    },
+    css: {
+      // semantic ui classes
+      form: 'ui form',
+      radio: 'ui radio',
+      help: 'ui red',
+      checkbox: 'ui checkbox',
+      button: 'ui button',
+      group: 'field',
+      error: 'error'
+    }
+  },
+  // ...
+}
+```
 
 # Contributing
 
