@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.3.0]
+### Changed
+- Removed automatic inference if field is required (which appended "*" to labels) because it
+was incorrect. Now, fields have to be marked as required explicitly:
+
+```Handlebars
+{{f.input label="First name" name="firstName" required=true}}
+```
+
 ## [0.2.2]
 - Upgrade to ember 2.12.0 (#24, credits to @sproj)
 

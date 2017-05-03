@@ -151,6 +151,7 @@ export default Ember.Controller.extend({
 | name  | `String` | This is is the name of the model property this input is bound to.          |
 | type  | `String` | Type of the form field (see supported field types below). Default: `text`. |
 | disabled  | `Boolean` | Specifies if the input field is disabled. |
+| required  | `Boolean` | If true, a "*" is appended to the field's label indicating that it is required. |
 | value | `String` | Initial value of the form field. Default: model property defined by name. |
 | on-update | `Action` | Per default, the input elements are two-way-bound. If you want to implement custom update behavior, pass an action as `on-update`. The function receives two arguments: `update(value, changeset)`. |
 

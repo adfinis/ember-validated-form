@@ -8,8 +8,7 @@ module.exports = function(environment) {
     locationType: 'auto',
     'ember-validated-form': {
       label: {
-        submit: 'label.save',
-        cancel: 'label.cancel'
+        submit: 'label.save'
       },
       css: {
         group: 'form-group',
@@ -61,7 +60,6 @@ module.exports = function(environment) {
   if (environment === 'production') {
     ENV.locationType = 'hash';
     ENV.rootURL = '/ember-validated-form/';
-
   }
 
   return ENV;
