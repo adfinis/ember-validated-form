@@ -29,6 +29,53 @@ test('it renders textareas', function(assert) {
   assert.equal(this.$('form textarea').length, 1);
 });
 
+test('it renders a radio group', function(assert) {
+  this.set('buttonGroupData', {
+    options: [
+      { key: '1', label: 'Option 1'},
+      { key: '2', label: 'Option 2'},
+      { key: '3', label: 'Option 3'},
+    ]
+  });
+
+  this.render(hbs`
+    {{#validated-form as |f|}}
+      {{f.input type='radioGroup' label='Options' name='testOptions' options=buttonGroupData.options}}
+    {{/validated-form}}
+  `);
+
+  assert.equal(this.$('input[type="radio"]').length, 3);
+  assert.equal(this.$('label').eq(0).text().trim(), 'Options');
+  assert.equal(this.$('label').eq(1).text().trim(), 'Option 1');
+  assert.equal(this.$('label').eq(2).text().trim(), 'Option 2');
+  assert.equal(this.$('label').eq(3).text().trim(), 'Option 3');
+});
+
+test('it renders a radio group with block form', function(assert) {
+  this.set('buttonGroupData', {
+    options: [
+      { key: '1', label: 'Option 1'},
+      { key: '2', label: 'Option 2'},
+      { key: '3', label: 'Option 3'},
+    ]
+  });
+
+  this.render(hbs`
+    {{#validated-form as |f|}}
+      {{#f.input type='radioGroup' label='Options' name='testOptions' options=buttonGroupData.options}}
+        Option - block form
+      {{/f.input}}
+    {{/validated-form}}
+  `);
+
+  console.log(this.$());
+  assert.equal(this.$('input[type="radio"]').length, 3);
+  assert.equal(this.$('label').eq(0).text().trim(), 'Options');
+  assert.equal(this.$('label').eq(1).text().trim(), 'Option - block form');
+  assert.equal(this.$('label').eq(2).text().trim(), 'Option - block form');
+  assert.equal(this.$('label').eq(3).text().trim(), 'Option - block form');
+});
+
 test('it renders submit buttons', function(assert) {
   this.on('stub', function() {});
 
