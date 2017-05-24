@@ -5,9 +5,6 @@ import UserValidations from 'dummy/validations/user';
 
 moduleForComponent('validated-form', 'Integration | Component | validated form', {
   integration: true
-  // beforeEach: function(){
-
-  // }
 });
 
 test('it renders simple inputs', function(assert) {
@@ -79,11 +76,6 @@ test('it renders a radio group with block form', function(assert) {
 });
 
 test('it renders a radio group with block form and i18n support', function(assert) {
-  // this.register('service:i18n', i18nStub);
-  // this.inject.service('i18n', { as: 'i18n'}).then(function(){
-  //     this.container.lookup('service:i18n').set('locale', 'en');
-  //     // this.registry.register('helper:t', tHelper);
-  //   });
   this.container.registry.registrations['helper:t'] = Ember.Helper.helper(function(arg){
     const key = arg[0];
     switch(key) {
