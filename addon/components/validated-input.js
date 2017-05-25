@@ -20,6 +20,8 @@ export default Ember.Component.extend({
 
   type: 'input',
 
+  // hint (provided by caller)
+
   classNameBindings: ['dirty', 'config.css.group', 'validationClass'],
 
   validationClass: Ember.computed('showError', function() {

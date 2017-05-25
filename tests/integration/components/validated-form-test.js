@@ -131,6 +131,21 @@ test('it renders submit buttons', function(assert) {
   assert.equal(this.$('form button').text().trim(), 'Save!');
 });
 
+test('it renders a hint using a different class from the help block', function(assert){
+  /* this test depends on having 'help' and 'hint' set to different
+     class names in config/environment.js. I can't figure out how to
+     mock that file... */
+  this.render(hbs`
+    {{#validated-form as |f|}}
+      {{f.input label="First name" hint="Not your middle name!"}}
+    {{/validated-form}}
+  `);
+
+  assert.equal(this.$('.help-block').length, 0);
+  assert.equal(this.$('.hint').length, 1);
+  assert.equal(this.$('.hint').text().trim(), 'Not your middle name!');
+});
+
 test('does not render a <p> tag for buttons if no callbacks were passed', function(assert) {
   this.render(hbs`
     {{#validated-form as |f|}}
