@@ -7,13 +7,32 @@
 {{/if}}
 
 {{#if hasBlock}}
+  
+  {{#if (not-eq type "radioGroup")}}
+    {{yield (hash value=(or value (get model name))
+      controlClass=config.css.control
+      update=(action 'update')
+      setDirty=(action 'setDirty')
+      model=model
+      name=name)}}
 
-  {{yield (hash value=(or value (get model name))
-    controlClass=config.css.control
-    update=(action 'update')
-    setDirty=(action 'setDirty')
-    model=model
-    name=name)}}
+  {{else}}
+    {{#each options as |option|}}
+      <div class="radio">
+        <label>
+          {{one-way-radio
+            value    = (or value (get model name))
+            option   = option.key
+            name     = name
+            update   = (action "update")
+            focusOut = (action "setDirty")
+            disabled = disabled
+          }}
+          {{yield option}}
+        </label>
+      </div>
+    {{/each}}
+  {{/if}}
 
 {{else}}
   {{#if (eq type "select")}}
