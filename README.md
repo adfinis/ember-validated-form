@@ -226,6 +226,12 @@ shapes: [{
 }],
 ```
 
+Optionally, you can pass a 'selected-key' parameter, which will add the 'selected' class defined in environment.js to that option's 'radio' element on render. (After initial render, your own closure action handlers will need to manage updating this.)
+
+```Handlebars
+{{f.input type="radioGroup" label="Shapes" name="shapes" options=shapes selected-key="s"}} 
+```
+
 If you want to customize the markup for each radio-button's label, you can invoke this component using block form. This is helpful if you need to localize your labels using something like [ember-i18n](https://github.com/jamesarosen/ember-i18n).
 
 ```Handlebars
