@@ -19,7 +19,8 @@ module.exports = function(environment) {
         hint: 'hint',
         checkbox: 'checkbox',
         button: 'btn btn-default',
-        submit: 'btn btn-primary'
+        submit: 'btn btn-primary',
+        selected: 'selected'
       }
     },
     EmberENV: {

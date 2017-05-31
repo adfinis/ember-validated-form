@@ -18,7 +18,7 @@
 
   {{else}}
     {{#each options as |option|}}
-      <div class="radio">
+      <div class="{{config.css.radio}} {{if (eq selected-key option.key) config.css.selected}}">
         <label>
           {{one-way-radio
             value    = (or value (get model name))
@@ -55,7 +55,7 @@
   {{else if (eq type "radioGroup")}}
 
     {{#each options as |option|}}
-      <div class="radio">
+      <div class="{{config.css.radio}} {{if (eq selected-key option.key) config.css.selected}}">
         <label>
           {{one-way-radio
             value    = (or value (get model name))

@@ -73,6 +73,7 @@ test('it renders a radio group with block form', function(assert) {
   assert.equal(this.$('label').eq(1).text().trim(), 'Option 1 - block form');
   assert.equal(this.$('label').eq(2).text().trim(), 'Option 2 - block form');
   assert.equal(this.$('label').eq(3).text().trim(), 'Option 3 - block form');
+  assert.equal(this.$('.radio').hasClass('selected'), false);
 });
 
 test('it renders a radio group with block form and i18n support', function(assert) {
@@ -113,6 +114,30 @@ test('it renders a radio group with block form and i18n support', function(asser
   assert.equal(this.$('label').eq(3).text().trim(), 'Option Three - block form');
 
   this.container.registry.registrations['helper:t'] = null;
+});
+
+test('it renders a radio group with a selected-key passed in, where the option with that key is given the selected class on render', function(assert) {
+  this.set('buttonGroupData', {
+    options: [
+      { key: '1', label: 'Option 1'},
+      { key: '2', label: 'Option 2'},
+      { key: '3', label: 'Option 3'},
+    ],
+    selected: '2'
+  });
+
+  this.render(hbs`
+    {{#validated-form as |f|}}
+      {{#f.input type='radioGroup' label='Options' name='testOptions' options=buttonGroupData.options selected-key=buttonGroupData.selected as |option|}}
+        {{option.label}} - block form
+      {{/f.input}}
+    {{/validated-form}}
+  `);
+
+  assert.equal(this.$('.radio').length, 3);
+  assert.equal(this.$('.radio').eq(0).hasClass('selected'), false);
+  assert.equal(this.$('.radio').eq(1).hasClass('selected'), true);
+  assert.equal(this.$('.radio').eq(2).hasClass('selected'), false);
 });
 
 test('it renders submit buttons', function(assert) {
