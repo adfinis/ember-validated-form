@@ -294,6 +294,7 @@ Currently, the configuration supports
   - `group` (`div` wrapping every form element including label and validation messages)
   - `control` (applied to form elements like `input`, `select`, ...)
   - `label`
+  - `radio` (`div` wrapping radio button groups)
   - `checkbox` (`div` wrapping checkboxes)
   - `help` (`span` containing help texts and validation messages)
   - `button`
@@ -320,6 +321,7 @@ var ENV = {
       control: 'form-control',
       label: 'form-label',
       checkbox: 'checkbox',
+      radio: 'radio',
       help: 'help-block',
       button: 'btn btn-default',
       submit: 'btn btn-primary'

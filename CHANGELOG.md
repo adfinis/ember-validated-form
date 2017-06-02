@@ -4,10 +4,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.4.0]
+### Added
+- Support block form usage of radioGroups (#28, credits to @jacob-financeit)
+
+### Changed
+- remove hardcoded `radio` class for radio button groups. If you're using bootstrap, you
+might have to add `radio: 'radio'` to the CSS config.
+
+## [0.3.1]
+### Added
+- More CSS configuration options and docs on how to integrate semantic UI (#26)
+
 ## [0.3.0]
 ### Changed
 - Removed automatic inference if field is required (which appended "*" to labels) because it
-was incorrect. Now, fields have to be marked as required explicitly:
+was incorrect. (#27, credits to @andreabettich) Now, fields have to be marked as required explicitly:
 
 ```Handlebars
 {{f.input label="First name" name="firstName" required=true}}

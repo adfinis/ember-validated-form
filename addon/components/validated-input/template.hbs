@@ -7,15 +7,15 @@
 {{/if}}
 
 {{#if hasBlock}}
-  
+
   {{#if (not-eq type "radioGroup")}}
     {{yield (hash value=(or value (get model name))
-      controlClass=config.css.control
-      update=(action 'update')
-      setDirty=(action 'setDirty')
-      model=model
-      name=name)}}
-
+      controlClass = config.css.control
+      update       = (action 'update')
+      setDirty     = (action 'setDirty')
+      model        = model
+      name         = name)
+    }}
   {{else}}
     {{#each options as |option|}}
       <div class="radio">
@@ -55,7 +55,7 @@
   {{else if (eq type "radioGroup")}}
 
     {{#each options as |option|}}
-      <div class="radio">
+      <div class="{{config.css.radio}}">
         <label>
           {{one-way-radio
             value    = (or value (get model name))
