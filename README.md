@@ -209,19 +209,59 @@ This component renders a [{{one-way-checkbox}}](https://github.com/DockYard/embe
 This component renders a list of [{{one-way-radio}}](https://github.com/DockYard/ember-one-way-controls/blob/master/docs/one-way-radio.md) components.
 
 ```Handlebars
-{{f.input type="radioGroup" label="Gender" name="gender" options=genders}}
+{{f.input type="radioGroup" label="Shapes" name="shapes" options=shapes}}
 ```
 
 ```javascript
 // in your controller
-genders: [{
-  key: 'm',
-  label: 'Male'
+shapes: [{
+  key: 't',
+  label: 'Triangle'
 }, {
-  key: 'f',
-  label: 'Female'
+  key: 's',
+  label: 'Square'
+}, {
+  key: 'c',
+  label: 'Circle'
 }],
 ```
+
+If you want to customize the markup for each radio-button's label, you can invoke this component using block form. This is helpful if you need to localize your labels using something like [ember-i18n](https://github.com/jamesarosen/ember-i18n).
+
+```Handlebars
+{{#f.input type="radioGroup" label=(t 'some.scope.shapes') name="shapes" options=shapes}}
+  {{t option.label}}
+{{/f.input}}
+```
+
+```javascript
+// in your controller
+shapes: [{
+  key: 't',
+  label: 'some.scope.triangle'
+}, {
+  key: 's',
+  label: 'some.scope.square'
+}, {
+  key: 'c',
+  label: 'some.scope.circle'
+}],
+```
+
+```javascript
+// in your locale file
+export default {
+  'some': {
+    'scope': {
+      'shapes': 'les formes',
+      'triangle': 'un triangle',
+      'square': 'un carré',
+      'circle': 'un cercle'
+    }
+  }
+};
+```
+
 
 ### Custom input elements
 
