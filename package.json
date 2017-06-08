@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/adfinis-sygroup/ember-validated-form"
+    "url": "https://github.com/adfinis-sygroup/ember-validated-form"
   },
   "scripts": {
     "build": "ember build",
