@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import layout from './template';
+import layout from '../templates/components/validated-input';
 
 /**
  * This component wraps form inputs.
