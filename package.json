@@ -30,7 +30,7 @@
     "ember-cli-htmlbars": "^1.0.10",
     "ember-truth-helpers": "1.2.0",
     "ember-one-way-controls": "1.1.2",
-    "ember-changeset-validations": "1.2.7"
+    "ember-changeset-validations": "1.2.6"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
