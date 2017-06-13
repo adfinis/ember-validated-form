@@ -22,6 +22,7 @@ export default Ember.Controller.extend({
     }
   ],
 
+  /* eslint-disable no-console*/
   submit: task(function*(model) {
     console.log('saving', model);
     yield timeout(1000);
