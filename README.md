@@ -184,7 +184,7 @@ The select element requires more options (see [{{one-way-select}}](https://githu
 - `optionLabelPath`
 - `optionValuePath`
 - `optionTargetPath`
-- `includeBlank`
+- `prompt`
 
 ```Handlebars
 {{f.input
@@ -192,7 +192,8 @@ The select element requires more options (see [{{one-way-select}}](https://githu
   label        = "Country"
   name         = "country"
   options      = countries
-  includeBlank = "Please choose..."
+  prompt = "Please choose..."
+  promptIsSelectable= = true
   }}
 ```
 

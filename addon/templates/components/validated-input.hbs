@@ -44,13 +44,13 @@
     optionValuePath     = optionValuePath
     optionTargetPath    = optionTargetPath
     name                = name
-    class               = "form-control"
+    class               = config.css.control
     update              = (action "update")
     focusOut            = (action "setDirty")
-    prompt              = (if includeBlank (or includeBlank null))
+    prompt              = prompt
     disabled            = disabled
     multiple            = multiple
-    promptIsSelectable  = (if promptIsSelectable (or promptIsSelectable false))
+    promptIsSelectable  = promptIsSelectable
     }}
 
   {{else if (eq type "radioGroup")}}
