@@ -256,14 +256,16 @@ shapes: [{
 
 ```javascript
 // in your locale file
-Translations = {
-  some:
-    scope:
-      shapes: 'les formes'
-      triangle: 'un triangle'
-      square: 'un carré'
-      circle: 'un cercle'
-}
+export default {
+  'some': {
+    'scope': {
+      'shapes': 'les formes',
+      'triangle': 'un triangle',
+      'square': 'un carré',
+      'circle': 'un cercle'
+    }
+  }
+};
 ```
 
 
