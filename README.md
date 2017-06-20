@@ -2,6 +2,7 @@
 [![npm version](https://badge.fury.io/js/ember-validated-form.svg)](https://badge.fury.io/js/ember-validated-form)
 [![Ember Observer Score](http://emberobserver.com/badges/ember-validated-form.svg)](http://emberobserver.com/addons/ember-validated-form)
 [![Build Status](https://travis-ci.org/adfinis-sygroup/ember-validated-form.svg?branch=master)](https://travis-ci.org/adfinis-sygroup/ember-validated-form)
+[![Dependency status](https://david-dm.org/adfinis-sygroup/ember-validated-form.svg)](https://david-dm.org/adfinis-sygroup/ember-validated-form)
 
 Easily create forms with client side validations.
 
@@ -294,6 +295,7 @@ Currently, the configuration supports
   - `group` (`div` wrapping every form element including label and validation messages)
   - `control` (applied to form elements like `input`, `select`, ...)
   - `label`
+  - `radio` (`div` wrapping radio button groups)
   - `checkbox` (`div` wrapping checkboxes)
   - `help` (`span` containing help texts and validation messages)
   - `button`
@@ -320,6 +322,7 @@ var ENV = {
       control: 'form-control',
       label: 'form-label',
       checkbox: 'checkbox',
+      radio: 'radio',
       help: 'help-block',
       button: 'btn btn-default',
       submit: 'btn btn-primary'
