@@ -49,7 +49,7 @@ Basic example:
 {{#validated-form
   model        = (changeset model UserValidations)
   on-submit    = (action "submit")
-  submit-label = 'Save' as |f|}}
+  as |f|}}
 
   {{f.input label="First name" name="firstName"}}
   {{f.input label="Last name" name="lastName"}}
