@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import { moduleForComponent, test } from 'ember-qunit';
 import { task } from 'ember-concurrency';
 
@@ -17,5 +16,5 @@ test('it handles ember-concurrency tasks', function(assert) {
     assert.ok(true, 'task is called');
   }));
 
-  Ember.run(() => component.actions.submit.call(component));
+  this.$().submit();
 });

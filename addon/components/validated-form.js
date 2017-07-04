@@ -8,6 +8,10 @@ function runTaskOrAction(taskOrAction, model) {
 }
 
 export default Ember.Component.extend({
+  tagName: 'form',
+
+  classNameBindings: ['_cssClass', 'submitted'],
+
   submitted: false,
 
   layout,
@@ -41,25 +45,24 @@ export default Ember.Component.extend({
     return this.get(`config.css.submit`) || this.get('config.css.button');
   }),
 
-  actions: {
-    submit() {
-      this.set('submitted', true);
-      const model = this.get('model');
+  submit() {
+    this.set('submitted', true);
+    const model = this.get('model');
 
-      if (!model || !model.validate) {
-        const task = this.get('on-submit');
-        runTaskOrAction(task, model);
-        return;
-      }
-
-      model.validate().then(() => {
-        if (model.get('isInvalid')) {
-          return;
-        }
-        const task = this.get('on-submit');
-        runTaskOrAction(task, model);
-        this.set('submitTask', task);
-      });
+    if (!model || !model.validate) {
+      const task = this.get('on-submit');
+      runTaskOrAction(task, model);
+      return false;
     }
+
+    model.validate().then(() => {
+      if (model.get('isInvalid')) {
+        return false;
+      }
+      const task = this.get('on-submit');
+      runTaskOrAction(task, model);
+      this.set('submitTask', task);
+    });
+    return false;
   }
 });
