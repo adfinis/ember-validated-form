@@ -39,8 +39,7 @@ export default Ember.Component.extend({
   }),
 
   firstError: Ember.computed('error', function() {
-    const errors = this.get('error.validation');
-    return Ember.isArray(errors) ? errors[0] : errors;
+    return this.get('error.validation')[0];
   }),
 
   showError: Ember.computed('isValid', 'dirty', 'submitted', function() {
