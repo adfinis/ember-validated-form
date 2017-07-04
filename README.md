@@ -12,8 +12,8 @@ Easily create forms with client side validations.
 * changes should be merged into `dev`
 * during development, Fit package.json files can be pointed to `dev` (i.e. `[URL]#dev`)
 * for production deployment:
-  ** issue a semantically-versioned release off of `dev`
-  ** Fit package.json files should be pointed to this specific release (i.e. `[URL]#v0.5.2`)
+  * issue a semantically-versioned release off of `dev`
+  * Fit package.json files should be pointed to this specific release (i.e. `[URL]#v0.5.2`)
 * `master` should be kept in sync with upstream changes to the project, and used as a base for pull requests back to the project
 
 ## Demo
