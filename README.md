@@ -125,7 +125,7 @@ export default {
 | Name         | Type     | Description                                                                                                                                |
 | ----         | ----     | -----------                                                                                                                                |
 | model        | `Object` | ember-changeset containing the model that backs the form                                                                                   |
-| on-submit    | `Action&#124;Task` | Action or Task, that is triggered on form submit. The changeset is passed as a parameter. If specified, a submit button is rendered automatically. If a task is specified, the button will be disabled until it is finished (see example below). |
+| on-submit    | `Action`&#124;`Task` | Action or Task, that is triggered on form submit. The changeset is passed as a parameter. If specified, a submit button is rendered automatically. If a task is specified, the button will be disabled until it is finished (see example below). |
 
 When the submission of your form can take a little longer and your users are of the impatient kind, it is often necessary to disable the submit button to prevent the form from being submitted multiple times.
 All you have to do to achieve this is install [ember-concurrency](http://ember-concurrency.com/)
