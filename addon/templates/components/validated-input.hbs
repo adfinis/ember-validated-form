@@ -38,19 +38,19 @@
   {{#if (eq type "select")}}
 
     {{one-way-select
-    value               = (or value (get model name))
-    options             = options
-    optionLabelPath     = optionLabelPath
-    optionValuePath     = optionValuePath
-    optionTargetPath    = optionTargetPath
-    name                = name
-    class               = config.css.control
-    update              = (action "update")
-    focusOut            = (action "setDirty")
-    prompt              = prompt
-    disabled            = disabled
-    multiple            = multiple
-    promptIsSelectable  = promptIsSelectable
+      value               = (or value (get model name))
+      options             = options
+      optionLabelPath     = optionLabelPath
+      optionValuePath     = optionValuePath
+      optionTargetPath    = optionTargetPath
+      name                = name
+      class               = config.css.control
+      update              = (action "update")
+      focusOut            = (action "setDirty")
+      includeBlank        = includeBlank
+      disabled            = disabled
+      multiple            = multiple
+      promptIsSelectable  = promptIsSelectable
     }}
 
   {{else if (eq type "radioGroup")}}
