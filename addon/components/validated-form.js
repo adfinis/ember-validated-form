@@ -2,9 +2,9 @@ import Ember from 'ember';
 import layout from '../templates/components/validated-form';
 
 function runTaskOrAction(taskOrAction, model) {
-  return taskOrAction.perform ?
-    taskOrAction.perform(model) :
-    taskOrAction(model);
+  return taskOrAction.perform
+    ? taskOrAction.perform(model)
+    : taskOrAction(model);
 }
 
 export default Ember.Component.extend({
@@ -23,9 +23,15 @@ export default Ember.Component.extend({
     }
 
     let owner = Ember.getOwner(this);
-    let factory = owner.factoryFor ? owner.factoryFor('service:i18n') : owner._lookupFactory('service:i18n');
+    let factory = owner.factoryFor
+      ? owner.factoryFor('service:i18n')
+      : owner._lookupFactory('service:i18n');
     this.set('i18n', factory ? factory.create() : null);
   },
+
+  _cssClass: Ember.computed('config', function() {
+    return this.get('config.css.form');
+  }),
 
   _submitLabel: Ember.computed('config', 'submit-label', function() {
     return this._getLabel('submit') || 'Save';
