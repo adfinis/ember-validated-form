@@ -184,7 +184,7 @@ If no field type is specified, a simple `<input type="text">` is rendered. Other
 
 ### Select
 
-The select element requires more options (see [{{one-way-select}}](https://github.com/DockYard/ember-one-way-controls/blob/master/docs/one-way-select.md)):
+The select element supports more options (see [{{one-way-select}}](https://github.com/DockYard/ember-one-way-controls/blob/master/docs/one-way-select.md)):
 
 - `value`
 - `options`
@@ -192,14 +192,18 @@ The select element requires more options (see [{{one-way-select}}](https://githu
 - `optionValuePath`
 - `optionTargetPath`
 - `includeBlank`
+- `promptIsSelectable`
+
+The `prompt` property is currently not supported (see this [related issue](https://github.com/DockYard/ember-one-way-controls/issues/152)).
 
 ```Handlebars
 {{f.input
-  type         = "select"
-  label        = "Country"
-  name         = "country"
-  options      = countries
-  includeBlank = "Please choose..."
+  type    = "select"
+  label   = "Country"
+  name    = "country"
+  options = countries
+  prompt  = "Please choose..."
+  promptIsSelectable = true
   }}
 ```
 
