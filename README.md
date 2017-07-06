@@ -59,7 +59,7 @@ Basic example:
 {{#validated-form
   model        = (changeset model UserValidations)
   on-submit    = (action "submit")
-  submit-label = 'Save' as |f|}}
+  as |f|}}
 
   {{f.input label="First name" name="firstName"}}
   {{f.input label="Last name" name="lastName"}}
@@ -94,7 +94,13 @@ import Ember from 'ember';
 import UserValidations from 'dummy/validations/user';
 
 export default Ember.Controller.extend({
-  UserValidations
+  UserValidations,
+
+  actions: {
+    submit(model) {
+      model.save();
+    }
+  }
 });
 ```
 
@@ -129,7 +135,7 @@ export default {
 | Name         | Type     | Description                                                                                                                                |
 | ----         | ----     | -----------                                                                                                                                |
 | model        | `Object` | ember-changeset containing the model that backs the form                                                                                   |
-| on-submit    | `Action|Task` | Action or Task, that is triggered on form submit. The changeset is passed as a parameter. If specified, a submit button is rendered automatically. If a task is specified, the button will be disabled until it is finished (see example below). |
+| on-submit    | `Action`&#124;`Task` | Action or Task, that is triggered on form submit. The changeset is passed as a parameter. If specified, a submit button is rendered automatically. If a task is specified, the button will be disabled until it is finished (see example below). |
 
 When the submission of your form can take a little longer and your users are of the impatient kind, it is often necessary to disable the submit button to prevent the form from being submitted multiple times.
 All you have to do to achieve this is install [ember-concurrency](http://ember-concurrency.com/)
@@ -188,7 +194,7 @@ If no field type is specified, a simple `<input type="text">` is rendered. Other
 
 ### Select
 
-The select element requires more options (see [{{one-way-select}}](https://github.com/DockYard/ember-one-way-controls/blob/master/docs/one-way-select.md)):
+The select element supports more options (see [{{one-way-select}}](https://github.com/DockYard/ember-one-way-controls/blob/master/docs/one-way-select.md)):
 
 - `value`
 - `options`
@@ -196,14 +202,18 @@ The select element requires more options (see [{{one-way-select}}](https://githu
 - `optionValuePath`
 - `optionTargetPath`
 - `includeBlank`
+- `promptIsSelectable`
+
+The `prompt` property is currently not supported (see this [related issue](https://github.com/DockYard/ember-one-way-controls/issues/152)).
 
 ```Handlebars
 {{f.input
-  type         = "select"
-  label        = "Country"
-  name         = "country"
-  options      = countries
-  includeBlank = "Please choose..."
+  type    = "select"
+  label   = "Country"
+  name    = "country"
+  options = countries
+  prompt  = "Please choose..."
+  promptIsSelectable = true
   }}
 ```
 

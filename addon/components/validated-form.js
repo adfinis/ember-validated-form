@@ -2,12 +2,16 @@ import Ember from 'ember';
 import layout from '../templates/components/validated-form';
 
 function runTaskOrAction(taskOrAction, model) {
-  return taskOrAction.perform ?
-    taskOrAction.perform(model) :
-    taskOrAction(model);
+  return taskOrAction.perform
+    ? taskOrAction.perform(model)
+    : taskOrAction(model);
 }
 
 export default Ember.Component.extend({
+  tagName: 'form',
+
+  classNameBindings: ['_cssClass', 'submitted'],
+
   submitted: false,
 
   layout,
@@ -19,9 +23,15 @@ export default Ember.Component.extend({
     }
 
     let owner = Ember.getOwner(this);
-    let factory = owner.factoryFor ? owner.factoryFor('service:i18n') : owner._lookupFactory('service:i18n');
+    let factory = owner.factoryFor
+      ? owner.factoryFor('service:i18n')
+      : owner._lookupFactory('service:i18n');
     this.set('i18n', factory ? factory.create() : null);
   },
+
+  _cssClass: Ember.computed('config', function() {
+    return this.get('config.css.form');
+  }),
 
   _submitLabel: Ember.computed('config', 'submit-label', function() {
     return this._getLabel('submit') || 'Save';
@@ -41,25 +51,24 @@ export default Ember.Component.extend({
     return this.get(`config.css.submit`) || this.get('config.css.button');
   }),
 
-  actions: {
-    submit() {
-      this.set('submitted', true);
-      const model = this.get('model');
+  submit() {
+    this.set('submitted', true);
+    const model = this.get('model');
 
-      if (!model || !model.validate) {
-        const task = this.get('on-submit');
-        runTaskOrAction(task, model);
-        return;
-      }
-
-      model.validate().then(() => {
-        if (model.get('isInvalid')) {
-          return;
-        }
-        const task = this.get('on-submit');
-        runTaskOrAction(task, model);
-        this.set('submitTask', task);
-      });
+    if (!model || !model.validate) {
+      const task = this.get('on-submit');
+      runTaskOrAction(task, model);
+      return false;
     }
+
+    model.validate().then(() => {
+      if (model.get('isInvalid')) {
+        return false;
+      }
+      const task = this.get('on-submit');
+      runTaskOrAction(task, model);
+      this.set('submitTask', task);
+    });
+    return false;
   }
 });
