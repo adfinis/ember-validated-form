@@ -7,5 +7,6 @@ export default Model.extend({
   aboutMe: attr('string'),
   country: attr('string'),
   gender: attr('string'),
-  terms: attr('string')
+  terms: attr('string'),
+  color: attr('string')
 });

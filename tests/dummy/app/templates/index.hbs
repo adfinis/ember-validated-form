@@ -15,12 +15,13 @@
     options      = countries
     includeBlank = "Please choose..."
     required     = true
+    promptIsSelectable = false
     }}
 
   {{f.input type="radioGroup" label="Gender" name="gender" options=genders required=true}}
 
   {{#f.input label="Favorite Color" name="color" required=true as |fi|}}
-    {{favorite-colors-component colors=colors onupdate=fi.update onhover=fi.setDirty}}
+    {{favorite-colors-component selected=fi.value colors=colors onupdate=fi.update onhover=fi.setDirty}}
   {{/f.input}}
 
   {{f.input type="checkbox" label="I agree with the terms and conditions" name="terms"}}
