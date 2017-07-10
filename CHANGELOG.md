@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.4.2]
+### Added
+- Better documentation for custom component integration (#46)
+
+### Changed
+- Fix bug that causes form to break for select fields without option `promptIsSelectable` (#45)
+
 ## [0.4.1]
 ### Added
 - Support selectable prompts from the select dropdown (#40, credits to @steverhoades)
