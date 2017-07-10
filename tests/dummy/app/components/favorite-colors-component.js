@@ -6,9 +6,8 @@ export default Ember.Component.extend({
 
   actions: {
     onColorSelected(color) {
-      this.set('selected', color);
       this.toggleProperty('isShowingColors');
-      this.get('onupdate')(color.name);
+      this.get('onupdate')(color);
     },
 
     toggle() {
