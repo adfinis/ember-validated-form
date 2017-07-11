@@ -131,7 +131,7 @@ test('it renders submit buttons', function(assert) {
   assert.equal(this.$('form button').text().trim(), 'Save!');
 });
 
-test('it renders a hint using a different class from the help block', function(assert){
+test('it renders an always-showing hint using a different class from the help block', function(assert){
   this.set('config', {
     css: {
       help: 'help',
