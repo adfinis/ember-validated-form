@@ -132,9 +132,13 @@ test('it renders submit buttons', function(assert) {
 });
 
 test('it renders a hint using a different class from the help block', function(assert){
-  /* this test depends on having 'help' and 'hint' set to different
-     class names in config/environment.js. I can't figure out how to
-     mock that file... */
+  this.set('config', {
+    css: {
+      help: 'help',
+      hint: 'hint'
+    }
+  });
+  
   this.render(hbs`
     {{#validated-form as |f|}}
       {{f.input label="First name" hint="Not your middle name!"}}
