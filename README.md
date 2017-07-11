@@ -289,11 +289,24 @@ export default {
 If the input element you need is not explicitly supported, you can easily integrate it with this addon by using `f.input` in block form:
 
 ```Handlebars
+{{!-- ember-power-select --}}
+{{#f.input name='example' as |fi|}}
+  {{#power-select options=options selected=fi.value onchange=fi.update onblur=fi.setDirty as |name|}}
+    {{name}}
+  {{/power-select}}
+{{/f.input}}
+
+{{!-- homemade component --}}
 {{#f.input label="Favorite Color" name="color" as |fi|}}
-  {{favorite-colors-component colors=colors onupdate=fi.update onhover=fi.setDirty}}
+  {{favorite-colors-component selected=fi.value colors=colors onupdate=fi.update onhover=fi.setDirty}}
 {{/f.input}}
 ```
-All you need to update the model's value or mark your component as dirty is to call `fi.update` or `fi.setDirty`.
+
+There are three integration points for custom components:
+
+* initialize the state of your component with `fi.value`
+* update the model's value with `fi.update`
+* mark your component as dirty with `fi.setDirty`
 
 ## Buttons
 
