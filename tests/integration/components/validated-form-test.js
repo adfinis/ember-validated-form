@@ -140,7 +140,7 @@ test('it renders an always-showing hint using a different class from the help bl
   });
   
   this.render(hbs`
-    {{#validated-form as |f|}}
+    {{#validated-form config=config as |f|}}
       {{f.input label="First name" hint="Not your middle name!"}}
     {{/validated-form}}
   `);
