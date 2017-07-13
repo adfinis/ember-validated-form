@@ -320,7 +320,8 @@ Currently, the configuration supports
   - `label`
   - `radio` (`div` wrapping radio button groups)
   - `checkbox` (`div` wrapping checkboxes)
-  - `help` (`span` containing help texts and validation messages)
+  - `help` (`span` containing validation messages)
+  - `hint` (`p` containing form input hints) 
   - `button`
   - `submit` (Special styling for the submit button, overrides `button`)
   - `error` (Name of the class added to `group` when the element is invalid)

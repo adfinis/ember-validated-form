@@ -131,6 +131,25 @@ test('it renders submit buttons', function(assert) {
   assert.equal(this.$('form button').text().trim(), 'Save!');
 });
 
+test('it renders an always-showing hint using a different class from the help block', function(assert){
+  this.set('config', {
+    css: {
+      help: 'help',
+      hint: 'hint'
+    }
+  });
+  
+  this.render(hbs`
+    {{#validated-form config=config as |f|}}
+      {{f.input label="First name" hint="Not your middle name!"}}
+    {{/validated-form}}
+  `);
+
+  assert.equal(this.$('.help-block').length, 0);
+  assert.equal(this.$('.hint').length, 1);
+  assert.equal(this.$('.hint').text().trim(), 'Not your middle name!');
+});
+
 test('does not render a <p> tag for buttons if no callbacks were passed', function(assert) {
   this.render(hbs`
     {{#validated-form as |f|}}
