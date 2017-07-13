@@ -156,6 +156,7 @@ export default Ember.Controller.extend({
 | ----  | ----     | -----------                                                                |
 | label | `String` | The label of the form field.                                               |
 | name  | `String` | This is is the name of the model property this input is bound to.          |
+| hint  | `String` | Additional explanatory text displayed below the input field.               |
 | type  | `String` | Type of the form field (see supported field types below). Default: `text`. |
 | disabled  | `Boolean` | Specifies if the input field is disabled. |
 | required  | `Boolean` | If true, a "*" is appended to the field's label indicating that it is required. |

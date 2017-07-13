@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.5.0]
+### Changed
+- Separate classes for field hints and validation messages (#42, credits to @jacob-financit). If you've
+been using the (previously undocumented) option `help` on input fields, you'll have to rename them to `hint`.
+
 ## [0.4.2]
 ### Added
 - Better documentation for custom component integration (#46)
