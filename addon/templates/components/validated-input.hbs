@@ -7,15 +7,15 @@
 {{/if}}
 
 {{#if hasBlock}}
-  
+
   {{#if (not-eq type "radioGroup")}}
     {{yield (hash value=(or value (get model name))
-      controlClass=config.css.control
-      update=(action 'update')
-      setDirty=(action 'setDirty')
-      model=model
-      name=name)}}
-
+      controlClass = config.css.control
+      update       = (action 'update')
+      setDirty     = (action 'setDirty')
+      model        = model
+      name         = name)
+    }}
   {{else}}
     {{#each options as |option|}}
       <div class="{{config.css.radio}} {{if (eq selected-key option.key) config.css.selected}}">
@@ -38,18 +38,19 @@
   {{#if (eq type "select")}}
 
     {{one-way-select
-      value            = (or value (get model name))
-      options          = options
-      optionLabelPath  = optionLabelPath
-      optionValuePath  = optionValuePath
-      optionTargetPath = optionTargetPath
-      name             = name
-      class            = config.css.control
-      update           = (action "update")
-      focusOut         = (action "setDirty")
-      includeBlank     = includeBlank
-      disabled         = disabled
-      multiple         = multiple
+      value               = (or value (get model name))
+      options             = options
+      optionLabelPath     = optionLabelPath
+      optionValuePath     = optionValuePath
+      optionTargetPath    = optionTargetPath
+      name                = name
+      class               = config.css.control
+      update              = (action "update")
+      focusOut            = (action "setDirty")
+      includeBlank        = includeBlank
+      disabled            = disabled
+      multiple            = multiple
+      promptIsSelectable  = (or promptIsSelectable false)
     }}
 
   {{else if (eq type "radioGroup")}}
@@ -98,10 +99,11 @@
   {{/if}}
 {{/if}}
 
+{{#if showError}}
+  <span class={{config.css.help}}>{{firstError}}</span>
+{{/if}}
+
 {{#if hint}}
   <p class={{config.css.hint}}>{{hint}}</p>
 {{/if}}
 
-{{#if showError}}
-  <span class={{config.css.help}}>{{firstError}}</span>
-{{/if}}

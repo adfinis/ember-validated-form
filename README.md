@@ -2,6 +2,7 @@
 [![npm version](https://badge.fury.io/js/ember-validated-form.svg)](https://badge.fury.io/js/ember-validated-form)
 [![Ember Observer Score](http://emberobserver.com/badges/ember-validated-form.svg)](http://emberobserver.com/addons/ember-validated-form)
 [![Build Status](https://travis-ci.org/adfinis-sygroup/ember-validated-form.svg?branch=master)](https://travis-ci.org/adfinis-sygroup/ember-validated-form)
+[![Dependency status](https://david-dm.org/adfinis-sygroup/ember-validated-form.svg)](https://david-dm.org/adfinis-sygroup/ember-validated-form)
 
 Easily create forms with client side validations.
 
@@ -58,7 +59,7 @@ Basic example:
 {{#validated-form
   model        = (changeset model UserValidations)
   on-submit    = (action "submit")
-  submit-label = 'Save' as |f|}}
+  as |f|}}
 
   {{f.input label="First name" name="firstName"}}
   {{f.input label="Last name" name="lastName"}}
@@ -93,7 +94,13 @@ import Ember from 'ember';
 import UserValidations from 'dummy/validations/user';
 
 export default Ember.Controller.extend({
-  UserValidations
+  UserValidations,
+
+  actions: {
+    submit(model) {
+      model.save();
+    }
+  }
 });
 ```
 
@@ -128,7 +135,7 @@ export default {
 | Name         | Type     | Description                                                                                                                                |
 | ----         | ----     | -----------                                                                                                                                |
 | model        | `Object` | ember-changeset containing the model that backs the form                                                                                   |
-| on-submit    | `Action|Task` | Action or Task, that is triggered on form submit. The changeset is passed as a parameter. If specified, a submit button is rendered automatically. If a task is specified, the button will be disabled until it is finished (see example below). |
+| on-submit    | `Action`&#124;`Task` | Action or Task, that is triggered on form submit. The changeset is passed as a parameter. If specified, a submit button is rendered automatically. If a task is specified, the button will be disabled until it is finished (see example below). |
 
 When the submission of your form can take a little longer and your users are of the impatient kind, it is often necessary to disable the submit button to prevent the form from being submitted multiple times.
 All you have to do to achieve this is install [ember-concurrency](http://ember-concurrency.com/)
@@ -150,6 +157,7 @@ export default Ember.Controller.extend({
   })
 });
 ```
+For a minimal demo see [this twiddle](https://ember-twiddle.com/3547207b06ed896f123332dd772503d0).
 
 ## Input fields
 
@@ -159,6 +167,7 @@ export default Ember.Controller.extend({
 | ----  | ----     | -----------                                                                |
 | label | `String` | The label of the form field.                                               |
 | name  | `String` | This is is the name of the model property this input is bound to.          |
+| hint  | `String` | Additional explanatory text displayed below the input field.               |
 | type  | `String` | Type of the form field (see supported field types below). Default: `text`. |
 | disabled  | `Boolean` | Specifies if the input field is disabled. |
 | required  | `Boolean` | If true, a "*" is appended to the field's label indicating that it is required. |
@@ -187,7 +196,7 @@ If no field type is specified, a simple `<input type="text">` is rendered. Other
 
 ### Select
 
-The select element requires more options (see [{{one-way-select}}](https://github.com/DockYard/ember-one-way-controls/blob/master/docs/one-way-select.md)):
+The select element supports more options (see [{{one-way-select}}](https://github.com/DockYard/ember-one-way-controls/blob/master/docs/one-way-select.md)):
 
 - `value`
 - `options`
@@ -195,14 +204,18 @@ The select element requires more options (see [{{one-way-select}}](https://githu
 - `optionValuePath`
 - `optionTargetPath`
 - `includeBlank`
+- `promptIsSelectable`
+
+The `prompt` property is currently not supported (see this [related issue](https://github.com/DockYard/ember-one-way-controls/issues/152)).
 
 ```Handlebars
 {{f.input
-  type         = "select"
-  label        = "Country"
-  name         = "country"
-  options      = countries
-  includeBlank = "Please choose..."
+  type    = "select"
+  label   = "Country"
+  name    = "country"
+  options = countries
+  prompt  = "Please choose..."
+  promptIsSelectable = true
   }}
 ```
 
@@ -284,11 +297,24 @@ export default {
 If the input element you need is not explicitly supported, you can easily integrate it with this addon by using `f.input` in block form:
 
 ```Handlebars
+{{!-- ember-power-select --}}
+{{#f.input name='example' as |fi|}}
+  {{#power-select options=options selected=fi.value onchange=fi.update onblur=fi.setDirty as |name|}}
+    {{name}}
+  {{/power-select}}
+{{/f.input}}
+
+{{!-- homemade component --}}
 {{#f.input label="Favorite Color" name="color" as |fi|}}
-  {{favorite-colors-component colors=colors onupdate=fi.update onhover=fi.setDirty}}
+  {{favorite-colors-component selected=fi.value colors=colors onupdate=fi.update onhover=fi.setDirty}}
 {{/f.input}}
 ```
-All you need to update the model's value or mark your component as dirty is to call `fi.update` or `fi.setDirty`.
+
+There are three integration points for custom components:
+
+* initialize the state of your component with `fi.value`
+* update the model's value with `fi.update`
+* mark your component as dirty with `fi.setDirty`
 
 ## Buttons
 
@@ -310,9 +336,10 @@ Currently, the configuration supports
   - `group` (`div` wrapping every form element including label and validation messages)
   - `control` (applied to form elements like `input`, `select`, ...)
   - `label`
+  - `radio` (`div` wrapping radio button groups)
   - `checkbox` (`div` wrapping checkboxes)
   - `help` (`span` containing validation messages)
-  - `hint` (`p` containing form input hints. Always visible by default; to hide hints until their form inputs receive focus, provide the same class name here as for `help`) 
+  - `hint` (`p` containing form input hints) 
   - `button`
   - `submit` (Special styling for the submit button, overrides `button`)
   - `error` (Name of the class added to `group` when the element is invalid)
@@ -337,6 +364,7 @@ var ENV = {
       control: 'form-control',
       label: 'form-label',
       checkbox: 'checkbox',
+      radio: 'radio',
       help: 'help-block',
       button: 'btn btn-default',
       submit: 'btn btn-primary'
