@@ -147,6 +147,7 @@ export default Ember.Controller.extend({
   })
 });
 ```
+For a minimal demo see [this twiddle](https://ember-twiddle.com/3547207b06ed896f123332dd772503d0).
 
 ## Input fields
 
