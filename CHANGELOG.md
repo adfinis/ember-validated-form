@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.5.1]
+### Changed
+- Add proper `id` attributes to select and simple form components (#51)
+
 ## [0.5.0]
 ### Changed
 - Separate classes for field hints and validation messages (#42, credits to @jacob-financit). If you've
