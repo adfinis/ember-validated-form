@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.5.2]
+### Changed
+- Update ember-cli to v2.5.1 (#53)
+
 ## [0.5.1]
 ### Changed
 - Add proper `id` attributes to select and simple form components (#51)
