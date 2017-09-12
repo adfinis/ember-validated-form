@@ -1,5 +1,5 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
-.idea
+
 # compiled output
 /dist
 /tmp
@@ -14,6 +14,13 @@
 /coverage/*
 /libpeerconnection.log
 npm-debug.log*
+yarn-error.log
 testem.log
+.idea
 *.swp
 .DS_Store
+
+# ember-try
+.node_modules.ember-try/
+bower.json.ember-try
+package.json.ember-try

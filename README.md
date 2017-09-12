@@ -393,7 +393,6 @@ Bug reports, suggestions and pull requests are always welcome!
 * `git clone https://github.com/adfinis-sygroup/ember-validated-form`
 * `cd ember-validated-form`
 * `npm install`
-* `bower install`
 
 ## Running
 
