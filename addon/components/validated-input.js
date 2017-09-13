@@ -22,6 +22,10 @@ export default Ember.Component.extend({
 
   classNameBindings: ['dirty', 'config.css.group', 'validationClass'],
 
+  inputId: Ember.computed('elementId', 'name', function() {
+    return `${this.get('elementId')}-input-${this.get('name')}`;
+  }),
+
   validationClass: Ember.computed('showError', function() {
     const errorClass = this.get('config.css.error') || 'has-error';
     const validClass = this.get('config.css.valid') || 'valid';
