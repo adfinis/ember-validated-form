@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.5.3]
+### Changed
+- Fix bug that caused ID collisions when multiple forms on the same page use inputs with
+  the same name (#55, credits to @anehx)
+
 ## [0.5.2]
 ### Changed
 - Update ember-cli to v2.5.1 (#53)
