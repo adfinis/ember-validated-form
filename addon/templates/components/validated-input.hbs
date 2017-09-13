@@ -1,6 +1,6 @@
 {{#if (not-eq type "checkbox")}}
   {{#if label}}
-      <label class={{config.css.label}} for={{name}}>
+      <label class={{config.css.label}} for={{inputId}}>
         {{label}}{{#if required}} {{requiredLabel}}{{/if}}
       </label>
   {{/if}}
@@ -44,7 +44,7 @@
       optionValuePath     = optionValuePath
       optionTargetPath    = optionTargetPath
       name                = name
-      id                  = name
+      id                  = inputId
       class               = config.css.control
       update              = (action "update")
       focusOut            = (action "setDirty")
@@ -62,7 +62,7 @@
           {{one-way-radio
             value    = (or value (get model name))
             option   = option.key
-            name     = name
+            name     = inputId
             update   = (action "update")
             focusOut = (action "setDirty")
             disabled = disabled
@@ -90,7 +90,7 @@
       value       = (or value (get model name))
       options     = options
       name        = name
-      id          = name
+      id          = inputId
       class       = config.css.control
       update      = (action "update")
       focusOut    = (action "setDirty")

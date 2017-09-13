@@ -1,5 +1,5 @@
-import Ember from 'ember';
-import layout from '../templates/components/validated-input';
+import Ember from 'ember'
+import layout from '../templates/components/validated-input'
 
 /**
  * This component wraps form inputs.
@@ -22,45 +22,49 @@ export default Ember.Component.extend({
 
   classNameBindings: ['dirty', 'config.css.group', 'validationClass'],
 
-  validationClass: Ember.computed('showError', function() {
-    const errorClass = this.get('config.css.error') || 'has-error';
-    const validClass = this.get('config.css.valid') || 'valid';
+  inputId: Ember.computed('elementId', 'name', function() {
+    return `${this.get('elementId')}-input-${this.get('name')}`
+  }),
 
-    return this.get('showError') ? errorClass : validClass;
+  validationClass: Ember.computed('showError', function() {
+    const errorClass = this.get('config.css.error') || 'has-error'
+    const validClass = this.get('config.css.valid') || 'valid'
+
+    return this.get('showError') ? errorClass : validClass
   }),
 
   error: Ember.computed('model.error', function() {
-    const error = this.get('model.error');
-    return error ? error[this.get('name')] : null;
+    const error = this.get('model.error')
+    return error ? error[this.get('name')] : null
   }),
 
   isValid: Ember.computed('error', function() {
-    return !this.get('error');
+    return !this.get('error')
   }),
 
   firstError: Ember.computed('error', function() {
-    return this.get('error.validation')[0];
+    return this.get('error.validation')[0]
   }),
 
   showError: Ember.computed('isValid', 'dirty', 'submitted', function() {
-    return !this.get('isValid') && (this.get('dirty') || this.get('submitted'));
+    return !this.get('isValid') && (this.get('dirty') || this.get('submitted'))
   }),
 
   requiredLabel: Ember.computed('config', function() {
-    return this.get('config.label.required') || '*';
+    return this.get('config.label.required') || '*'
   }),
 
   actions: {
     setDirty() {
-      this.set('dirty', true);
+      this.set('dirty', true)
     },
 
     update(value) {
       if (this.attrs['on-update']) {
-        this.attrs['on-update'](value, this.get('model'));
+        this.attrs['on-update'](value, this.get('model'))
       } else {
-        this.set(`model.${this.get('name')}`, value);
+        this.set(`model.${this.get('name')}`, value)
       }
     }
   }
-});
+})
