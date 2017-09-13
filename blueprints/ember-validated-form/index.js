@@ -6,6 +6,6 @@ module.exports = {
         { name: 'ember-changeset' },
         { name: 'ember-changeset-validations' }
       ]
-    })
+    });
   }
-}
+};
