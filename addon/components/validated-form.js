@@ -1,4 +1,6 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
+import { getOwner } from '@ember/application';
+import Component from '@ember/component';
 import layout from '../templates/components/validated-form';
 
 function runTaskOrAction(taskOrAction, model) {
@@ -7,7 +9,7 @@ function runTaskOrAction(taskOrAction, model) {
     : taskOrAction(model);
 }
 
-export default Ember.Component.extend({
+export default Component.extend({
   tagName: 'form',
 
   classNameBindings: ['_cssClass', 'submitted'],
@@ -22,18 +24,18 @@ export default Ember.Component.extend({
       this.get('model').validate();
     }
 
-    let owner = Ember.getOwner(this);
+    let owner = getOwner(this);
     let factory = owner.factoryFor
       ? owner.factoryFor('service:i18n')
       : owner._lookupFactory('service:i18n');
     this.set('i18n', factory ? factory.create() : null);
   },
 
-  _cssClass: Ember.computed('config', function() {
+  _cssClass: computed('config', function() {
     return this.get('config.css.form');
   }),
 
-  _submitLabel: Ember.computed('config', 'submit-label', function() {
+  _submitLabel: computed('config', 'submit-label', function() {
     return this._getLabel('submit') || 'Save';
   }),
 
@@ -47,7 +49,7 @@ export default Ember.Component.extend({
     return this.get(`config.label.${type}`);
   },
 
-  submitClass: Ember.computed('config', function() {
+  submitClass: computed('config', function() {
     return this.get(`config.css.submit`) || this.get('config.css.button');
   }),
 
