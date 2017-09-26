@@ -1,4 +1,6 @@
-import Ember from 'ember';
+import { run } from '@ember/runloop';
+import EmberObject from '@ember/object';
+import { helper } from '@ember/component/helper';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import UserValidations from 'dummy/validations/user';
@@ -76,7 +78,7 @@ test('it renders a radio group with block form', function(assert) {
 });
 
 test('it renders a radio group with block form and i18n support', function(assert) {
-  this.container.registry.registrations['helper:t'] = Ember.Helper.helper(function(arg){
+  this.container.registry.registrations['helper:t'] = helper(function(arg){
     const key = arg[0];
     switch(key) {
       case 'label.foo':
@@ -163,7 +165,7 @@ test('does not render a <p> tag for buttons if no callbacks were passed', functi
 test('it supports default button labels with i18n support', function(assert) {
   this.on('stub', function() {});
 
-  this.registry.register('service:i18n', Ember.Object.extend({
+  this.registry.register('service:i18n', EmberObject.extend({
     t(key) {
       return key === 'label.save' ? 'Speichern' : '';
     }
@@ -199,7 +201,7 @@ test('it performs basic validations on submit', function(assert) {
   this.set('UserValidations', UserValidations);
 
   const store = this.container.lookup('service:store');
-  Ember.run(() => {
+  run(() => {
     this.set('model', store.createRecord('user', {
       firstName: 'x'
     }));
@@ -227,7 +229,7 @@ test('it performs basic validations on focus out', function(assert) {
   this.set('UserValidations', UserValidations);
 
   const store = this.container.lookup('service:store');
-  Ember.run(() => {
+  run(() => {
     this.set('model', store.createRecord('user'));
   });
 

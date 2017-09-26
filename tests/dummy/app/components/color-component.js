@@ -1,11 +1,13 @@
-import Ember from 'ember';
+import { htmlSafe } from '@ember/string';
+import { computed } from '@ember/object';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   tagName: '',
 
-  colorStyle: Ember.computed('color.color', function() {
+  colorStyle: computed('color.color', function() {
     let color = this.get('color.color');
-    return Ember.String.htmlSafe('background-color:' + color + ';');
+    return htmlSafe('background-color:' + color + ';');
   }),
 
   actions: {

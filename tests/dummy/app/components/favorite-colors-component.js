@@ -1,7 +1,8 @@
-import Ember from 'ember';
+import { notEmpty } from '@ember/object/computed';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
-  hasSelected: Ember.computed.notEmpty('selected'),
+export default Component.extend({
+  hasSelected: notEmpty('selected'),
   isShowingColors: false,
 
   actions: {

@@ -1,4 +1,5 @@
-import Ember from 'ember';
+import { computed } from '@ember/object';
+import Component from '@ember/component';
 import layout from '../templates/components/validated-input';
 
 /**
@@ -11,7 +12,7 @@ import layout from '../templates/components/validated-input';
  * {{validated-input model=model name='firstName' on-update=(action "update"}}
  * (update action is called, model is not updated)
  */
-export default Ember.Component.extend({
+export default Component.extend({
   layout,
 
   dirty: false,
@@ -22,35 +23,35 @@ export default Ember.Component.extend({
 
   classNameBindings: ['dirty', 'config.css.group', 'validationClass'],
 
-  inputId: Ember.computed('elementId', 'name', function() {
+  inputId: computed('elementId', 'name', function() {
     return `${this.get('elementId')}-input-${this.get('name')}`;
   }),
 
-  validationClass: Ember.computed('showError', function() {
+  validationClass: computed('showError', function() {
     const errorClass = this.get('config.css.error') || 'has-error';
     const validClass = this.get('config.css.valid') || 'valid';
 
     return this.get('showError') ? errorClass : validClass;
   }),
 
-  error: Ember.computed('model.error', function() {
+  error: computed('model.error', function() {
     const error = this.get('model.error');
     return error ? error[this.get('name')] : null;
   }),
 
-  isValid: Ember.computed('error', function() {
+  isValid: computed('error', function() {
     return !this.get('error');
   }),
 
-  firstError: Ember.computed('error', function() {
+  firstError: computed('error', function() {
     return this.get('error.validation')[0];
   }),
 
-  showError: Ember.computed('isValid', 'dirty', 'submitted', function() {
+  showError: computed('isValid', 'dirty', 'submitted', function() {
     return !this.get('isValid') && (this.get('dirty') || this.get('submitted'));
   }),
 
-  requiredLabel: Ember.computed('config', function() {
+  requiredLabel: computed('config', function() {
     return this.get('config.label.required') || '*';
   }),
 
