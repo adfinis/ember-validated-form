@@ -323,7 +323,7 @@ Currently, the configuration supports
   - `radio` (`div` wrapping radio button groups)
   - `checkbox` (`div` wrapping checkboxes)
   - `help` (`span` containing validation messages)
-  - `hint` (`p` containing form input hints) 
+  - `hint` (`p` containing form input hints)
   - `button`
   - `submit` (Special styling for the submit button, overrides `button`)
   - `error` (Name of the class added to `group` when the element is invalid)
@@ -350,6 +350,7 @@ var ENV = {
       checkbox: 'checkbox',
       radio: 'radio',
       help: 'help-block',
+      hint: 'help-block',
       button: 'btn btn-default',
       submit: 'btn btn-primary'
     }

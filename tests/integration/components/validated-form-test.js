@@ -82,14 +82,14 @@ test('it renders a radio group with block form and i18n support', function(asser
     const key = arg[0];
     switch(key) {
       case 'label.foo':
-        return 'Option One';        
+        return 'Option One';
       case 'label.bar':
         return 'Option Two';
       case 'label.baz':
-        return 'Option Three';  
+        return 'Option Three';
       default:
-        return false;   
-    } 
+        return false;
+    }
   });
 
   this.set('buttonGroupData', {
@@ -140,7 +140,7 @@ test('it renders an always-showing hint using a different class from the help bl
       hint: 'hint'
     }
   });
-  
+
   this.render(hbs`
     {{#validated-form config=config as |f|}}
       {{f.input label="First name" hint="Not your middle name!"}}

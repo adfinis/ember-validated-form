@@ -19,7 +19,7 @@ export default Component.extend({
 
   required: false,
 
-  type: 'input',
+  type: 'text',
 
   classNameBindings: ['dirty', 'config.css.group', 'validationClass'],
 
@@ -53,6 +53,10 @@ export default Component.extend({
 
   requiredLabel: computed('config', function() {
     return this.get('config.label.required') || '*';
+  }),
+
+  _val: computed('value', 'model', 'name', function() {
+    return this.get('value') || this.get(`model.${this.get('name')}`);
   }),
 
   actions: {
