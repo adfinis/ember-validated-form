@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.5.4]
+### Changed
+- Input, Textarea: Use native input tag instead of one-way-input (#60)
+- Dummy app: load bootstrap from CDN (#59)
+
 ## [0.5.3]
 ### Changed
 - Fix bug that caused ID collisions when multiple forms on the same page use inputs with
