@@ -17,7 +17,7 @@ module.exports = function(environment) {
         control: 'form-control',
         label: 'control-label',
         help: 'help-block',
-        hint: 'hint',
+        hint: 'help-block',
         checkbox: 'checkbox',
         button: 'btn btn-default',
         submit: 'btn btn-primary'
