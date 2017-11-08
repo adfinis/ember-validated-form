@@ -24,7 +24,7 @@ and provides a handy out-of-the-box setup for user-friendly client-side validati
 - Preventing submit action until form is valid
 - Live-updating validation errors
 - Bootstrap integration
-- Disabled submit button while async task is executed
+- Loading class on submit button while async task is executed
 
 ## Why *YAEFA?
 **Yet another ember form addon*
@@ -93,7 +93,7 @@ export default Ember.Controller.extend({
   }
 });
 ```
-
+And pass the task directly to `on-submit` in the template:
 ```javascript
 // validations/user.js
 import {
