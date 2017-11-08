@@ -4,6 +4,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.6.0]
+### Changed
+- Use yarn instead of npm (#62)
+- Update dependencies (#62)
+
+### Added
+- Add loading class to button if task is running (#63)
+- Support block style usage of submit button (#61)
+
+### Removed
+- Useless class name binding on button (#65)
+- Dependency to ember-data (#62)
+- Various unused dependencies (#62)
+- Disable submit button while task is running (#63)
+
+To restore the old behaviour, all you have to do is pass the `isRunning` state as `disabled` property to the submit button:
+
+```Handlebars
+{{#validated-form
+  ...
+  on-submit = myTask
+  as |f|}}
+  {{f.submit label="Test" disabled=myTask.isRunning}}
+{{/validated-form}}
+```
+
 ## [0.5.4]
 ### Changed
 - Input, Textarea: Use native input tag instead of one-way-input (#60)
