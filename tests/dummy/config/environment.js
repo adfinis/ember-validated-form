@@ -20,7 +20,8 @@ module.exports = function(environment) {
         hint: 'help-block',
         checkbox: 'checkbox',
         button: 'btn btn-default',
-        submit: 'btn btn-primary'
+        submit: 'btn btn-primary',
+        loading: 'loading'
       }
     },
     EmberENV: {
