@@ -9,7 +9,7 @@ export default Component.extend({
 
   tagName: 'button',
 
-  classNameBindings: ['class', 'loadingClass'],
+  classNameBindings: ['loadingClass'],
 
   attributeBindings: ['disabled', 'type', 'action:onclick'],
 
