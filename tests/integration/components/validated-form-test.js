@@ -200,9 +200,8 @@ test('it performs basic validations on submit', function(assert) {
   this.on('submit', function() {});
   this.set('UserValidations', UserValidations);
 
-  const store = this.container.lookup('service:store');
   run(() => {
-    this.set('model', store.createRecord('user', {
+    this.set('model', EmberObject.create({
       firstName: 'x'
     }));
   });
@@ -228,9 +227,8 @@ test('it performs basic validations on focus out', function(assert) {
   this.on('submit', function() {});
   this.set('UserValidations', UserValidations);
 
-  const store = this.container.lookup('service:store');
   run(() => {
-    this.set('model', store.createRecord('user'));
+    this.set('model', EmberObject.create({}));
   });
 
   this.render(hbs`
