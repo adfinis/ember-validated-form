@@ -403,7 +403,7 @@ Bug reports, suggestions and pull requests are always welcome!
 
 * `git clone https://github.com/adfinis-sygroup/ember-validated-form`
 * `cd ember-validated-form`
-* `npm install`
+* `yarn install`
 
 ## Running
 
@@ -412,7 +412,7 @@ Bug reports, suggestions and pull requests are always welcome!
 
 ## Running Tests
 
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
+* `yarn test` (Runs `ember try:each` to test your addon against multiple Ember versions)
 * `ember test`
 * `ember test --server`
 
