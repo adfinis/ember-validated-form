@@ -147,6 +147,14 @@ export default Ember.Controller.extend({
   })
 });
 ```
+```Handlebars
+{{#validated-form
+  ...
+  on-submit = submit
+  as |f|}}
+  ...
+{{/validated-form}}
+```
 For a minimal demo see [this twiddle](https://ember-twiddle.com/3547207b06ed896f123332dd772503d0).
 
 ## Input fields
@@ -302,13 +310,14 @@ There are three integration points for custom components:
 
 ## Buttons
 
-`{{validated-form}}` also yields a submit button component that can be accessed with `{{f.submit}}`. It takes the following properties:
+`{{validated-form}}` also yields a submit button component that can be accessed with `{{f.submit}}`. You can also use it as a block style component `{{#f.submit}}Test{{/f.submit}}` if you don't want to pass the label as a property. It takes the following properties:
 
-| Name      | Type      | Description                                                                                 |
-| ----      | ----      | -----------                                                                                 |
-| label     | `String`  | The label of the form button.                                                               |
-| type      | `String`  | Type of the button. Default: `button`.                                                      |
-| disabled  | `Boolean` | Specifies if the button is disabled. Default: Automatic integration of `ember-concurrency`. |
+| Name      | Type      | Description                                                                               |
+| ----      | ----      | -----------                                                                               |
+| label     | `String`  | The label of the form button.                                                             |
+| type      | `String`  | Type of the button. Default: `button`.                                                    |
+| disabled  | `Boolean` | Specifies if the button is disabled.                                                      |
+| loading   | `Boolean` | Specifies if the button is loading. Default: Automatic integration of `ember-concurrency` |
 
 ## Config
 
@@ -328,6 +337,7 @@ Currently, the configuration supports
   - `submit` (Special styling for the submit button, overrides `button`)
   - `error` (Name of the class added to `group` when the element is invalid)
   - `valid` (Name of the class added to `group` when the element is valid)
+  - `loading` (Name of the class added to `button` when the element is loading)
 
 See an example integration of Bootstrap and Semantic UI below.
 

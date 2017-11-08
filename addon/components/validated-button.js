@@ -1,4 +1,5 @@
 import Component from '@ember/component';
+import { computed } from '@ember/object';
 import layout from '../templates/components/validated-button';
 
 export default Component.extend({
@@ -8,7 +9,11 @@ export default Component.extend({
 
   tagName: 'button',
 
-  classNameBindings: ['class'],
+  classNameBindings: ['class', 'loadingClass'],
 
-  attributeBindings: ['disabled', 'type', 'action:onclick']
+  attributeBindings: ['disabled', 'type', 'action:onclick'],
+
+  loadingClass: computed('loading', function() {
+    return this.get('loading') ? this.get('config.css.loading') : null;
+  })
 });
