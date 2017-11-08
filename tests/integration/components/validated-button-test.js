@@ -11,6 +11,6 @@ test('it renders a button with a label', function(assert) {
 });
 
 test('it renders a button with block style', function(assert) {
-  this.render(hbs`{{#validated-button}}Test{{/validate-button}}`);
+  this.render(hbs`{{#validated-button}}Test{{/validated-button}}`);
   assert.equal(this.$('button').text().trim(), 'Test');
 });
