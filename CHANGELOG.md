@@ -8,16 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Use yarn instead of npm (#62)
 - Update dependencies (#62)
-
-### Added
-- Add loading class to button if task is running (#63)
-- Support block style usage of submit button (#61)
-
-### Removed
-- Useless class name binding on button (#65)
-- Dependency to ember-data (#62)
-- Various unused dependencies (#62)
-- Disable submit button while task is running (#63)
+- Remove automatic disabling of submit button while task is running (#63)
 
 To restore the old behaviour, all you have to do is pass the `isRunning` state as `disabled` property to the submit button:
 
@@ -29,6 +20,15 @@ To restore the old behaviour, all you have to do is pass the `isRunning` state a
   {{f.submit label="Test" disabled=myTask.isRunning}}
 {{/validated-form}}
 ```
+
+### Added
+- Add loading class to button if task is running (#63)
+- Support block style usage of submit button (#61)
+
+### Removed
+- Useless class name binding on button (#65)
+- Dependency to ember-data (#62)
+- Various unused dependencies (#62)
 
 ## [0.5.4]
 ### Changed
