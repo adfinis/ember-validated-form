@@ -18,6 +18,8 @@ export default Component.extend({
 
   layout,
 
+  validateBeforeSubmit: true,
+
   init() {
     this._super(...arguments);
     if (this.get('model') && this.get('model').validate) {

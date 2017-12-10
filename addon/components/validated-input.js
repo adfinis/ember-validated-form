@@ -21,6 +21,8 @@ export default Component.extend({
 
   type: 'text',
 
+  validateBeforeSubmit: true,
+
   classNameBindings: ['dirty', 'config.css.group', 'validationClass'],
 
   inputId: computed('elementId', 'name', function() {
@@ -47,8 +49,16 @@ export default Component.extend({
     return this.get('error.validation')[0];
   }),
 
-  showError: computed('isValid', 'dirty', 'submitted', function() {
-    return !this.get('isValid') && (this.get('dirty') || this.get('submitted'));
+  showError: computed('isValid', 'validateBeforeSubmit', 'dirty', 'submitted', function() {
+    if (!this.get('isValid')) {
+      if (this.get('validateBeforeSubmit') && this.get('dirty')) {
+        return true;
+      }
+      if (this.get('submitted')) {
+        return true;
+      }
+    }
+    return false;
   }),
 
   requiredLabel: computed('config', function() {

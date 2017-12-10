@@ -246,3 +246,48 @@ test('it performs basic validations on focus out', function(assert) {
   assert.equal(this.$('span.help-block').text(),
     'First name can\'t be blank');
 });
+
+test('it skips basic validations on focus out with validateBeforeSubmit=false set on the form', function(assert) {
+  this.on('submit', function() {});
+  this.set('UserValidations', UserValidations);
+
+  run(() => {
+    this.set('model', EmberObject.create({}));
+  });
+
+  this.render(hbs`
+    {{#validated-form
+      model=(changeset model UserValidations)
+      on-submit=(action "submit")
+      validateBeforeSubmit=false
+      as |f|}}
+      {{f.input label="First name" name="firstName"}}
+    {{/validated-form}}
+  `);
+  assert.equal(this.$('span.help-block').length, 0);
+  this.$('input').blur();
+
+  assert.equal(this.$('span.help-block').length, 0);
+});
+
+test('it skips basic validations on focus out with validateBeforeSubmit=false set on the input', function(assert) {
+  this.on('submit', function() {});
+  this.set('UserValidations', UserValidations);
+
+  run(() => {
+    this.set('model', EmberObject.create({}));
+  });
+
+  this.render(hbs`
+    {{#validated-form
+      model=(changeset model UserValidations)
+      on-submit=(action "submit")
+      as |f|}}
+      {{f.input label="First name" name="firstName" validateBeforeSubmit=false}}
+    {{/validated-form}}
+  `);
+  assert.equal(this.$('span.help-block').length, 0);
+  this.$('input').blur();
+
+  assert.equal(this.$('span.help-block').length, 0);
+});
