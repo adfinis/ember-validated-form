@@ -91,6 +91,9 @@
       class       = {{config.css.control}}
       placeholder = {{placeholder}}
       disabled    = {{disabled}}
+      autofocus   = {{autofocus}}
+      rows        = {{rows}}
+      cols        = {{cols}}
       oninput     = {{action "update" value = "target.value"}}
       onblur      = {{action "setDirty"}}
       >{{_val}}</textarea>
@@ -103,6 +106,7 @@
       class       = {{config.css.control}}
       placeholder = {{placeholder}}
       disabled    = {{disabled}}
+      autofocus   = {{autofocus}}
       oninput     = {{action "update" value = "target.value"}}
       onblur      = {{action "setDirty"}}
       >
@@ -116,4 +120,3 @@
 {{#if hint}}
   <p class={{config.css.hint}}>{{hint}}</p>
 {{/if}}
-
