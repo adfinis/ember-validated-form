@@ -125,6 +125,7 @@ export default {
 | Name         | Type     | Description                                                                                                                                |
 | ----         | ----     | -----------                                                                                                                                |
 | model        | `Object` | ember-changeset containing the model that backs the form                                                                                   |
+| validateBeforeSubmit | `Boolean` | Specifies whether to run validations on inputs before the form has been submitted. Defaults to true. |
 | on-submit    | `Action`&#124;`Task` | Action or Task, that is triggered on form submit. The changeset is passed as a parameter. If specified, a submit button is rendered automatically. If a task is specified, the button will be disabled until it is finished (see example below). |
 
 When the submission of your form can take a little longer and your users are of the impatient kind, it is often necessary to disable the submit button to prevent the form from being submitted multiple times.
@@ -170,6 +171,7 @@ For a minimal demo see [this twiddle](https://ember-twiddle.com/3547207b06ed896f
 | disabled  | `Boolean` | Specifies if the input field is disabled. |
 | required  | `Boolean` | If true, a "*" is appended to the field's label indicating that it is required. |
 | value | `String` | Initial value of the form field. Default: model property defined by name. |
+| validateBeforeSubmit | `Boolean` | Specifies whether to run validations on this input before the form has been submitted. Defaults to the value set on the form. |
 | on-update | `Action` | Per default, the input elements are two-way-bound. If you want to implement custom update behavior, pass an action as `on-update`. The function receives two arguments: `update(value, changeset)`. |
 
 
