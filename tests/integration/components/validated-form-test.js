@@ -262,12 +262,14 @@ test('it skips basic validations on focus out with validateBeforeSubmit=false se
       validateBeforeSubmit=false
       as |f|}}
       {{f.input label="First name" name="firstName"}}
+      {{f.submit}}
     {{/validated-form}}
   `);
   assert.equal(this.$('span.help-block').length, 0);
   this.$('input').blur();
-
   assert.equal(this.$('span.help-block').length, 0);
+  this.$('button').click();
+  assert.equal(this.$('span.help-block').length, 1);
 });
 
 test('it skips basic validations on focus out with validateBeforeSubmit=false set on the input', function(assert) {
