@@ -181,7 +181,10 @@ However, some field types require extra parameters. The supported field types ar
 
 ### Text input
 
-If no field type is specified, a simple `<input type="text">` is rendered. Other HTML5 text-like inputs like `email`, `number`, `search` require specifying their type. For more details see the docs of [{{one-way-input}}](https://github.com/DockYard/ember-one-way-controls/blob/master/docs/one-way-input.md).
+If no field type is specified, a simple `<input type="text">` is rendered. Other HTML5 text-like inputs like `email`, `number`, `search` require specifying their type. The element also supports the following options:
+
+- `placeholder`
+- `autofocus`
 
 ```Handlebars
 {{f.input label="First name" name="firstName"}}
@@ -189,6 +192,12 @@ If no field type is specified, a simple `<input type="text">` is rendered. Other
 ```
 
 ### Textarea
+
+The textarea element also supports the following options:
+
+- `rows` and `cols`
+- `autofocus`
+- `placeholder`
 
 ```Handlebars
 {{f.input type="textarea" label="Description" name="description"}}

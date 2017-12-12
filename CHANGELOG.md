@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.6.1]
+### Added
+- Add more input attributes (#71, credits to @bendemboski)
+- Add validateBeforeSubmit option (#70, credits to @bendemboski)
+
+
 ## [0.6.0]
 ### Changed
 - Use yarn instead of npm (#62)
