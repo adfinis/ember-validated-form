@@ -75,15 +75,12 @@ Basic example:
   {{f.submit label="Save"}}
 {{/validated-form}}
 ```
-
-where `UserValidations` is a changeset:
-
 ```javascript
 // controller
-import Ember from 'ember';
+import Controller from '@ember/controller';
 import UserValidations from 'dummy/validations/user';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   UserValidations,
 
   actions: {
@@ -93,7 +90,17 @@ export default Ember.Controller.extend({
   }
 });
 ```
-And pass the task directly to `on-submit` in the template:
+```javascript
+// route
+import Route from '@ember/routing/route';
+
+export default Route.extend({
+  model() {
+    return { firstName: 'Max' } // or an ember object, an ember-data model, ...
+  }
+});
+```
+`UserValidations` is a changeset:
 ```javascript
 // validations/user.js
 import {
@@ -138,10 +145,11 @@ ember install ember-concurrency
 and pass an ember-concurrency task instead of an action. Example:
 
 ```javascript
-  // controller
+// controller
+import Controller from '@ember/controller';
 import { task } from 'ember-concurrency';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   submit: task(function * (model) {
     yield model.save();
     // ... more code to show success messages etc.
