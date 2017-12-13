@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "ember-changeset": "1.X",
-    "ember-changeset-validations": "1.2.6",
+    "ember-changeset-validations": "1.X",
     "ember-cli-babel": "^6.6.0",
     "ember-cli-htmlbars": "^2.0.1",
     "ember-one-way-controls": "1.1.2",
