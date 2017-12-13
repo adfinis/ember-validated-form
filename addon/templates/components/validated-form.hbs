@@ -1,5 +1,6 @@
 {{yield (hash
   model=model
+  loading=loading
   input=(component 'validated-input'
     model=model
     submitted=submitted
@@ -9,7 +10,7 @@
   submit=(component 'validated-button'
     class   = submitClass
     type    = "submit"
-    loading = submitTask.isRunning
+    loading = loading
     label   = _submitLabel
     config  = config
   )
