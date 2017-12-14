@@ -43,7 +43,13 @@ First, install the addon:
 ember install ember-validated-form
 ```
 
-Basic example:
+After, you'll need to set up
+
+* a template containing your form elements
+* a validations file (see [ember-changeset-validations](https://github.com/poteto/ember-changeset-validations))
+* a controller, route and/or component that provides your template with the validations and your model
+
+You'll find a basic example in [this twiddle](https://ember-twiddle.com/3691a8576c35ff149bfc26a564ec5437) or in the following code blocks:
 
 ```Handlebars
 {{#validated-form
