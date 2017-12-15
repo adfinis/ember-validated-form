@@ -25,6 +25,7 @@ and provides a handy out-of-the-box setup for user-friendly client-side validati
 - Live-updating validation errors
 - Bootstrap integration
 - Loading class on submit button while async task is executed
+- Loading contextual template parameter set while async submit task is executed
 
 ## Why *YAEFA?
 **Yet another ember form addon*
@@ -85,7 +86,7 @@ export default Controller.extend({
 
   actions: {
     submit(model) {
-      model.save();
+      return model.save();
     }
   }
 });
@@ -133,16 +134,9 @@ export default {
 | ----         | ----     | -----------                                                                                                                                |
 | model        | `Object` | ember-changeset containing the model that backs the form                                                                                   |
 | validateBeforeSubmit | `Boolean` | Specifies whether to run validations on inputs before the form has been submitted. Defaults to true. |
-| on-submit    | `Action`&#124;`Task` | Action or Task, that is triggered on form submit. The changeset is passed as a parameter. If specified, a submit button is rendered automatically. If a task is specified, the button will be disabled until it is finished (see example below). |
+| on-submit    | `Action` | Action, that is triggered on form submit. The changeset is passed as a parameter. If the action returns a promise, then any rendered submit buttons will have a customizable CSS class added and the yielded `loading` template parameter will be set. |
 
-When the submission of your form can take a little longer and your users are of the impatient kind, it is often necessary to disable the submit button to prevent the form from being submitted multiple times.
-All you have to do to achieve this is install [ember-concurrency](http://ember-concurrency.com/)
-
-```
-ember install ember-concurrency
-```
-
-and pass an ember-concurrency task instead of an action. Example:
+When the submission of your form can take a little longer and your users are of the impatient kind, it is often necessary to disable the submit button to prevent the form from being submitted multiple times. This can be done by using the `loading` template parameter and works very well with [ember-concurrency](http://ember-concurrency.com/) tasks.
 
 ```javascript
 // controller
@@ -162,6 +156,7 @@ export default Controller.extend({
   on-submit = submit
   as |f|}}
   ...
+  {{f.submit label="Save" disabled=f.loading}}
 {{/validated-form}}
 ```
 For a minimal demo see [this twiddle](https://ember-twiddle.com/3547207b06ed896f123332dd772503d0).

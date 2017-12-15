@@ -296,7 +296,7 @@ test('it skips basic validations on focus out with validateBeforeSubmit=false se
   assert.equal(this.$('span.help-block').length, 0);
 });
 
-test('on-submit can be an ember-concurrency task', function(assert) {
+test('on-submit can be an ember-concurrency task (deprecated)', function(assert) {
   let deferred = defer();
 
   this.set('submitTask', task(function * () {
