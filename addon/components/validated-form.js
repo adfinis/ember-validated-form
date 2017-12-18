@@ -1,18 +1,27 @@
+import { resolve } from 'rsvp';
 import { computed } from '@ember/object';
 import { getOwner } from '@ember/application';
 import Component from '@ember/component';
+import { deprecate } from '@ember/application/deprecations';
 import layout from '../templates/components/validated-form';
 
 function runTaskOrAction(taskOrAction, model) {
+  deprecate("DEPRECATED passing a task to `on-submit` is deprecated. Please replace it with `on-submit=(perform myTask)`",
+    !taskOrAction.perform,
+    { until: '1.0.0', id: 'ember-validated-form-pass-task-to-on-submit' }
+  );
+
   return taskOrAction.perform
     ? taskOrAction.perform(model)
-    : taskOrAction(model);
+    : resolve(taskOrAction(model));
 }
 
 export default Component.extend({
   tagName: 'form',
 
   classNameBindings: ['_cssClass', 'submitted'],
+
+  loading: false,
 
   submitted: false,
 
@@ -60,8 +69,7 @@ export default Component.extend({
     const model = this.get('model');
 
     if (!model || !model.validate) {
-      const task = this.get('on-submit');
-      runTaskOrAction(task, model);
+      this.runOnSubmit();
       return false;
     }
 
@@ -69,10 +77,18 @@ export default Component.extend({
       if (model.get('isInvalid')) {
         return false;
       }
-      const task = this.get('on-submit');
-      runTaskOrAction(task, model);
-      this.set('submitTask', task);
+      this.runOnSubmit();
     });
     return false;
+  },
+
+  runOnSubmit() {
+    const task = this.get('on-submit');
+    const model = this.get('model');
+
+    this.set('loading', true);
+    runTaskOrAction(task, model).finally(() => {
+      this.set('loading', false);
+    });
   }
 });
