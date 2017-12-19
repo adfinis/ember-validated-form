@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.6.2]
+### Changed
+- Yield loading state, change `on-submit` to promise semantics (#75, credits to @bendemboski)
+
+This release deprecates passing an ember-concurrency task directly to `on-submit`:
+```Handlebars
+// deprecated:
+{{#validated-form on-submit = myTask (...)}}
+```
+Instead, `on-submit` accepts a promise - which is returned by wrapping the task in `perform`:
+```Handlebars
+{{#validated-form on-submit = (perform myTask) (...)}}
+```
+
 ## [0.6.1]
 ### Added
 - Add more input attributes (#71, credits to @bendemboski)
