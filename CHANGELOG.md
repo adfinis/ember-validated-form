@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.6.3]
+### Changed
+- Add disabled flag on checkbox instance (#77, credits to @toumbask)
+
 ## [0.6.2]
 ### Changed
 - Yield loading state, change `on-submit` to promise semantics (#75, credits to @bendemboski)
