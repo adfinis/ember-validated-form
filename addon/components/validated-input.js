@@ -75,8 +75,8 @@ export default Component.extend({
     },
 
     update(value) {
-      if (this.attrs['on-update']) {
-        this.attrs['on-update'](value, this.get('model'));
+      if (this.get('on-update')) {
+        this.get('on-update')(value, this.get('model'));
       } else {
         this.set(`model.${this.get('name')}`, value);
       }
