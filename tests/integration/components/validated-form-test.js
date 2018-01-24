@@ -53,6 +53,7 @@ test('it renders a radio group', function(assert) {
   assert.equal(this.$('label').eq(1).text().trim(), 'Option 1');
   assert.equal(this.$('label').eq(2).text().trim(), 'Option 2');
   assert.equal(this.$('label').eq(3).text().trim(), 'Option 3');
+  assert.equal(this.$('label > span').length, 3, 'Wraps all label text in span');
 });
 
 test('it renders a radio group with block form', function(assert) {
