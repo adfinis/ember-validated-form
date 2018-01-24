@@ -67,7 +67,8 @@
             focusOut = (action "setDirty")
             disabled = disabled
           }}
-          {{option.label}}</label>
+          <span>{{option.label}}</span>
+        </label>
       </div>
     {{/each}}
 
@@ -81,7 +82,7 @@
           update     = (action "update")
           focusOut   = (action "setDirty")
         }}
-        {{label}}
+        <span>{{label}}</span>
       </label>
     </div>
 
