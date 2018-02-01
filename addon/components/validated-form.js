@@ -74,6 +74,11 @@ export default Component.extend({
     }
 
     model.validate().then(() => {
+      if (!this.element) {
+        // We were removed from the DOM while validating
+        return;
+      }
+
       if (model.get('isInvalid')) {
         return false;
       }
@@ -88,6 +93,10 @@ export default Component.extend({
 
     this.set('loading', true);
     runTaskOrAction(task, model).finally(() => {
+      if (!this.element) {
+        // We were removed from the DOM while running on-submit()
+        return;
+      }
       this.set('loading', false);
     });
   }

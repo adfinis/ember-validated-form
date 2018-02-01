@@ -400,3 +400,63 @@ test('it yields the loading state', function(assert) {
   run(() => deferred.resolve());
   assert.equal(this.$('span.loading').length, 0);
 });
+
+test('it handles being removed from the DOM during sync submit', function(assert) {
+  this.set('show', true);
+
+  this.on('submit', () => { this.set('show', false) });
+
+  run(() => {
+    this.set('model', EmberObject.create({}));
+  });
+
+  this.render(hbs`
+    {{#if show}}
+      {{#validated-form
+        model=(changeset model)
+        on-submit=(action "submit")
+        as |f|}}
+        {{#if f.loading}}
+          <span class="loading">loading...</span>
+        {{/if}}
+        {{f.submit}}
+      {{/validated-form}}
+    {{/if}}
+  `);
+
+  this.$('button').click();
+  assert.ok(true);
+});
+
+test('it handles being removed from the DOM during async submit', function(assert) {
+  this.set('show', true);
+  let deferred = defer();
+
+  this.on('submit', () => {
+    return deferred.promise.then(() => {
+      this.set('show', false);
+    })
+  });
+
+  run(() => {
+    this.set('model', EmberObject.create({}));
+  });
+
+  this.render(hbs`
+    {{#if show}}
+      {{#validated-form
+        model=(changeset model)
+        on-submit=(action "submit")
+        as |f|}}
+        {{#if f.loading}}
+          <span class="loading">loading...</span>
+        {{/if}}
+        {{f.submit}}
+      {{/validated-form}}
+    {{/if}}
+  `);
+
+  this.$('button').click();
+  run(() => deferred.resolve());
+  assert.ok(true);
+});
