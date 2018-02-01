@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.7.1]
+### Changed
+- Fix for removal from DOM during submit (#85, credits to @bendemboski)
+
 ## [0.7.0]
 ### Changed
 - Wrap radio, checkbox in span to allow custom styles (#82, credits to @makepanic)
