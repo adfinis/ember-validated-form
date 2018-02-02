@@ -28,3 +28,16 @@
 
   {{f.submit label="Save"}}
 {{/validated-form}}
+
+{{#if model.saved}}
+  Model properties:
+  <ul>
+    <li>firstName={{model.firstName}}</li>
+    <li>lastName={{model.lastName}}</li>
+    <li>aboutMe={{model.aboutMe}}</li>
+    <li>country={{model.country}}</li>
+    <li>gender={{model.gender}}</li>
+    <li>color={{model.color.color}}</li>
+    <li>terms={{model.terms}}</li>
+  </ul>
+{{/if}}
