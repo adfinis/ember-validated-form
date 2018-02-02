@@ -20,14 +20,13 @@
     {{#each options as |option|}}
       <div class="radio">
         <label>
-          {{one-way-radio
-            value    = (or value (get model name))
-            option   = option.key
-            name     = name
-            update   = (action "update")
-            focusOut = (action "setDirty")
-            disabled = disabled
-          }}
+          <input
+            type       = "radio"
+            checked    = {{eq (or value (get model name)) option.key}}
+            name       = {{name}}
+            onclick    = {{action "update" option.key}}
+            onfocusout = {{action "setDirty"}}
+            disabled   = {{disabled}}>
           {{yield option}}
         </label>
       </div>
@@ -59,14 +58,13 @@
     {{#each options as |option|}}
       <div class="{{config.css.radio}}">
         <label>
-          {{one-way-radio
-            value    = (or value (get model name))
-            option   = option.key
-            name     = inputId
-            update   = (action "update")
-            focusOut = (action "setDirty")
-            disabled = disabled
-          }}
+          <input
+            type       = "radio"
+            checked    = {{eq (or value (get model name)) option.key}}
+            name       = {{inputId}}
+            onclick    = {{action "update" option.key}}
+            onfocusout = {{action "setDirty"}}
+            disabled   = {{disabled}}>
           <span>{{option.label}}</span>
         </label>
       </div>
@@ -75,13 +73,13 @@
   {{else if (eq type "checkbox")}}
     <div class="{{config.css.checkbox}}">
       <label>
-        {{one-way-checkbox
-          name       = name
-          disabled   = disabled
-          checked    = (get model name)
-          update     = (action "update")
-          focusOut   = (action "setDirty")
-        }}
+        <input
+          type       = "checkbox"
+          name       = {{name}}
+          disabled   = {{disabled}}
+          checked    = {{get model name}}
+          onclick    = {{action "update" value = "target.checked"}}
+          onfocusout = {{action "setDirty"}}>
         <span>{{label}}</span>
       </label>
     </div>

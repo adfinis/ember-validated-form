@@ -16,7 +16,7 @@ This [ember-cli](http://www.ember-cli.com) addon is based on the following excel
 
 - [ember-changeset](https://github.com/DockYard/ember-changeset)
 - [ember-changeset-validations](https://github.com/DockYard/ember-changeset-validations/)
-- [ember-one-way-controls](https://github.com/DockYard/ember-one-way-controls)
+- [ember-one-way-select](https://github.com/DockYard/ember-one-way-select)
 
 and provides a handy out-of-the-box setup for user-friendly client-side validations, featuring
 
@@ -184,7 +184,9 @@ For a minimal demo see [this twiddle](https://ember-twiddle.com/3547207b06ed896f
 | on-update | `Action` | Per default, the input elements are two-way-bound. If you want to implement custom update behavior, pass an action as `on-update`. The function receives two arguments: `update(value, changeset)`. |
 
 
-The supported field types are essentially given by [ember-one-way-controls](https://github.com/DockYard/ember-one-way-controls). This addon does not much more than translating `{{f.input type="select"}}` to `{{one-way-select}}`.
+The supported field types are "checkbox", "radioGroup", "select", "textarea" and any type that can
+be specified on an <input> element. This addon does not much more than translating `{{f.input type="select"}}` to `{{one-way-select}}` or `{{f.input type="text"}}` to `<input type="text">` with the various other
+properties (`name`, `disabled`, etc.) and event handlers.
 
 However, some field types require extra parameters. The supported field types are listed below.
 
@@ -214,7 +216,7 @@ The textarea element also supports the following options:
 
 ### Select
 
-The select element supports more options (see [{{one-way-select}}](https://github.com/DockYard/ember-one-way-controls/blob/master/docs/one-way-select.md)):
+The select element supports more options (see [{{one-way-select}}](https://github.com/DockYard/ember-one-way-select)):
 
 - `value`
 - `options`
@@ -239,7 +241,7 @@ The `prompt` property is currently not supported (see this [related issue](https
 
 ### Checkbox
 
-This component renders a [{{one-way-checkbox}}](https://github.com/DockYard/ember-one-way-controls/blob/master/docs/one-way-checkbox.md).
+This component renders an `<input type="checkbox">` elements.
 
 ```Handlebars
 {{f.input type="checkbox" label="I agree with the terms and conditions" name="terms"}}
@@ -247,7 +249,7 @@ This component renders a [{{one-way-checkbox}}](https://github.com/DockYard/embe
 
 ### Radio button group
 
-This component renders a list of [{{one-way-radio}}](https://github.com/DockYard/ember-one-way-controls/blob/master/docs/one-way-radio.md) components.
+This component renders a list of `<input type="radio">` elements.
 
 ```Handlebars
 {{f.input type="radioGroup" label="Shapes" name="shapes" options=shapes}}
