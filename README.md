@@ -44,7 +44,7 @@ First, install the addon:
 ember install ember-validated-form
 ```
 
-After, you'll need to set up
+This will also install `ember-changeset` and `ember-changeset-validations`. After, you'll need to set up
 
 * a template containing your form elements
 * a validations file (see [ember-changeset-validations](https://github.com/poteto/ember-changeset-validations))
