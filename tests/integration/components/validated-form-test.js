@@ -5,7 +5,6 @@ import { helper } from '@ember/component/helper';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import UserValidations from 'dummy/validations/user';
-import { task } from 'ember-concurrency';
 
 moduleForComponent('validated-form', 'Integration | Component | validated form', {
   integration: true
@@ -295,34 +294,6 @@ test('it skips basic validations on focus out with validateBeforeSubmit=false se
   this.$('input').blur();
 
   assert.equal(this.$('span.help-block').length, 0);
-});
-
-test('on-submit can be an ember-concurrency task (deprecated)', function(assert) {
-  let deferred = defer();
-
-  this.set('submitTask', task(function * () {
-    yield deferred.promise;
-  }));
-
-  run(() => {
-    this.set('model', EmberObject.create({}));
-  });
-
-  this.render(hbs`
-    {{#validated-form
-      model=(changeset model)
-      on-submit=submitTask
-      as |f|}}
-      {{f.submit}}
-    {{/validated-form}}
-  `);
-  assert.notOk(this.$('button').hasClass('loading'))
-
-  this.$('button').click();
-  assert.ok(this.$('button').hasClass('loading'))
-
-  run(() => deferred.resolve());
-  assert.notOk(this.$('button').hasClass('loading'))
 });
 
 test('on-submit can be an action returning a promise', function(assert) {
