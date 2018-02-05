@@ -38,6 +38,7 @@ export default Controller.extend({
   submit: task(function*(model) {
     console.log('saving', model);
     yield timeout(1000);
+    model.save();
     console.log('saved!');
   }),
 
