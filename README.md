@@ -142,7 +142,33 @@ export default {
 | validateBeforeSubmit | `Boolean` | Specifies whether to run validations on inputs before the form has been submitted. Defaults to true. |
 | on-submit    | `Action` | Action, that is triggered on form submit. The changeset is passed as a parameter. If the action returns a promise, then any rendered submit buttons will have a customizable CSS class added and the yielded `loading` template parameter will be set. |
 
-When the submission of your form can take a little longer and your users are of the impatient kind, it is often necessary to disable the submit button to prevent the form from being submitted multiple times. This can be done by using the `loading` template parameter and works very well with [ember-concurrency](http://ember-concurrency.com/) tasks.
+When the submission of your form can take a little longer and your users are of the impatient kind, it is often necessary to disable the submit button to prevent the form from being submitted multiple times. This can be done by using the `loading` template parameter:
+
+```javascript
+// controller
+import Controller from '@ember/controller';
+
+export default Controller.extend({
+  actions: {
+    submit(model) {
+      return model.save().then(() => {
+        // ... more code to show success messages etc.
+      });
+    }
+  }
+});
+```
+```Handlebars
+{{#validated-form
+  ...
+  on-submit = (action "submit")
+  as |f|}}
+  ...
+  {{f.submit label="Save" disabled=f.loading}}
+{{/validated-form}}
+```
+
+It also works very well with [ember-concurrency](http://ember-concurrency.com/) tasks:
 
 ```javascript
 // controller
@@ -159,7 +185,7 @@ export default Controller.extend({
 ```Handlebars
 {{#validated-form
   ...
-  on-submit = submit
+  on-submit = (perform submit)
   as |f|}}
   ...
   {{f.submit label="Save" disabled=f.loading}}
