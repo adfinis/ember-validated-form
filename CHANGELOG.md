@@ -4,6 +4,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.0.0]
+### Changed
+- Install `ember-changeset` and `ember-changeset-validations` from the blueprint (#86, credits to @bendemboski)
+- Update dependencies (#87, credits to @bendemboski)
+- Remove deprecated task support (#88, credits to @bendemboski)
+
+The 1.0.0 release removes ember-changeset and ember-changeset-validations as dependencies because this addon is built to make them very easy to use, but doesn't require them. So if you are using either or both of them in your application code but do not already have them in your package.json, you should run
+
+```bash
+ember install ember-changeset
+ember install ember-changeset-validations
+```
+
+This release also removes the previously deprecated API for passing ember-concourrency tasks to `on-submit`. Please see section [0.6.2] for migration instructions.
+
 ## [0.7.1]
 ### Changed
 - Fix for removal from DOM during submit (#85, credits to @bendemboski)
