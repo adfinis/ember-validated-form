@@ -53,6 +53,9 @@ test('it renders a radio group', function(assert) {
   assert.equal(this.$('label').eq(2).text().trim(), 'Option 2');
   assert.equal(this.$('label').eq(3).text().trim(), 'Option 3');
   assert.equal(this.$('label > span').length, 3, 'Wraps all label text in span');
+  assert.ok(this.$('input[type="radio"][value="1"]').length);
+  assert.ok(this.$('input[type="radio"][value="2"]').length);
+  assert.ok(this.$('input[type="radio"][value="3"]').length);
 });
 
 test('it renders a radio group with block form', function(assert) {
@@ -77,6 +80,9 @@ test('it renders a radio group with block form', function(assert) {
   assert.equal(this.$('label').eq(1).text().trim(), 'Option 1 - block form');
   assert.equal(this.$('label').eq(2).text().trim(), 'Option 2 - block form');
   assert.equal(this.$('label').eq(3).text().trim(), 'Option 3 - block form');
+  assert.ok(this.$('input[type="radio"][value="1"]').length);
+  assert.ok(this.$('input[type="radio"][value="2"]').length);
+  assert.ok(this.$('input[type="radio"][value="3"]').length);
 });
 
 test('it renders a radio group with block form and i18n support', function(assert) {
@@ -115,6 +121,9 @@ test('it renders a radio group with block form and i18n support', function(asser
   assert.equal(this.$('label').eq(1).text().trim(), 'Option One - block form');
   assert.equal(this.$('label').eq(2).text().trim(), 'Option Two - block form');
   assert.equal(this.$('label').eq(3).text().trim(), 'Option Three - block form');
+  assert.ok(this.$('input[type="radio"][value="1"]').length);
+  assert.ok(this.$('input[type="radio"][value="2"]').length);
+  assert.ok(this.$('input[type="radio"][value="3"]').length);
 
   this.container.registry.registrations['helper:t'] = null;
 });
