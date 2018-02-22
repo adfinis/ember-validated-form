@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.0.1]
+### Changed
+- fix: use radio value to expose option key (#91, credits to @makepanic)
+
 ## [1.0.0]
 ### Changed
 - Install `ember-changeset` and `ember-changeset-validations` from the blueprint (#86, credits to @bendemboski)
