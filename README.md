@@ -447,25 +447,30 @@ var ENV = {
 
 Bug reports, suggestions and pull requests are always welcome!
 
-## Installation
+###  Installation
 
 * `git clone https://github.com/adfinis-sygroup/ember-validated-form`
 * `cd ember-validated-form`
 * `yarn install`
 
-## Running
+### Linting
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+* `yarn lint:js`
+* `yarn lint:js -- --fix`
 
-## Running Tests
+### Running tests
 
 * `yarn test` (Runs `ember try:each` to test your addon against multiple Ember versions)
 * `ember test`
 * `ember test --server`
 
-## Building
+### Running
 
-* `ember build`
+* `ember serve`
+* Visit the dummy application at [http://localhost:4200](http://localhost:4200).
 
 For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+
+### License
+
+This project is licensed under the [MIT License](LICENSE.md).
