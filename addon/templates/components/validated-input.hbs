@@ -23,6 +23,7 @@
           <input
             type       = "radio"
             checked    = {{eq (or value (get model name)) option.key}}
+            value      = {{option.key}}
             name       = {{name}}
             onclick    = {{action "update" option.key}}
             onfocusout = {{action "setDirty"}}
@@ -61,6 +62,7 @@
           <input
             type       = "radio"
             checked    = {{eq (or value (get model name)) option.key}}
+            value      = {{option.key}}
             name       = {{inputId}}
             onclick    = {{action "update" option.key}}
             onfocusout = {{action "setDirty"}}
