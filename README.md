@@ -141,6 +141,7 @@ export default {
 | model        | `Object` | ember-changeset containing the model that backs the form                                                                                   |
 | validateBeforeSubmit | `Boolean` | Specifies whether to run validations on inputs before the form has been submitted. Defaults to true. |
 | on-submit    | `Action` | Action, that is triggered on form submit. The changeset is passed as a parameter. If the action returns a promise, then any rendered submit buttons will have a customizable CSS class added and the yielded `loading` template parameter will be set. |
+| autocomplete    | `String` | Binding to the [&lt;form&gt; `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#attr-autocomplete). |
 
 When the submission of your form can take a little longer and your users are of the impatient kind, it is often necessary to disable the submit button to prevent the form from being submitted multiple times. This can be done by using the `loading` template parameter:
 
@@ -208,6 +209,7 @@ For a minimal demo see [this twiddle](https://ember-twiddle.com/3547207b06ed896f
 | value | `String` | Initial value of the form field. Default: model property defined by name. |
 | validateBeforeSubmit | `Boolean` | Specifies whether to run validations on this input before the form has been submitted. Defaults to the value set on the form. |
 | on-update | `Action` | Per default, the input elements are two-way-bound. If you want to implement custom update behavior, pass an action as `on-update`. The function receives two arguments: `update(value, changeset)`. |
+| autocomplete | `String` | Binding to the [&lt;input&gt; autocomplete attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete). |
 
 
 The supported field types are "checkbox", "radioGroup", "select", "textarea" and any type that can
