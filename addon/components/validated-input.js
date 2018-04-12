@@ -17,6 +17,8 @@ export default Component.extend({
 
   dirty: false,
 
+  labelComponent: 'validated-label',
+
   required: false,
 
   type: 'text',
@@ -59,10 +61,6 @@ export default Component.extend({
       }
     }
     return false;
-  }),
-
-  requiredLabel: computed('config', function() {
-    return this.get('config.label.required') || '*';
   }),
 
   _val: computed('value', 'model', 'name', function() {

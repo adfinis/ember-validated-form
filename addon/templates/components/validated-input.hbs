@@ -1,8 +1,6 @@
 {{#if (not-eq type "checkbox")}}
-  {{#if label}}
-      <label class={{config.css.label}} for={{inputId}}>
-        {{label}}{{#if required}} {{requiredLabel}}{{/if}}
-      </label>
+  {{#if (or label (not-eq labelComponent 'validated-label'))}}
+    {{component labelComponent label=label config=config inputId=inputId required=required}}
   {{/if}}
 {{/if}}
 
@@ -74,16 +72,16 @@
 
   {{else if (eq type "checkbox")}}
     <div class="{{config.css.checkbox}}">
-      <label>
+      {{#component labelComponent label=label config=config inputId=inputId required=required}}
         <input
-          type       = "checkbox"
-          name       = {{name}}
-          disabled   = {{disabled}}
-          checked    = {{get model name}}
-          onclick    = {{action "update" value = "target.checked"}}
-          onfocusout = {{action "setDirty"}}>
-        <span>{{label}}</span>
-      </label>
+        type       = "checkbox"
+        name       = {{name}}
+        id         = {{inputId}}
+        disabled   = {{disabled}}
+        checked    = {{get model name}}
+        onclick    = {{action "update" value = "target.checked"}}
+        onfocusout = {{action "setDirty"}}>
+      {{/component}}
     </div>
 
   {{else if (eq type "textarea")}}

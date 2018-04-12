@@ -356,6 +356,30 @@ There are three integration points for custom components:
 * update the model's value with `fi.update`
 * mark your component as dirty with `fi.setDirty`
 
+
+### Custom label components
+If you want to have a label on your input which renders something non-standard (for instance tooltips), 
+then you can pass your custom component to the input in the following manner:
+```Handlebars
+{{!-- custom-label --}}
+<label style="color: green;" for={{inputId}} class={{config.css.label}}>
+  {{labelText}}
+</label>
+```
+```Handlebars
+{{f.input labelComponent=(component "custom-label" labelText="Custom Label")}}
+```
+*Note:* When adding a custom component for input of type checkbox, one has to add `{{yield}}` inside the label.
+This is because, this kind of input renders inside a label tag.
+```Handlebars
+{{!-- checkbox-label --}}
+<label style="color: green;">
+  {{yield}}
+  {{label}}
+</label>
+```
+
+
 ## Buttons
 
 `{{validated-form}}` also yields a submit button component that can be accessed with `{{f.submit}}`. You can also use it as a block style component `{{#f.submit}}Test{{/f.submit}}` if you don't want to pass the label as a property. It takes the following properties:
