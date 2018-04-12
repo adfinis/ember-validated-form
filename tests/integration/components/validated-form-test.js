@@ -440,3 +440,12 @@ test('it handles being removed from the DOM during async submit', function(asser
   run(() => deferred.resolve());
   assert.ok(true);
 });
+
+test('it binds the autocomplete attribute', function(assert) {
+  this.render(hbs`
+    {{#validated-form autocomplete="off"}}
+    {{/validated-form}}
+  `);
+
+  assert.equal(this.$('form').attr('autocomplete'), 'off');
+});

@@ -8,6 +8,7 @@ export default Component.extend({
   tagName: 'form',
 
   classNameBindings: ['_cssClass', 'submitted'],
+  attributeBindings: ['autocomplete'],
 
   loading: false,
 

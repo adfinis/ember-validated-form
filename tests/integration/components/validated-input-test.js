@@ -88,3 +88,12 @@ test('it renders textareas with model', function(assert) {
   this.render(hbs`{{validated-input type="textarea" name="firstName" model=model}}`);
   assert.equal(this.$('textarea').val(), 'Max');
 });
+
+test('it renders textareas autocomplete attribute', function(assert) {
+  this.render(hbs`{{validated-input type="textarea" autocomplete="given-name" name="firstName"}}`);
+  assert.equal(this.$('textarea').attr("autocomplete"), 'given-name');
+});
+test('it renders input autocomplete attribute', function(assert) {
+  this.render(hbs`{{validated-input type="password" autocomplete="new-password" name="password"}}`);
+  assert.equal(this.$('input').attr("autocomplete"), 'new-password');
+});
