@@ -12,6 +12,7 @@
       update       = (action 'update')
       setDirty     = (action 'setDirty')
       model        = model
+      class        = validationClass
       name         = name)
     }}
   {{else}}
@@ -20,6 +21,7 @@
         <label>
           <input
             type       = "radio"
+            class      = {{validationClass}}
             checked    = {{eq (or value (get model name)) option.key}}
             value      = {{option.key}}
             name       = {{name}}
@@ -43,7 +45,7 @@
       optionTargetPath    = optionTargetPath
       name                = name
       id                  = inputId
-      class               = config.css.control
+      class               = (concat config.css.control ' ' validationClass)
       update              = (action "update")
       focusOut            = (action "setDirty")
       includeBlank        = includeBlank
@@ -59,6 +61,7 @@
         <label>
           <input
             type       = "radio"
+            class      = {{validationClass}}
             checked    = {{eq (or value (get model name)) option.key}}
             value      = {{option.key}}
             name       = {{inputId}}
@@ -74,6 +77,7 @@
     <div class="{{config.css.checkbox}}">
       {{#component labelComponent label=label config=config inputId=inputId required=required}}
         <input
+        class      = {{validationClass}}
         type       = "checkbox"
         name       = {{name}}
         id         = {{inputId}}
@@ -88,7 +92,7 @@
     <textarea
       name        = {{name}}
       id          = {{inputId}}
-      class       = {{config.css.control}}
+      class       = "{{config.css.control}} {{validationClass}}"
       placeholder = {{placeholder}}
       disabled    = {{disabled}}
       autofocus   = {{autofocus}}
@@ -104,7 +108,7 @@
       value       = {{_val}}
       name        = {{name}}
       id          = {{inputId}}
-      class       = {{config.css.control}}
+      class       = "{{config.css.control}} {{validationClass}}"
       placeholder = {{placeholder}}
       disabled    = {{disabled}}
       autofocus   = {{autofocus}}
