@@ -1,5 +1,5 @@
-'use strict';
+"use strict";
 
 module.exports = {
-  name: 'ember-validated-form'
+  name: "ember-validated-form"
 };

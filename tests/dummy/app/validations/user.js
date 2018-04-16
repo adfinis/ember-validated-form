@@ -2,7 +2,7 @@ import {
   validatePresence,
   validateLength,
   validateInclusion
-} from 'ember-changeset-validations/validators';
+} from "ember-changeset-validations/validators";
 
 export default {
   firstName: [validatePresence(true), validateLength({ min: 3, max: 40 })],
@@ -13,7 +13,7 @@ export default {
   terms: [
     validateInclusion({
       list: [true],
-      message: 'Please accept the terms and conditions!'
+      message: "Please accept the terms and conditions!"
     })
   ],
   color: [validatePresence(true)]

@@ -1,19 +1,19 @@
-import Component from '@ember/component';
-import { computed } from '@ember/object';
-import layout from '../templates/components/validated-button';
+import Component from "@ember/component";
+import { computed } from "@ember/object";
+import layout from "../templates/components/validated-button";
 
 export default Component.extend({
   layout,
-  type: 'button',
+  type: "button",
   action: null,
 
-  tagName: 'button',
+  tagName: "button",
 
-  classNameBindings: ['loadingClass'],
+  classNameBindings: ["loadingClass"],
 
-  attributeBindings: ['disabled', 'type', 'action:onclick'],
+  attributeBindings: ["disabled", "type", "action:onclick"],
 
-  loadingClass: computed('loading', function() {
-    return this.get('loading') ? this.get('config.css.loading') : null;
+  loadingClass: computed("loading", function() {
+    return this.get("loading") ? this.get("config.css.loading") : null;
   })
 });

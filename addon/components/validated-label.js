@@ -1,6 +1,6 @@
-import Component from '@ember/component';
-import { computed } from '@ember/object';
-import layout from '../templates/components/validated-label';
+import Component from "@ember/component";
+import { computed } from "@ember/object";
+import layout from "../templates/components/validated-label";
 
 /**
  * This component generates default labels.
@@ -15,13 +15,13 @@ import layout from '../templates/components/validated-label';
 export default Component.extend({
   layout,
 
-  tagName: 'label',
+  tagName: "label",
 
-  attributeBindings: ['inputId:for'],
+  attributeBindings: ["inputId:for"],
 
-  classNameBindings: ['config.css.label'],
+  classNameBindings: ["config.css.label"],
 
-  requiredLabel: computed('config', function() {
-    return this.get('config.label.required') || '*';
-  }),
+  requiredLabel: computed("config", function() {
+    return this.get("config.label.required") || "*";
+  })
 });
