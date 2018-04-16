@@ -1,26 +1,28 @@
-'use strict';
+"use strict";
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'dummy',
+    modulePrefix: "dummy",
     environment,
-    rootURL: '/',
-    locationType: 'auto',
-    'ember-validated-form': {
+    rootURL: "/",
+    locationType: "auto",
+    "ember-validated-form": {
       label: {
-        submit: 'label.save'
+        submit: "label.save"
       },
       css: {
-        group: 'form-group',
-        radio: 'radio',
-        control: 'form-control',
-        label: 'control-label',
-        help: 'help-block',
-        hint: 'help-block',
-        checkbox: 'checkbox',
-        button: 'btn btn-default',
-        submit: 'btn btn-primary',
-        loading: 'loading'
+        group: "form-group",
+        radio: "radio",
+        control: "form-control",
+        label: "col-form-label",
+        help: "small form-text text-danger",
+        hint: "small form-text text-muted",
+        checkbox: "checkbox",
+        button: "btn btn-default",
+        submit: "btn btn-primary",
+        loading: "loading",
+        valid: "is-valid",
+        invalid: "is-invalid"
       }
     },
     EmberENV: {
@@ -40,7 +42,7 @@ module.exports = function(environment) {
     }
   };
 
-  if (environment === 'development') {
+  if (environment === "development") {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -48,21 +50,21 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
-  if (environment === 'test') {
+  if (environment === "test") {
     // Testem prefers this...
-    ENV.locationType = 'none';
+    ENV.locationType = "none";
 
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
-    ENV.APP.rootElement = '#ember-testing';
+    ENV.APP.rootElement = "#ember-testing";
     ENV.APP.autoboot = false;
   }
 
-  if (environment === 'production') {
-    ENV.locationType = 'hash';
-    ENV.rootURL = '/ember-validated-form/';
+  if (environment === "production") {
+    ENV.locationType = "hash";
+    ENV.rootURL = "/ember-validated-form/";
   }
 
   return ENV;
