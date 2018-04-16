@@ -1,14 +1,14 @@
-import { resolve } from 'rsvp';
-import { computed } from '@ember/object';
-import { getOwner } from '@ember/application';
-import Component from '@ember/component';
-import layout from '../templates/components/validated-form';
+import { resolve } from "rsvp";
+import { computed } from "@ember/object";
+import { getOwner } from "@ember/application";
+import Component from "@ember/component";
+import layout from "../templates/components/validated-form";
 
 export default Component.extend({
-  tagName: 'form',
+  tagName: "form",
 
-  classNameBindings: ['_cssClass', 'submitted'],
-  attributeBindings: ['autocomplete'],
+  classNameBindings: ["_cssClass", "submitted"],
+  attributeBindings: ["autocomplete"],
 
   loading: false,
 
@@ -20,27 +20,27 @@ export default Component.extend({
 
   init() {
     this._super(...arguments);
-    if (this.get('model') && this.get('model').validate) {
-      this.get('model').validate();
+    if (this.get("model") && this.get("model").validate) {
+      this.get("model").validate();
     }
 
     let owner = getOwner(this);
     let factory = owner.factoryFor
-      ? owner.factoryFor('service:i18n')
-      : owner._lookupFactory('service:i18n');
-    this.set('i18n', factory ? factory.create() : null);
+      ? owner.factoryFor("service:i18n")
+      : owner._lookupFactory("service:i18n");
+    this.set("i18n", factory ? factory.create() : null);
   },
 
-  _cssClass: computed('config', function() {
-    return this.get('config.css.form');
+  _cssClass: computed("config", function() {
+    return this.get("config.css.form");
   }),
 
-  _submitLabel: computed('config', 'submit-label', function() {
-    return this._getLabel('submit') || 'Save';
+  _submitLabel: computed("config", "submit-label", function() {
+    return this._getLabel("submit") || "Save";
   }),
 
   _getLabel(type) {
-    const i18n = this.get('i18n');
+    const i18n = this.get("i18n");
     const label = this._config(type);
     return i18n ? i18n.t(label) : label;
   },
@@ -49,13 +49,13 @@ export default Component.extend({
     return this.get(`config.label.${type}`);
   },
 
-  submitClass: computed('config', function() {
-    return this.get(`config.css.submit`) || this.get('config.css.button');
+  submitClass: computed("config", function() {
+    return this.get(`config.css.submit`) || this.get("config.css.button");
   }),
 
   submit() {
-    this.set('submitted', true);
-    const model = this.get('model');
+    this.set("submitted", true);
+    const model = this.get("model");
 
     if (!model || !model.validate) {
       this.runOnSubmit();
@@ -68,7 +68,7 @@ export default Component.extend({
         return;
       }
 
-      if (model.get('isInvalid')) {
+      if (model.get("isInvalid")) {
         return false;
       }
       this.runOnSubmit();
@@ -77,16 +77,16 @@ export default Component.extend({
   },
 
   runOnSubmit() {
-    const onSubmit = this.get('on-submit');
-    const model = this.get('model');
+    const onSubmit = this.get("on-submit");
+    const model = this.get("model");
 
-    this.set('loading', true);
+    this.set("loading", true);
     resolve(onSubmit(model)).finally(() => {
       if (!this.element) {
         // We were removed from the DOM while running on-submit()
         return;
       }
-      this.set('loading', false);
+      this.set("loading", false);
     });
   }
 });

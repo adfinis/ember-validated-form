@@ -1,50 +1,49 @@
-import Controller from '@ember/controller';
-import UserValidations from 'dummy/validations/user';
-import { task, timeout } from 'ember-concurrency';
+import Controller from "@ember/controller";
+import UserValidations from "dummy/validations/user";
+import { task, timeout } from "ember-concurrency";
 
 export default Controller.extend({
   UserValidations,
-
 
   init() {
     this._super(...arguments);
 
     this.colors = [
-      { name: 'Red', color: 'red' },
-      { name: 'Green', color: 'green' },
-      { name: 'Blue', color: 'blue' }
+      { name: "Red", color: "red" },
+      { name: "Green", color: "green" },
+      { name: "Blue", color: "blue" }
     ];
 
     this.countries = [
-      'United States',
-      'United Kingdom',
-      'Switzerland',
-      'Other'
+      "United States",
+      "United Kingdom",
+      "Switzerland",
+      "Other"
     ];
 
-    this.genders= [
+    this.genders = [
       {
-        key: 'm',
-        label: 'Male'
+        key: "m",
+        label: "Male"
       },
       {
-        key: 'f',
-        label: 'Female'
+        key: "f",
+        label: "Female"
       }
     ];
   },
 
   /* eslint-disable no-console*/
   submit: task(function*(model) {
-    console.log('saving', model);
+    console.log("saving", model);
     yield timeout(1000);
     model.save();
-    console.log('saved!');
+    console.log("saved!");
   }),
 
   actions: {
     cancel() {
-      console.log('cancel');
+      console.log("cancel");
     }
   }
 });

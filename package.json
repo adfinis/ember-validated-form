@@ -9,21 +9,28 @@
     "validation messages"
   ],
   "license": "MIT",
-  "author": "Adfinis SyGroup",
+  "author": "Adfinis SyGroup AG <info@adfinis-sygroup.ch>",
   "directories": {
-    "doc": "doc",
     "test": "tests"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/adfinis-sygroup/ember-validated-form"
   },
+  "homepage": "https://adfinis-sygroup.github.io/ember-validated-form",
+  "bugs": {
+    "url": "https://github.com/adfinis-sygroup/ember-validated-form/issues"
+  },
   "scripts": {
     "build": "ember build",
-    "lint:js": "eslint ./*.js addon addon-test-support app config lib server test-support tests",
+    "lint:js":
+      "eslint ./*.js addon addon-test-support app config lib server test-support tests",
     "start": "ember serve",
     "test": "ember try:each",
-    "deploy": "ember github-pages:commit --message \"Deploy gh-pages from commit $(git rev-parse HEAD)\"; git push; git checkout -"
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": ["prettier --write", "git add"]
   },
   "dependencies": {
     "ember-cli-babel": "^6.6.0",
@@ -36,6 +43,7 @@
     "ember-changeset": "^1.4.1",
     "ember-changeset-validations": "^1.2.10",
     "ember-cli": "~3.0.0",
+    "ember-cli-app-version": "^3.1.3",
     "ember-cli-dependency-checker": "^2.0.0",
     "ember-cli-eslint": "^4.2.1",
     "ember-cli-github-pages": "0.1.2",
@@ -58,6 +66,8 @@
     "ember-try": "^0.2.23",
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-node": "^6.0.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.0.4",
     "loader.js": "^4.2.3"
   },
   "engines": {
@@ -65,6 +75,6 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
-    "demoURL": "https://adfinis-sygroup.github.io/ember-validated-form/"
+    "demoURL": "https://adfinis-sygroup.github.io/ember-validated-form"
   }
 }
