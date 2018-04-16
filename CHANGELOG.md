@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [1.3.0]
+
+### Changed
+
+* Bootstrap 4 support (#100, credits to @anehx)
+* Add valid and invalid class to input component (#100, credits to @anehx)
+* Only set valid class if value is dirty (#100, credits to @anehx)
+
 ## [1.2.0]
 
 ### Changed
