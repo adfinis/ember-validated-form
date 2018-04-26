@@ -1,0 +1,6 @@
+{{!-- BEGIN-SNIPPET custom-label-component-template.hbs --}}
+<label style="color: green;" for={{inputId}} class={{config.css.label}}>
+  {{yield}} {{!-- Required if the label is used for a checkbox --}}
+  {{labelText}}
+</label>
+{{!-- END-SNIPPET --}}

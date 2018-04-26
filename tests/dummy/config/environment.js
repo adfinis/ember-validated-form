@@ -6,6 +6,9 @@ module.exports = function(environment) {
     environment,
     rootURL: "/",
     locationType: "auto",
+    i18n: {
+      defaultLocale: "fr"
+    },
     "ember-validated-form": {
       label: {
         submit: "label.save"

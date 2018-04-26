@@ -3,16 +3,19 @@ import { computed } from "@ember/object";
 import Component from "@ember/component";
 
 export default Component.extend({
-  tagName: "",
+  classNames: ["badge", "badge-primary"],
 
-  colorStyle: computed("color.color", function() {
-    let color = this.get("color.color");
-    return htmlSafe("background-color:" + color + ";");
+  attributeBindings: ["style"],
+
+  style: computed("color.color", function() {
+    return htmlSafe(
+      `background-color: ${this.get(
+        "color.color"
+      )}; font-size: 1rem; cursor: pointer;`
+    );
   }),
 
-  actions: {
-    onclick() {
-      this.get("colorSelected")(this.get("color"));
-    }
+  click() {
+    this.get("colorSelected")(this.get("color"));
   }
 });
