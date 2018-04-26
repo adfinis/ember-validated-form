@@ -5,7 +5,8 @@ module.exports = function(environment) {
     modulePrefix: "dummy",
     environment,
     rootURL: "/",
-    locationType: "auto",
+    locationType: "router-scroll",
+    historySupportMiddleware: true,
     i18n: {
       defaultLocale: "fr"
     },
@@ -66,8 +67,7 @@ module.exports = function(environment) {
   }
 
   if (environment === "production") {
-    ENV.locationType = "hash";
-    ENV.rootURL = "/ember-validated-form/";
+    ENV.rootURL = "ADDON_DOCS_ROOT_URL";
   }
 
   return ENV;
