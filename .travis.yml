@@ -43,16 +43,7 @@ script:
   - yarn lint:js
   - yarn ember try:one $EMBER_TRY_SCENARIO --skip-cleanup
 
-jobs:
-  include:
-    - stage: deploy
-      script: yarn build -prod
-      env: []
-      if: tag IS present
-      deploy:
-        provider: pages
-        skip_cleanup: true
-        github_token: $GITHUB_TOKEN
-        local_dir: dist
-        on:
-          tags: true
+stages:
+  - name: deploy
+    if: (branch = master or tag is present) and type = push
+    script: yarn ember deploy production
