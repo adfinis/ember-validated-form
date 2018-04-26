@@ -6,6 +6,7 @@ module.exports = function(environment) {
     environment,
     rootURL: "/",
     locationType: "router-scroll",
+    historySupportMiddleware: true,
     i18n: {
       defaultLocale: "fr"
     },
