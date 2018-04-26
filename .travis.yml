@@ -43,7 +43,8 @@ script:
   - yarn lint:js
   - yarn ember try:one $EMBER_TRY_SCENARIO --skip-cleanup
 
-stages:
-  - name: deploy
-    if: (branch = master or tag is present) and type = push
-    script: yarn ember deploy production
+jobs:
+  include:
+    - stage: deploy
+      if: (branch = master or tag is present) and type = push
+      script: yarn ember deploy production
