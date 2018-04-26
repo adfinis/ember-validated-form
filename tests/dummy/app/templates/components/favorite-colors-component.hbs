@@ -1,13 +1,9 @@
-<div onclick={{action 'toggle'}} onmouseover={{action 'onhover'}}>
-  {{#if hasSelected}}
-    {{selected.name}} <button onclick={{action 'clearSelection'}}>Clear Selection</button>
-  {{else}}
-    Click to choose your favorite color!
-  {{/if}}
-</div>
-
-{{#if isShowingColors}}
-  {{#each colors as |color|}}
-    {{color-component color=color colorSelected=(action 'onColorSelected')}}
-  {{/each}}
+{{#if hasSelected}}
+  {{selected.name}} <button class="btn btn-secondary" onclick={{action 'clearSelection'}}>Clear Selection</button>
+  <br>
+  <br>
 {{/if}}
+
+{{#each colors as |color|}}
+  {{color-component color=color colorSelected=(action 'onColorSelected')}}
+{{/each}}

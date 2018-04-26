@@ -1,3 +1,4 @@
+// BEGIN-SNIPPET quickstart-controller.js
 import Controller from "@ember/controller";
 import UserValidations from "dummy/validations/user";
 import { task, timeout } from "ember-concurrency";
@@ -33,17 +34,9 @@ export default Controller.extend({
     ];
   },
 
-  /* eslint-disable no-console*/
   submit: task(function*(model) {
-    console.log("saving", model);
     yield timeout(1000);
     model.save();
-    console.log("saved!");
-  }),
-
-  actions: {
-    cancel() {
-      console.log("cancel");
-    }
-  }
+  })
 });
+// END-SNIPPET

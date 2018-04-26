@@ -1,13 +1,14 @@
 import Route from "@ember/routing/route";
 import EmberObject from "@ember/object";
+import { Promise } from "rsvp";
+import { later } from "@ember/runloop";
 
 export default Route.extend({
-  // BEGIN-SNIPPET quickstart-route.js
+  // BEGIN-SNIPPET validated-form-route.js
   model() {
     return EmberObject.create({
-      saved: false,
       save() {
-        this.set("saved", true);
+        return new Promise(resolve => later(resolve, 1000));
       }
     });
   }

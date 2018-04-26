@@ -1,3 +1,4 @@
+// BEGIN-SNIPPET quickstart-validations.js
 import {
   validatePresence,
   validateLength,
@@ -18,3 +19,4 @@ export default {
   ],
   color: [validatePresence(true)]
 };
+// END-SNIPPET

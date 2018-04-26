@@ -1,10 +1,12 @@
 import { defer } from "rsvp";
 import { run } from "@ember/runloop";
 import EmberObject from "@ember/object";
-import { helper } from "@ember/component/helper";
+import Service from "@ember/service";
+import { getOwner } from "@ember/application";
 import { moduleForComponent, test } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import UserValidations from "dummy/validations/user";
+import tHelper from "ember-i18n/helper";
 
 moduleForComponent(
   "validated-form",
@@ -152,19 +154,16 @@ test("it renders a radio group with block form", function(assert) {
 });
 
 test("it renders a radio group with block form and i18n support", function(assert) {
-  this.container.registry.registrations["helper:t"] = helper(function(arg) {
-    const key = arg[0];
-    switch (key) {
-      case "label.foo":
-        return "Option One";
-      case "label.bar":
-        return "Option Two";
-      case "label.baz":
-        return "Option Three";
-      default:
-        return false;
-    }
+  let i18n = getOwner(this).lookup("service:i18n");
+
+  i18n.set("locale", "en");
+  i18n.addTranslations("en", {
+    "label.foo": "Option One",
+    "label.bar": "Option Two",
+    "label.baz": "Option Three"
   });
+
+  this.register("helper:t", tHelper);
 
   this.set("buttonGroupData", {
     options: [
@@ -303,6 +302,8 @@ test("it supports default button labels with i18n support", function(assert) {
 });
 
 test("it supports default button labels without i18n support", function(assert) {
+  getOwner(this).register("service:i18n", Service.extend({ t: k => k }));
+
   this.on("stub", function() {});
 
   this.render(hbs`

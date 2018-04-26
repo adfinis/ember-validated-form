@@ -1,43 +1,66 @@
-{{#validated-form
-  on-submit = submit
-  model     = (changeset model UserValidations)
-  as |f|}}
+{{docs-header}}
 
-  {{f.input label="First name" name="firstName" required=true}}
-  {{f.input label="Last name" name="lastName" required=true}}
+{{docs-hero
+  logo='ember'
+  slimHeading='Validated'
+  strongHeading='Form'
+  byline='Easily create forms with client side validations.'}}
 
-  {{f.input type="textarea" label="About me" name="aboutMe" hint="Example help text"}}
+<p class="my-4 text-center">Built with ♥ by <a href="https://github.com/adfinis-sygroup">Adfinis SyGroup</a></p>
 
-  {{f.input
-    type         = "select"
-    label        = "Country"
-    name         = "country"
-    options      = countries
-    includeBlank = "Please choose..."
-    required     = true
-    promptIsSelectable = false
-    }}
+<div class="text-center">
+  <a href="http://emberobserver.com/addons/ember-validated-form" rel="nofollow"><img alt="Ember Observer Score" src="http://emberobserver.com/badges/ember-validated-form.svg"></a>
+  <a href="https://travis-ci.org/adfinis-sygroup/ember-validated-form" rel="nofollow"><img alt="Build Status" src="https://travis-ci.org/adfinis-sygroup/ember-validated-form.svg?branch=master"></a>
+  <a href="https://david-dm.org/adfinis-sygroup/ember-validated-form" rel="nofollow"><img alt="Dependency status" src="https://david-dm.org/adfinis-sygroup/ember-validated-form.svg"></a>
+  <a href="https://github.com/prettier/prettier"><img alt="Code style" src="https://img.shields.io/badge/code_style-prettier-red.svg"></a>
+</div>
 
-  {{f.input type="radioGroup" label="Gender" name="gender" options=genders required=true}}
+<div class="docs-container">
+  {{#docs-demo as |demo|}}
+    {{#demo.example}}
+      {{!-- BEGIN-SNIPPET quickstart-template.hbs --}}
+      {{#if model.saved}}
+        <div class="alert alert-success">
+          Model was successfully saved!
+        </div>
+      {{/if}}
 
-  {{#f.input label="Favorite Color" name="color" required=true as |fi|}}
-    {{favorite-colors-component selected=fi.value colors=colors onupdate=fi.update onhover=fi.setDirty}}
-  {{/f.input}}
+      {{#validated-form
+        model = (changeset model UserValidations)
+        on-submit = (perform submit)
+        as |f|}}
 
-  {{f.input type="checkbox" label="I agree with the terms and conditions" name="terms"}}
+        {{f.input label='First name' name='firstName' required=true}}
+        {{f.input label='Last name' name='lastName' required=true}}
 
-  {{f.submit label="Save"}}
-{{/validated-form}}
+        {{f.input type='textarea' label='About me' name='aboutMe'}}
 
-{{#if model.saved}}
-  Model properties:
-  <ul>
-    <li>firstName={{model.firstName}}</li>
-    <li>lastName={{model.lastName}}</li>
-    <li>aboutMe={{model.aboutMe}}</li>
-    <li>country={{model.country}}</li>
-    <li>gender={{model.gender}}</li>
-    <li>color={{model.color.color}}</li>
-    <li>terms={{model.terms}}</li>
-  </ul>
-{{/if}}
+        {{f.input
+          type         = 'select'
+          label        = 'Country'
+          name         = 'country'
+          includeBlank = 'Select a country'
+          options      = countries
+          value        = model.country
+          required     = true
+        }}
+
+        {{f.input type='radioGroup' label='Gender' name='gender' options=genders required=true}}
+
+        {{#f.input label='Favorite Color' name='color' required=true as |fi|}}
+          {{favorite-colors-component selected=fi.value colors=colors onupdate=fi.update onhover=fi.setDirty}}
+        {{/f.input}}
+
+        {{f.input type='checkbox' label='I agree with the terms and conditions' name='terms' required=true}}
+
+        {{f.submit label='Save'}}
+      {{/validated-form}}
+      {{!-- END-SNIPPET --}}
+    {{/demo.example}}
+
+    {{demo.snippet 'quickstart-template.hbs'}}
+    {{demo.snippet 'quickstart-route.js' label='route.js'}}
+    {{demo.snippet 'quickstart-controller.js'}}
+    {{demo.snippet 'quickstart-validations.js' label='validations/user.js'}}
+  {{/docs-demo}}
+</div>
