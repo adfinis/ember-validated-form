@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: "dummy",
     environment,
     rootURL: "/",
-    locationType: "auto",
+    locationType: "router-scroll",
     i18n: {
       defaultLocale: "fr"
     },
