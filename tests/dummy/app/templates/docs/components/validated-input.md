@@ -1,7 +1,7 @@
 ## Validated input
 
 `{{validated-form}}` yields an object, that contains the [contextual
-component](http://emberjs.com/blog/2016/01/15/ember-2-3-released.html#toc_contextual-components)
+component](https://emberjs.com/blog/2016/01/15/ember-2-3-released.html#toc_contextual-components)
 `input`. All input fields share some common properties:
 
 <div class="rounded border bg-grey-lightest my-8 p-4">
