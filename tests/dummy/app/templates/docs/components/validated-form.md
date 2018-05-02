@@ -16,10 +16,16 @@ submitted. Defaults to true.
 <br>
 **on-submit `<Action>`**
 <br>
-Action, that is triggered on form submit. The changeset is passed as a
-parameter. If the action returns a promise, then any rendered submit buttons
-will have a customizable CSS class added and the yielded `loading` template
-parameter will be set.
+Action, that is triggered on form submit if the changeset is valid. The
+changeset is passed as a parameter. If the action returns a promise, then any
+rendered submit buttons will have a customizable CSS class added and the yielded
+ `loading` template parameter will be set.
+<br>
+<br>
+**on-invalid-submit `<Action>`**
+<br>
+Action, that is triggered on form submit if the changset is invalid. The
+changeset is passed as a parameter. (Optional)
 <br>
 <br>
 **autocomplete `<String>`**
