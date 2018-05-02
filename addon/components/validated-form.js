@@ -69,9 +69,10 @@ export default Component.extend({
       }
 
       if (model.get("isInvalid")) {
-        return false;
+        this.runOnInvalidSubmit();
+      } else {
+        this.runOnSubmit();
       }
-      this.runOnSubmit();
     });
     return false;
   },
@@ -82,6 +83,24 @@ export default Component.extend({
 
     this.set("loading", true);
     resolve(onSubmit(model)).finally(() => {
+      if (!this.element) {
+        // We were removed from the DOM while running on-submit()
+        return;
+      }
+      this.set("loading", false);
+    });
+  },
+
+  runOnInvalidSubmit() {
+    const onInvalidSubmit = this.get("on-invalid-submit");
+    if (typeof onInvalidSubmit !== "function") {
+      return resolve(false);
+    }
+
+    const model = this.get("model");
+
+    this.set("loading", true);
+    resolve(onInvalidSubmit(model)).finally(() => {
       if (!this.element) {
         // We were removed from the DOM while running on-submit()
         return;
