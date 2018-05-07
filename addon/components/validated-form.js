@@ -4,6 +4,9 @@ import { getOwner } from "@ember/application";
 import Component from "@ember/component";
 import layout from "../templates/components/validated-form";
 
+const PROP_ON_SUBMIT = "on-submit";
+const PROP_ON_INVALID_SUBMIT = "on-invalid-submit";
+
 export default Component.extend({
   tagName: "form",
 
@@ -58,7 +61,7 @@ export default Component.extend({
     const model = this.get("model");
 
     if (!model || !model.validate) {
-      this.runOnSubmit();
+      this.runCallback(PROP_ON_SUBMIT);
       return false;
     }
 
@@ -69,38 +72,23 @@ export default Component.extend({
       }
 
       if (model.get("isInvalid")) {
-        this.runOnInvalidSubmit();
+        this.runCallback(PROP_ON_INVALID_SUBMIT);
       } else {
-        this.runOnSubmit();
+        this.runCallback(PROP_ON_SUBMIT);
       }
     });
     return false;
   },
 
-  runOnSubmit() {
-    const onSubmit = this.get("on-submit");
-    const model = this.get("model");
-
-    this.set("loading", true);
-    resolve(onSubmit(model)).finally(() => {
-      if (!this.element) {
-        // We were removed from the DOM while running on-submit()
-        return;
-      }
-      this.set("loading", false);
-    });
-  },
-
-  runOnInvalidSubmit() {
-    const onInvalidSubmit = this.get("on-invalid-submit");
-    if (typeof onInvalidSubmit !== "function") {
-      return resolve(false);
+  runCallback(callbackProp) {
+    const callback = this.get(callbackProp);
+    if (typeof callback !== "function") {
+      return;
     }
-
     const model = this.get("model");
 
     this.set("loading", true);
-    resolve(onInvalidSubmit(model)).finally(() => {
+    resolve(callback(model)).finally(() => {
       if (!this.element) {
         // We were removed from the DOM while running on-submit()
         return;
