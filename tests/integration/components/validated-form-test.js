@@ -355,6 +355,63 @@ test("it performs basic validations on submit", function(assert) {
   );
 });
 
+test("it calls on-invalid-submit after submit if changeset is invalid", function(assert) {
+  let invalidSubmitCalled;
+  this.on("invalidSubmit", function() {
+    invalidSubmitCalled = true;
+  });
+  this.set("UserValidations", UserValidations);
+
+  run(() => {
+    this.set(
+      "model",
+      EmberObject.create({
+        firstName: "x"
+      })
+    );
+  });
+
+  this.render(hbs`
+    {{#validated-form
+      model=(changeset model UserValidations)
+      on-invalid-submit=(action "invalidSubmit")
+      as |f|}}
+      {{f.input label="First name" name="firstName"}}
+      {{f.submit}}
+    {{/validated-form}}
+  `);
+  this.$("button").click();
+  assert.equal(invalidSubmitCalled, true);
+});
+
+test("it does not call on-invalid-submit after submit if changeset is valid", function(assert) {
+  let invalidSubmitCalled, submitCalled;
+  this.on("submit", function() {
+    submitCalled = true;
+  });
+  this.on("invalidSubmit", function() {
+    invalidSubmitCalled = true;
+  });
+
+  run(() => {
+    this.set("model", EmberObject.create({}));
+  });
+
+  this.render(hbs`
+    {{#validated-form
+      model=model
+      on-submit=(action "submit")
+      on-invalid-submit=(action "invalidSubmit")
+      as |f|}}
+      {{f.input label="First name" name="firstName"}}
+      {{f.submit}}
+    {{/validated-form}}
+  `);
+  this.$("button").click();
+  assert.notOk(invalidSubmitCalled);
+  assert.equal(submitCalled, true);
+});
+
 test("it performs basic validations on focus out", function(assert) {
   this.on("submit", function() {});
   this.set("UserValidations", UserValidations);
