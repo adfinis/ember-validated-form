@@ -1,1 +1,2 @@
+/blueprints/*/files/**/*.js
 tests/dummy/app/snippets/*.js

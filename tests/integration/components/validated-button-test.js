@@ -1,30 +1,18 @@
-import { moduleForComponent, test } from "ember-qunit";
+import { module, test } from "qunit";
+import { setupRenderingTest } from "ember-qunit";
+import { render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
 
-moduleForComponent(
-  "validated-button",
-  "Integration | Component | validated button",
-  {
-    integration: true
-  }
-);
+module("Integration | Component | validated button", function(hooks) {
+  setupRenderingTest(hooks);
 
-test("it renders a button with a label", function(assert) {
-  this.render(hbs`{{validated-button label="Test"}}`);
-  assert.equal(
-    this.$("button")
-      .text()
-      .trim(),
-    "Test"
-  );
-});
+  test("it renders a button with a label", async function(assert) {
+    await render(hbs`{{validated-button label="Test"}}`);
+    assert.dom("button").hasText("Test");
+  });
 
-test("it renders a button with block style", function(assert) {
-  this.render(hbs`{{#validated-button}}Test{{/validated-button}}`);
-  assert.equal(
-    this.$("button")
-      .text()
-      .trim(),
-    "Test"
-  );
+  test("it renders a button with block style", async function(assert) {
+    await render(hbs`{{#validated-button}}Test{{/validated-button}}`);
+    assert.dom("button").hasText("Test");
+  });
 });
