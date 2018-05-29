@@ -17,7 +17,7 @@ const ENV = {
       submit: "btn btn-primary",
       loading: "loading",
       valid: "is-valid",
-      invalid: "is-invalid"
+      error: "is-invalid"
     }
   }
   // ...
