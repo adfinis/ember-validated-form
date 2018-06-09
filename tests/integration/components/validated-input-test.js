@@ -269,4 +269,18 @@ module("Integration | Component | validated input", function(hooks) {
 
     assert.dom("div.dirty").exists();
   });
+
+  test("it yields the input id to the block", async function(assert) {
+    await render(
+      hbs`
+        {{#validated-input label="Name" as |fi|}}
+          <input id={{fi.inputId}} />
+        {{/validated-input}}
+      `
+    );
+
+    let label = this.element.querySelector("label");
+    let input = this.element.querySelector("input");
+    assert.equal(label.getAttribute("for"), input.getAttribute("id"));
+  });
 });
