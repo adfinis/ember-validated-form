@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.4.0]
+
+### Changed
+
+* Update ember to version 3.1
+* Fix mixed content in docs (#107 / #108, credits to @sliverc)
+* Fix wrong bootstrap class in documentation (#114, credits to @kimroen)
+
+### Added
+
+* `on-invalid-submit` action gets called on submitting an invalid form (#111, credits to @omairvaiyani)
+* `inputId` is yielded from the `validated-input` component (#115, credits to @kimroen)
+
 ## [1.3.1]
 
 ### Changed
