@@ -1,6 +1,6 @@
 import { module, test } from "qunit";
 import { setupRenderingTest } from "ember-qunit";
-import { render } from "@ember/test-helpers";
+import { render, click } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
 import Changeset from "ember-changeset";
 
@@ -127,5 +127,160 @@ module("Integration | Component | validated input", function(hooks) {
     );
 
     assert.dom("input").hasAttribute("autocomplete", "new-password");
+  });
+
+  test("it renders the block if provided", async function(assert) {
+    await render(
+      hbs`
+        {{#validated-input as |fi|}}
+          <div id="custom-input"></div>
+        {{/validated-input}}
+      `
+    );
+
+    assert.dom("#custom-input").exists();
+  });
+
+  test("it yields the value provided to the block", async function(assert) {
+    await render(
+      hbs`
+        {{#validated-input value="my-value" as |fi|}}
+          <input value={{fi.value}} />
+        {{/validated-input}}
+      `
+    );
+
+    assert.dom("input").hasValue("my-value");
+  });
+
+  test("it yields the name from the model as value", async function(assert) {
+    this.set("model", new Changeset({ firstName: "Max" }));
+
+    await render(
+      hbs`
+        {{#validated-input model=model name="firstName" as |fi|}}
+          <input value={{fi.value}} />
+        {{/validated-input}}
+      `
+    );
+
+    assert.dom("input").hasValue("Max");
+  });
+
+  test("it yields the value as value if both model and value is provided", async function(assert) {
+    this.set("model", new Changeset({ firstName: "Max" }));
+
+    await render(
+      hbs`
+        {{#validated-input model=model name="firstName" value="Other Value" as |fi|}}
+          <input value={{fi.value}} />
+        {{/validated-input}}
+      `
+    );
+
+    assert.dom("input").hasValue("Other Value");
+  });
+
+  test("it yields the css control class as controlClass", async function(assert) {
+    this.set("config", {
+      css: {
+        control: "foobar"
+      }
+    });
+
+    await render(
+      hbs`
+        {{#validated-input config=config as |fi|}}
+          <input class="{{fi.controlClass}}" />
+        {{/validated-input}}
+      `
+    );
+
+    assert.dom("input").hasClass("foobar");
+  });
+
+  test("it yields the provided name", async function(assert) {
+    await render(
+      hbs`
+        {{#validated-input name="foobar" as |fi|}}
+          <input name={{fi.name}} />
+        {{/validated-input}}
+      `
+    );
+
+    assert.dom("input").hasAttribute("name", "foobar");
+  });
+
+  test("it yields the validation class as class", async function(assert) {
+    await render(
+      hbs`
+        {{#validated-input dirty=true as |fi|}}
+          <input class={{fi.class}} />
+        {{/validated-input}}
+      `
+    );
+
+    assert.dom("input").hasClass("valid");
+  });
+
+  test("it yields the model", async function(assert) {
+    this.set("model", new Changeset({ firstName: "Max" }));
+
+    await render(
+      hbs`
+        {{#validated-input model=model as |fi|}}
+          <input value={{fi.model.firstName}} />
+        {{/validated-input}}
+      `
+    );
+
+    assert.dom("input").hasValue("Max");
+  });
+
+  test("it yields an action for updating the model", async function(assert) {
+    let model = new Changeset({ firstName: "Max" });
+    this.set("model", model);
+
+    await render(
+      hbs`
+        {{#validated-input model=model name="firstName" as |fi|}}
+          <button onclick={{action fi.update "Merlin"}}></button>
+        {{/validated-input}}
+      `
+    );
+
+    await click("button");
+
+    assert.equal("Merlin", model.get("firstName"));
+  });
+
+  test("it yields an action marking the input as dirty", async function(assert) {
+    await render(
+      hbs`
+        {{#validated-input as |fi|}}
+          <button onclick={{action fi.setDirty}}></button>
+        {{/validated-input}}
+      `
+    );
+
+    assert.dom("div.dirty").doesNotExist();
+
+    await click("button");
+
+    assert.dom("div.dirty").exists();
+  });
+
+  test("it yields the input id to the block", async function(assert) {
+    await render(
+      hbs`
+        {{#validated-input label="Name" as |fi|}}
+          <input id={{fi.inputId}} />
+        {{/validated-input}}
+      `
+    );
+
+    let label = this.element.querySelector("label");
+    let input = this.element.querySelector("input");
+    assert.equal(label.getAttribute("for"), input.getAttribute("id"));
   });
 });
