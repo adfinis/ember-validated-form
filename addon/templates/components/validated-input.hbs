@@ -85,9 +85,10 @@
 
   {{else}}
 
-    {{component (concat "one-way-" type step)
+    {{component (concat "one-way-" type)
       value       = (or value (get model name))
       options     = options
+      step        = step
       name        = name
       class       = config.css.control
       update      = (action "update")
