@@ -283,4 +283,16 @@ module("Integration | Component | validated input", function(hooks) {
     let input = this.element.querySelector("input");
     assert.equal(label.getAttribute("for"), input.getAttribute("id"));
   });
+
+  test("it can change the value from outside the input", async function(assert) {
+    this.set("model", new Changeset({ firstName: "Max" }));
+
+    await render(hbs`{{validated-input name="firstName" model=model}}`);
+
+    assert.dom("input").hasValue("Max");
+
+    this.set("model.firstName", "Hans");
+
+    assert.dom("input").hasValue("Hans");
+  });
 });

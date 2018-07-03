@@ -1,4 +1,4 @@
-import { computed } from "@ember/object";
+import { computed, defineProperty } from "@ember/object";
 import Component from "@ember/component";
 import layout from "../templates/components/validated-input";
 
@@ -26,6 +26,18 @@ export default Component.extend({
   validateBeforeSubmit: true,
 
   classNameBindings: ["dirty", "config.css.group", "validationClass"],
+
+  init() {
+    this._super(...arguments);
+
+    defineProperty(
+      this,
+      "_val",
+      computed("value", `model.${this.get("name")}`, "name", function() {
+        return this.get("value") || this.get(`model.${this.get("name")}`);
+      })
+    );
+  },
 
   inputId: computed("elementId", "name", function() {
     return `${this.get("elementId")}-input-${this.get("name")}`;
@@ -69,10 +81,6 @@ export default Component.extend({
       return false;
     }
   ),
-
-  _val: computed("value", "model", "name", function() {
-    return this.get("value") || this.get(`model.${this.get("name")}`);
-  }),
 
   actions: {
     setDirty() {
