@@ -76,7 +76,7 @@
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-prettier": "2.6.0",
     "husky": "^0.14.3",
     "lint-staged": "^7.0.4",
     "loader.js": "^4.2.3",
