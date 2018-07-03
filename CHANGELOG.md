@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [1.4.1]
+
+### Changed
+
+* Fix changing of a changeset property from outside of the form (#118)
+
 ## [1.4.0]
 
 ### Changed
