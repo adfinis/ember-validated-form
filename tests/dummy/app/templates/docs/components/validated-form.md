@@ -30,7 +30,7 @@ changeset is passed as a parameter. (Optional)
 <br>
 **autocomplete `<String>`**
 <br>
-Binding to the [&lt;form&gt; `autocomplete`
+Binding to the [`<form>` `autocomplete`
 attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#attr-autocomplete).
 </div>
 
