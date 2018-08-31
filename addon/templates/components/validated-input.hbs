@@ -1,130 +1,28 @@
-{{#if (not-eq type "checkbox")}}
-  {{#if (or label (not-eq labelComponent 'validated-label'))}}
-    {{component labelComponent label=label config=config inputId=inputId required=required}}
-  {{/if}}
-{{/if}}
+{{component renderComponent
+  type=type
+  value=_val
+  inputId=inputId
+  options=options
+  name=name
+  disabled=disabled
+  autofocus=autofocus
+  autocomplete=autocomplete
+  rows=rows
+  cols=cols
+  model=model
+  isValid=isValid
+  isInvalid=isInvalid
 
-{{#if hasBlock}}
+  optionLabelPath=optionLabelPath
+  optionValuePath=optionValuePath
+  optionTargetPath=optionTargetPath
+  includeBlank=includeBlank
+  multiple=multiple
 
-  {{#if (not-eq type "radioGroup")}}
-    {{yield (hash value=(or value (get model name))
-      controlClass = config.css.control
-      update       = (action 'update')
-      setDirty     = (action 'setDirty')
-      model        = model
-      class        = validationClass
-      name         = name
-      inputId      = inputId)
-    }}
-  {{else}}
-    {{#each options as |option|}}
-      <div class="radio">
-        <label>
-          <input
-            type       = "radio"
-            class      = {{validationClass}}
-            checked    = {{eq (or value (get model name)) option.key}}
-            value      = {{option.key}}
-            name       = {{name}}
-            onclick    = {{action "update" option.key}}
-            onfocusout = {{action "setDirty"}}
-            disabled   = {{disabled}}>
-          {{yield option}}
-        </label>
-      </div>
-    {{/each}}
-  {{/if}}
+  update=(action 'update')
+  setDirty=(action 'setDirty')
 
-{{else}}
-  {{#if (eq type "select")}}
-
-    {{one-way-select
-      value               = (or value (get model name))
-      options             = options
-      optionLabelPath     = optionLabelPath
-      optionValuePath     = optionValuePath
-      optionTargetPath    = optionTargetPath
-      name                = name
-      id                  = inputId
-      class               = (concat config.css.control ' ' validationClass)
-      update              = (action "update")
-      focusOut            = (action "setDirty")
-      includeBlank        = includeBlank
-      disabled            = disabled
-      multiple            = multiple
-      promptIsSelectable  = (or promptIsSelectable false)
-    }}
-
-  {{else if (eq type "radioGroup")}}
-
-    {{#each options as |option|}}
-      <div class="{{config.css.radio}}">
-        <label>
-          <input
-            type       = "radio"
-            class      = {{validationClass}}
-            checked    = {{eq (or value (get model name)) option.key}}
-            value      = {{option.key}}
-            name       = {{inputId}}
-            onclick    = {{action "update" option.key}}
-            onfocusout = {{action "setDirty"}}
-            disabled   = {{disabled}}>
-          <span>{{option.label}}</span>
-        </label>
-      </div>
-    {{/each}}
-
-  {{else if (eq type "checkbox")}}
-    <div class="{{config.css.checkbox}}">
-      {{#component labelComponent label=label config=config inputId=inputId required=required}}
-        <input
-        class      = {{validationClass}}
-        type       = "checkbox"
-        name       = {{name}}
-        id         = {{inputId}}
-        disabled   = {{disabled}}
-        checked    = {{get model name}}
-        onclick    = {{action "update" value = "target.checked"}}
-        onfocusout = {{action "setDirty"}}>
-      {{/component}}
-    </div>
-
-  {{else if (eq type "textarea")}}
-    <textarea
-      name        = {{name}}
-      id          = {{inputId}}
-      class       = "{{config.css.control}} {{validationClass}}"
-      placeholder = {{placeholder}}
-      disabled    = {{disabled}}
-      autofocus   = {{autofocus}}
-      rows        = {{rows}}
-      cols        = {{cols}}
-      autocomplete= {{autocomplete}}
-      oninput     = {{action "update" value = "target.value"}}
-      onblur      = {{action "setDirty"}}
-      value       = {{_val}}
-      ></textarea>
-  {{else}}
-    <input
-      type        = {{type}}
-      value       = {{_val}}
-      name        = {{name}}
-      id          = {{inputId}}
-      class       = "{{config.css.control}} {{validationClass}}"
-      placeholder = {{placeholder}}
-      disabled    = {{disabled}}
-      autofocus   = {{autofocus}}
-      autocomplete= {{autocomplete}}
-      oninput     = {{action "update" value = "target.value"}}
-      onblur      = {{action "setDirty"}}
-      >
-  {{/if}}
-{{/if}}
-
-{{#if showError}}
-  <span class={{config.css.help}}>{{firstError}}</span>
-{{/if}}
-
-{{#if hint}}
-  <p class={{config.css.hint}}>{{hint}}</p>
-{{/if}}
+  labelComponent=(component labelComponent label=label required=required isValid=isValid isInvalid=isInvalid inputId=inputId)
+  hintComponent=(if hint (component hintComponent hint=hint))
+  errorComponent=(if (and showValidity errors) (component errorComponent errors=errors))
+}}

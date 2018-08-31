@@ -33,7 +33,7 @@
         {{f.input label='First name' name='firstName' required=true}}
         {{f.input label='Last name' name='lastName' required=true}}
 
-        {{f.input type='textarea' label='About me' name='aboutMe'}}
+        {{f.input type='textarea' label='About me' name='aboutMe' hint='Write a short description about yourself'}}
 
         {{f.input
           type         = 'select'
@@ -47,9 +47,7 @@
 
         {{f.input type='radioGroup' label='Gender' name='gender' options=genders required=true}}
 
-        {{#f.input label='Favorite Color' name='color' required=true as |fi|}}
-          {{favorite-colors-component selected=fi.value colors=colors onupdate=fi.update onhover=fi.setDirty}}
-        {{/f.input}}
+        {{f.input renderComponent=(component 'favorite-colors-component' colors=colors) label='Favorite Color' name='color' required=true}}
 
         {{f.input type='checkbox' label='I agree with the terms and conditions' name='terms' required=true}}
 
@@ -62,5 +60,7 @@
     {{demo.snippet 'quickstart-route.js' label='route.js'}}
     {{demo.snippet 'quickstart-controller.js'}}
     {{demo.snippet 'quickstart-validations.js' label='validations/user.js'}}
+    {{demo.snippet 'favorite-colors-component.js' label='components/favorite-colors-component.js'}}
+    {{demo.snippet 'favorite-colors-component.hbs' label='templates/components/favorite-colors-component.hbs'}}
   {{/docs-demo}}
 </div>

@@ -1,6 +1,8 @@
 import { computed, defineProperty } from "@ember/object";
 import Component from "@ember/component";
 import layout from "../templates/components/validated-input";
+import v4 from "uuid/v4";
+import themedComponent from "../-private/themed-component";
 
 /**
  * This component wraps form inputs.
@@ -14,18 +16,11 @@ import layout from "../templates/components/validated-input";
  */
 export default Component.extend({
   layout,
-
+  tagName: "",
   dirty: false,
-
-  labelComponent: "validated-label",
-
   required: false,
-
   type: "text",
-
   validateBeforeSubmit: true,
-
-  classNameBindings: ["dirty", "config.css.group", "validationClass"],
 
   init() {
     this._super(...arguments);
@@ -39,46 +34,37 @@ export default Component.extend({
     );
   },
 
-  inputId: computed("elementId", "name", function() {
-    return `${this.get("elementId")}-input-${this.get("name")}`;
+  inputId: computed(() => v4()),
+
+  errors: computed("model.error", function() {
+    return this.getWithDefault(
+      `model.error.${this.get("name")}.validation`,
+      []
+    );
   }),
 
-  validationClass: computed("showError", function() {
-    const errorClass = this.get("config.css.error") || "has-error";
-    const validClass = this.get("config.css.valid") || "valid";
-    const isDirty = this.get("dirty");
-
-    return this.get("showError") ? errorClass : isDirty ? validClass : "";
+  isValid: computed("showValidity", "errors.[]", function() {
+    return this.get("showValidity") && !this.get("errors.length");
   }),
 
-  error: computed("model.error", function() {
-    const error = this.get("model.error");
-    return error ? error[this.get("name")] : null;
+  isInvalid: computed("showValidity", "errors.[]", function() {
+    return this.get("showValidity") && !!this.get("errors.length");
   }),
 
-  isValid: computed("error", function() {
-    return !this.get("error");
-  }),
+  renderComponent: themedComponent("validated-input/render"),
+  labelComponent: themedComponent("validated-input/label"),
+  hintComponent: themedComponent("validated-input/hint"),
+  errorComponent: themedComponent("validated-input/error"),
 
-  firstError: computed("error", function() {
-    return this.get("error.validation")[0];
-  }),
-
-  showError: computed(
-    "isValid",
+  showValidity: computed(
     "validateBeforeSubmit",
     "dirty",
     "submitted",
     function() {
-      if (!this.get("isValid")) {
-        if (this.get("validateBeforeSubmit") && this.get("dirty")) {
-          return true;
-        }
-        if (this.get("submitted")) {
-          return true;
-        }
-      }
-      return false;
+      return (
+        this.get("submitted") ||
+        (this.get("validateBeforeSubmit") && this.get("dirty"))
+      );
     }
   ),
 
