@@ -9,21 +9,23 @@ module(
     setupRenderingTest(hooks);
 
     test("it renders", async function(assert) {
-      // Set any properties with this.set('myProperty', 'value');
-      // Handle any actions with this.set('myAction', function(val) { ... });
+      this.set("options", [
+        {
+          key: "opt1",
+          label: "Option 1"
+        },
+        {
+          key: "opt2",
+          label: "Option 2"
+        }
+      ]);
 
-      await render(hbs`{{validated-input/-types/-themes/bootstrap/select}}`);
+      await render(
+        hbs`{{validated-input/-types/-themes/bootstrap/select options=options}}`
+      );
 
-      assert.equal(this.element.textContent.trim(), "");
-
-      // Template block usage:
-      await render(hbs`
-      {{#validated-input/-types/-themes/bootstrap/select}}
-        template block text
-      {{/validated-input/-types/-themes/bootstrap/select}}
-    `);
-
-      assert.equal(this.element.textContent.trim(), "template block text");
+      assert.dom("select").hasClass("form-control");
+      assert.dom("option").exists({ count: 2 });
     });
   }
 );

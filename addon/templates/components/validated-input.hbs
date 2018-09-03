@@ -1,28 +1,51 @@
-{{component renderComponent
-  type=type
-  value=_val
-  inputId=inputId
-  options=options
-  name=name
-  disabled=disabled
-  autofocus=autofocus
-  autocomplete=autocomplete
-  rows=rows
-  cols=cols
-  model=model
-  isValid=isValid
-  isInvalid=isInvalid
+{{#if hasBlock}}
+  {{component labelComponent label=label required=required isValid=isValid isInvalid=isInvalid inputId=inputId}}
 
-  optionLabelPath=optionLabelPath
-  optionValuePath=optionValuePath
-  optionTargetPath=optionTargetPath
-  includeBlank=includeBlank
-  multiple=multiple
+  {{yield (hash
+    value=_val
+    update=(action 'update')
+    setDirty=(action 'setDirty')
+    model=model
+    name=name
+    inputId=inputId
+  )}}
 
-  update=(action 'update')
-  setDirty=(action 'setDirty')
+  {{#if hint}}
+    {{component hintComponent hint=hint}}
+  {{/if}}
 
-  labelComponent=(component labelComponent label=label required=required isValid=isValid isInvalid=isInvalid inputId=inputId)
-  hintComponent=(if hint (component hintComponent hint=hint))
-  errorComponent=(if (and showValidity errors) (component errorComponent errors=errors))
-}}
+  {{#if (and showValidity errors)}}
+    {{component errorComponent errors=errors}}
+  {{/if}}
+{{else}}
+  {{component renderComponent
+    type=type
+    value=_val
+    inputId=inputId
+    options=options
+    name=name
+    disabled=disabled
+    autofocus=autofocus
+    autocomplete=autocomplete
+    rows=rows
+    cols=cols
+    model=model
+    isValid=isValid
+    isInvalid=isInvalid
+    placeholder=placeholder
+    class=class
+
+    optionLabelPath=optionLabelPath
+    optionValuePath=optionValuePath
+    optionTargetPath=optionTargetPath
+    includeBlank=includeBlank
+    multiple=multiple
+
+    update=(action 'update')
+    setDirty=(action 'setDirty')
+
+    labelComponent=(component labelComponent label=label required=required isValid=isValid isInvalid=isInvalid inputId=inputId)
+    hintComponent=(if hint (component hintComponent hint=hint))
+    errorComponent=(if (and showValidity errors) (component errorComponent errors=errors))
+  }}
+{{/if}}

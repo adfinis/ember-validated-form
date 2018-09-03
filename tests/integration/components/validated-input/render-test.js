@@ -7,20 +7,18 @@ module("Integration | Component | validated-input/render", function(hooks) {
   setupRenderingTest(hooks);
 
   test("it renders", async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`{{validated-input/render}}`);
-
-    assert.equal(this.element.textContent.trim(), "");
-
-    // Template block usage:
     await render(hbs`
-      {{#validated-input/render}}
-        template block text
-      {{/validated-input/render}}
+      {{validated-input/render
+        type='text'
+        name='test'
+        labelComponent=(component 'validated-input/label' label='Test')
+
+        update=(action (mut value))
+      }}
     `);
 
-    assert.equal(this.element.textContent.trim(), "template block text");
+    assert.dom("input[type=text]").exists();
+    assert.dom("input[type=text]").hasAttribute("name", "test");
+    assert.dom("label").hasText("Test");
   });
 });

@@ -1,5 +1,5 @@
 {{#unless (eq type 'checkbox')}}
-  {{labelComponent}}
+  {{component labelComponent}}
 {{/unless}}
 
 {{#if (eq type 'select')}}
@@ -88,5 +88,5 @@
   }}
 {{/if}}
 
-{{hintComponent}}
-{{errorComponent}}
+{{component hintComponent}}
+{{component errorComponent}}

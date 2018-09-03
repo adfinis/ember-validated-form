@@ -3,9 +3,9 @@ import { computed } from "@ember/object";
 
 export default Component.extend({
   classNames: ["btn"],
-  classNameBindings: ["primary:btn-primary"],
+  classNameBindings: ["style"],
 
-  primary: computed("type", function() {
-    return this.get("type") === "submit";
+  style: computed("type", function() {
+    return this.get("type") === "submit" ? "btn-primary" : "btn-default";
   })
 });

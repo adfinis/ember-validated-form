@@ -7,20 +7,10 @@ module("Integration | Component | validated-input/error", function(hooks) {
   setupRenderingTest(hooks);
 
   test("it renders", async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    this.set("errors", ["foo", "bar", "baz"]);
 
-    await render(hbs`{{validated-input/error}}`);
+    await render(hbs`{{validated-input/error errors=errors}}`);
 
-    assert.equal(this.element.textContent.trim(), "");
-
-    // Template block usage:
-    await render(hbs`
-      {{#validated-input/error}}
-        template block text
-      {{/validated-input/error}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), "template block text");
+    assert.dom("span").hasText("foo, bar, baz");
   });
 });

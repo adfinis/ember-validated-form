@@ -9,20 +9,15 @@ module("Integration | Component | validated-input/-types/radio-group", function(
   setupRenderingTest(hooks);
 
   test("it renders", async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    this.set("options", [{ key: 1, label: 1 }, { key: 2, label: 2 }]);
 
-    await render(hbs`{{validated-input/-types/radio-group}}`);
-
-    assert.equal(this.element.textContent.trim(), "");
-
-    // Template block usage:
     await render(hbs`
-      {{#validated-input/-types/radio-group}}
-        template block text
-      {{/validated-input/-types/radio-group}}
-    `);
+      {{validated-input/-types/radio-group
+        options=options
+        update=(action (mut value))
+      }}
+      `);
 
-    assert.equal(this.element.textContent.trim(), "template block text");
+    assert.dom("input[type=radio]").exists({ count: 2 });
   });
 });

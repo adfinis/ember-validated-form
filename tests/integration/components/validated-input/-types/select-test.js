@@ -9,20 +9,11 @@ module("Integration | Component | validated-input/-types/select", function(
   setupRenderingTest(hooks);
 
   test("it renders", async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+    this.set("options", [{ key: 1, label: 1 }, { key: 2, label: 2 }]);
 
-    await render(hbs`{{validated-input/-types/select}}`);
+    await render(hbs`{{validated-input/-types/select options=options}}`);
 
-    assert.equal(this.element.textContent.trim(), "");
-
-    // Template block usage:
-    await render(hbs`
-      {{#validated-input/-types/select}}
-        template block text
-      {{/validated-input/-types/select}}
-    `);
-
-    assert.equal(this.element.textContent.trim(), "template block text");
+    assert.dom("select").exists();
+    assert.dom("option").exists({ count: 2 });
   });
 });

@@ -9,21 +9,11 @@ module(
     setupRenderingTest(hooks);
 
     test("it renders", async function(assert) {
-      // Set any properties with this.set('myProperty', 'value');
-      // Handle any actions with this.set('myAction', function(val) { ... });
+      await render(
+        hbs`{{validated-input/-themes/bootstrap/label label='Test'}}`
+      );
 
-      await render(hbs`{{validated-input/-themes/bootstrap/label}}`);
-
-      assert.equal(this.element.textContent.trim(), "");
-
-      // Template block usage:
-      await render(hbs`
-      {{#validated-input/-themes/bootstrap/label}}
-        template block text
-      {{/validated-input/-themes/bootstrap/label}}
-    `);
-
-      assert.equal(this.element.textContent.trim(), "template block text");
+      assert.dom("label").hasText("Test");
     });
   }
 );

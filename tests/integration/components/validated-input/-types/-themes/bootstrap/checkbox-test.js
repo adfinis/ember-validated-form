@@ -9,21 +9,16 @@ module(
     setupRenderingTest(hooks);
 
     test("it renders", async function(assert) {
-      // Set any properties with this.set('myProperty', 'value');
-      // Handle any actions with this.set('myAction', function(val) { ... });
-
-      await render(hbs`{{validated-input/-types/-themes/bootstrap/checkbox}}`);
-
-      assert.equal(this.element.textContent.trim(), "");
-
-      // Template block usage:
       await render(hbs`
-      {{#validated-input/-types/-themes/bootstrap/checkbox}}
-        template block text
-      {{/validated-input/-types/-themes/bootstrap/checkbox}}
-    `);
+        {{validated-input/-types/-themes/bootstrap/checkbox
+          labelComponent=(component 'validated-input/-themes/bootstrap/label' label='Test')
+          update=(action (mut value))
+        }}
+        `);
 
-      assert.equal(this.element.textContent.trim(), "template block text");
+      assert.dom("div.custom-control.custom-checkbox").exists();
+      assert.dom("input").hasClass("custom-control-input");
+      assert.dom("label").hasClass("custom-control-label");
     });
   }
 );

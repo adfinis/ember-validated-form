@@ -9,21 +9,14 @@ module(
     setupRenderingTest(hooks);
 
     test("it renders", async function(assert) {
-      // Set any properties with this.set('myProperty', 'value');
-      // Handle any actions with this.set('myAction', function(val) { ... });
+      this.set("errors", ["foo", "bar", "baz"]);
 
-      await render(hbs`{{validated-input/-themes/bootstrap/error}}`);
+      await render(
+        hbs`{{validated-input/-themes/bootstrap/error errors=errors}}`
+      );
 
-      assert.equal(this.element.textContent.trim(), "");
-
-      // Template block usage:
-      await render(hbs`
-      {{#validated-input/-themes/bootstrap/error}}
-        template block text
-      {{/validated-input/-themes/bootstrap/error}}
-    `);
-
-      assert.equal(this.element.textContent.trim(), "template block text");
+      assert.dom("span").hasClass("invalid-feedback");
+      assert.dom("span").hasText("foo, bar, baz");
     });
   }
 );

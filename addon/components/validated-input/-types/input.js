@@ -11,6 +11,7 @@ export default Component.extend({
     "name",
     "autofocus",
     "autocomplete",
+    "disabled",
 
     "update:oninput",
     "setDirty:onblur"

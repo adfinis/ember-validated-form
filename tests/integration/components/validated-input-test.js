@@ -7,19 +7,11 @@ import Changeset from "ember-changeset";
 module("Integration | Component | validated input", function(hooks) {
   setupRenderingTest(hooks);
 
-  test("it renders simple text inputs with correct id, name and class", async function(assert) {
-    this.set("config", {
-      css: {
-        control: "foobar"
-      }
-    });
-
-    await render(hbs`{{validated-input id="foo" name="bar" config=config}}`);
+  test("it renders simple text inputs with correct name", async function(assert) {
+    await render(hbs`{{validated-input name="bar"}}`);
 
     assert.dom("input").hasAttribute("type", "text");
-    assert.dom("input#foo-input-bar").exists();
     assert.dom("input").hasAttribute("name", "bar");
-    assert.dom("input").hasAttribute("class", "foobar ");
   });
 
   test("it renders email input", async function(assert) {
@@ -70,19 +62,10 @@ module("Integration | Component | validated input", function(hooks) {
     assert.dom("input").hasValue("foobar");
   });
 
-  test("it renders textarea inputs with correct id, name and class", async function(assert) {
-    this.set("config", {
-      css: {
-        control: "foobar"
-      }
-    });
-    await render(
-      hbs`{{validated-input type="textarea" id="foo" name="bar" config=config}}`
-    );
+  test("it renders textarea inputs with correct name", async function(assert) {
+    await render(hbs`{{validated-input type="textarea" name="bar"}}`);
 
-    assert.dom("textarea#foo-input-bar").exists();
     assert.dom("textarea").hasAttribute("name", "bar");
-    assert.dom("textarea").hasAttribute("class", "foobar ");
   });
 
   test("it renders disabled textareas", async function(assert) {
@@ -181,24 +164,6 @@ module("Integration | Component | validated input", function(hooks) {
     assert.dom("input").hasValue("Other Value");
   });
 
-  test("it yields the css control class as controlClass", async function(assert) {
-    this.set("config", {
-      css: {
-        control: "foobar"
-      }
-    });
-
-    await render(
-      hbs`
-        {{#validated-input config=config as |fi|}}
-          <input class="{{fi.controlClass}}" />
-        {{/validated-input}}
-      `
-    );
-
-    assert.dom("input").hasClass("foobar");
-  });
-
   test("it yields the provided name", async function(assert) {
     await render(
       hbs`
@@ -209,18 +174,6 @@ module("Integration | Component | validated input", function(hooks) {
     );
 
     assert.dom("input").hasAttribute("name", "foobar");
-  });
-
-  test("it yields the validation class as class", async function(assert) {
-    await render(
-      hbs`
-        {{#validated-input dirty=true as |fi|}}
-          <input class={{fi.class}} />
-        {{/validated-input}}
-      `
-    );
-
-    assert.dom("input").hasClass("valid");
   });
 
   test("it yields the model", async function(assert) {
@@ -257,17 +210,17 @@ module("Integration | Component | validated input", function(hooks) {
   test("it yields an action marking the input as dirty", async function(assert) {
     await render(
       hbs`
-        {{#validated-input as |fi|}}
+        {{#validated-input errors=(array 'foo') as |fi|}}
           <button onclick={{action fi.setDirty}}></button>
         {{/validated-input}}
       `
     );
 
-    assert.dom("div.dirty").doesNotExist();
+    assert.dom("span.invalid-feedback").doesNotExist();
 
     await click("button");
 
-    assert.dom("div.dirty").exists();
+    assert.dom("span.invalid-feedback").exists();
   });
 
   test("it yields the input id to the block", async function(assert) {

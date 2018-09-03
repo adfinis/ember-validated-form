@@ -9,20 +9,13 @@ module("Integration | Component | validated-input/-types/checkbox", function(
   setupRenderingTest(hooks);
 
   test("it renders", async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`{{validated-input/-types/checkbox}}`);
-
-    assert.equal(this.element.textContent.trim(), "");
-
-    // Template block usage:
     await render(hbs`
-      {{#validated-input/-types/checkbox}}
-        template block text
-      {{/validated-input/-types/checkbox}}
-    `);
+      {{validated-input/-types/checkbox
+        labelComponent=(component 'validated-input/label' label='Test')
+        update=(action (mut value))
+      }}
+      `);
 
-    assert.equal(this.element.textContent.trim(), "template block text");
+    assert.dom("input[type=checkbox]").exists();
   });
 });

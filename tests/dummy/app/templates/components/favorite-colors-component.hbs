@@ -1,5 +1,5 @@
 {{!-- BEGIN-SNIPPET favorite-colors-component.hbs --}}
-{{labelComponent}}
+{{component labelComponent}}
 
 <div class="{{if isValid 'is-valid'}} {{if isInvalid 'is-invalid'}}">
   {{#if value}}
@@ -13,6 +13,6 @@
   {{/each}}
 </div>
 
-{{hintComponent}}
+{{component hintComponent}}
 {{component errorComponent class='d-block'}}
 {{!-- END-SNIPPET --}}
