@@ -5,15 +5,15 @@ import hbs from "htmlbars-inline-precompile";
 import setupThemeTest from "dummy/tests/helpers/setup-theme-test";
 
 module(
-  "Integration | Component | validated-input/-types/-themes/bootstrap/textarea",
+  "Integration | Component | validated-input/-types/-themes/uikit/textarea",
   function(hooks) {
     setupRenderingTest(hooks);
-    setupThemeTest(hooks, "bootstrap");
+    setupThemeTest(hooks, "uikit");
 
     test("it renders", async function(assert) {
-      await render(hbs`{{validated-input/-types/-themes/bootstrap/textarea}}`);
+      await render(hbs`{{validated-input/-types/-themes/uikit/textarea}}`);
 
-      assert.dom("textarea").hasClass("form-control");
+      assert.dom("textarea").hasClass("uk-textarea");
     });
   }
 );

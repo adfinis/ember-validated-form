@@ -5,10 +5,10 @@ import hbs from "htmlbars-inline-precompile";
 import setupThemeTest from "dummy/tests/helpers/setup-theme-test";
 
 module(
-  "Integration | Component | validated-input/-types/-themes/bootstrap/select",
+  "Integration | Component | validated-input/-types/-themes/uikit/radio-group",
   function(hooks) {
     setupRenderingTest(hooks);
-    setupThemeTest(hooks, "bootstrap");
+    setupThemeTest(hooks, "uikit");
 
     test("it renders", async function(assert) {
       this.set("options", [
@@ -23,11 +23,12 @@ module(
       ]);
 
       await render(
-        hbs`{{validated-input/-types/-themes/bootstrap/select options=options}}`
+        hbs`{{validated-input/-types/-themes/uikit/radio-group options=options update=(action (mut value))}}`
       );
 
-      assert.dom("select").hasClass("form-control");
-      assert.dom("option").exists({ count: 2 });
+      assert.dom("label > input").exists({ count: 2 });
+      assert.dom("input").hasClass("uk-radio");
+      assert.dom("label").hasClass("uk-form-label");
     });
   }
 );
