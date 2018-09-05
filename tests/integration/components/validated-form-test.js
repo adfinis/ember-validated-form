@@ -1,13 +1,11 @@
 import { defer } from "rsvp";
 import { run } from "@ember/runloop";
 import EmberObject from "@ember/object";
-import Service from "@ember/service";
 import { module, test } from "qunit";
 import { setupRenderingTest } from "ember-qunit";
 import { render, click, blur, focus } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
 import UserValidations from "dummy/validations/user";
-import tHelper from "ember-i18n/helper";
 
 module("Integration | Component | validated form", function(hooks) {
   setupRenderingTest(hooks);
@@ -57,86 +55,13 @@ module("Integration | Component | validated form", function(hooks) {
 
     assert.dom('input[type="radio"]').exists({ count: 3 });
     assert.dom("label:nth-of-type(1)").hasText("Options");
-    assert.dom(".radio:nth-of-type(1) label").hasText("Option 1");
-    assert.dom(".radio:nth-of-type(2) label").hasText("Option 2");
-    assert.dom(".radio:nth-of-type(3) label").hasText("Option 3");
-    assert.dom("label > span").exists({ count: 3 });
+    assert.dom("div:nth-of-type(1) > input + label").hasText("Option 1");
+    assert.dom("div:nth-of-type(2) > input + label").hasText("Option 2");
+    assert.dom("div:nth-of-type(3) > input + label").hasText("Option 3");
+    assert.dom("div > input + label").exists({ count: 3 });
     assert.dom('input[type="radio"][value="1"]').exists();
     assert.dom('input[type="radio"][value="2"]').exists();
     assert.dom('input[type="radio"][value="3"]').exists();
-  });
-
-  test("it renders a radio group with block form", async function(assert) {
-    this.set("buttonGroupData", {
-      options: [
-        { key: "1", label: "Option 1" },
-        { key: "2", label: "Option 2" },
-        { key: "3", label: "Option 3" }
-      ]
-    });
-
-    await render(hbs`
-      {{#validated-form as |f|}}
-        {{#f.input type='radioGroup' label='Options' name='testOptions' options=buttonGroupData.options as |option|}}
-          {{option.label}} - block form
-        {{/f.input}}
-      {{/validated-form}}
-    `);
-
-    assert.dom('input[type="radio"]').exists({ count: 3 });
-    assert.dom("label:nth-of-type(1)").hasText("Options");
-    assert.dom(".radio:nth-of-type(1) label").hasText("Option 1 - block form");
-    assert.dom(".radio:nth-of-type(2) label").hasText("Option 2 - block form");
-    assert.dom(".radio:nth-of-type(3) label").hasText("Option 3 - block form");
-    assert.dom('input[type="radio"][value="1"]').exists();
-    assert.dom('input[type="radio"][value="2"]').exists();
-    assert.dom('input[type="radio"][value="3"]').exists();
-  });
-
-  test("it renders a radio group with block form and i18n support", async function(assert) {
-    let i18n = this.owner.lookup("service:i18n");
-
-    i18n.set("locale", "en");
-    i18n.addTranslations("en", {
-      "label.foo": "Option One",
-      "label.bar": "Option Two",
-      "label.baz": "Option Three"
-    });
-
-    this.owner.register("helper:t", tHelper);
-
-    this.set("buttonGroupData", {
-      options: [
-        { key: "1", label: "label.foo" },
-        { key: "2", label: "label.bar" },
-        { key: "3", label: "label.baz" }
-      ]
-    });
-
-    await render(hbs`
-      {{#validated-form as |f|}}
-        {{#f.input type='radioGroup' label='Options' name='testOptions' options=buttonGroupData.options as |option|}}
-          {{t option.label}} - block form
-        {{/f.input}}
-      {{/validated-form}}
-    `);
-
-    assert.dom('input[type="radio"]').exists({ count: 3 });
-    assert.dom("label:nth-of-type(1)").hasText("Options");
-    assert
-      .dom(".radio:nth-of-type(1) label")
-      .hasText("Option One - block form");
-    assert
-      .dom(".radio:nth-of-type(2) label")
-      .hasText("Option Two - block form");
-    assert
-      .dom(".radio:nth-of-type(3) label")
-      .hasText("Option Three - block form");
-    assert.dom('input[type="radio"][value="1"]').exists();
-    assert.dom('input[type="radio"][value="2"]').exists();
-    assert.dom('input[type="radio"][value="3"]').exists();
-
-    this.owner.unregister("helper:t");
   });
 
   test("it renders submit buttons", async function(assert) {
@@ -155,23 +80,16 @@ module("Integration | Component | validated form", function(hooks) {
     assert.dom("form button").hasText("Save!");
   });
 
-  test("it renders an always-showing hint using a different class from the help block", async function(assert) {
-    this.set("config", {
-      css: {
-        help: "help",
-        hint: "hint"
-      }
-    });
-
+  test("it renders an always-showing hint", async function(assert) {
     await render(hbs`
-      {{#validated-form config=config as |f|}}
+      {{#validated-form as |f|}}
         {{f.input label="First name" hint="Not your middle name!"}}
       {{/validated-form}}
     `);
 
-    assert.dom(".help-block").doesNotExist();
-    assert.dom(".hint").exists({ count: 1 });
-    assert.dom(".hint").hasText("Not your middle name!");
+    assert.dom("input + div").doesNotExist();
+    assert.dom("input + small").exists({ count: 1 });
+    assert.dom("input + small").hasText("Not your middle name!");
   });
 
   test("does not render a <p> tag for buttons if no callbacks were passed", async function(assert) {
@@ -184,32 +102,7 @@ module("Integration | Component | validated form", function(hooks) {
     assert.dom("form > p").doesNotExist();
   });
 
-  test("it supports default button labels with i18n support", async function(assert) {
-    this.actions.stub = function() {};
-
-    this.owner.register(
-      "service:i18n",
-      EmberObject.extend({
-        t(key) {
-          return key === "label.save" ? "Speichern" : "";
-        }
-      })
-    );
-
-    await render(hbs`
-      {{#validated-form
-        on-submit=(action "stub")
-        as |f|}}
-        {{f.submit}}
-      {{/validated-form}}
-    `);
-
-    assert.dom("form button:first-of-type").hasText("Speichern");
-  });
-
-  test("it supports default button labels without i18n support", async function(assert) {
-    this.owner.register("service:i18n", Service.extend({ t: k => k }));
-
+  test("it supports default button labels", async function(assert) {
     this.actions.stub = function() {};
 
     await render(hbs`
@@ -220,7 +113,7 @@ module("Integration | Component | validated form", function(hooks) {
       {{/validated-form}}
     `);
 
-    assert.dom("form button:first-of-type").hasText("label.save");
+    assert.dom("form button[type=submit]").hasText("Save");
   });
 
   test("it performs basic validations on submit", async function(assert) {
@@ -246,14 +139,14 @@ module("Integration | Component | validated form", function(hooks) {
       {{/validated-form}}
     `);
 
-    assert.dom("span.form-text.text-danger").doesNotExist();
+    assert.dom("span.invalid-feedback").doesNotExist();
 
     await click("button");
 
     assert.dom("input").hasValue("x");
-    assert.dom("span.form-text.text-danger").exists({ count: 1 });
+    assert.dom("span.invalid-feedback").exists({ count: 1 });
     assert
-      .dom("span.form-text.text-danger")
+      .dom("span.invalid-feedback")
       .hasText("First name must be between 3 and 40 characters");
   });
 
@@ -335,15 +228,13 @@ module("Integration | Component | validated form", function(hooks) {
       {{/validated-form}}
     `);
 
-    assert.dom("span.help-block").doesNotExist();
+    assert.dom("input + div").doesNotExist();
 
     await focus("input");
     await blur("input");
 
-    assert.dom("span.form-text.text-danger").exists({ count: 1 });
-    assert
-      .dom("span.form-text.text-danger")
-      .hasText("First name can't be blank");
+    assert.dom("span.invalid-feedback").exists({ count: 1 });
+    assert.dom("span.invalid-feedback").hasText("First name can't be blank");
   });
 
   test("it skips basic validations on focus out with validateBeforeSubmit=false set on the form", async function(assert) {
@@ -365,16 +256,16 @@ module("Integration | Component | validated form", function(hooks) {
       {{/validated-form}}
     `);
 
-    assert.dom("span.form-text.text-danger").doesNotExist();
+    assert.dom("span.invalid-feedback").doesNotExist();
 
     await focus("input");
     await blur("input");
 
-    assert.dom("span.form-text.text-danger").doesNotExist();
+    assert.dom("span.invalid-feedback").doesNotExist();
 
     await click("button");
 
-    assert.dom("span.form-text.text-danger").exists({ count: 1 });
+    assert.dom("span.invalid-feedback").exists({ count: 1 });
   });
 
   test("it skips basic validations on focus out with validateBeforeSubmit=false set on the input", async function(assert) {
@@ -394,12 +285,12 @@ module("Integration | Component | validated form", function(hooks) {
       {{/validated-form}}
     `);
 
-    assert.dom("span.help-block").doesNotExist();
+    assert.dom("input + div").doesNotExist();
 
     await focus("input");
     await blur("input");
 
-    assert.dom("span.help-block").doesNotExist();
+    assert.dom("input + div").doesNotExist();
   });
 
   test("on-submit can be an action returning a promise", async function(assert) {
@@ -416,7 +307,7 @@ module("Integration | Component | validated form", function(hooks) {
         model=(changeset model)
         on-submit=(action "submit")
         as |f|}}
-        {{f.submit}}
+        {{f.submit class=(if f.loading 'loading')}}
       {{/validated-form}}
     `);
 

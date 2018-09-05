@@ -11,23 +11,7 @@ module.exports = function(environment) {
       defaultLocale: "fr"
     },
     "ember-validated-form": {
-      label: {
-        submit: "label.save"
-      },
-      css: {
-        group: "form-group",
-        radio: "radio",
-        control: "form-control",
-        label: "col-form-label",
-        help: "small form-text text-danger",
-        hint: "small form-text text-muted",
-        checkbox: "checkbox",
-        button: "btn btn-default",
-        submit: "btn btn-primary",
-        loading: "loading",
-        valid: "is-valid",
-        error: "is-invalid"
-      }
+      theme: "bootstrap"
     },
     EmberENV: {
       FEATURES: {

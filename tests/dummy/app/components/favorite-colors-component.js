@@ -1,27 +1,24 @@
-import { notEmpty } from "@ember/object/computed";
+// BEGIN-SNIPPET favorite-colors-component.js
 import Component from "@ember/component";
 
 export default Component.extend({
-  hasSelected: notEmpty("selected"),
   isShowingColors: false,
+  classNames: ["form-group"],
 
   actions: {
     onColorSelected(color) {
       this.toggleProperty("isShowingColors");
-      this.get("onupdate")(color);
+      this.get("setDirty")();
+      this.get("update")(color);
     },
 
     toggle() {
       this.toggleProperty("isShowingColors");
     },
 
-    onhover() {
-      this.get("onhover")();
-    },
-
     clearSelection() {
-      this.set("selected", null);
-      this.get("onupdate")(null);
+      this.get("update")(null);
     }
   }
 });
+// END-SNIPPET

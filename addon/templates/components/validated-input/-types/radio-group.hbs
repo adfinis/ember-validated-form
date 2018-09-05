@@ -1,0 +1,14 @@
+{{#each options as |option i|}}
+  <label>
+    <input
+      type     = "radio"
+      checked  = {{eq value option.key}}
+      value    = {{option.key}}
+      name     = {{name}}
+      id       = "{{inputId}}-{{i}}"
+      onclick  = {{action (queue (action update option.key) setDirty)}}
+      disabled = {{disabled}}
+    >
+    {{option.label}}
+  </label>
+{{/each}}
