@@ -1,24 +1,23 @@
-import EmberRouter from "@ember/routing/router";
-import RouterScroll from "ember-router-scroll";
+import AddonDocsRouter, { docsRoute } from "ember-cli-addon-docs/router";
 import config from "./config/environment";
 
-const Router = EmberRouter.extend(RouterScroll, {
+const Router = AddonDocsRouter.extend({
   location: config.locationType,
   rootURL: config.rootURL
 });
 
 Router.map(function() {
-  this.route("docs", function() {
+  docsRoute(this, function() {
     this.route("usage");
     this.route("quickstart");
     this.route("configuration");
+    this.route("configuration");
+    this.route("customization");
+
     this.route("components", function() {
       this.route("validated-form");
       this.route("validated-input");
       this.route("validated-button");
-    });
-    this.route("api", function() {
-      this.route("item", { path: "/*path" });
     });
   });
   this.route("not-found", { path: "/*path" });

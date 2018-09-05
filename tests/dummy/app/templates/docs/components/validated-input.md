@@ -76,8 +76,8 @@ If no field type is specified, a simple `<input type="text">` is rendered.
 Other HTML5 text-like inputs like `email`, `number`, `search` require
 specifying their type. The element also supports the following options:
 
-* `placeholder`
-* `autofocus`
+- `placeholder`
+- `autofocus`
 
 <!-- prettier-ignore-start -->
 {{#docs-demo as |demo|}}
@@ -96,9 +96,9 @@ specifying their type. The element also supports the following options:
 
 The textarea element also supports the following options:
 
-* `rows` and `cols`
-* `autofocus`
-* `placeholder`
+- `rows` and `cols`
+- `autofocus`
+- `placeholder`
 
 <!-- prettier-ignore-start -->
 {{#docs-demo as |demo|}}
@@ -116,13 +116,13 @@ The textarea element also supports the following options:
 
 The select element supports more options (see [`{{one-way-select}}`](https://github.com/DockYard/ember-one-way-select)):
 
-* `value`
-* `options`
-* `optionLabelPath`
-* `optionValuePath`
-* `optionTargetPath`
-* `includeBlank`
-* `promptIsSelectable`
+- `value`
+- `options`
+- `optionLabelPath`
+- `optionValuePath`
+- `optionTargetPath`
+- `includeBlank`
+- `promptIsSelectable`
 
 The `prompt` property is currently not supported (see this [related
 issue](https://github.com/DockYard/ember-one-way-controls/issues/152)).
@@ -210,60 +210,8 @@ localize your labels using something like
 
 ### Custom input elements
 
-If the input element you need is not explicitly supported, you can easily
-integrate it with this addon by using `f.input` in block form:
-
-<!-- prettier-ignore-start -->
-{{#docs-demo as |demo|}}
-  {{#demo.example name='custom-input-template.hbs'}}
-    {{#validated-form model=(changeset (hash example=null color=null)) as |f|}}
-      {{!-- ember-power-select --}}
-      {{#f.input name='example' as |fi|}}
-        {{#power-select options=(array 'Hans' 'Peter' 'Ruedi') selected=fi.value onchange=fi.update onblur=fi.setDirty as |name|}}
-          {{name}}
-        {{/power-select}}
-      {{/f.input}}
-
-      {{!-- homemade component --}}
-      {{#f.input label='Favorite Color' name='color' as |fi|}}
-        {{favorite-colors-component
-          selected = fi.value
-          colors   = (array (hash color='red' name='Red') (hash color='blue' name='Blue') (hash color='green' name='green'))
-          onupdate = fi.update onhover=fi.setDirty
-        }}
-      {{/f.input}}
-    {{/validated-form}}
-  {{/demo.example}}
-
-  {{demo.snippet 'custom-input-template.hbs'}}
-{{/docs-demo}}
-<!-- prettier-ignore-end -->
-
-There are three integration points for custom components:
-
-* initialize the state of your component with `fi.value`
-* update the model's value with `fi.update`
-* mark your component as dirty with `fi.setDirty`
+{{#link-to 'docs.customization'}}**This section moved!**{{/link-to}}
 
 ### Custom label components
 
-If you want to have a label on your input which renders something
-non-standard (for instance tooltips), then you can pass your custom component
-to the input in the following manner:
-
-_Note:_ When adding a custom component for input of type checkbox, one has to
-add `{{yield}}` inside the label. This is because, this kind of input renders
-inside a label tag.
-
-<!-- prettier-ignore-start -->
-{{#docs-demo as |demo|}}
-  {{#demo.example name='custom-label-template.hbs'}}
-    {{#validated-form as |f|}}
-      {{f.input labelComponent=(component 'custom-label' labelText='Custom Label')}}
-    {{/validated-form}}
-  {{/demo.example}}
-
-  {{demo.snippet 'custom-label-template.hbs'}}
-  {{demo.snippet 'custom-label-component-template.hbs' label='templates/components/custom-label.hbs'}}
-{{/docs-demo}}
-<!-- prettier-ignore-end -->
+{{#link-to 'docs.customization'}}**This section moved!**{{/link-to}}
