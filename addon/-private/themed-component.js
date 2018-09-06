@@ -1,13 +1,14 @@
-import { computed } from "@ember/object";
-import config from "ember-get-config";
-
-const {
-  "ember-validated-form": { theme }
-} = config;
+import { get, computed } from "@ember/object";
+import { getOwner } from "@ember/application";
 
 export default component => {
   return computed(function() {
     let parts = component.split("/");
+
+    const theme = get(
+      getOwner(this).resolveRegistration("config:environment"),
+      "ember-validated-form.theme"
+    );
 
     const name = parts.pop();
     const basePath = parts.join("/");

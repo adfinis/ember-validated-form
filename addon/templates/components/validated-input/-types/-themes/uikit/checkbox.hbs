@@ -1,0 +1,11 @@
+{{#component labelComponent class=(concat (if isValid 'uk-text-success') ' ' (if isInvalid 'uk-text-danger'))}}
+  <input
+    class    = "uk-checkbox uk-margin-small-right"
+    type     = "checkbox"
+    name     = {{name}}
+    id       = {{inputId}}
+    disabled = {{disabled}}
+    checked  = {{value}}
+    onclick  = {{action (queue (action update value='target.checked') setDirty)}}
+  >
+{{/component}}

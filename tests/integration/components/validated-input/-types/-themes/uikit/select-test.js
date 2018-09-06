@@ -5,10 +5,10 @@ import hbs from "htmlbars-inline-precompile";
 import setupThemeTest from "dummy/tests/helpers/setup-theme-test";
 
 module(
-  "Integration | Component | validated-input/-types/-themes/bootstrap/select",
+  "Integration | Component | validated-input/-types/-themes/uikit/select",
   function(hooks) {
     setupRenderingTest(hooks);
-    setupThemeTest(hooks, "bootstrap");
+    setupThemeTest(hooks, "uikit");
 
     test("it renders", async function(assert) {
       this.set("options", [
@@ -23,10 +23,10 @@ module(
       ]);
 
       await render(
-        hbs`{{validated-input/-types/-themes/bootstrap/select options=options}}`
+        hbs`{{validated-input/-types/-themes/uikit/select options=options}}`
       );
 
-      assert.dom("select").hasClass("form-control");
+      assert.dom("select").hasClass("uk-select");
       assert.dom("option").exists({ count: 2 });
     });
   }

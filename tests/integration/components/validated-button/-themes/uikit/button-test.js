@@ -5,24 +5,22 @@ import hbs from "htmlbars-inline-precompile";
 import setupThemeTest from "dummy/tests/helpers/setup-theme-test";
 
 module(
-  "Integration | Component | validated-button/-themes/bootstrap/button",
+  "Integration | Component | validated-button/-themes/uikit/button",
   function(hooks) {
     setupRenderingTest(hooks);
-    setupThemeTest(hooks, "bootstrap");
+    setupThemeTest(hooks, "uikit");
 
     test("it renders", async function(assert) {
-      await render(
-        hbs`{{validated-button/-themes/bootstrap/button label='Test'}}`
-      );
+      await render(hbs`{{validated-button/-themes/uikit/button label='Test'}}`);
 
       assert.dom("button").hasText("Test");
-      assert.dom("button").hasClass("btn");
-      assert.dom("button").hasClass("btn-default");
+      assert.dom("button").hasClass("uk-button");
+      assert.dom("button").hasClass("uk-button-default");
     });
 
     test("it renders in block style", async function(assert) {
       await render(hbs`
-        {{#validated-button/-themes/bootstrap/button}}Test{{/validated-button/-themes/bootstrap/button}}
+        {{#validated-button/-themes/uikit/button}}Test{{/validated-button/-themes/uikit/button}}
       `);
 
       assert.dom("button").hasText("Test");
@@ -30,10 +28,10 @@ module(
 
     test("it renders a primary button for submit buttons", async function(assert) {
       await render(
-        hbs`{{validated-button/-themes/bootstrap/button label='Test' type='submit'}}`
+        hbs`{{validated-button/-themes/uikit/button label='Test' type='submit'}}`
       );
 
-      assert.dom("button").hasClass("btn-primary");
+      assert.dom("button").hasClass("uk-button-primary");
     });
   }
 );

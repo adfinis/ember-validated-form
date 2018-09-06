@@ -1,0 +1,94 @@
+{{#unless (eq type 'checkbox')}}
+  {{component labelComponent}}
+{{/unless}}
+
+<div class="uk-form-controls">
+  {{#if (eq type 'select')}}
+    {{component selectComponent
+      disabled=disabled
+      name=name
+      optionLabelPath=optionLabelPath
+      optionValuePath=optionValuePath
+      optionTargetPath=optionTargetPath
+      includeBlank=includeBlank
+      multiple=multiple
+      value=value
+      options=options
+      inputId=inputId
+
+      isValid=isValid
+      isInvalid=isInvalid
+
+      update=update
+      setDirty=setDirty
+    }}
+  {{else if (or (eq type 'radioGroup') (eq type 'radio-group'))}}
+    {{component radioGroupComponent
+      value=value
+      options=options
+      inputId=inputId
+      name=name
+      disabled=disabled
+
+      isValid=isValid
+      isInvalid=isInvalid
+
+      update=update
+      setDirty=setDirty
+    }}
+  {{else if (eq type 'checkbox')}}
+    {{component checkboxComponent
+      value=value
+      options=options
+      inputId=inputId
+      name=name
+      disabled=disabled
+
+      isValid=isValid
+      isInvalid=isInvalid
+
+      update=update
+      setDirty=setDirty
+
+      labelComponent=labelComponent
+    }}
+  {{else if (eq type 'textarea')}}
+    {{component textareaComponent
+      inputId=inputId
+      name=name
+      value=value
+      placeholder=placeholder
+      disabled=disabled
+      autofocus=autofocus
+      autocomplete=autocomplete
+      rows=rows
+      cols=cols
+
+      isValid=isValid
+      isInvalid=isInvalid
+
+      update=(action update value='target.value')
+      setDirty=setDirty
+    }}
+  {{else}}
+    {{component inputComponent
+      type=type
+      inputId=inputId
+      name=name
+      value=value
+      placeholder=placeholder
+      disabled=disabled
+      autofocus=autofocus
+      autocomplete=autocomplete
+
+      isValid=isValid
+      isInvalid=isInvalid
+
+      update=(action update value='target.value')
+      setDirty=setDirty
+    }}
+  {{/if}}
+</div>
+
+{{component hintComponent}}
+{{component errorComponent}}
