@@ -46,5 +46,11 @@
     "name": "v2.0.0-alpha.1",
     "sha": "3083051b0e724b2649d2af2d2b82f0e838c69876",
     "tag": "v2.0.0-alpha.1"
+  },
+  "v2.0.0-alpha.0": {
+    "path": "versions/v2.0.0-alpha.0",
+    "name": "v2.0.0-alpha.0",
+    "sha": "a99b507cdf209112fd8bce3d268872af13f69218",
+    "tag": "v2.0.0-alpha.0"
   }
 }
