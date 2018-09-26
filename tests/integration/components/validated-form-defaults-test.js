@@ -122,11 +122,11 @@ module("Integration | Component | validated form defaults", function(hooks) {
       this.owner.resolveRegistration("config:environment"),
       "ember-validated-form.defaults",
       {
-        "-types/checkbox": "x-custom-checkbox",
-        "-types/input": "x-custom-input",
-        "-types/radio-group": "x-custom-radio-group",
-        "-types/select": "x-custom-select",
-        "-types/textarea": "x-custom-textarea"
+        "types/checkbox": "x-custom-checkbox",
+        "types/input": "x-custom-input",
+        "types/radio-group": "x-custom-radio-group",
+        "types/select": "x-custom-select",
+        "types/textarea": "x-custom-textarea"
       }
     );
 
