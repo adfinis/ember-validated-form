@@ -11,7 +11,10 @@ module.exports = function(environment) {
       defaultLocale: "fr"
     },
     "ember-validated-form": {
-      theme: "bootstrap"
+      theme: "bootstrap",
+      defaults: {
+        hint: "permanent-custom-hint"
+      }
     },
     EmberENV: {
       FEATURES: {
@@ -48,6 +51,8 @@ module.exports = function(environment) {
 
     ENV.APP.rootElement = "#ember-testing";
     ENV.APP.autoboot = false;
+
+    ENV["ember-validated-form"].defaults = {};
   }
 
   if (environment === "production") {
