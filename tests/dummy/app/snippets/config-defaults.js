@@ -11,11 +11,11 @@ var ENV = {
       button: "x-my-button",
 
       // types
-      "-types/checkbox": "x-my-checkbox",
-      "-types/input": "x-my-input",
-      "-types/radio-group": "x-my-radio-group",
-      "-types/select": "x-my-select",
-      "-types/textarea": "x-my-textarea"
+      "types/checkbox": "x-my-checkbox",
+      "types/input": "x-my-input",
+      "types/radio-group": "x-my-radio-group",
+      "types/select": "x-my-select",
+      "types/textarea": "x-my-textarea"
     }
   }
   // ...
