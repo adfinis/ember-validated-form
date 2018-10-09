@@ -5,7 +5,7 @@
 {{#if (eq type 'select')}}
   {{component selectComponent
     disabled=disabled
-    name=name
+    name=(or inputName name)
     optionLabelPath=optionLabelPath
     optionValuePath=optionValuePath
     optionTargetPath=optionTargetPath
@@ -26,7 +26,7 @@
     value=value
     options=options
     inputId=inputId
-    name=name
+    name=(or inputName name)
     disabled=disabled
 
     isValid=isValid
@@ -40,7 +40,7 @@
     value=value
     options=options
     inputId=inputId
-    name=name
+    name=(or inputName name)
     disabled=disabled
 
     isValid=isValid
@@ -54,7 +54,7 @@
 {{else if (eq type 'textarea')}}
   {{component textareaComponent
     inputId=inputId
-    name=name
+    name=(or inputName name)
     value=value
     placeholder=placeholder
     disabled=disabled
@@ -73,7 +73,7 @@
   {{component inputComponent
     type=type
     inputId=inputId
-    name=name
+    name=(or inputName name)
     value=value
     placeholder=placeholder
     disabled=disabled
