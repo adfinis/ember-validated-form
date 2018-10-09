@@ -248,4 +248,15 @@ module("Integration | Component | validated input", function(hooks) {
 
     assert.dom("input").hasValue("Hans");
   });
+
+  test("it can overwrite the input name", async function(assert) {
+    this.set("model", new Changeset({ firstName: "Max" }));
+
+    await render(
+      hbs`{{validated-input name="firstName" inputName="testFirstName" model=model}}`
+    );
+
+    assert.dom("input").hasValue("Max");
+    assert.dom("input").hasAttribute("name", "testFirstName");
+  });
 });

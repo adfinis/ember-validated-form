@@ -15,6 +15,12 @@ The label of the form field.
 This is is the name of the model property this input is bound to.
 <br>
 <br>
+**inputName `<String>`**
+<br>
+The name attribute of the input element. If not passed it will default to the
+passed `name`.
+<br>
+<br>
 **hint `<String>`**
 <br>
 Additional explanatory text displayed below the input field.
