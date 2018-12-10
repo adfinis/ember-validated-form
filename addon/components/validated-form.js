@@ -29,9 +29,9 @@ export default Component.extend({
 
     let owner = getOwner(this);
     let factory = owner.factoryFor
-      ? owner.factoryFor("service:i18n")
-      : owner._lookupFactory("service:i18n");
-    this.set("i18n", factory ? factory.create() : null);
+      ? owner.factoryFor("service:intl")
+      : owner._lookupFactory("service:intl");
+    this.set("intl", factory ? factory.create() : null);
   },
 
   _cssClass: computed("config", function() {
@@ -43,9 +43,8 @@ export default Component.extend({
   }),
 
   _getLabel(type) {
-    const i18n = this.get("i18n");
     const label = this._config(type);
-    return i18n ? i18n.t(label) : label;
+    return this.intl ? this.intl.t(label) : label;
   },
 
   _config(type) {

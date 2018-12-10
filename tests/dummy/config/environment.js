@@ -7,9 +7,6 @@ module.exports = function(environment) {
     rootURL: "/",
     locationType: "router-scroll",
     historySupportMiddleware: true,
-    i18n: {
-      defaultLocale: "fr"
-    },
     "ember-validated-form": {
       label: {
         submit: "label.save"

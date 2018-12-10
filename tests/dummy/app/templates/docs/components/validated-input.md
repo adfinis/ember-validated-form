@@ -76,8 +76,8 @@ If no field type is specified, a simple `<input type="text">` is rendered.
 Other HTML5 text-like inputs like `email`, `number`, `search` require
 specifying their type. The element also supports the following options:
 
-* `placeholder`
-* `autofocus`
+- `placeholder`
+- `autofocus`
 
 <!-- prettier-ignore-start -->
 {{#docs-demo as |demo|}}
@@ -96,9 +96,9 @@ specifying their type. The element also supports the following options:
 
 The textarea element also supports the following options:
 
-* `rows` and `cols`
-* `autofocus`
-* `placeholder`
+- `rows` and `cols`
+- `autofocus`
+- `placeholder`
 
 <!-- prettier-ignore-start -->
 {{#docs-demo as |demo|}}
@@ -116,13 +116,13 @@ The textarea element also supports the following options:
 
 The select element supports more options (see [`{{one-way-select}}`](https://github.com/DockYard/ember-one-way-select)):
 
-* `value`
-* `options`
-* `optionLabelPath`
-* `optionValuePath`
-* `optionTargetPath`
-* `includeBlank`
-* `promptIsSelectable`
+- `value`
+- `options`
+- `optionLabelPath`
+- `optionValuePath`
+- `optionTargetPath`
+- `includeBlank`
+- `promptIsSelectable`
 
 The `prompt` property is currently not supported (see this [related
 issue](https://github.com/DockYard/ember-one-way-controls/issues/152)).
@@ -186,11 +186,11 @@ This component renders a list of `<input type="radio">` elements.
 If you want to customize the markup for each radio-button's label, you can
 invoke this component using block form. This is helpful if you need to
 localize your labels using something like
-[ember-i18n](https://github.com/jamesarosen/ember-i18n).
+[ember-intl](https://github.com/ember-intl/ember-intl).
 
 <!-- prettier-ignore-start -->
 {{#docs-demo as |demo|}}
-  {{#demo.example name='radio-i18n-template.hbs'}}
+  {{#demo.example name='radio-intl-template.hbs'}}
     {{#validated-form model=(changeset (hash shape=null)) as |f|}}
       {{#f.input
         type    = 'radioGroup'
@@ -203,7 +203,7 @@ localize your labels using something like
     {{/validated-form}}
   {{/demo.example}}
 
-  {{demo.snippet 'radio-i18n-template.hbs'}}
+  {{demo.snippet 'radio-intl-template.hbs'}}
   {{demo.snippet 'translations.js' label='locales/fr/translations.js'}}
 {{/docs-demo}}
 <!-- prettier-ignore-end -->
@@ -241,9 +241,9 @@ integrate it with this addon by using `f.input` in block form:
 
 There are three integration points for custom components:
 
-* initialize the state of your component with `fi.value`
-* update the model's value with `fi.update`
-* mark your component as dirty with `fi.setDirty`
+- initialize the state of your component with `fi.value`
+- update the model's value with `fi.update`
+- mark your component as dirty with `fi.setDirty`
 
 ### Custom label components
 
