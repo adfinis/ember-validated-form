@@ -1,16 +1,16 @@
 import { defer } from "rsvp";
 import { run } from "@ember/runloop";
 import EmberObject from "@ember/object";
-import Service from "@ember/service";
 import { module, test } from "qunit";
 import { setupRenderingTest } from "ember-qunit";
 import { render, click, blur, focus } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
 import UserValidations from "dummy/validations/user";
-import tHelper from "ember-i18n/helper";
+import { setupIntl, setLocale, addTranslations } from "ember-intl/test-support";
 
 module("Integration | Component | validated form", function(hooks) {
   setupRenderingTest(hooks);
+  setupIntl(hooks);
 
   hooks.beforeEach(function() {
     this.actions = {};
@@ -93,17 +93,13 @@ module("Integration | Component | validated form", function(hooks) {
     assert.dom('input[type="radio"][value="3"]').exists();
   });
 
-  test("it renders a radio group with block form and i18n support", async function(assert) {
-    let i18n = this.owner.lookup("service:i18n");
-
-    i18n.set("locale", "en");
-    i18n.addTranslations("en", {
+  test("it renders a radio group with block form and intl support", async function(assert) {
+    setLocale("en");
+    addTranslations("en", {
       "label.foo": "Option One",
       "label.bar": "Option Two",
       "label.baz": "Option Three"
     });
-
-    this.owner.register("helper:t", tHelper);
 
     this.set("buttonGroupData", {
       options: [
@@ -184,17 +180,11 @@ module("Integration | Component | validated form", function(hooks) {
     assert.dom("form > p").doesNotExist();
   });
 
-  test("it supports default button labels with i18n support", async function(assert) {
+  test("it supports default button labels with intl support", async function(assert) {
     this.actions.stub = function() {};
-
-    this.owner.register(
-      "service:i18n",
-      EmberObject.extend({
-        t(key) {
-          return key === "label.save" ? "Speichern" : "";
-        }
-      })
-    );
+    addTranslations({
+      "label.save": "Speichern"
+    });
 
     await render(hbs`
       {{#validated-form
@@ -208,7 +198,12 @@ module("Integration | Component | validated form", function(hooks) {
   });
 
   test("it supports default button labels without i18n support", async function(assert) {
-    this.owner.register("service:i18n", Service.extend({ t: k => k }));
+    this.owner.factoryFor = function(type) {
+      if (type === "service:intl") {
+        return null;
+      }
+      return this.__container__.factoryFor(...arguments);
+    };
 
     this.actions.stub = function() {};
 
