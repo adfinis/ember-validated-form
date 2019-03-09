@@ -1,5 +1,4 @@
 import { resolve } from "rsvp";
-import { getOwner } from "@ember/application";
 import Component from "@ember/component";
 import layout from "../templates/components/validated-form";
 
@@ -25,12 +24,6 @@ export default Component.extend({
     if (this.get("model") && this.get("model").validate) {
       this.get("model").validate();
     }
-
-    let owner = getOwner(this);
-    let factory = owner.factoryFor
-      ? owner.factoryFor("service:i18n")
-      : owner._lookupFactory("service:i18n");
-    this.set("i18n", factory ? factory.create() : null);
   },
 
   submit() {
