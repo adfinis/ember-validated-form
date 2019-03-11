@@ -167,8 +167,8 @@ This component renders a list of `<input type="radio">` elements.
 
 If you want to customize the markup for each radio-button's label, you can
 invoke this component using block form. This is helpful if you need to
-localize your labels using something like
-[ember-i18n](https://github.com/jamesarosen/ember-i18n).
+localize your labels using an internationalization addon like
+[ember-intl](https://github.com/ember-intl/ember-intl).
 
 <!-- prettier-ignore-start -->
 {{#docs-demo as |demo|}}
