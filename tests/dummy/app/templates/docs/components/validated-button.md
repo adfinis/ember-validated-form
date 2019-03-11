@@ -5,7 +5,6 @@ accessed with `{{f.submit}}`. You can also use it as a block style component
 `{{#f.submit}}Test{{/f.submit}}` if you don't want to pass the label as a
 property. It takes the following properties:
 
-<div class="rounded border bg-grey-lightest my-8 p-4">
 **label `<String>`**
 <br>
 The label of the form button.
@@ -24,7 +23,6 @@ Specifies if the button is disabled.
 **loading `<Boolean>`**
 <br>
 Specifies if the button is loading. Default: Automatic integration of `ember-concurrency`.
-</div>
 
 <!-- prettier-ignore-start -->
 {{#docs-demo as |demo|}}

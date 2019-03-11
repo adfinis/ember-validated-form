@@ -2,7 +2,6 @@
 
 The `{{validated-form}}` component accepts the following arguments:
 
-<div class="rounded border bg-grey-lightest my-8 p-4">
 **model `<Changeset>`**
 <br>
 Changeset object containing the model that backs the form.
@@ -19,7 +18,7 @@ submitted. Defaults to true.
 Action, that is triggered on form submit if the changeset is valid. The
 changeset is passed as a parameter. If the action returns a promise, then any
 rendered submit buttons will have a customizable CSS class added and the yielded
- `loading` template parameter will be set.
+`loading` template parameter will be set.
 <br>
 <br>
 **on-invalid-submit `<Action>`**
@@ -32,7 +31,6 @@ changeset is passed as a parameter. (Optional)
 <br>
 Binding to the [`<form>` `autocomplete`
 attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#attr-autocomplete).
-</div>
 
 When the submission of your form takes a little longer and your users are of
 the impatient kind, it is often necessary to disable the submit button to

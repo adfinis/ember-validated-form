@@ -4,7 +4,6 @@
 component](https://emberjs.com/blog/2016/01/15/ember-2-3-released.html#toc_contextual-components)
 `input`. All input fields share some common properties:
 
-<div class="rounded border bg-grey-lightest my-8 p-4">
 **label `<String>`**
 <br>
 The label of the form field.
@@ -62,9 +61,7 @@ two arguments: `update(value, changeset)`.
 <br>
 **autocomplete `<String>`**
 <br>
-Binding to the [&lt;input&gt; autocomplete
-attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete).
-</div>
+Binding to the [`<input>` `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete).
 
 The supported field types are `checkbox`, `radioGroup`, `select`, `textarea`
 and any type that can be specified on an `<input>` element. This addon does
