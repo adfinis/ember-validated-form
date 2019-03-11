@@ -1,5 +1,5 @@
 "use strict";
 
 module.exports = {
-  name: "ember-validated-form"
+  name: require("./package").name
 };

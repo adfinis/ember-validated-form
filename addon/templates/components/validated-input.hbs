@@ -3,8 +3,8 @@
 
   {{yield (hash
     value=_val
-    update=(action 'update')
-    setDirty=(action 'setDirty')
+    update=(action "update")
+    setDirty=(action "setDirty")
     model=model
     name=name
     inputId=inputId
@@ -42,8 +42,8 @@
     includeBlank=includeBlank
     multiple=multiple
 
-    update=(action 'update')
-    setDirty=(action 'setDirty')
+    update=(action "update")
+    setDirty=(action "setDirty")
 
     labelComponent=(component labelComponent label=label required=required isValid=isValid isInvalid=isInvalid inputId=inputId)
     hintComponent=(if hint (component hintComponent hint=hint))
