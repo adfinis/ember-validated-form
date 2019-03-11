@@ -2,33 +2,24 @@
 
 The `{{validated-form}}` component accepts the following arguments:
 
-**model `<Changeset>`**
-<br>
+**model `<Changeset>`**  
 Changeset object containing the model that backs the form.
-<br>
-<br>
-**validateBeforeSubmit `<Boolean>`**
-<br>
+
+**validateBeforeSubmit `<Boolean>`**  
 Specifies whether to run validations on inputs before the form has been
 submitted. Defaults to true.
-<br>
-<br>
-**on-submit `<Action>`**
-<br>
+
+**on-submit `<Action>`**  
 Action, that is triggered on form submit if the changeset is valid. The
 changeset is passed as a parameter. If the action returns a promise, then any
 rendered submit buttons will have a customizable CSS class added and the yielded
 `loading` template parameter will be set.
-<br>
-<br>
-**on-invalid-submit `<Action>`**
-<br>
+
+**on-invalid-submit `<Action>`**  
 Action, that is triggered on form submit if the changset is invalid. The
 changeset is passed as a parameter. (Optional)
-<br>
-<br>
-**autocomplete `<String>`**
-<br>
+
+**autocomplete `<String>`**  
 Binding to the [`<form>` `autocomplete`
 attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form#attr-autocomplete).
 

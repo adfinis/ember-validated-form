@@ -4,63 +4,42 @@
 component](https://emberjs.com/blog/2016/01/15/ember-2-3-released.html#toc_contextual-components)
 `input`. All input fields share some common properties:
 
-**label `<String>`**
-<br>
+**label `<String>`**  
 The label of the form field.
-<br>
-<br>
-**name `<String>`**
-<br>
+
+**name `<String>`**  
 This is is the name of the model property this input is bound to.
-<br>
-<br>
-**inputName `<String>`**
-<br>
+
+**inputName `<String>`**  
 The name attribute of the input element. If not passed it will default to the
 passed `name`.
-<br>
-<br>
-**hint `<String>`**
-<br>
+
+**hint `<String>`**  
 Additional explanatory text displayed below the input field.
-<br>
-<br>
-**type `<String>`**
-<br>
+
+**type `<String>`**  
 Type of the form field (see supported field types below). Default: `text`.
-<br>
-<br>
-**disabled `<Boolean>`**
-<br>
+
+**disabled `<Boolean>`**  
 Specifies if the input field is disabled.
-<br>
-<br>
-**required `<Boolean>`**
-<br>
+
+**required `<Boolean>`**  
 If true, a "\*" is appended to the field"s label indicating that it is
 required.
-<br>
-<br>
-**value `<String>`**
-<br>
+
+**value `<String>`**  
 Initial value of the form field. Default: model property defined by name.
-<br>
-<br>
-**validateBeforeSubmit `<Boolean>`**
-<br>
+
+**validateBeforeSubmit `<Boolean>`**  
 Specifies whether to run validations on this input before the form has been
 submitted. Defaults to the value set on the form.
-<br>
-<br>
-**on-update `<Action>`**
-<br>
+
+**on-update `<Action>`**  
 Per default, the input elements are two-way-bound. If you want to implement
 custom update behavior, pass an action as `on-update`. The function receives
 two arguments: `update(value, changeset)`.
-<br>
-<br>
-**autocomplete `<String>`**
-<br>
+
+**autocomplete `<String>`**  
 Binding to the [`<input>` `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete).
 
 The supported field types are `checkbox`, `radioGroup`, `select`, `textarea`
