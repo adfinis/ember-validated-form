@@ -1,12 +1,12 @@
 {{yield (hash
   model=model
   loading=loading
-  input=(component 'validated-input'
+  input=(component "validated-input"
     model=model
     submitted=submitted
     validateBeforeSubmit=validateBeforeSubmit
   )
-  submit=(component 'validated-button'
+  submit=(component "validated-button"
     class=submitClass
     type="submit"
     loading=loading

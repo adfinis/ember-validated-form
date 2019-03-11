@@ -1,10 +1,10 @@
 <input
-  class    = "custom-control-input {{if isValid 'is-valid'}} {{if isInvalid 'is-invalid'}}"
+  class    = "custom-control-input {{if isValid "is-valid"}} {{if isInvalid "is-invalid"}}"
   type     = "checkbox"
   name     = {{name}}
   id       = {{inputId}}
   disabled = {{disabled}}
   checked  = {{value}}
-  onclick  = {{action (queue (action update value='target.checked') setDirty)}}
+  onclick  = {{action (queue (action update value="target.checked") setDirty)}}
 >
-{{component labelComponent class='custom-control-label'}}
+{{component labelComponent class="custom-control-label"}}

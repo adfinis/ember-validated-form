@@ -1,10 +1,10 @@
 {{docs-header}}
 
 {{docs-hero
-  logo='ember'
-  slimHeading='Validated'
-  strongHeading='Form'
-  byline='Easily create forms with client side validations.'}}
+  logo="ember"
+  slimHeading="Validated"
+  strongHeading="Form"
+  byline="Easily create forms with client side validations."}}
 
 <p class="my-4 text-center">Built with ♥ by <a href="https://github.com/adfinis-sygroup">Adfinis SyGroup</a></p>
 
@@ -30,37 +30,37 @@
         on-submit = (perform submit)
         as |f|}}
 
-        {{f.input label='First name' name='firstName' required=true}}
-        {{f.input label='Last name' name='lastName' required=true}}
+        {{f.input label="First name" name="firstName" required=true}}
+        {{f.input label="Last name" name="lastName" required=true}}
 
-        {{f.input type='textarea' label='About me' name='aboutMe' hint='Write a short description about yourself'}}
+        {{f.input type="textarea" label="About me" name="aboutMe" hint="Write a short description about yourself"}}
 
         {{f.input
-          type         = 'select'
-          label        = 'Country'
-          name         = 'country'
-          includeBlank = 'Select a country'
+          type         = "select"
+          label        = "Country"
+          name         = "country"
+          includeBlank = "Select a country"
           options      = countries
           value        = model.country
           required     = true
         }}
 
-        {{f.input type='radioGroup' label='Gender' name='gender' options=genders required=true}}
+        {{f.input type="radioGroup" label="Gender" name="gender" options=genders required=true}}
 
-        {{f.input renderComponent=(component 'favorite-colors-component' colors=colors) label='Favorite Color' name='color' required=true}}
+        {{f.input renderComponent=(component "favorite-colors-component" colors=colors) label="Favorite Color" name="color" required=true}}
 
-        {{f.input type='checkbox' label='I agree with the terms and conditions' name='terms' required=true}}
+        {{f.input type="checkbox" label="I agree with the terms and conditions" name="terms" required=true}}
 
-        {{f.submit label='Save'}}
+        {{f.submit label="Save"}}
       {{/validated-form}}
       {{!-- END-SNIPPET --}}
     {{/demo.example}}
 
-    {{demo.snippet 'quickstart-template.hbs'}}
-    {{demo.snippet 'quickstart-route.js' label='route.js'}}
-    {{demo.snippet 'quickstart-controller.js'}}
-    {{demo.snippet 'quickstart-validations.js' label='validations/user.js'}}
-    {{demo.snippet 'favorite-colors-component.js' label='components/favorite-colors-component.js'}}
-    {{demo.snippet 'favorite-colors-component.hbs' label='templates/components/favorite-colors-component.hbs'}}
+    {{demo.snippet "quickstart-template.hbs"}}
+    {{demo.snippet "quickstart-route.js" label="route.js"}}
+    {{demo.snippet "quickstart-controller.js"}}
+    {{demo.snippet "quickstart-validations.js" label="validations/user.js"}}
+    {{demo.snippet "favorite-colors-component.js" label="components/favorite-colors-component.js"}}
+    {{demo.snippet "favorite-colors-component.hbs" label="templates/components/favorite-colors-component.hbs"}}
   {{/docs-demo}}
 </div>

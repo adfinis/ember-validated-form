@@ -1,9 +1,9 @@
-{{#unless (eq type 'checkbox')}}
+{{#unless (eq type "checkbox")}}
   {{component labelComponent}}
 {{/unless}}
 
 <div class="uk-form-controls">
-  {{#if (eq type 'select')}}
+  {{#if (eq type "select")}}
     {{component selectComponent
       disabled=disabled
       name=(or inputName name)
@@ -22,7 +22,7 @@
       update=update
       setDirty=setDirty
     }}
-  {{else if (or (eq type 'radioGroup') (eq type 'radio-group'))}}
+  {{else if (or (eq type "radioGroup") (eq type "radio-group"))}}
     {{component radioGroupComponent
       value=value
       options=options
@@ -36,7 +36,7 @@
       update=update
       setDirty=setDirty
     }}
-  {{else if (eq type 'checkbox')}}
+  {{else if (eq type "checkbox")}}
     {{component checkboxComponent
       value=value
       options=options
@@ -52,7 +52,7 @@
 
       labelComponent=labelComponent
     }}
-  {{else if (eq type 'textarea')}}
+  {{else if (eq type "textarea")}}
     {{component textareaComponent
       inputId=inputId
       name=(or inputName name)
@@ -67,7 +67,7 @@
       isValid=isValid
       isInvalid=isInvalid
 
-      update=(action update value='target.value')
+      update=(action update value="target.value")
       setDirty=setDirty
     }}
   {{else}}
@@ -84,7 +84,7 @@
       isValid=isValid
       isInvalid=isInvalid
 
-      update=(action update value='target.value')
+      update=(action update value="target.value")
       setDirty=setDirty
     }}
   {{/if}}
