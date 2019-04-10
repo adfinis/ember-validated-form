@@ -1,6 +1,6 @@
 {
   "name": "ember-validated-form",
-  "version": "2.0.0-alpha.4",
+  "version": "2.0.0-alpha.5",
   "description": "Easily create forms with client-side validations",
   "keywords": [
     "ember-addon",
