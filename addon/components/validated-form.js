@@ -3,12 +3,14 @@ import { computed } from "@ember/object";
 import { getOwner } from "@ember/application";
 import Component from "@ember/component";
 import layout from "../templates/components/validated-form";
+import { inject as service } from "@ember/service";
 
 const PROP_ON_SUBMIT = "on-submit";
 const PROP_ON_INVALID_SUBMIT = "on-invalid-submit";
 
 export default Component.extend({
   tagName: "form",
+  intl: service(),
 
   classNameBindings: ["_cssClass", "submitted"],
   attributeBindings: ["autocomplete"],
@@ -26,12 +28,6 @@ export default Component.extend({
     if (this.get("model") && this.get("model").validate) {
       this.get("model").validate();
     }
-
-    let owner = getOwner(this);
-    let factory = owner.factoryFor
-      ? owner.factoryFor("service:intl")
-      : owner._lookupFactory("service:intl");
-    this.set("intl", factory ? factory.create() : null);
   },
 
   _cssClass: computed("config", function() {
