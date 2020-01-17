@@ -1,3 +1,1 @@
-export {
-  default
-} from "ember-validated-form/components/validated-input/-themes/bootstrap/hint";
+export { default } from "ember-validated-form/components/validated-input/-themes/bootstrap/hint";

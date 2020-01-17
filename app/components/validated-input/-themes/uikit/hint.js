@@ -1,3 +1,1 @@
-export {
-  default
-} from "ember-validated-form/components/validated-input/-themes/uikit/hint";
+export { default } from "ember-validated-form/components/validated-input/-themes/uikit/hint";

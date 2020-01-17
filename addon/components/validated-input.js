@@ -13,6 +13,9 @@ import themedComponent from "../-private/themed-component";
  * or in a one-way-binding style
  * {{validated-input model=model name='firstName' on-update=(action "update"}}
  * (update action is called, model is not updated)
+ *
+ * @class validated-input
+ * @export default
  */
 export default Component.extend({
   layout,
@@ -34,7 +37,9 @@ export default Component.extend({
     );
   },
 
-  inputId: computed(() => v4()),
+  inputId: computed(function() {
+    return v4();
+  }),
 
   errors: computed("model.error", function() {
     return this.getWithDefault(
