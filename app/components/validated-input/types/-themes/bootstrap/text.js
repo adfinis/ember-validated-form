@@ -1,3 +1,1 @@
-export {
-  default
-} from "ember-validated-form/components/validated-input/types/-themes/bootstrap/text";
+export { default } from "ember-validated-form/components/validated-input/types/-themes/bootstrap/text";
