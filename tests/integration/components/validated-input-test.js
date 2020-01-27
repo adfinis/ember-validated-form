@@ -208,9 +208,11 @@ module("Integration | Component | validated input", function(hooks) {
   });
 
   test("it yields an action marking the input as dirty", async function(assert) {
+    this.set("model", { error: { test: { validation: ["Error"] } } });
+
     await render(
       hbs`
-        {{#validated-input errors=(array 'foo') as |fi|}}
+        {{#validated-input name='test' model=model as |fi|}}
           <button onclick={{action fi.setDirty}}></button>
         {{/validated-input}}
       `

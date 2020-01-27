@@ -74,6 +74,8 @@ module("Integration | Component | validated form defaults", function(hooks) {
     this.owner.register("component:x-custom-error", CustomErrorComponent);
     this.owner.register("component:x-custom-render", CustomRenderComponent);
 
+    this.set("model", { error: { test1: { validation: ["Error"] } } });
+
     await render(hbs`
       {{#validated-form as |f|}}
         {{f.input
@@ -81,8 +83,8 @@ module("Integration | Component | validated form defaults", function(hooks) {
           type='text'
           label='Label!'
           hint='Hint!'
-          showValidity=true
-          errors=(array 'Error!')
+          submitted=true
+          model=model
         }}
       {{/validated-form}}
     `);
