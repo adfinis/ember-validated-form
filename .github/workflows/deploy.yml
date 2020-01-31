@@ -20,6 +20,6 @@ jobs:
 
       - name: Deploy to Github Pages
         env:
-          DEPLOY_KEY: ${{ secrects.GH_TOKEN }}
+          DEPLOY_KEY: ${{ secrets.GH_TOKEN }}
           ADDON_DOCS_VERSION_PATH: ${GITHUB_REF#refs/heads/}
         run: yarn ember deploy production
