@@ -1,0 +1,16 @@
+version: 1
+update_configs:
+  - package_manager: "javascript"
+    directory: "/"
+    update_schedule: "live"
+    version_requirement_updates: "increase_versions"
+    automerged_updates:
+      - match:
+          dependency_type: "development"
+          update_type: "semver:minor"
+    ignored_updates:
+      - match:
+          # Can not be updated to the latest version because it requires ember 3.11+
+          # but this addon supports the last 2 LTS vesions i.e. 3.8 & 3.12
+          dependency_name: "ember-power-select"
+          version_requirement: ">=3"

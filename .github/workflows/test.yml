@@ -1,0 +1,100 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  lint-hbs:
+    name: Lint Handlebars
+    runs-on: [ubuntu-latest]
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 10
+
+    - name: Install Dependencies
+      run: yarn install
+
+    - name: Lint Handlebars
+      run: yarn lint:hbs
+
+  lint-js:
+    name: Lint Javascript
+    runs-on: [ubuntu-latest]
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 10
+
+    - name: Install Dependencies
+      run: yarn install
+
+    - name: Lint Javascript
+      run: yarn lint:js
+
+  test:
+    name: Ember test
+    needs: [lint-hbs, lint-js]
+    runs-on: [ubuntu-latest]
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 10
+
+    - name: Install dependencies (no lockfile)
+      run: yarn install --no-lockfile
+
+    - name: Ember tests (floating dependencies)
+      run: yarn test
+
+    - name: Install dependencies
+      run: yarn install
+
+    - name: Ember tests
+      run: yarn test
+      env:
+        COVERAGE: true
+
+    - name: Run codecov
+      uses: codecov/codecov-action@v1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        file: ./coverage/lcov.info
+
+  try-one:
+    name: Additional Ember version tests
+    needs: [test]
+    runs-on: [ubuntu-latest]
+
+    strategy:
+      matrix:
+        scenario:
+          - ember-lts-3.8
+          - ember-lts-3.12
+          - ember-release
+          - ember-beta
+          - ember-canary
+          - ember-default-with-jquery
+          - ember-classic
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 10
+
+    - name: Install dependencies
+      run: yarn install
+
+    - name: Ember ${{ matrix.scenario }} Scenario tests
+      run: yarn ember try:one ${{ matrix.scenario }}
+      continue-on-error: true
