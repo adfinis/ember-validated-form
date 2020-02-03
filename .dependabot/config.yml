@@ -8,6 +8,9 @@ update_configs:
       - match:
           dependency_type: "development"
           update_type: "semver:minor"
+    commit_message:
+      prefix: "chore"
+      include_scope: true
     ignored_updates:
       - match:
           # Can not be updated to the latest version because it requires ember 3.11+
