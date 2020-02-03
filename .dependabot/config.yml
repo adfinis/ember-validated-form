@@ -4,6 +4,10 @@ update_configs:
     directory: "/"
     update_schedule: "live"
     version_requirement_updates: "increase_versions"
+    automerged_updates:
+      - match:
+          dependency_type: "development"
+          update_type: "semver:minor"
     ignored_updates:
       - match:
           # Can not be updated to the latest version because it requires ember 3.11+
