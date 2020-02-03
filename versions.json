@@ -74,5 +74,11 @@
     "name": "v2.0.0",
     "sha": "de078601607b8870075fb7e79d81ea51fcc66eb6",
     "tag": "v2.0.0"
+  },
+  "${GITHUB_REF#refs/heads/}": {
+    "path": "versions/${GITHUB_REF#refs/heads/}",
+    "name": "${GITHUB_REF#refs/heads/}",
+    "sha": "eacacb9d6d7088561ef2d5b73e293bcce816c139",
+    "tag": null
   }
 }
