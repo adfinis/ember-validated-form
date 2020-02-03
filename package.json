@@ -83,7 +83,7 @@
     "eslint-plugin-node": "11.0.0",
     "eslint-plugin-prettier": "3.1.2",
     "husky": "4.2.1",
-    "lint-staged": "10.0.1",
+    "lint-staged": "10.0.7",
     "loader.js": "4.7.0",
     "prettier": "1.19.1",
     "qunit-dom": "0.9.2"
