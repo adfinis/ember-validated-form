@@ -6752,10 +6752,10 @@ ember-cli-version-checker@^3.0.0, ember-cli-version-checker@^3.0.1, ember-cli-ve
     resolve-package-path "^1.2.6"
     semver "^5.6.0"
 
-ember-cli@3.15.1:
-  version "3.15.1"
-  resolved "https://registry.yarnpkg.com/ember-cli/-/ember-cli-3.15.1.tgz#389604474c40f02870432659072304f192db07c5"
-  integrity sha512-KBL6ylTpYD6k0B2iHMvdgNnbKCdFnOHzruosQqTmbHpyJljVE1sLsTP8ErROH/PnbFzc1vZg1qQcf6tHRvyTrw==
+ember-cli@3.15.2:
+  version "3.15.2"
+  resolved "https://registry.yarnpkg.com/ember-cli/-/ember-cli-3.15.2.tgz#c2a5871850da7537e0cb3cd0e7d59fd76cd3184e"
+  integrity sha512-ciuFaLokZDJfEzltH3QUxZYnQcigCzNrjyyVbeNtr3qUMICHZEzrreQjqIdmuOzmog+BOFddgAB2i/b7ewmV0Q==
   dependencies:
     "@babel/core" "^7.7.2"
     "@babel/plugin-transform-modules-amd" "^7.5.0"
@@ -9439,16 +9439,7 @@ http-proxy-agent@^3.0.0:
     agent-base "5"
     debug "4"
 
-http-proxy@^1.13.1:
-  version "1.17.0"
-  resolved "https://registry.yarnpkg.com/http-proxy/-/http-proxy-1.17.0.tgz#7ad38494658f84605e2f6db4436df410f4e5be9a"
-  integrity sha512-Taqn+3nNvYRfJ3bGvKfBSRwy1v6eePlm3oc/aWVxZp57DQr5Eq3xhKJi7Z4hZpS8PC3H4qI+Yly5EmFacGuA/g==
-  dependencies:
-    eventemitter3 "^3.0.0"
-    follow-redirects "^1.0.0"
-    requires-port "^1.0.0"
-
-http-proxy@^1.18.0:
+http-proxy@^1.13.1, http-proxy@^1.18.0:
   version "1.18.0"
   resolved "https://registry.yarnpkg.com/http-proxy/-/http-proxy-1.18.0.tgz#dbe55f63e75a347db7f3d99974f2692a314a6a3a"
   integrity sha512-84I2iJM/n1d4Hdgc6y2+qY5mDaz2PUVjlg9znE9byl+q0uC3DeByqBGReQu5tpLK0TAqTIXScRUV+dg7+bUPpQ==
@@ -11247,20 +11238,12 @@ lodash.sortby@^4.7.0:
   resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-4.7.0.tgz#edd14c824e2cc9c1e0b0a1b42bb5210516a42438"
   integrity sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=
 
-lodash.template@^4.0.2, lodash.template@^4.5.0:
+lodash.template@^4.0.2, lodash.template@^4.4.0, lodash.template@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.template/-/lodash.template-4.5.0.tgz#f976195cf3f347d0d5f52483569fe8031ccce8ab"
   integrity sha512-84vYFxIkmidUiFxidA/KjjH9pAycqW+h980j7Fuz5qxRtO9pgB7MDFTdys1N7A5mcucRiDyEq4fusljItR1T/A==
   dependencies:
     lodash._reinterpolate "^3.0.0"
-    lodash.templatesettings "^4.0.0"
-
-lodash.template@^4.4.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/lodash.template/-/lodash.template-4.4.0.tgz#e73a0385c8355591746e020b99679c690e68fba0"
-  integrity sha1-5zoDhcg1VZF0bgILmWecaQ5o+6A=
-  dependencies:
-    lodash._reinterpolate "~3.0.0"
     lodash.templatesettings "^4.0.0"
 
 lodash.templatesettings@^4.0.0:
@@ -12385,7 +12368,7 @@ npm-normalize-package-bin@^1.0.0, npm-normalize-package-bin@^1.0.1:
     semver "^5.1.0"
     validate-npm-package-name "^3.0.0"
 
-"npm-package-arg@^4.0.0 || ^5.0.0 || ^6.0.0", npm-package-arg@^6.0.0, npm-package-arg@^6.1.1:
+"npm-package-arg@^4.0.0 || ^5.0.0 || ^6.0.0", npm-package-arg@^6.0.0, npm-package-arg@^6.1.0, npm-package-arg@^6.1.1:
   version "6.1.1"
   resolved "https://registry.yarnpkg.com/npm-package-arg/-/npm-package-arg-6.1.1.tgz#02168cb0a49a2b75bf988a28698de7b529df5cb7"
   integrity sha512-qBpssaL3IOZWi5vEKUKW0cO7kzLeT+EQO9W8RsLOZf76KF9E/K9+wH0C7t06HXPpaH8WH5xF1MExLuCwbTqRUg==
@@ -12393,16 +12376,6 @@ npm-normalize-package-bin@^1.0.0, npm-normalize-package-bin@^1.0.1:
     hosted-git-info "^2.7.1"
     osenv "^0.1.5"
     semver "^5.6.0"
-    validate-npm-package-name "^3.0.0"
-
-npm-package-arg@^6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/npm-package-arg/-/npm-package-arg-6.1.0.tgz#15ae1e2758a5027efb4c250554b85a737db7fcc1"
-  integrity sha512-zYbhP2k9DbJhA0Z3HKUePUgdB1x7MfIfKssC+WLPFMKTBZKpZh5m13PgexJjCq6KW7j17r0jHWcCpxEqnnncSA==
-  dependencies:
-    hosted-git-info "^2.6.0"
-    osenv "^0.1.5"
-    semver "^5.5.0"
     validate-npm-package-name "^3.0.0"
 
 npm-package-arg@~4.1.0:
@@ -14456,15 +14429,7 @@ resolve-global@1.0.0, resolve-global@^1.0.0:
   dependencies:
     global-dirs "^0.1.1"
 
-resolve-package-path@^1.0.11:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/resolve-package-path/-/resolve-package-path-1.2.4.tgz#814c5fcfb5f6e4151d95ec6e5653707c43706670"
-  integrity sha512-AOIfR/AauBM1w1Oq9swqGxUjL4PW7bMztN7UCQ4KWg9AR2t03bGb9faegZbE0meAOHlntAni/4kXkcsQ7dWLPQ==
-  dependencies:
-    path-root "^0.1.1"
-    resolve "^1.10.0"
-
-resolve-package-path@^1.2.2, resolve-package-path@^1.2.6, resolve-package-path@^1.2.7:
+resolve-package-path@^1.0.11, resolve-package-path@^1.2.2, resolve-package-path@^1.2.6, resolve-package-path@^1.2.7:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/resolve-package-path/-/resolve-package-path-1.2.7.tgz#2a7bc37ad96865e239330e3102c31322847e652e"
   integrity sha512-fVEKHGeK85bGbVFuwO9o1aU0n3vqQGrezPc51JGu9UTXpFQfWq5qCeKxyaRUSvephs+06c5j5rPq/dzHGEo8+Q==
@@ -14800,10 +14765,10 @@ semver-regex@^2.0.0:
   resolved "https://registry.yarnpkg.com/semver-regex/-/semver-regex-2.0.0.tgz#a93c2c5844539a770233379107b38c7b4ac9d338"
   integrity sha512-mUdIBBvdn0PLOeP3TEkMH7HHeUP3GjsXCwKarjv/kGmUFOYg1VqEemKhoQpWMu6X2I8kHeuVdGibLGkVK+/5Qw==
 
-"semver@2 >=2.2.1 || 3.x || 4 || 5", "semver@2 || 3 || 4 || 5", "semver@2.x || 3.x || 4 || 5", "semver@4 || 5", "semver@^2.3.0 || 3.x || 4 || 5", semver@^5.1.0, semver@^5.3.0, semver@^5.4.1, semver@^5.5.0, semver@^5.5.1, semver@^5.6.0:
-  version "5.6.0"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-5.6.0.tgz#7e74256fbaa49c75aa7c7a205cc22799cac80004"
-  integrity sha512-RS9R6R35NYgQn++fkDWaOmqGoj4Ek9gGs+DPxNUZKuwE183xjJroKvyo1IzVFeXvUrvmALy6FWD5xrdJT25gMg==
+"semver@2 >=2.2.1 || 3.x || 4 || 5", "semver@2 || 3 || 4 || 5", "semver@2.x || 3.x || 4 || 5", "semver@4 || 5", "semver@^2.3.0 || 3.x || 4 || 5", semver@^5.0.3, semver@^5.1.0, semver@^5.3.0, semver@^5.4.1, semver@^5.5.0, semver@^5.5.1, semver@^5.6.0, semver@^5.7.1:
+  version "5.7.1"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
+  integrity sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==
 
 semver@6.3.0, semver@^6.0.0, semver@^6.1.0, semver@^6.1.1, semver@^6.1.2, semver@^6.3.0:
   version "6.3.0"
@@ -14819,11 +14784,6 @@ semver@^4.3.1:
   version "4.3.6"
   resolved "https://registry.yarnpkg.com/semver/-/semver-4.3.6.tgz#300bc6e0e86374f7ba61068b5b1ecd57fc6532da"
   integrity sha1-MAvG4OhjdPe6YQaLWx7NV/xlMto=
-
-semver@^5.0.3, semver@^5.7.1:
-  version "5.7.1"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
-  integrity sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==
 
 semver@~5.1.0:
   version "5.1.1"
