@@ -38,7 +38,7 @@
     "ember-cli-htmlbars": "^4.2.2",
     "ember-one-way-select": "^4.0.0",
     "ember-truth-helpers": "^2.1.0",
-    "uuid": "^3.4.0"
+    "uuid": "^7.0.0"
   },
   "devDependencies": {
     "@adfinis-sygroup/semantic-release-config": "2.1.4",
