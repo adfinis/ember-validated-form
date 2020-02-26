@@ -47,7 +47,7 @@
     "@fortawesome/ember-fontawesome": "0.2.1",
     "@fortawesome/free-solid-svg-icons": "5.12.1",
     "@glimmer/component": "1.0.0",
-    "babel-eslint": "10.0.3",
+    "babel-eslint": "10.1.0",
     "broccoli-asset-rev": "3.0.0",
     "ember-changeset": "2.2.4",
     "ember-changeset-validations": "2.2.1",
