@@ -6311,6 +6311,14 @@ ember-changeset@2.2.4:
     ember-cli-babel "^7.1.2"
     ember-deep-set "^0.2.0"
 
+ember-changeset@2.2.5:
+  version "2.2.5"
+  resolved "https://registry.yarnpkg.com/ember-changeset/-/ember-changeset-2.2.5.tgz#2d91edec5082db0b25536d0b2cc64b509f9c3a5d"
+  integrity sha512-cCccfzpQSeN5dOXs7cG9YWMOSDAarSz6PMmLrwWBZ8+J0ZcRTPKGnEQN6Cdn61JlESrYJaFp9xshd1zf4zuprA==
+  dependencies:
+    ember-cli-babel "^7.1.2"
+    ember-deep-set "^0.2.0"
+
 ember-cli-addon-docs-yuidoc@0.2.4:
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/ember-cli-addon-docs-yuidoc/-/ember-cli-addon-docs-yuidoc-0.2.4.tgz#dd8f5cf4982e8492b255fb677e9d771925e27dce"
