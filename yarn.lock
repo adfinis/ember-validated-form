@@ -685,7 +685,7 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.8.3"
 
-"@babel/plugin-transform-typescript@^7.8.3":
+"@babel/plugin-transform-typescript@^7.8.3", "@babel/plugin-transform-typescript@~7.8.0":
   version "7.8.3"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-typescript/-/plugin-transform-typescript-7.8.3.tgz#be6f01a7ef423be68e65ace1f04fc407e6d88917"
   integrity sha512-Ebj230AxcrKGZPKIp4g4TdQLrqX95TobLUWKd/CwG7X1XHUH1ZpkpFvXuXqWbtGRWb7uuEWNlrl681wsOArAdQ==
@@ -6233,6 +6233,18 @@ ember-app-scheduler@^1.0.5:
     ember-cli-typescript "^2.0.0"
     ember-compatibility-helpers "^1.1.2"
 
+ember-app-scheduler@^4.0.0:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/ember-app-scheduler/-/ember-app-scheduler-4.0.1.tgz#670fc0c28a28367a1aea7e5286d0d73e90561e19"
+  integrity sha512-K29+tzArM9Gx5VGtDuH35yoAIhS1hOUZ7EtdOXae09uDxkbuyhTvZHfTB2u0Eq7FhT56TGLZ03x3u9RyBT0o8Q==
+  dependencies:
+    "@types/ember" "^3.1.0"
+    "@types/rsvp" "^4.0.2"
+    ember-cli-babel "^7.1.3"
+    ember-cli-typescript "^2.0.0"
+    ember-compatibility-helpers "^1.1.2"
+    ember-test-waiters "^2.0.0"
+
 ember-assign-polyfill@^2.5.0, ember-assign-polyfill@^2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/ember-assign-polyfill/-/ember-assign-polyfill-2.6.0.tgz#07847e3357ee35b33f886a0b5fbec6873f6860eb"
@@ -6426,7 +6438,7 @@ ember-cli-babel@^6.0.0-beta.4, ember-cli-babel@^6.10.0, ember-cli-babel@^6.11.0,
     ember-cli-version-checker "^2.1.2"
     semver "^5.5.0"
 
-ember-cli-babel@^7.1.0, ember-cli-babel@^7.1.2, ember-cli-babel@^7.1.3, ember-cli-babel@^7.1.4, ember-cli-babel@^7.11.0, ember-cli-babel@^7.12.0, ember-cli-babel@^7.13.2, ember-cli-babel@^7.18.0, ember-cli-babel@^7.2.0, ember-cli-babel@^7.7.3:
+ember-cli-babel@^7.1.0, ember-cli-babel@^7.1.2, ember-cli-babel@^7.1.3, ember-cli-babel@^7.1.4, ember-cli-babel@^7.11.0, ember-cli-babel@^7.11.1, ember-cli-babel@^7.12.0, ember-cli-babel@^7.13.2, ember-cli-babel@^7.18.0, ember-cli-babel@^7.2.0, ember-cli-babel@^7.7.3:
   version "7.18.0"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-7.18.0.tgz#e979b73eee00cd93f63452c6170d045e8832f29c"
   integrity sha512-OLPfYD8wSfCrmGHcUf8zEfySSvbAL+5Qp2RWLycJIMaBZhg+SncKj5kVkL3cPJR5n2hVHPdfmKTQIYjOYl6FnQ==
@@ -6803,6 +6815,26 @@ ember-cli-typescript@^3.0.0:
     resolve "^1.5.0"
     rsvp "^4.8.1"
     semver "^6.0.0"
+    stagehand "^1.0.0"
+    walk-sync "^2.0.0"
+
+ember-cli-typescript@^3.1.3:
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/ember-cli-typescript/-/ember-cli-typescript-3.1.3.tgz#a2c7ec6a8a5e57c38eb52d83e36d8e18c7071e60"
+  integrity sha512-bFi15H60L9TLYfn9XUzi+RAP1gTWHFtVdSy9IHvxXHlCvTlFZ+2rfuugr/f8reQLz9gvJccKc5TyRD7v+uhx0Q==
+  dependencies:
+    "@babel/plugin-proposal-nullish-coalescing-operator" "^7.4.4"
+    "@babel/plugin-proposal-optional-chaining" "^7.6.0"
+    "@babel/plugin-transform-typescript" "~7.8.0"
+    ansi-to-html "^0.6.6"
+    broccoli-stew "^3.0.0"
+    debug "^4.0.0"
+    ember-cli-babel-plugin-helpers "^1.0.0"
+    execa "^3.0.0"
+    fs-extra "^8.0.0"
+    resolve "^1.5.0"
+    rsvp "^4.8.1"
+    semver "^6.3.0"
     stagehand "^1.0.0"
     walk-sync "^2.0.0"
 
@@ -7245,7 +7277,16 @@ ember-router-generator@^2.0.0:
     "@babel/traverse" "^7.4.5"
     recast "^0.18.1"
 
-ember-router-scroll@1.3.3, ember-router-scroll@^1.3.3:
+ember-router-scroll@3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/ember-router-scroll/-/ember-router-scroll-3.3.1.tgz#98e3a8b15ad6e8684922983dc096700cbba9a80d"
+  integrity sha512-jjWAfWdGZBxIpabFIcAL77+z8xiAqnHK/r8/l2C9pfSRteiQnq7aadlBDVk6QAKbxwPQwNRvCSRTHsAJ/EvUhg==
+  dependencies:
+    ember-app-scheduler "^4.0.0"
+    ember-cli-babel "^7.11.1"
+    ember-compatibility-helpers "^1.1.2"
+
+ember-router-scroll@^1.3.3:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/ember-router-scroll/-/ember-router-scroll-1.3.3.tgz#411991a671bd970497f5ce757baa627e850ae6e0"
   integrity sha512-SwGsX7kceLXd3AZtKFcM/Ggl5lw37/a1v2rYHwWKZNMiyICBctJmWeEvALLQpiNzT8YMJrJHBkucHFmG07JPXQ==
@@ -7360,6 +7401,15 @@ ember-test-waiters@^1.1.1:
   dependencies:
     ember-cli-babel "^7.11.0"
     semver "^6.3.0"
+
+ember-test-waiters@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/ember-test-waiters/-/ember-test-waiters-2.0.0.tgz#fee43406670a2bd54baa7daf836b8c9acd517fee"
+  integrity sha512-R7H/BgKeAJdmpNA7aropEJkcJZNBMSOXTogz7hF+ZO0tnHSq3cJb/gDpu6Beok3DzLCJIrYYApU3MPbQ0/teXQ==
+  dependencies:
+    ember-cli-babel "^7.18.0"
+    ember-cli-typescript "^3.1.3"
+    semver "^7.1.3"
 
 ember-tether@^1.0.0-beta.2:
   version "1.0.0"
