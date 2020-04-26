@@ -49,7 +49,7 @@
     "@glimmer/component": "1.0.0",
     "babel-eslint": "10.1.0",
     "broccoli-asset-rev": "3.0.0",
-    "ember-changeset": "2.2.4",
+    "ember-changeset": "3.3.0",
     "ember-changeset-validations": "2.2.1",
     "ember-cli": "3.15.2",
     "ember-cli-addon-docs": "0.6.16",
