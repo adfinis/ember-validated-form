@@ -41,7 +41,7 @@ export default Component.extend({
     return v4();
   }),
 
-  errors: computed("model.error", function() {
+  errors: computed("_val", function() {
     return this.getWithDefault(
       `model.error.${this.get("name")}.validation`,
       []
