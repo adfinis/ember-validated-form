@@ -21,14 +21,14 @@ export default Component.extend({
 
   init() {
     this._super(...arguments);
-    if (this.get("model") && this.get("model").validate) {
-      this.get("model").validate();
+    if (this.model && this.model.validate) {
+      this.model.validate();
     }
   },
 
   submit() {
     this.set("submitted", true);
-    const model = this.get("model");
+    const model = this.model;
 
     if (!model || !model.validate) {
       this.runCallback(PROP_ON_SUBMIT);
@@ -55,7 +55,7 @@ export default Component.extend({
     if (typeof callback !== "function") {
       return;
     }
-    const model = this.get("model");
+    const model = this.model;
 
     this.set("loading", true);
     resolve(callback(model)).finally(() => {
@@ -65,5 +65,5 @@ export default Component.extend({
       }
       this.set("loading", false);
     });
-  }
+  },
 });

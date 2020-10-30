@@ -3,5 +3,5 @@ import layout from "../../../templates/components/validated-input/types/checkbox
 
 export default Component.extend({
   layout,
-  tagName: ""
+  tagName: "",
 });

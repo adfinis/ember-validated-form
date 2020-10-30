@@ -6,5 +6,5 @@ export default Component.extend({
   layout,
   type: "button",
   tagName: "",
-  buttonComponent: themedComponent("validated-button/button")
+  buttonComponent: themedComponent("validated-button/button"),
 });

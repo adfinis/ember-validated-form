@@ -6,11 +6,11 @@ import setupConfigTest from "dummy/tests/helpers/setup-config-test";
 
 module(
   "Integration | Component | validated-input/types/-themes/bootstrap/checkbox",
-  function(hooks) {
+  function (hooks) {
     setupRenderingTest(hooks);
     setupConfigTest(hooks, { theme: "bootstrap" });
 
-    test("it renders", async function(assert) {
+    test("it renders", async function (assert) {
       await render(hbs`
         {{validated-input/types/-themes/bootstrap/checkbox
           labelComponent=(component 'validated-input/-themes/bootstrap/label' label='Test')

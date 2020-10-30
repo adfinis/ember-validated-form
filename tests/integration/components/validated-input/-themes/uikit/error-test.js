@@ -6,11 +6,11 @@ import setupConfigTest from "dummy/tests/helpers/setup-config-test";
 
 module(
   "Integration | Component | validated-input/-themes/uikit/error",
-  function(hooks) {
+  function (hooks) {
     setupRenderingTest(hooks);
     setupConfigTest(hooks, { theme: "uikit" });
 
-    test("it renders", async function(assert) {
+    test("it renders", async function (assert) {
       this.set("errors", ["foo", "bar", "baz"]);
 
       await render(hbs`{{validated-input/-themes/uikit/error errors=errors}}`);

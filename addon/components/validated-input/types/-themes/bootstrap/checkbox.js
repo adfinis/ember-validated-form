@@ -4,5 +4,5 @@ import layout from "../../../../../templates/components/validated-input/types/-t
 export default Component.extend({
   layout,
   tagName: "div",
-  classNames: ["custom-control", "custom-checkbox"]
+  classNames: ["custom-control", "custom-checkbox"],
 });

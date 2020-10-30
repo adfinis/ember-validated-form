@@ -8,8 +8,8 @@ export default Component.extend({
   actions: {
     onColorSelected(color) {
       this.toggleProperty("isShowingColors");
-      this.get("setDirty")();
-      this.get("update")(color);
+      this.setDirty();
+      this.update(color);
     },
 
     toggle() {
@@ -17,8 +17,8 @@ export default Component.extend({
     },
 
     clearSelection() {
-      this.get("update")(null);
-    }
-  }
+      this.update(null);
+    },
+  },
 });
 // END-SNIPPET

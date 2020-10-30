@@ -8,8 +8,8 @@ export default Route.extend({
       saved: false,
       save() {
         this.set("saved", true);
-      }
+      },
     });
-  }
+  },
   // END-SNIPPET
 });

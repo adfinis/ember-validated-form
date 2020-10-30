@@ -6,11 +6,11 @@ import setupConfigTest from "dummy/tests/helpers/setup-config-test";
 
 module(
   "Integration | Component | validated-input/-themes/bootstrap/error",
-  function(hooks) {
+  function (hooks) {
     setupRenderingTest(hooks);
     setupConfigTest(hooks, { theme: "bootstrap" });
 
-    test("it renders", async function(assert) {
+    test("it renders", async function (assert) {
       this.set("errors", ["foo", "bar", "baz"]);
 
       await render(

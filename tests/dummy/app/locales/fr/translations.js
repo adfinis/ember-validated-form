@@ -5,8 +5,8 @@ export default {
       shapes: "les formes",
       triangle: "un triangle",
       square: "un carré",
-      circle: "un cercle"
-    }
-  }
+      circle: "un cercle",
+    },
+  },
 };
 // END-SNIPPET

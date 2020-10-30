@@ -12,31 +12,31 @@ export default Controller.extend({
     this.colors = [
       { name: "Red", color: "red" },
       { name: "Green", color: "green" },
-      { name: "Blue", color: "blue" }
+      { name: "Blue", color: "blue" },
     ];
 
     this.countries = [
       "United States",
       "United Kingdom",
       "Switzerland",
-      "Other"
+      "Other",
     ];
 
     this.genders = [
       {
         key: "m",
-        label: "Male"
+        label: "Male",
       },
       {
         key: "f",
-        label: "Female"
-      }
+        label: "Female",
+      },
     ];
   },
 
-  submit: task(function*(model) {
+  submit: task(function* (model) {
     yield timeout(1000);
     model.save();
-  })
+  }),
 });
 // END-SNIPPET

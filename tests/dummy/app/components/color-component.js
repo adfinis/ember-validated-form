@@ -7,15 +7,13 @@ export default Component.extend({
 
   attributeBindings: ["style"],
 
-  style: computed("color.color", function() {
+  style: computed("color.color", function () {
     return htmlSafe(
-      `background-color: ${this.get(
-        "color.color"
-      )}; font-size: 1rem; cursor: pointer;`
+      `background-color: ${this.color.color}; font-size: 1rem; cursor: pointer;`
     );
   }),
 
   click() {
-    this.get("colorSelected")(this.get("color"));
-  }
+    this.colorSelected(this.color);
+  },
 });

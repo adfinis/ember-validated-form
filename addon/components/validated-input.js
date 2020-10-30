@@ -1,7 +1,7 @@
 import { computed, defineProperty } from "@ember/object";
 import Component from "@ember/component";
 import layout from "../templates/components/validated-input";
-import v4 from "uuid/v4";
+import { v4 } from "uuid";
 import themedComponent from "../-private/themed-component";
 
 /**
@@ -31,29 +31,28 @@ export default Component.extend({
     defineProperty(
       this,
       "_val",
-      computed("value", `model.${this.get("name")}`, "name", function() {
-        return this.get("value") || this.get(`model.${this.get("name")}`);
+      computed("value", `model.${this.name}`, "name", function () {
+        return this.value || this.get(`model.${this.name}`);
       })
     );
   },
 
-  inputId: computed(function() {
+  inputId: computed(function () {
     return v4();
   }),
 
-  errors: computed("model.error", function() {
-    return this.getWithDefault(
-      `model.error.${this.get("name")}.validation`,
-      []
-    );
+  errors: computed("model.error", "name", function () {
+    return this.get(`model.error.${this.name}.validation`) === undefined
+      ? []
+      : this.get(`model.error.${this.name}.validation`);
   }),
 
-  isValid: computed("showValidity", "errors.[]", function() {
-    return this.get("showValidity") && !this.get("errors.length");
+  isValid: computed("showValidity", "errors.[]", function () {
+    return this.showValidity && !this.errors.length;
   }),
 
-  isInvalid: computed("showValidity", "errors.[]", function() {
-    return this.get("showValidity") && !!this.get("errors.length");
+  isInvalid: computed("showValidity", "errors.[]", function () {
+    return this.showValidity && !!this.errors.length;
   }),
 
   renderComponent: themedComponent("validated-input/render"),
@@ -65,11 +64,8 @@ export default Component.extend({
     "validateBeforeSubmit",
     "dirty",
     "submitted",
-    function() {
-      return (
-        this.get("submitted") ||
-        (this.get("validateBeforeSubmit") && this.get("dirty"))
-      );
+    function () {
+      return this.submitted || (this.validateBeforeSubmit && this.dirty);
     }
   ),
 
@@ -79,11 +75,11 @@ export default Component.extend({
     },
 
     update(value) {
-      if (this.get("on-update")) {
-        this.get("on-update")(value, this.get("model"));
+      if (this["on-update"]) {
+        this["on-update"](value, this.model);
       } else {
-        this.set(`model.${this.get("name")}`, value);
+        this.set(`model.${this.name}`, value);
       }
-    }
-  }
+    },
+  },
 });

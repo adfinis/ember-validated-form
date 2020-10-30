@@ -4,5 +4,5 @@ import layout from "../../templates/components/validated-input/label";
 export default Component.extend({
   layout,
   tagName: "label",
-  attributeBindings: ["inputId:for"]
+  attributeBindings: ["inputId:for"],
 });

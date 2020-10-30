@@ -6,20 +6,20 @@ import setupConfigTest from "dummy/tests/helpers/setup-config-test";
 
 module(
   "Integration | Component | validated-input/types/-themes/uikit/radio-group",
-  function(hooks) {
+  function (hooks) {
     setupRenderingTest(hooks);
     setupConfigTest(hooks, { theme: "uikit" });
 
-    test("it renders", async function(assert) {
+    test("it renders", async function (assert) {
       this.set("options", [
         {
           key: "opt1",
-          label: "Option 1"
+          label: "Option 1",
         },
         {
           key: "opt2",
-          label: "Option 2"
-        }
+          label: "Option 2",
+        },
       ]);
 
       await render(

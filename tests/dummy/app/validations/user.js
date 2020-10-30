@@ -2,7 +2,7 @@
 import {
   validatePresence,
   validateLength,
-  validateInclusion
+  validateInclusion,
 } from "ember-changeset-validations/validators";
 
 export default {
@@ -14,9 +14,9 @@ export default {
   terms: [
     validateInclusion({
       list: [true],
-      message: "Please accept the terms and conditions!"
-    })
+      message: "Please accept the terms and conditions!",
+    }),
   ],
-  color: [validatePresence(true)]
+  color: [validatePresence(true)],
 };
 // END-SNIPPET
