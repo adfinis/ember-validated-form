@@ -8,5 +8,5 @@ export default Component.extend({
   radioGroupComponent: themedComponent("validated-input/types/radio-group"),
   checkboxComponent: themedComponent("validated-input/types/checkbox"),
   textareaComponent: themedComponent("validated-input/types/textarea"),
-  inputComponent: themedComponent("validated-input/types/input")
+  inputComponent: themedComponent("validated-input/types/input"),
 });

@@ -7,15 +7,15 @@ import Component from "@ember/component";
 import setupConfigTest from "dummy/tests/helpers/setup-config-test";
 
 const CustomLabelComponent = Component.extend({
-  tagName: "custom-label"
+  tagName: "custom-label",
 });
 
 const CustomHintComponent = Component.extend({
-  tagName: "custom-hint"
+  tagName: "custom-hint",
 });
 
 const CustomErrorComponent = Component.extend({
-  tagName: "custom-error"
+  tagName: "custom-error",
 });
 
 const CustomRenderComponent = Component.extend({
@@ -24,38 +24,38 @@ const CustomRenderComponent = Component.extend({
     {{component hintComponent}}
     {{component errorComponent}}
   `,
-  tagName: "custom-render"
+  tagName: "custom-render",
 });
 
 const CustomButtonComponent = Component.extend({
-  tagName: "custom-button"
+  tagName: "custom-button",
 });
 
 const CustomCheckboxComponent = Component.extend({
-  tagName: "custom-checkbox"
+  tagName: "custom-checkbox",
 });
 
 const CustomInputComponent = Component.extend({
-  tagName: "custom-input"
+  tagName: "custom-input",
 });
 
 const CustomRadioGroupComponent = Component.extend({
-  tagName: "custom-radio-group"
+  tagName: "custom-radio-group",
 });
 
 const CustomSelectComponent = Component.extend({
-  tagName: "custom-select"
+  tagName: "custom-select",
 });
 
 const CustomTextareaComponent = Component.extend({
-  tagName: "custom-textarea"
+  tagName: "custom-textarea",
 });
 
-module("Integration | Component | validated form defaults", function(hooks) {
+module("Integration | Component | validated form defaults", function (hooks) {
   setupRenderingTest(hooks);
   setupConfigTest(hooks, {});
 
-  test("renders custom components", async function(assert) {
+  test("renders custom components", async function (assert) {
     assert.expect(4);
 
     set(
@@ -65,7 +65,7 @@ module("Integration | Component | validated form defaults", function(hooks) {
         label: "x-custom-label",
         hint: "x-custom-hint",
         error: "x-custom-error",
-        render: "x-custom-render"
+        render: "x-custom-render",
       }
     );
 
@@ -74,6 +74,8 @@ module("Integration | Component | validated form defaults", function(hooks) {
     this.owner.register("component:x-custom-error", CustomErrorComponent);
     this.owner.register("component:x-custom-render", CustomRenderComponent);
 
+    this.set("model", { error: { test1: { validation: ["Error"] } } });
+
     await render(hbs`
       {{#validated-form as |f|}}
         {{f.input
@@ -81,8 +83,8 @@ module("Integration | Component | validated form defaults", function(hooks) {
           type='text'
           label='Label!'
           hint='Hint!'
-          showValidity=true
-          errors=(array 'Error!')
+          submitted=true
+          model=model
         }}
       {{/validated-form}}
     `);
@@ -93,14 +95,14 @@ module("Integration | Component | validated form defaults", function(hooks) {
     assert.dom("custom-error").exists();
   });
 
-  test("renders custom button components", async function(assert) {
+  test("renders custom button components", async function (assert) {
     assert.expect(1);
 
     set(
       this.owner.resolveRegistration("config:environment"),
       "ember-validated-form.defaults",
       {
-        button: "x-custom-button"
+        button: "x-custom-button",
       }
     );
 
@@ -115,7 +117,7 @@ module("Integration | Component | validated form defaults", function(hooks) {
     assert.dom("custom-button").exists();
   });
 
-  test("renders custom type components", async function(assert) {
+  test("renders custom type components", async function (assert) {
     assert.expect(5);
 
     set(
@@ -126,7 +128,7 @@ module("Integration | Component | validated form defaults", function(hooks) {
         "types/input": "x-custom-input",
         "types/radio-group": "x-custom-radio-group",
         "types/select": "x-custom-select",
-        "types/textarea": "x-custom-textarea"
+        "types/textarea": "x-custom-textarea",
       }
     );
 

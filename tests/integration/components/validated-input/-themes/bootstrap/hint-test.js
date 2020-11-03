@@ -6,11 +6,11 @@ import setupConfigTest from "dummy/tests/helpers/setup-config-test";
 
 module(
   "Integration | Component | validated-input/-themes/bootstrap/hint",
-  function(hooks) {
+  function (hooks) {
     setupRenderingTest(hooks);
     setupConfigTest(hooks, { theme: "bootstrap" });
 
-    test("it renders", async function(assert) {
+    test("it renders", async function (assert) {
       await render(hbs`{{validated-input/-themes/bootstrap/hint hint='Test'}}`);
 
       assert.dom("small").hasClass("form-text");

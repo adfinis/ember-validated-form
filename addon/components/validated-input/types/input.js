@@ -14,6 +14,6 @@ export default Component.extend({
     "disabled",
 
     "update:oninput",
-    "setDirty:onblur"
-  ]
+    "setDirty:onblur",
+  ],
 });

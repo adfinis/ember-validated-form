@@ -6,11 +6,11 @@ import setupConfigTest from "dummy/tests/helpers/setup-config-test";
 
 module(
   "Integration | Component | validated-input/types/-themes/uikit/checkbox",
-  function(hooks) {
+  function (hooks) {
     setupRenderingTest(hooks);
     setupConfigTest(hooks, { theme: "uikit" });
 
-    test("it renders", async function(assert) {
+    test("it renders", async function (assert) {
       await render(hbs`
         {{validated-input/types/-themes/uikit/checkbox
           labelComponent=(component 'validated-input/-themes/uikit/label' label='Test')

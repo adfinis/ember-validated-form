@@ -8,9 +8,9 @@ export default Route.extend({
   model() {
     return EmberObject.create({
       save() {
-        return new Promise(resolve => later(resolve, 1000));
-      }
+        return new Promise((resolve) => later(resolve, 1000));
+      },
     });
-  }
+  },
   // END-SNIPPET
 });

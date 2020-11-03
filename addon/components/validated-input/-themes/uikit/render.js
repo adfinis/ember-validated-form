@@ -3,5 +3,5 @@ import layout from "../../../../templates/components/validated-input/-themes/uik
 
 export default Component.extend({
   layout,
-  classNames: ["uk-margin"]
+  classNames: ["uk-margin"],
 });

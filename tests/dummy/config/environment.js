@@ -1,20 +1,20 @@
 "use strict";
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   let ENV = {
     modulePrefix: "dummy",
     environment,
     rootURL: "/",
-    locationType: "router-scroll",
+    locationType: "auto",
     historySupportMiddleware: true,
     i18n: {
-      defaultLocale: "fr"
+      defaultLocale: "fr",
     },
     "ember-validated-form": {
       theme: "bootstrap",
       defaults: {
-        hint: "permanent-custom-hint"
-      }
+        hint: "permanent-custom-hint",
+      },
     },
     EmberENV: {
       FEATURES: {
@@ -23,14 +23,14 @@ module.exports = function(environment) {
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
-        Date: false
-      }
+        Date: false,
+      },
     },
 
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
   };
 
   if (environment === "development") {

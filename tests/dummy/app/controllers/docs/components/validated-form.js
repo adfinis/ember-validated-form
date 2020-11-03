@@ -3,7 +3,7 @@ import { task } from "ember-concurrency";
 
 export default Controller.extend({
   // BEGIN-SNIPPET validated-form-task-controller.js
-  submit: task(function*(model) {
+  submit: task(function* (model) {
     yield model.save();
     // ... more code to show success messages etc.
   }).drop(), // Use the .drop() modifier to prevent the task from running twice
@@ -15,7 +15,7 @@ export default Controller.extend({
       return model.save().then(() => {
         // ... more code to show success messages etc.
       });
-    }
-  }
+    },
+  },
   // END-SNIPPET
 });

@@ -4,6 +4,6 @@ module.exports = {
   extends: "recommended",
   rules: {
     "simple-unless": false,
-    "no-inline-styles": false
-  }
+    "no-inline-styles": false,
+  },
 };

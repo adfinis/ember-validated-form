@@ -3,5 +3,5 @@ import layout from "../../templates/components/validated-input/error";
 
 export default Component.extend({
   layout,
-  tagName: "span"
+  tagName: "span",
 });

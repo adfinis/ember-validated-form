@@ -14,6 +14,6 @@ export default Component.extend({
     "autocomplete",
 
     "update:oninput",
-    "setDirty:onblur"
-  ]
+    "setDirty:onblur",
+  ],
 });

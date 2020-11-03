@@ -6,20 +6,20 @@ import setupConfigTest from "dummy/tests/helpers/setup-config-test";
 
 module(
   "Integration | Component | validated-input/types/-themes/bootstrap/select",
-  function(hooks) {
+  function (hooks) {
     setupRenderingTest(hooks);
     setupConfigTest(hooks, { theme: "bootstrap" });
 
-    test("it renders", async function(assert) {
+    test("it renders", async function (assert) {
       this.set("options", [
         {
           key: "opt1",
-          label: "Option 1"
+          label: "Option 1",
         },
         {
           key: "opt2",
-          label: "Option 2"
-        }
+          label: "Option 2",
+        },
       ]);
 
       await render(
