@@ -43,7 +43,7 @@
     "uuid": "^8.3.1"
   },
   "devDependencies": {
-    "@adfinis-sygroup/semantic-release-config": "3.0.0",
+    "@adfinis-sygroup/semantic-release-config": "3.0.1",
     "@babel/core": "7.12.3",
     "@ember/optional-features": "2.0.0",
     "@fortawesome/ember-fontawesome": "0.2.2",
