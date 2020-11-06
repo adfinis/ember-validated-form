@@ -1,3 +1,19 @@
+# [3.0.0](https://github.com/adfinis-sygroup/ember-validated-form/compare/v2.0.0...v3.0.0) (2020-11-06)
+
+
+* chore!: update dependencies (#392) ([2664399](https://github.com/adfinis-sygroup/ember-validated-form/commit/266439966050dee4ec6033f24828c84f5e0543b8)), closes [#392](https://github.com/adfinis-sygroup/ember-validated-form/issues/392)
+
+
+### Bug Fixes
+
+* **deps:** bump ember-auto-import from 1.6.0 to 1.7.0 ([#394](https://github.com/adfinis-sygroup/ember-validated-form/issues/394)) ([9d464e4](https://github.com/adfinis-sygroup/ember-validated-form/commit/9d464e4b5e83f19f3bd46897ef56a3caaaeb7153))
+* **select:** pass promptIsSelectable to select ([e739b4f](https://github.com/adfinis-sygroup/ember-validated-form/commit/e739b4fea27165e97ae0130e5d330990bdf501ee))
+
+
+### BREAKING CHANGES
+
+* This drops support for Ember LTS 3.8 and 3.12
+
 # Change Log
 
 All notable changes to this project will be documented in this file.
