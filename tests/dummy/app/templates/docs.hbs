@@ -1,26 +1,26 @@
-{{docs-header}}
+<DocsHeader />
 
-{{#docs-viewer as |viewer|}}
+<DocsViewer as |viewer|>
 
-  {{#viewer.nav as |nav|}}
-    {{nav.section "Introduction"}}
-    {{nav.item "Why?" "docs.index"}}
-    {{nav.item "Usage" "docs.usage"}}
-    {{nav.item "Quickstart" "docs.quickstart"}}
-    {{nav.item "Configuration" "docs.configuration"}}
-    {{nav.item "Customization" "docs.customization"}}
+  <viewer.nav as |nav|>
+    <nav.section @label="Introduction" />
+    <nav.item @label="Why?" @route="docs.index" />
+    <nav.item @label="Usage" @route="docs.usage" />
+    <nav.item @label="Quickstart" @route="docs.quickstart" />
+    <nav.item @label="Configuration" @route="docs.configuration" />
+    <nav.item @label="Customization"@route= "docs.customization" />
 
-    {{nav.section "Components"}}
-    {{nav.item "{{validated-form}}" "docs.components.validated-form"}}
-    {{nav.item "{{validated-input}}" "docs.components.validated-input"}}
-    {{nav.item "{{validated-button}}" "docs.components.validated-button"}}
-  {{/viewer.nav}}
+    <nav.section @label="Components" />
+    <nav.item @label="&#123;&#123;validated-form&#125;&#125;" @route="docs.components.validated-form" />
+    <nav.item @label="&#123;&#123;validated-input&#125;&#125;" @route="docs.components.validated-input" />
+    <nav.item @label="&#123;&#123;validated-button&#125;&#125;" @route="docs.components.validated-button" />
+  </viewer.nav>
 
-  {{#viewer.main}}
+  <viewer.main>
     <div class="docs-container">
       <div class="docs-section">
         {{outlet}}
       </div>
     </div>
-  {{/viewer.main}}
-{{/docs-viewer}}
+  </viewer.main>
+</DocsViewer>

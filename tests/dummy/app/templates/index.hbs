@@ -1,23 +1,23 @@
-{{docs-header}}
+<DocsHeader />
 
-{{docs-hero
-  logo="ember"
-  slimHeading="Validated"
-  strongHeading="Form"
-  byline="Easily create forms with client side validations."}}
+<DocsHero
+  @logo="ember"
+  @slimHeading="Validated"
+  @strongHeading="Form"
+  @byline="Easily create forms with client side validations."
+/>
 
 <p class="my-4 text-center">Built with ♥ by <a href="https://github.com/adfinis-sygroup">Adfinis SyGroup</a></p>
 
-<div class="text-center">
-  <a href="https://emberobserver.com/addons/ember-validated-form" rel="nofollow"><img alt="Ember Observer Score" src="https://emberobserver.com/badges/ember-validated-form.svg"></a>
-  <a href="https://travis-ci.org/adfinis-sygroup/ember-validated-form" rel="nofollow"><img alt="Build Status" src="https://travis-ci.org/adfinis-sygroup/ember-validated-form.svg?branch=master"></a>
-  <a href="https://david-dm.org/adfinis-sygroup/ember-validated-form" rel="nofollow"><img alt="Dependency status" src="https://david-dm.org/adfinis-sygroup/ember-validated-form.svg"></a>
-  <a href="https://github.com/prettier/prettier"><img alt="Code style" src="https://img.shields.io/badge/code_style-prettier-red.svg"></a>
+<div class="d-flex justify-content-center">
+  <a class="ml-1" href="https://emberobserver.com/addons/ember-validated-form" rel="nofollow"><img alt="Ember Observer Score" src="https://emberobserver.com/badges/ember-validated-form.svg"></a>
+  <a class="ml-1" href="https://travis-ci.org/adfinis-sygroup/ember-validated-form" rel="nofollow"><img alt="Build Status" src="https://travis-ci.org/adfinis-sygroup/ember-validated-form.svg?branch=master"></a>
+  <a class="ml-1" href="https://github.com/prettier/prettier"><img alt="Code style" src="https://img.shields.io/badge/code_style-prettier-red.svg"></a>
 </div>
 
 <div class="docs-container">
-  {{#docs-demo as |demo|}}
-    {{#demo.example}}
+  <DocsDemo as |demo|>
+    <demo.example>
       {{!-- BEGIN-SNIPPET quickstart-template.hbs --}}
       {{#if model.saved}}
         <div class="alert alert-success">
@@ -25,42 +25,72 @@
         </div>
       {{/if}}
 
-      {{#validated-form
-        model = (changeset model UserValidations)
-        on-submit = (perform submit)
-        as |f|}}
+      <ValidatedForm
+        @model={{changeset @model this.UserValidations}}
+        @on-submit={{perform this.submit}}
+      as |f|>
 
-        {{f.input label="First name" name="firstName" required=true}}
-        {{f.input label="Last name" name="lastName" required=true}}
+        <f.input
+          @label="First name"
+          @name="firstName"
+          @required={{true}}
+        />
 
-        {{f.input type="textarea" label="About me" name="aboutMe" hint="Write a short description about yourself"}}
+        <f.input
+          @label="Last name"
+          @name="lastName"
+          @required={{true}}
+        />
 
-        {{f.input
-          type         = "select"
-          label        = "Country"
-          name         = "country"
-          includeBlank = "Select a country"
-          options      = countries
-          value        = model.country
-          required     = true
-        }}
+        <f.input
+          @type="textarea"
+          @label="About me"
+          @name="aboutMe"
+          @hint="Write a short description about yourself"
+        />
 
-        {{f.input type="radioGroup" label="Gender" name="gender" options=genders required=true}}
+        <f.input
+          @type="select"
+          @label="Country"
+          @name="country"
+          @includeBlank="Select a country"
+          @options={{this.countries}}
+          @value={{@model.country}}
+          @required={{true}}
+        />
 
-        {{f.input renderComponent=(component "favorite-colors-component" colors=colors) label="Favorite Color" name="color" required=true}}
+        <f.input
+          @type="radioGroup"
+          @label="Gender"
+          @name="gender"
+          @options={{this.genders}}
+          @required={{true}}
+        />
 
-        {{f.input type="checkbox" label="I agree with the terms and conditions" name="terms" required=true}}
+        <f.input
+          @renderComponent={{component "favorite-colors-component" colors=this.colors}}
+          @label="Favorite Color"
+          @name="color"
+          @required={{true}}
+        />
 
-        {{f.submit label="Save"}}
-      {{/validated-form}}
+        <f.input
+          @type="checkbox"
+          @label="I agree with the terms and conditions"
+          @name="terms"
+          @required={{true}}
+        />
+
+        <f.submit @label="Save" />
+      </ValidatedForm>
       {{!-- END-SNIPPET --}}
-    {{/demo.example}}
+    </demo.example>
 
-    {{demo.snippet "quickstart-template.hbs"}}
-    {{demo.snippet "quickstart-route.js" label="route.js"}}
-    {{demo.snippet "quickstart-controller.js"}}
-    {{demo.snippet "quickstart-validations.js" label="validations/user.js"}}
-    {{demo.snippet "favorite-colors-component.js" label="components/favorite-colors-component.js"}}
-    {{demo.snippet "favorite-colors-component.hbs" label="templates/components/favorite-colors-component.hbs"}}
-  {{/docs-demo}}
+    <demo.snippet @name="quickstart-template.hbs" />
+    <demo.snippet @name="quickstart-route.js" @label="route.js" />
+    <demo.snippet @name="quickstart-controller.js" />
+    <demo.snippet @name="quickstart-validations.js" @label="validations/user.js" />
+    <demo.snippet @name="favorite-colors-component.js" @label="components/favorite-colors-component.js" />
+    <demo.snippet @name="favorite-colors-component.hbs" @label="templates/components/favorite-colors-component.hbs" />
+  </DocsDemo>
 </div>
