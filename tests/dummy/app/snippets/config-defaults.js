@@ -15,8 +15,8 @@ var ENV = {
       "types/input": "x-my-input",
       "types/radio-group": "x-my-radio-group",
       "types/select": "x-my-select",
-      "types/textarea": "x-my-textarea"
-    }
-  }
+      "types/textarea": "x-my-textarea",
+    },
+  },
   // ...
 };

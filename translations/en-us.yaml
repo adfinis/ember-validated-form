@@ -1,0 +1,6 @@
+some:
+  scope:
+    shapes: "Shapes"
+    triangle: "Triangle"
+    square: "Square"
+    circle: "Circle"

@@ -165,12 +165,12 @@ This component renders a list of `<input type="radio">` elements.
 {{/docs-demo}}
 <!-- prettier-ignore-end -->
 
+<!-- this doesn't work
 If you want to customize the markup for each radio-button's label, you can
 invoke this component using block form. This is helpful if you need to
 localize your labels using an internationalization addon like
 [ember-intl](https://github.com/ember-intl/ember-intl).
 
-<!-- prettier-ignore-start -->
 {{#docs-demo as |demo|}}
   {{#demo.example name='radio-i18n-template.hbs'}}
     {{#validated-form model=(changeset (hash shape=null)) as |f|}}
@@ -188,12 +188,4 @@ localize your labels using an internationalization addon like
   {{demo.snippet 'radio-i18n-template.hbs'}}
   {{demo.snippet 'translations.js' label='locales/fr/translations.js'}}
 {{/docs-demo}}
-<!-- prettier-ignore-end -->
-
-### Custom input elements
-
-{{#link-to 'docs.customization'}}**This section moved!**{{/link-to}}
-
-### Custom label components
-
-{{#link-to 'docs.customization'}}**This section moved!**{{/link-to}}
+-->
