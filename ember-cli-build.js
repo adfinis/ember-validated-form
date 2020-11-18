@@ -5,6 +5,9 @@ const EmberAddon = require("ember-cli/lib/broccoli/ember-addon");
 module.exports = function (defaults) {
   const app = new EmberAddon(defaults, {
     snippetPaths: ["tests/dummy/app/snippets"],
+    "ember-cli-babel": {
+      includePolyfill: process.env.EMBER_ENV === "production",
+    },
   });
 
   /*
