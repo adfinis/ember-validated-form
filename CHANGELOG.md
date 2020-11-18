@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/adfinis-sygroup/ember-validated-form/compare/v3.0.0...v3.0.1) (2020-11-18)
+
+
+### Bug Fixes
+
+* **deps:** update ember-changeset and validations to v3+ ([a9d83e2](https://github.com/adfinis-sygroup/ember-validated-form/commit/a9d83e208ad2599b0bd3847bc170179294d479ad))
+
 # [3.0.0](https://github.com/adfinis-sygroup/ember-validated-form/compare/v2.0.0...v3.0.0) (2020-11-06)
 
 
