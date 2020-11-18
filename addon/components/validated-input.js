@@ -42,10 +42,14 @@ export default Component.extend({
     return v4();
   }),
 
-  errors: computed("model.error", "name", function () {
-    return this.get(`model.error.${this.name}.validation`) === undefined
-      ? []
-      : this.get(`model.error.${this.name}.validation`);
+  errors: computed("_val", "name", function () {
+    const errors = this.get(`model.error.${this.name}.validation`) || [];
+
+    if (!Array.isArray(errors)) {
+      return [errors];
+    }
+
+    return errors;
   }),
 
   isValid: computed("showValidity", "errors.[]", function () {
