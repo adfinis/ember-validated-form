@@ -1,5 +1,5 @@
-import Route from "@ember/routing/route";
 import EmberObject from "@ember/object";
+import Route from "@ember/routing/route";
 
 export default Route.extend({
   // BEGIN-SNIPPET quickstart-route.js

@@ -1,5 +1,6 @@
-import { resolve } from "rsvp";
 import Component from "@ember/component";
+import { resolve } from "rsvp";
+
 import layout from "../templates/components/validated-form";
 
 const PROP_ON_SUBMIT = "on-submit";
@@ -19,8 +20,8 @@ export default Component.extend({
 
   validateBeforeSubmit: true,
 
-  init() {
-    this._super(...arguments);
+  init(...args) {
+    this._super(...args);
     if (this.model && this.model.validate) {
       this.model.validate();
     }

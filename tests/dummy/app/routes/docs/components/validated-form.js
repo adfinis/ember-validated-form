@@ -1,7 +1,7 @@
-import Route from "@ember/routing/route";
 import EmberObject from "@ember/object";
-import { Promise } from "rsvp";
+import Route from "@ember/routing/route";
 import { later } from "@ember/runloop";
+import { Promise } from "rsvp";
 
 export default Route.extend({
   // BEGIN-SNIPPET validated-form-route.js

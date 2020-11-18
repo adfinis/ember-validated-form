@@ -6,8 +6,8 @@ import { task, timeout } from "ember-concurrency";
 export default Controller.extend({
   UserValidations,
 
-  init() {
-    this._super(...arguments);
+  init(...args) {
+    this._super(...args);
 
     this.colors = [
       { name: "Red", color: "red" },

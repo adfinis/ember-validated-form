@@ -1,4 +1,5 @@
 import AddonDocsRouter, { docsRoute } from "ember-cli-addon-docs/router";
+
 import config from "./config/environment";
 
 export default class Router extends AddonDocsRouter {
@@ -6,6 +7,7 @@ export default class Router extends AddonDocsRouter {
   rootURL = config.rootURL;
 }
 
+/* eslint-disable-next-line array-callback-return */
 Router.map(function () {
   docsRoute(this, function () {
     this.route("usage");

@@ -1,5 +1,5 @@
-import { get, computed } from "@ember/object";
 import { getOwner } from "@ember/application";
+import { get, computed } from "@ember/object";
 
 export default (component) => {
   return computed({

@@ -1,8 +1,8 @@
-import { module, test } from "qunit";
-import { setupRenderingTest } from "ember-qunit";
-import { render } from "@ember/test-helpers";
-import hbs from "htmlbars-inline-precompile";
 import Component from "@ember/component";
+import { render } from "@ember/test-helpers";
+import { setupRenderingTest } from "ember-qunit";
+import hbs from "htmlbars-inline-precompile";
+import { module, test } from "qunit";
 
 module("Integration | Component | validated label", function (hooks) {
   setupRenderingTest(hooks);
@@ -13,7 +13,7 @@ module("Integration | Component | validated label", function (hooks) {
     );
 
     assert.dom("label").hasText("Default name");
-    let input = this.element.querySelector("input");
+    const input = this.element.querySelector("input");
     assert.dom("label").hasAttribute("for", input.getAttribute("id"));
   });
 
@@ -57,7 +57,7 @@ module("Integration | Component | validated label", function (hooks) {
     assert.dom("#orig-label").hasText("Name custom");
     assert.dom("#orig-input-required").hasText("true");
 
-    let input = this.element.querySelector("input");
+    const input = this.element.querySelector("input");
     assert.dom("#orig-input-id").hasText(input.getAttribute("id"));
   });
 

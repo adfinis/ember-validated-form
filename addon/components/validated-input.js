@@ -1,8 +1,9 @@
-import { computed, defineProperty } from "@ember/object";
 import Component from "@ember/component";
-import layout from "../templates/components/validated-input";
+import { computed, defineProperty } from "@ember/object";
 import { v4 } from "uuid";
+
 import themedComponent from "../-private/themed-component";
+import layout from "../templates/components/validated-input";
 
 /**
  * This component wraps form inputs.
@@ -25,8 +26,8 @@ export default Component.extend({
   type: "text",
   validateBeforeSubmit: true,
 
-  init() {
-    this._super(...arguments);
+  init(...args) {
+    this._super(...args);
 
     defineProperty(
       this,

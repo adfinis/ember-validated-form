@@ -1,6 +1,7 @@
 import Component from "@ember/component";
-import layout from "../../templates/components/validated-input/render";
+
 import themedComponent from "../../-private/themed-component";
+import layout from "../../templates/components/validated-input/render";
 
 export default Component.extend({
   layout,
