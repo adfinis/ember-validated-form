@@ -1,8 +1,8 @@
-import { module, test } from "qunit";
-import { setupRenderingTest } from "ember-qunit";
 import { render, click } from "@ember/test-helpers";
-import hbs from "htmlbars-inline-precompile";
 import Changeset from "ember-changeset";
+import { setupRenderingTest } from "ember-qunit";
+import hbs from "htmlbars-inline-precompile";
+import { module, test } from "qunit";
 
 module("Integration | Component | validated input", function (hooks) {
   setupRenderingTest(hooks);
@@ -191,7 +191,7 @@ module("Integration | Component | validated input", function (hooks) {
   });
 
   test("it yields an action for updating the model", async function (assert) {
-    let model = new Changeset({ firstName: "Max" });
+    const model = new Changeset({ firstName: "Max" });
     this.set("model", model);
 
     await render(
@@ -234,8 +234,8 @@ module("Integration | Component | validated input", function (hooks) {
       `
     );
 
-    let label = this.element.querySelector("label");
-    let input = this.element.querySelector("input");
+    const label = this.element.querySelector("label");
+    const input = this.element.querySelector("input");
     assert.equal(label.getAttribute("for"), input.getAttribute("id"));
   });
 

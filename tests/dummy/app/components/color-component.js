@@ -1,6 +1,6 @@
-import { htmlSafe } from "@ember/string";
-import { computed } from "@ember/object";
 import Component from "@ember/component";
+import { computed } from "@ember/object";
+import { htmlSafe } from "@ember/string";
 
 export default Component.extend({
   classNames: ["badge", "badge-primary"],

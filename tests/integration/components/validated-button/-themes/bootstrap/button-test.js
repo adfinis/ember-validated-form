@@ -1,8 +1,8 @@
-import { module, test } from "qunit";
-import { setupRenderingTest } from "ember-qunit";
 import { render } from "@ember/test-helpers";
-import hbs from "htmlbars-inline-precompile";
 import setupConfigTest from "dummy/tests/helpers/setup-config-test";
+import { setupRenderingTest } from "ember-qunit";
+import hbs from "htmlbars-inline-precompile";
+import { module, test } from "qunit";
 
 module(
   "Integration | Component | validated-button/-themes/bootstrap/button",

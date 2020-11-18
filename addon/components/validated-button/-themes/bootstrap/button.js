@@ -1,5 +1,6 @@
-import Component from "../../button";
 import { computed } from "@ember/object";
+
+import Component from "../../button";
 
 export default Component.extend({
   classNames: ["btn"],

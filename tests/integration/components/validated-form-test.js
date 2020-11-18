@@ -1,11 +1,11 @@
-import { defer } from "rsvp";
-import { run } from "@ember/runloop";
 import EmberObject from "@ember/object";
-import { module, test } from "qunit";
-import { setupRenderingTest } from "ember-qunit";
+import { run } from "@ember/runloop";
 import { render, click, blur, focus } from "@ember/test-helpers";
-import hbs from "htmlbars-inline-precompile";
 import UserValidations from "dummy/validations/user";
+import { setupRenderingTest } from "ember-qunit";
+import hbs from "htmlbars-inline-precompile";
+import { module, test } from "qunit";
+import { defer } from "rsvp";
 
 module("Integration | Component | validated form", function (hooks) {
   setupRenderingTest(hooks);
@@ -294,7 +294,7 @@ module("Integration | Component | validated form", function (hooks) {
   });
 
   test("on-submit can be an action returning a promise", async function (assert) {
-    let deferred = defer();
+    const deferred = defer();
 
     this.actions.submit = () => deferred.promise;
 
@@ -346,7 +346,7 @@ module("Integration | Component | validated form", function (hooks) {
   });
 
   test("it yields the loading state", async function (assert) {
-    let deferred = defer();
+    const deferred = defer();
 
     this.actions.submit = () => deferred.promise;
 
@@ -407,7 +407,7 @@ module("Integration | Component | validated form", function (hooks) {
 
   test("it handles being removed from the DOM during async submit", async function (assert) {
     this.set("show", true);
-    let deferred = defer();
+    const deferred = defer();
 
     this.actions.submit = () => {
       return deferred.promise.then(() => {
