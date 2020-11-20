@@ -1,3 +1,10 @@
+## [3.0.2](https://github.com/adfinis-sygroup/ember-validated-form/compare/v3.0.1...v3.0.2) (2020-11-20)
+
+
+### Bug Fixes
+
+* **intl:** remove unused translation that caused warnings in apps ([f20f233](https://github.com/adfinis-sygroup/ember-validated-form/commit/f20f2332cbf8cf70711f292864e7a9dd2df8b995))
+
 ## [3.0.1](https://github.com/adfinis-sygroup/ember-validated-form/compare/v3.0.0...v3.0.1) (2020-11-18)
 
 
