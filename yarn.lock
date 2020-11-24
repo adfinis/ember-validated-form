@@ -2,14 +2,14 @@
 # yarn lockfile v1
 
 
-"@adfinis-sygroup/eslint-config@1.3.1":
-  version "1.3.1"
-  resolved "https://registry.yarnpkg.com/@adfinis-sygroup/eslint-config/-/eslint-config-1.3.1.tgz#ed51667c8c78d663a815c2816e830e3f3b239387"
-  integrity sha512-4YQFCEeENL20OkqlAI52v1/dthdOL41702AGjhwkFmmWeaSK9IoBV56MbykyukDmcuHPp8LFdYon4Gf9bfsE5A==
+"@adfinis-sygroup/eslint-config@1.3.2":
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/@adfinis-sygroup/eslint-config/-/eslint-config-1.3.2.tgz#c31077d7c48f4540dd44f92dd974a7b68f69087d"
+  integrity sha512-9+/vZlDrLB05uAOHkm9GzqREY6HqGi8RMrvYwTwL8gJM6S9iQrdP/CNt/kN62ko0QZsngdGCuMnlR22PFu4CTg==
   dependencies:
     babel-eslint "^10.0.3"
-    eslint-config-prettier "^6.10.1"
-    prettier "^2.0.4"
+    eslint-config-prettier "^6.15.0"
+    prettier "^2.2.0"
 
 "@adfinis-sygroup/semantic-release-config@3.1.0":
   version "3.1.0"
@@ -7986,7 +7986,7 @@ escodegen@^1.11.0, escodegen@^1.14.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-prettier@6.15.0, eslint-config-prettier@^6.10.1:
+eslint-config-prettier@6.15.0, eslint-config-prettier@^6.15.0:
   version "6.15.0"
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-6.15.0.tgz#7f93f6cb7d45a92f1537a70ecc06366e1ac6fed9"
   integrity sha512-a1+kOYLR8wMGustcgAjdydMsQ2A/2ipRPwRKUmfYaSxc9ZPcrku080Ctl6zrZzZNs/U82MjSv+qKREkoq3bJaw==
@@ -13965,10 +13965,15 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@2.1.2, prettier@^2.0.4:
+prettier@2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.1.2.tgz#3050700dae2e4c8b67c4c3f666cdb8af405e1ce5"
   integrity sha512-16c7K+x4qVlJg9rEbXl7HEGmQyZlG4R9AgP+oHKRMsMsuk8s+ATStlf1NpDqyBI1HpVyfjLOeMhH2LvuNvV5Vg==
+
+prettier@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.2.0.tgz#8a03c7777883b29b37fb2c4348c66a78e980418b"
+  integrity sha512-yYerpkvseM4iKD/BXLYUkQV5aKt4tQPqaGW6EsZjzyu0r7sVZZNPJW4Y8MyKmicp6t42XUPcBVA+H6sB3gqndw==
 
 pretty-hrtime@^1.0.3:
   version "1.0.3"
