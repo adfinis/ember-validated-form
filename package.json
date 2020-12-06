@@ -54,7 +54,7 @@
     "babel-eslint": "10.1.0",
     "broccoli-asset-rev": "3.0.0",
     "ember-changeset": "3.10.3",
-    "ember-changeset-validations": "3.10.0",
+    "ember-changeset-validations": "3.10.1",
     "ember-cli": "3.22.0",
     "ember-cli-addon-docs": "0.10.0",
     "ember-cli-dependency-checker": "3.2.0",
