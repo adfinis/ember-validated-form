@@ -11955,14 +11955,10 @@ case 2:return[2,n.sent()]
 case 3:return[2]}}))}))}function d(e,t){var r=e
 if(-1===t.indexOf("."))return r[t]
 for(var n="string"==typeof t?t.split("."):t,i=0;i<n.length;i++){if(null==r)return
-r=r[n[i]]}return r}function h(e){return function(t){var r=t.key,n=t.newValue,i=t.oldValue,a=t.changes,s=t.content,c=d(e||{},r)
-if(c&&c.validate&&(c=c.validate.bind(c)),!c||o(c))return!0
-if(Array.isArray(c)&&c.some((function(e){return"function"!=typeof e})))return!0
-if(Array.isArray(c))return function(e,t){var r=t.key,n=t.newValue,i=t.oldValue,o=t.changes,a=t.content,s=Array.from(e.map((function(e){return e(r,n,i,o,a)})))
+r=r[n[i]]}return r}function h(e){return function(t){var r,n=t.key,i=t.newValue,a=t.oldValue,s=t.changes,c=t.content,l=d(e||{},n)
+return l&&l.validate&&(l=l.validate.bind(l)),!(l&&!o(l))||(u(r=Array.isArray(l)?function(e,t){var r=t.key,n=t.newValue,i=t.oldValue,o=t.changes,a=t.content,s=Array.from(e.map((function(e){return e&&e.validate&&(e=e.validate.bind(e)),e(r,n,i,o,a)})))
 return s.some(u)?Promise.all(s).then(f):function(e){var t=e.filter((function(e){return"boolean"!=typeof e&&e}))
-return 0===t.length||t}(s)}(c,{key:r,newValue:n,oldValue:i,changes:a,content:s})
-var l=c(r,n,i,a,s)
-return u(l)?l.then((function(e){return e})):l}}var p=function(e,t){var r="function"==typeof Symbol&&e[Symbol.iterator]
+return 0===t.length||t}(s)}(l,{key:n,newValue:i,oldValue:a,changes:s,content:c}):l(n,i,a,s,c))?r.then((function(e){return e})):r)}}var p=function(e,t){var r="function"==typeof Symbol&&e[Symbol.iterator]
 if(!r)return e
 var n,i,o=r.call(e),a=[]
 try{for(;(void 0===t||t-- >0)&&!(n=o.next()).done;)a.push(n.value)}catch(e){i={error:e}}finally{try{n&&!n.done&&(r=o.return)&&r.call(o)}finally{if(i)throw i.error}}return a},m=function(){for(var e=[],t=0;t<arguments.length;t++)e=e.concat(p(arguments[t]))
@@ -11996,7 +11992,7 @@ try{for(var c=function(e){var t="function"==typeof Symbol&&Symbol.iterator,r=t&&
 if(r)return r.call(e)
 if(e&&"number"==typeof e.length)return{next:function(){return e&&n>=e.length&&(e=void 0),{value:e&&e[n++],done:!e}}}
 throw new TypeError(t?"Object is not iterable.":"Symbol.iterator is not defined.")}(n),l=c.next();!l.done;l=c.next()){var u=l.value,f=t[u]
-"function"==typeof f.validate?r[u]=f:o(f)?e(f,r,Object.keys(f),O(i,[u])):("function"==typeof f||Array.isArray(f)&&f.every((function(e){return"function"==typeof e})))&&(r[O(i,[u]).join(".")]=f)}}catch(e){a={error:e}}finally{try{l&&!l.done&&(s=c.return)&&s.call(c)}finally{if(a)throw a.error}}return r}(e,{},Object.keys(e)):{}}var C="__CHANGESET__"
+"function"==typeof f.validate?r[u]=f:o(f)?e(f,r,Object.keys(f),O(i,[u])):("function"==typeof f||Array.isArray(f)&&f.every((function(e){return"function"==typeof e||"function"==typeof e.validate})))&&(r[O(i,[u]).join(".")]=f)}}catch(e){a={error:e}}finally{try{l&&!l.done&&(s=c.return)&&s.call(c)}finally{if(a)throw a.error}}return r}(e,{},Object.keys(e)):{}}var C="__CHANGESET__"
 function z(e){return e&&e.__changeset__===C}function A(e,t){var r=function(e,t){var r="function"==typeof Symbol&&e[Symbol.iterator]
 if(!r)return e
 var n,i,o=r.call(e),a=[]
@@ -12080,16 +12076,16 @@ try{for(;(void 0===t||t-- >0)&&!(n=o.next()).done;)a.push(n.value)}catch(e){i={e
 return e},J=Object.keys,X="_content",ee="_changes",te="_errors",re=function(){return!0},ne={skipValidate:!1}
 function ie(e){return e}var oe=function(){function e(e,t,r,n){void 0===t&&(t=re),void 0===r&&(r={}),void 0===n&&(n={}),this.validateFn=t,this.validationMap=r,this.__changeset__=C,this._eventedNotifiers={},this.isObject=o,this.maybeUnwrapProxy=ie,this.setDeep=N,this.getDeep=d,this.mergeDeep=G,this[X]=e,this._previousContent=e,this[ee]={},this[te]={},this._validator=t,this._options=x(ne,n),this._runningValidations={}}return e.prototype.on=function(e,t){return y(this,e).addListener(t)},e.prototype.off=function(e,t){return y(this,e).removeListener(t)},e.prototype.trigger=function(e){for(var t=[],r=1;r<arguments.length;r++)t[r-1]=arguments[r]
 var n=y(this,e)
-n&&n.trigger.apply(n,Z(t))},e.prototype.safeGet=function(e,t){return e[t]},e.prototype.safeSet=function(e,t,r){return e[t]=r},Object.defineProperty(e.prototype,"_bareChanges",{get:function(){var e=this[ee]
-return J(e).reduce((function(t,r){return t[r]=e[r].value,t}),Object.create(null))},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"changes",{get:function(){return l(this[ee])},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"errors",{get:function(){return function e(t,r){void 0===r&&(r=[])
+n&&n.trigger.apply(n,Z(t))},e.prototype.safeGet=function(e,t){return e[t]},e.prototype.safeSet=function(e,t,r){return e[t]=r},Object.defineProperty(e.prototype,"_bareChanges",{get:function(){return l(this[ee]).reduce((function(e,t){var r=t.key,n=t.value
+return e[r]=n,e}),Object.create(null))},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"changes",{get:function(){return l(this[ee])},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"errors",{get:function(){return function e(t,r){void 0===r&&(r=[])
 var n=[]
 for(var i in t)t[i]&&o(t[i])&&(Object.prototype.hasOwnProperty.call(t[i],"value")&&t[i]instanceof a?n.push({key:c(r,[i]).join("."),validation:t[i].validation,value:t[i].value}):"value"!==i&&n.push.apply(n,c(e(t[i],c(r,[i])))))
 return n}(this[te])},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"change",{get:function(){var e=this[ee]
 return E(this[ee])?w(e):{}},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"error",{get:function(){return this[te]},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"data",{get:function(){return this[X]},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"isValid",{get:function(){return 0===l(this[te]).length},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"isPristine",{get:function(){var e=Object.keys(this[ee]),t=this._options.changesetKeys
 return Array.isArray(t)&&t.length&&(e=e.filter((function(e){return t.includes(e)}))),0===e.length||!E(this[ee])},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"isInvalid",{get:function(){return!this.isValid},enumerable:!1,configurable:!0}),Object.defineProperty(e.prototype,"isDirty",{get:function(){return!this.isPristine},enumerable:!1,configurable:!0}),e.prototype.setUnknownProperty=function(e,t){var r=this._options,n=r.changesetKeys
-if(!(Array.isArray(n)&&n.length>0)||n.find((function(t){return e.match(t)}))){var i=r.skipValidate,o=this[X],a=this.safeGet(o,e)
-if(i)return this._setProperty({key:e,value:t,oldValue:a}),void this._handleValidation(!0,{key:e,value:t})
-this._setProperty({key:e,value:t,oldValue:a}),this._validateKey(e,t)}},e.prototype.toString=function(){return"changeset:"+x(this[X],{}).toString()},e.prototype.prepare=function(e){var t=e(this._bareChanges)
+if(!(Array.isArray(n)&&n.length>0)||n.find((function(t){return e.match(t)}))){var i=this[X],o=this.safeGet(i,e)
+if(r.skipValidate)return this._setProperty({key:e,value:t,oldValue:o}),void this._handleValidation(!0,{key:e,value:t})
+this._setProperty({key:e,value:t,oldValue:o}),this._validateKey(e,t)}},e.prototype.toString=function(){return"changeset:"+x(this[X],{}).toString()},e.prototype.prepare=function(e){var t=e(this._bareChanges)
 if(this.isObject(t),this.isObject(t)){var r=J(t).reduce((function(e,r){return e[r]=new i(t[r]),e}),{})
 this[ee]=r}return this},e.prototype.execute=function(){var e
 if(this.isValid&&this.isDirty){var t=this[X],r=this[ee]
