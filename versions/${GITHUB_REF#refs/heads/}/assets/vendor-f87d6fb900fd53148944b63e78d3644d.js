@@ -12089,11 +12089,11 @@ this._setProperty({key:e,value:t,oldValue:o}),this._validateKey(e,t)}},e.prototy
 if(this.isObject(t),this.isObject(t)){var r=J(t).reduce((function(e,r){return e[r]=new i(t[r]),e}),{})
 this[ee]=r}return this},e.prototype.execute=function(){var e
 if(this.isValid&&this.isDirty){var t=this[X],r=this[ee]
-e=L(t,this.changes,this.getDeep),this[X]=this.mergeDeep(t,r)}return this.trigger("execute"),this[ee]={},this._previousContent=e,this},e.prototype.save=function(e){return Q(this,void 0,void 0,(function(){var t,r,n,i,o
-return K(this,(function(a){switch(a.label){case 0:t=this[X],r=Promise.resolve(this),this.execute(),"function"==typeof t.save?r=t.save(e):"function"==typeof this.safeGet(t,"save")&&(n=this.maybeUnwrapProxy(t).save())&&(r=n),a.label=1
-case 1:return a.trys.push([1,3,,4]),[4,r]
-case 2:return i=a.sent(),this.rollback(),[2,i]
-case 3:throw o=a.sent(),this._previousContent&&(this[X]=this.mergeDeep(t,this._previousContent,{safeGet:this.safeGet,safeSet:this.safeSet})),o
+e=L(t,this.changes,this.getDeep),this[X]=this.mergeDeep(t,r)}return this.trigger("execute"),this[ee]={},this._previousContent=e,this},e.prototype.unexecute=function(){return this._previousContent&&(this[X]=this.mergeDeep(this[X],this._previousContent,{safeGet:this.safeGet,safeSet:this.safeSet})),this},e.prototype.save=function(e){return Q(this,void 0,void 0,(function(){var t,r,n,i
+return K(this,(function(o){switch(o.label){case 0:t=this[X],r=Promise.resolve(this),this.execute(),"function"==typeof t.save?r=t.save(e):"function"==typeof this.safeGet(t,"save")&&(n=this.maybeUnwrapProxy(t).save())&&(r=n),o.label=1
+case 1:return o.trys.push([1,3,,4]),[4,r]
+case 2:return i=o.sent(),this.rollback(),[2,i]
+case 3:throw o.sent()
 case 4:return[2]}}))}))},e.prototype.merge=function(e){var t=this[X]
 if(z(e),e[X],this.isPristine&&e.isPristine)return this
 var r=this[ee],n=e[ee],i=this[te],o=e[te],a=new se(t,this._validator),s=F(J(n),i),c=F(J(o),r),l=T(s,o),u=T(c,n)
