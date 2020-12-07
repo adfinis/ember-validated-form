@@ -6580,18 +6580,18 @@ ember-basic-dropdown@^3.0.11:
     ember-maybe-in-element "^2.0.1"
     ember-truth-helpers "^2.1.0 || ^3.0.0"
 
-ember-changeset-validations@3.10.1:
-  version "3.10.1"
-  resolved "https://registry.yarnpkg.com/ember-changeset-validations/-/ember-changeset-validations-3.10.1.tgz#8690b446bedd3b0edbb1e3a689571e10cd109ada"
-  integrity sha512-nM2DY30zk96ISRwg6d231vOG5b1coZHmN1AGdE/R9wGqUOl3c95NjQvHHzcAJsknJAANEoOmuBFXIKMzNY7dEA==
+ember-changeset-validations@3.10.2:
+  version "3.10.2"
+  resolved "https://registry.yarnpkg.com/ember-changeset-validations/-/ember-changeset-validations-3.10.2.tgz#2fcc3ce3ef278fba66228d935e791004599ac9ab"
+  integrity sha512-PBRqlZThEghujdeeMAPDMvQIzJJDqMJjyz35SWeXZwl+Gzs2lgaRDLwTGEANZVoumDAPAjvdE/1kEdfyotM9pw==
   dependencies:
-    ember-changeset "^3.10.3"
+    ember-changeset "^3.10.4"
     ember-cli-babel "^7.8.0"
     ember-cli-htmlbars "^4.0.5"
     ember-get-config "^0.2.4"
     ember-validators "^3.0.1"
 
-ember-changeset@3.10.4, ember-changeset@^3.10.3:
+ember-changeset@3.10.4, ember-changeset@^3.10.4:
   version "3.10.4"
   resolved "https://registry.yarnpkg.com/ember-changeset/-/ember-changeset-3.10.4.tgz#692589fc9b96b59d86c11abec331af54c9633c53"
   integrity sha512-UdiiT/ApRfqQMgaP9kkmHIZIpny5lIDlLHouGf5RUkTAhrcE3XWd43vDYZi3U3fGFbIBQIVu004bthdBvo2m4Q==
