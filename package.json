@@ -56,7 +56,7 @@
     "ember-changeset": "3.10.5",
     "ember-changeset-validations": "3.10.3",
     "ember-cli": "3.24.0",
-    "ember-cli-addon-docs": "0.10.0",
+    "ember-cli-addon-docs": "1.0.0",
     "ember-cli-dependency-checker": "3.2.0",
     "ember-cli-deploy": "1.0.2",
     "ember-cli-deploy-build": "2.0.0",
