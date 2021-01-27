@@ -12219,9 +12219,10 @@ function ae(e,t,r,n){return new oe(e,t,r,n)}var se=function(e,t,r,n){var i=ae(e,
 return new Proxy(i,{get:function(e,t){return e.get(t.toString())},set:function(e,t,r){return e.set(t.toString(),r),!0}})}
 function ce(e,t,r,n){var i=ae(e,t,r,n)
 return new Proxy(i,{get:function(e,t){return e.get(t.toString())},set:function(e,t,r){return e.set(t.toString(),r),!0}})}},,,function(e,t,r){"use strict"
+var n
 r.r(t),r.d(t,"v1",(function(){return m})),r.d(t,"v3",(function(){return O})),r.d(t,"v4",(function(){return S})),r.d(t,"v5",(function(){return A})),r.d(t,"NIL",(function(){return k})),r.d(t,"version",(function(){return P})),r.d(t,"validate",(function(){return s})),r.d(t,"stringify",(function(){return d})),r.d(t,"parse",(function(){return v}))
-var n="undefined"!=typeof crypto&&crypto.getRandomValues&&crypto.getRandomValues.bind(crypto)||"undefined"!=typeof msCrypto&&"function"==typeof msCrypto.getRandomValues&&msCrypto.getRandomValues.bind(msCrypto),i=new Uint8Array(16)
-function o(){if(!n)throw new Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported")
+var i=new Uint8Array(16)
+function o(){if(!n&&!(n="undefined"!=typeof crypto&&crypto.getRandomValues&&crypto.getRandomValues.bind(crypto)||"undefined"!=typeof msCrypto&&"function"==typeof msCrypto.getRandomValues&&msCrypto.getRandomValues.bind(msCrypto)))throw new Error("crypto.getRandomValues() not supported. See https://github.com/uuidjs/uuid#getrandomvalues-not-supported")
 return n(i)}for(var a=/^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i,s=function(e){return"string"==typeof e&&a.test(e)},c=[],l=0;l<256;++l)c.push((l+256).toString(16).substr(1))
 var u,f,d=function(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:0,r=(c[e[t+0]]+c[e[t+1]]+c[e[t+2]]+c[e[t+3]]+"-"+c[e[t+4]]+c[e[t+5]]+"-"+c[e[t+6]]+c[e[t+7]]+"-"+c[e[t+8]]+c[e[t+9]]+"-"+c[e[t+10]]+c[e[t+11]]+c[e[t+12]]+c[e[t+13]]+c[e[t+14]]+c[e[t+15]]).toLowerCase()
 if(!s(r))throw TypeError("Stringified UUID is invalid")
