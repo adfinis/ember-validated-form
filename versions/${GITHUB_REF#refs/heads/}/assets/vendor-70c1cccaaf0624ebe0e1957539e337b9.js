@@ -12663,11 +12663,12 @@ if(r)return r.call(e)
 if(e&&"number"==typeof e.length)return{next:function(){return e&&n>=e.length&&(e=void 0),{value:e&&e[n++],done:!e}}}
 throw new TypeError(t?"Object is not iterable.":"Symbol.iterator is not defined.")},_=function(){return(_=Object.assign||function(e){for(var t,r=1,n=arguments.length;r<n;r++)for(var i in t=arguments[r])Object.prototype.hasOwnProperty.call(t,i)&&(e[i]=t[i])
 return e}).apply(this,arguments)}
-function w(e){if(!e||!o(e))return e
+function w(e,t){if(void 0===t&&(t=o),!e||!t(e))return e
 if(e instanceof i)return e.value
-var t=_({},e)
-for(var r in t){var n=t[r]
-n&&o(n)&&(Object.prototype.hasOwnProperty.call(n,"value")&&n instanceof i?t[r]=n.value:t[r]=w(n))}return t}function x(e){for(var t in e){if(e[t]instanceof i)return!0
+var r=_({},e)
+for(var n in r){var a=r[n]
+if(a&&t(a))if(Object.prototype.hasOwnProperty.call(a,"value")&&a instanceof i)r[n]=a.value
+else{try{JSON.stringify(a)}catch(e){break}r[n]=w(a)}}return r}function x(e){for(var t in e){if(e[t]instanceof i)return!0
 if(o(e[t])){var r=x(e[t])
 if(r)return r}}return!1}function E(){for(var e=[],t=0;t<arguments.length;t++)e[t]=arguments[t]
 return e.reduce((function(e,t){return Object.defineProperties(e,b(t))}),{})}b=void 0!==Object.getOwnPropertyDescriptors?Object.getOwnPropertyDescriptors:function(e){var t={}
@@ -12721,10 +12722,10 @@ if(void 0===a&&e.content){var s=e.safeGet(e.content,t)
 a=e.children[t]=new D(r,s,e.safeGet)}if(a)return a.proxy}if(void 0!==r)return r
 if(e.content){var c=e.content
 if(e.safeGet(c,t))return e.safeGet(c,t)}return"function"==typeof e[t]||e.hasOwnProperty(t)?e[t]:void 0}},ownKeys:function(e){return Reflect.ownKeys(e.changes)},getOwnPropertyDescriptor:function(e,t){return Reflect.getOwnPropertyDescriptor(e.changes,t)},has:function(e,t){return Reflect.has(e.changes,t)},set:function(e,t,r){return t.startsWith("_")?Reflect.set(e,t,r):Reflect.set(e.changes,t,new i(r))}}
-function V(e,t){return e[t]}var D=function(){function e(e,t,r){void 0===e&&(e={}),void 0===t&&(t={}),void 0===r&&(r=V),this.safeGet=r,this.changes=e,this.content=t,this.proxy=new Proxy(this,H),this.children=Object.create(null)}return e.prototype.get=function(e){return this.safeGet(this.changes,e)},e.prototype.set=function(e,t){return R(this.changes,e,t)},e.prototype.unwrap=function(){var e=this.changes
-if(o(e)){e=w(e)
+function V(e,t){return e[t]}var D=function(){function e(e,t,r,n){void 0===e&&(e={}),void 0===t&&(t={}),void 0===r&&(r=V),void 0===n&&(n=n),this.safeGet=r,this.isObject=n,this.changes=e,this.content=t,this.proxy=new Proxy(this,H),this.children=Object.create(null)}return e.prototype.get=function(e){return this.safeGet(this.changes,e)},e.prototype.set=function(e,t){return R(this.changes,e,t)},e.prototype.unwrap=function(){var e=this.changes
+if(o(e)){e=w(e,this.isObject)
 var t=this.content
-if(o(t))return e=w(e),I(I({},t),e)}return e},e}()
+if(o(t))return e=w(e,this.isObject),I(I({},t),e)}return e},e}()
 function F(e){for(var t=[],r=1;r<arguments.length;r++)t[r-1]=arguments[r]
 return t.reduce((function(t,r){return Object.keys(r).filter((function(t){return-1===e.indexOf(t)||!r.hasOwnProperty(t)})).forEach((function(e){return t[e]=r[e]})),t}),{})}function B(e,t){void 0===e&&(e={}),void 0===t&&(t=[])
 var r={}
@@ -12844,9 +12845,9 @@ var f=this.safeGet(a,r),d=this.getDeep(f,n.join(".")),h=function(e,t){var r=e
 if(-1===t.indexOf("."))return r[t]
 for(var n="string"==typeof t?t.split("."):t,o=0;o<n.length;o++){if(null==r)return
 r=r[n[o]]instanceof i?r[n[o]].value:r[n[o]]}return r}(o,e)
-return new D(h,d,this.getDeep).proxy}if(void 0!==u)return u}if(c instanceof i&&0===n.length)return c.value}if(r in this||e in this)return this.getDeep(this,e)
+return new D(h,d,this.getDeep,this.isObject).proxy}if(void 0!==u)return u}if(c instanceof i&&0===n.length)return c.value}if(r in this||e in this)return this.getDeep(this,e)
 var p=this.maybeUnwrapProxy(this.getDeep(a,e))
-return this.isObject(p)?((h=this.getDeep(o,e))||(h=this.getDeep(this.setDeep(o,e,{}),e)),new D(h,p,this.getDeep).proxy):p},e.prototype.set=function(e,t){this.hasOwnProperty(e)||C(this,e)?this[e]=t:this.setUnknownProperty(e,t)},e}()
+return this.isObject(p)?((h=this.getDeep(o,e))||(h=this.getDeep(this.setDeep(o,e,{}),e)),new D(h,p,this.getDeep,this.isObject).proxy):p},e.prototype.set=function(e,t){this.hasOwnProperty(e)||C(this,e)?this[e]=t:this.setUnknownProperty(e,t)},e}()
 function ae(e,t,r,n){return new oe(e,t,r,n)}var se=function(e,t,r,n){var i=ae(e,t,r,n)
 return new Proxy(i,{get:function(e,t){return e.get(t.toString())},set:function(e,t,r){return e.set(t.toString(),r),!0}})}
 function ce(e,t,r,n){var i=ae(e,t,r,n)
