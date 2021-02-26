@@ -50,7 +50,7 @@
     "@fortawesome/ember-fontawesome": "0.2.2",
     "@fortawesome/free-solid-svg-icons": "5.15.2",
     "@glimmer/component": "1.0.4",
-    "@glimmer/tracking": "1.0.3",
+    "@glimmer/tracking": "1.0.4",
     "babel-eslint": "10.1.0",
     "broccoli-asset-rev": "3.0.0",
     "ember-changeset": "3.13.0",
