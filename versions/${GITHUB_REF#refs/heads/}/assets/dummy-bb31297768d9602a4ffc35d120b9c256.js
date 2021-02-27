@@ -61,7 +61,7 @@ var n=t.default
 e.default=n})),define("dummy/router",["exports","ember-cli-addon-docs/router","dummy/config/environment"],(function(e,t,n){function o(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function r(e,t){return(r=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e})(e,t)}function u(e){var t=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1
 if(Reflect.construct.sham)return!1
 if("function"==typeof Proxy)return!0
-try{return Date.prototype.toString.call(Reflect.construct(Date,[],(function(){}))),!0}catch(e){return!1}}()
+try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],(function(){}))),!0}catch(e){return!1}}()
 return function(){var n,o=i(e)
 if(t){var r=i(this).constructor
 n=Reflect.construct(o,arguments,r)}else n=o.apply(this,arguments)
