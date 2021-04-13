@@ -13191,18 +13191,18 @@ function D(e,t){var r=function(e,t){var r="function"==typeof Symbol&&e[Symbol.it
 if(!r)return e
 var n,i,o=r.call(e),a=[]
 try{for(;(void 0===t||t-- >0)&&!(n=o.next()).done;)a.push(n.value)}catch(e){i={error:e}}finally{try{n&&!n.done&&(r=o.return)&&r.call(o)}finally{if(i)throw i.error}}return a}(t.slice(-1),1)[0],n=Object.keys(e).filter((function(e){return e!==r})).reduce((function(t,r){return t[r]=e[r],t}),Object.create(null))
-return H({},n)}function V(e){return"__proto__"!==e&&"constructor"!==e&&"prototype"!==e}function F(e,t,r,n){void 0===n&&(n={safeSet:void 0})
+return H({},n)}function V(e){return"__proto__"!==e&&"constructor"!==e&&"prototype"!==e}function F(e,t,r,n){void 0===n&&(n={safeSet:void 0,safeGet:void 0})
 var o=function(e){return e.split(".")}(t).filter(V),l=e
-if(n.safeSet=n.safeSet||function(e,t,r){return e[t]=r},1===o.length)return n.safeSet(e,t,r),e
+if(n.safeSet=n.safeSet||function(e,t,r){return e[t]=r},n.safeGet=n.safeGet||function(e,t){return e?e[t]:e},1===o.length)return n.safeSet(e,t,r),e
 for(var u=0;u<o.length;u++){var f=o[u]
 if(Array.isArray(e)&&parseInt(f,10)<0)throw new Error("Negative indices are not allowed as arrays do not serialize values at negative indices")
-var d=i(e[f]),h=Array.isArray(e[f]),p=d||h
-if(p){if(p&&s(e[f])){var m=c(e[f])
+var d=i(n.safeGet(e,f)),h=Array.isArray(n.safeGet(e,f)),p=d||h
+if(p){if(p&&s(n.safeGet(e,f))){var m=c(n.safeGet(e,f))
 if(i(m)){var v,y=D(m,o),b=s(r)?c(r):r,g=Array.isArray(e)||N(e),_=g?o.slice(u+1,o.length).join("."):o.slice(1,o.length).join(".")
-v=g&&!b?b:F(y,_,b,n),e[f]=new a(v)
+v=g&&!b?b:F(y,_,b,n),n.safeSet(e,f,new a(v))
 break}n.safeSet(e,f,{})}}else n.safeSet(e,f,{})
 if(u===o.length-1){n.safeSet(e,f,r)
-break}e=e[f]}return l}var B=Object.keys
+break}e=n.safeGet(e,f)}return l}var B=Object.keys
 function U(){for(var e=[],t=0;t<arguments.length;t++)e[t]=arguments[t]
 var r={}
 return e.forEach((function(e){return B(e).forEach((function(t){return F(r,t,e[t])}))})),r}function q(e,t,r){var n,i,o=Object.create(null)
