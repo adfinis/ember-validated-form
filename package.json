@@ -38,7 +38,7 @@
     "ember-auto-import": "^1.11.2",
     "ember-cli-babel": "^7.26.3",
     "ember-cli-htmlbars": "^5.7.1",
-    "ember-one-way-select": "^4.0.0",
+    "ember-one-way-select": "^4.0.1",
     "ember-truth-helpers": "^3.0.0",
     "uuid": "^8.3.2"
   },
