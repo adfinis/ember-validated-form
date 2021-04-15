@@ -1,3 +1,21 @@
+## [3.0.3](https://github.com/adfinis-sygroup/ember-validated-form/compare/v3.0.2...v3.0.3) (2021-04-15)
+
+
+### Bug Fixes
+
+* **deps:** [security] bump elliptic from 6.5.3 to 6.5.4 ([#538](https://github.com/adfinis-sygroup/ember-validated-form/issues/538)) ([b36030c](https://github.com/adfinis-sygroup/ember-validated-form/commit/b36030cd289485154fbaaefe914535cad7639043))
+* **deps:** [security] bump ini from 1.3.5 to 1.3.8 ([#450](https://github.com/adfinis-sygroup/ember-validated-form/issues/450)) ([97870d1](https://github.com/adfinis-sygroup/ember-validated-form/commit/97870d152b12a273328fae257fb7399a067d7f9c))
+* **deps:** [security] bump socket.io from 2.3.0 to 2.4.1 ([#474](https://github.com/adfinis-sygroup/ember-validated-form/issues/474)) ([fe46f19](https://github.com/adfinis-sygroup/ember-validated-form/commit/fe46f197439ff85170c92b6236f73c34f459d01f))
+* **deps:** [security] bump y18n from 3.2.1 to 3.2.2 ([#560](https://github.com/adfinis-sygroup/ember-validated-form/issues/560)) ([727144e](https://github.com/adfinis-sygroup/ember-validated-form/commit/727144edc1920d323aee882240de695ca5f0e228))
+* remove unused modules which lead to invalid imports ([#464](https://github.com/adfinis-sygroup/ember-validated-form/issues/464)) ([d0405bf](https://github.com/adfinis-sygroup/ember-validated-form/commit/d0405bf8733119394c953f73155349f65e2e5a88))
+* **deps:** bump ember-auto-import from 1.10.1 to 1.11.2 ([#557](https://github.com/adfinis-sygroup/ember-validated-form/issues/557)) ([f01f882](https://github.com/adfinis-sygroup/ember-validated-form/commit/f01f8826fe6cddfa1d5776960fb773973a25545d))
+* **deps:** bump ember-auto-import from 1.7.0 to 1.10.1 ([#456](https://github.com/adfinis-sygroup/ember-validated-form/issues/456)) ([d4940d7](https://github.com/adfinis-sygroup/ember-validated-form/commit/d4940d7cf6a367184dccd0e6677f3bdae6afdee8))
+* **deps:** bump ember-cli-babel from 7.23.0 to 7.23.1 ([#473](https://github.com/adfinis-sygroup/ember-validated-form/issues/473)) ([df7cec0](https://github.com/adfinis-sygroup/ember-validated-form/commit/df7cec06c35b0665df6e177f495360a14572cb73))
+* **deps:** bump ember-cli-babel from 7.23.1 to 7.26.3 ([#558](https://github.com/adfinis-sygroup/ember-validated-form/issues/558)) ([6b0ee99](https://github.com/adfinis-sygroup/ember-validated-form/commit/6b0ee99faf936d329378959c63303a18fd855912))
+* **deps:** bump ember-cli-htmlbars from 5.6.4 to 5.7.1 ([#549](https://github.com/adfinis-sygroup/ember-validated-form/issues/549)) ([e00e417](https://github.com/adfinis-sygroup/ember-validated-form/commit/e00e41791039ce1b410f442900b8f079a42cae4d))
+* **deps:** bump ember-one-way-select from 4.0.0 to 4.0.1 ([#565](https://github.com/adfinis-sygroup/ember-validated-form/issues/565)) ([0564346](https://github.com/adfinis-sygroup/ember-validated-form/commit/05643467b6edffc6e08eb067f77acdd79161ae5b))
+* **deps:** bump uuid from 8.3.1 to 8.3.2 ([#439](https://github.com/adfinis-sygroup/ember-validated-form/issues/439)) ([d72f013](https://github.com/adfinis-sygroup/ember-validated-form/commit/d72f0130f5b34cda2bda3b82da5204403d026541))
+
 ## [3.0.2](https://github.com/adfinis-sygroup/ember-validated-form/compare/v3.0.1...v3.0.2) (2020-11-20)
 
 
