@@ -1,5 +1,5 @@
 import { getOwner } from "@ember/application";
-import { get, computed } from "@ember/object";
+import { computed, get, set } from "@ember/object";
 
 export default (component) => {
   return computed({
@@ -7,8 +7,8 @@ export default (component) => {
       const parts = component.split("/");
       const [, ...componentNameParts] = parts;
 
-      if (this.get(`overrideComponents.${componentNameParts}`)) {
-        return this.get(`overrideComponents.${componentNameParts}`);
+      if (get(this, `overrideComponents.${componentNameParts}`)) {
+        return get(this, `overrideComponents.${componentNameParts}`);
       }
 
       const config =
@@ -35,10 +35,10 @@ export default (component) => {
       );
     },
     set(key, value) {
-      if (!this.get(`overrideComponents`)) {
-        this.set(`overrideComponents`, {});
+      if (!get(this, `overrideComponents`)) {
+        set(this, `overrideComponents`, {});
       }
-      this.set(`overrideComponents.${key}`, value);
+      set(this, `overrideComponents.${key}`, value);
       return value;
     },
   });

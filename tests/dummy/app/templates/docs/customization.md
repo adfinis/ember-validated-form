@@ -34,7 +34,7 @@ a `renderComponent`:
 
 - `<*>` **value** The current value of the field
 - `<String>` **type** The type of the field
-- `<String>` **inputId** The ID of the field (this is a UUIDv4)
+- `<String>` **inputId** The ID of the field (generated with `guidFor` from `@ember/object/internals`)
 - `<Object[]>` **options** The options for selects or radio groups
 - `<String>` **name** The name of the field
 - `<Boolean>` **disabled** Whether the field is disabled
