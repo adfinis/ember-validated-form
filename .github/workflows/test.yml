@@ -68,9 +68,8 @@ jobs:
       matrix:
         scenario:
           - ember-lts-3.20
-          - ember-lts-3.16
+          - ember-lts-3.24
           - ember-release
-          - legacy-changeset
 
     steps:
       - uses: actions/checkout@v2
