@@ -91,15 +91,11 @@
     "prettier": "2.2.1",
     "qunit-dom": "1.6.0"
   },
-  "//": [
-    "ansi-regex and strip-ansi are pinned so we dont lose nodev10 support."
-  ],
   "resolutions":{
-    "ansi-regex": "<6.0.0",
-    "strip-ansi": "<7.0.0"
+    "graceful-fs": ">=4.2.0"
   },
   "engines": {
-    "node": "10.* || >= 12"
+    "node": "14.* || >= 16"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
