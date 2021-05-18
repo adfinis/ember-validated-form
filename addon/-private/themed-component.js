@@ -5,7 +5,7 @@ export default (component) => {
   return computed({
     get() {
       const parts = component.split("/");
-      const [, ...componentNameParts] = parts;
+      const componentNameParts = parts.slice(1, parts.length).join("/");
 
       if (get(this, `overrideComponents.${componentNameParts}`)) {
         return get(this, `overrideComponents.${componentNameParts}`);
@@ -21,10 +21,7 @@ export default (component) => {
           : {};
 
       const theme = config.theme;
-      const defaultComponent = get(
-        config,
-        `defaults.${componentNameParts.join("/")}`
-      );
+      const defaultComponent = get(config, `defaults.${componentNameParts}`);
 
       const name = parts.pop();
       const basePath = parts.join("/");
