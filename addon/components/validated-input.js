@@ -1,90 +1,99 @@
-import Component from "@ember/component";
-import { computed, defineProperty } from "@ember/object";
-import { v4 } from "uuid";
+import { setComponentTemplate } from "@ember/component";
+import { action, set, get } from "@ember/object";
+import { guidFor } from "@ember/object/internals";
+import Component from "@glimmer/component";
+import { tracked } from "@glimmer/tracking";
 
 import themedComponent from "../-private/themed-component";
-import layout from "../templates/components/validated-input";
+import template from "../templates/components/validated-input";
 
 /**
  * This component wraps form inputs.
  *
  * It can be used in a two-way-binding style like
- * {{validated-input model=model name='firstName'}} (model will be updated)
+ * <ValidatedInput @model={{model}} @name='firstName'/> (model will be updated)
  *
  * or in a one-way-binding style
- * {{validated-input model=model name='firstName' on-update=(action "update"}}
+ * <ValidatedInput @model={{model}} @name='firstName' @on-update={{this.update}}
  * (update action is called, model is not updated)
  *
  * @class validated-input
  * @export default
  */
-export default Component.extend({
-  layout,
-  tagName: "",
-  dirty: false,
-  required: false,
-  type: "text",
-  validateBeforeSubmit: true,
+export class ValidatedInput extends Component {
+  inputId = guidFor(this);
 
-  init(...args) {
-    this._super(...args);
+  @tracked dirty;
+  @tracked required;
+  @tracked type;
+  @tracked validateBeforeSubmit;
 
-    defineProperty(
-      this,
-      "_val",
-      computed("value", `model.${this.name}`, "name", function () {
-        return this.value || this.get(`model.${this.name}`);
-      })
+  @themedComponent("validated-input/render") renderComponent;
+  @themedComponent("validated-input/label") labelComponent;
+  @themedComponent("validated-input/hint") hintComponent;
+  @themedComponent("validated-input/error") errorComponent;
+
+  constructor(...args) {
+    super(...args);
+
+    this.dirty = this.args.dirty ?? false;
+    this.required = this.args.required ?? false;
+    this.type = this.args.type ?? "text";
+    this.validateBeforeSubmit = this.args.validateBeforeSubmit ?? true;
+
+    this.renderComponent = this.args.renderComponent ?? this.renderComponent;
+    this.labelComponent = this.args.labelComponent ?? this.labelComponent;
+    this.hintComponent = this.args.hintComponent ?? this.hintComponent;
+    this.errorComponent = this.args.errorComponent ?? this.errorComponent;
+  }
+
+  get _val() {
+    return (
+      this.args.value ??
+      (this.args.model &&
+        this.args.name &&
+        get(this.args.model, this.args.name))
     );
-  },
+  }
 
-  inputId: computed(function () {
-    return v4();
-  }),
-
-  errors: computed("_val", "name", function () {
-    const errors = this.get(`model.error.${this.name}.validation`) || [];
+  get errors() {
+    const errors =
+      (this.args.model &&
+        get(this.args.model, `error.${this.args.name}.validation`)) ??
+      [];
 
     if (!Array.isArray(errors)) {
       return [errors];
     }
 
     return errors;
-  }),
+  }
 
-  isValid: computed("showValidity", "errors.[]", function () {
+  get isValid() {
     return this.showValidity && !this.errors.length;
-  }),
+  }
 
-  isInvalid: computed("showValidity", "errors.[]", function () {
+  get isInvalid() {
     return this.showValidity && !!this.errors.length;
-  }),
+  }
 
-  renderComponent: themedComponent("validated-input/render"),
-  labelComponent: themedComponent("validated-input/label"),
-  hintComponent: themedComponent("validated-input/hint"),
-  errorComponent: themedComponent("validated-input/error"),
+  get showValidity() {
+    return this.args.submitted || (this.validateBeforeSubmit && this.dirty);
+  }
 
-  showValidity: computed(
-    "validateBeforeSubmit",
-    "dirty",
-    "submitted",
-    function () {
-      return this.submitted || (this.validateBeforeSubmit && this.dirty);
+  @action
+  setDirty() {
+    this.dirty = true;
+  }
+
+  @action
+  update(value) {
+    if (this["on-update"]) {
+      this["on-update"](value, this.args.model);
+    } else {
+      set(this.args.model, this.args.name, value);
     }
-  ),
+  }
+}
 
-  actions: {
-    setDirty() {
-      this.set("dirty", true);
-    },
-
-    update(value) {
-      if (this["on-update"]) {
-        this["on-update"](value, this.model);
-      } else {
-        this.set(`model.${this.name}`, value);
-      }
-    },
-  },
-});
+export default setComponentTemplate(template, ValidatedInput);

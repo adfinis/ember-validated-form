@@ -19,9 +19,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
-          node-version: 10
+          node-version: 14
 
       - name: Install dependencies
         run: yarn install
@@ -36,9 +36,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
-          node-version: 10
+          node-version: 14
 
       - name: Install dependencies (no lockfile)
         run: yarn install --no-lockfile
@@ -68,15 +68,14 @@ jobs:
       matrix:
         scenario:
           - ember-lts-3.20
-          - ember-lts-3.16
+          - ember-lts-3.24
           - ember-release
-          - legacy-changeset
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
-          node-version: 10
+          node-version: 14
 
       - name: Install dependencies
         run: yarn install

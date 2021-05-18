@@ -1,55 +1,76 @@
-{{#if hasBlock}}
-  {{component labelComponent label=label required=required isValid=isValid isInvalid=isInvalid inputId=inputId}}
+{{#if (has-block)}}
+  {{#let (component this.labelComponent) as |LabelComponent|}}
+    <LabelComponent
+      @label={{@label}}
+      @required={{this.required}}
+      @isValid={{this.isValid}}
+      @isInvalid={{this.isInvalid}}
+      @inputId={{this.inputId}}
+    />
+  {{/let}}
 
-  {{yield (hash
-    value=_val
-    update=(action "update")
-    setDirty=(action "setDirty")
-    model=model
-    name=name
-    inputId=inputId
-    isValid=isValid
-    isInvalid=isInvalid
-  )}}
+  {{yield
+    (hash
+      value=this._val
+      update=this.update
+      setDirty=this.setDirty
+      model=@model
+      name=@name
+      inputId=this.inputId
+      isValid=this.isValid
+      isInvalid=this.isInvalid
+    )
+  }}
 
-  {{#if hint}}
-    {{component hintComponent hint=hint}}
+  {{#if @hint}}
+    {{component this.hintComponent hint=@hint}}
   {{/if}}
 
-  {{#if (and showValidity errors)}}
-    {{component errorComponent errors=errors}}
+  {{#if (and this.showValidity this.errors)}}
+    {{component this.errorComponent errors=this.errors}}
   {{/if}}
 {{else}}
-  {{component renderComponent
-    type=type
-    value=_val
-    inputId=inputId
-    options=options
-    name=name
-    inputName=inputName
-    disabled=disabled
-    autofocus=autofocus
-    autocomplete=autocomplete
-    rows=rows
-    cols=cols
-    model=model
-    isValid=isValid
-    isInvalid=isInvalid
-    placeholder=placeholder
-    class=class
-
-    promptIsSelectable=promptIsSelectable
-    optionLabelPath=optionLabelPath
-    optionValuePath=optionValuePath
-    optionTargetPath=optionTargetPath
-    includeBlank=includeBlank
-    multiple=multiple
-
-    update=(action "update")
-    setDirty=(action "setDirty")
-
-    labelComponent=(component labelComponent label=label required=required isValid=isValid isInvalid=isInvalid inputId=inputId)
-    hintComponent=(if hint (component hintComponent hint=hint))
-    errorComponent=(if (and showValidity errors) (component errorComponent errors=errors))
-  }}
+  {{#let (component this.renderComponent) as |RenderComponent|}}
+    <RenderComponent
+      @type={{this.type}}
+      @value={{this._val}}
+      @inputId={{this.inputId}}
+      @options={{@options}}
+      @name={{@name}}
+      @inputName={{@inputName}}
+      @disabled={{@disabled}}
+      @autofocus={{@autofocus}}
+      @autocomplete={{@autocomplete}}
+      @rows={{@rows}}
+      @cols={{@cols}}
+      @model={{@model}}
+      @isValid={{this.isValid}}
+      @isInvalid={{this.isInvalid}}
+      @placeholder={{@placeholder}}
+      @class={{@class}}
+      @promptIsSelectable={{@promptIsSelectable}}
+      @optionLabelPath={{@optionLabelPath}}
+      @optionValuePath={{@optionValuePath}}
+      @optionTargetPath={{@optionTargetPath}}
+      @includeBlank={{@includeBlank}}
+      @multiple={{@multiple}}
+      @update={{this.update}}
+      @setDirty={{this.setDirty}}
+      @labelComponent={{
+        component
+        this.labelComponent
+        label=@label
+        required=@required
+        isValid=this.isValid
+        isInvalid=this.isInvalid
+        inputId=this.inputId
+      }}
+      @hintComponent={{if @hint (component this.hintComponent hint=@hint)}}
+      @errorComponent={{
+        if
+        (and this.showValidity this.errors)
+        (component this.errorComponent errors=this.errors)
+      }}
+    />
+  {{/let}}
 {{/if}}

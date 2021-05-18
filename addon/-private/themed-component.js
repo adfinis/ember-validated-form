@@ -1,14 +1,14 @@
 import { getOwner } from "@ember/application";
-import { get, computed } from "@ember/object";
+import { computed, get, set } from "@ember/object";
 
 export default (component) => {
   return computed({
     get() {
       const parts = component.split("/");
-      const [, ...componentNameParts] = parts;
+      const componentNameParts = parts.slice(1, parts.length).join("/");
 
-      if (this.get(`overrideComponents.${componentNameParts}`)) {
-        return this.get(`overrideComponents.${componentNameParts}`);
+      if (get(this, `overrideComponents.${componentNameParts}`)) {
+        return get(this, `overrideComponents.${componentNameParts}`);
       }
 
       const config =
@@ -21,10 +21,7 @@ export default (component) => {
           : {};
 
       const theme = config.theme;
-      const defaultComponent = get(
-        config,
-        `defaults.${componentNameParts.join("/")}`
-      );
+      const defaultComponent = get(config, `defaults.${componentNameParts}`);
 
       const name = parts.pop();
       const basePath = parts.join("/");
@@ -35,10 +32,10 @@ export default (component) => {
       );
     },
     set(key, value) {
-      if (!this.get(`overrideComponents`)) {
-        this.set(`overrideComponents`, {});
+      if (!get(this, `overrideComponents`)) {
+        set(this, `overrideComponents`, {});
       }
-      this.set(`overrideComponents.${key}`, value);
+      set(this, `overrideComponents.${key}`, value);
       return value;
     },
   });

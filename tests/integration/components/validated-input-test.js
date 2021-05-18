@@ -1,7 +1,7 @@
-import { render, click } from "@ember/test-helpers";
+import { render, click, settled } from "@ember/test-helpers";
 import Changeset from "ember-changeset";
+import { hbs } from "ember-cli-htmlbars";
 import { setupRenderingTest } from "ember-qunit";
-import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 
 module("Integration | Component | validated input", function (hooks) {
@@ -260,5 +260,27 @@ module("Integration | Component | validated input", function (hooks) {
 
     assert.dom("input").hasValue("Max");
     assert.dom("input").hasAttribute("name", "testFirstName");
+  });
+
+  test("it updates _val on nested fields", async function (assert) {
+    this.set("model", new Changeset({ nested: { name: "Max" } }));
+
+    await render(
+      hbs`
+        <span id="raw">{{this.model.nested.name}}</span>
+        <ValidatedInput @name="nested.name" @model={{this.model}} as |Input|>
+          <span id="_val">{{Input.value}}</span>
+        </ValidatedInput>
+      `
+    );
+
+    assert.dom("#raw").hasText("Max");
+    assert.dom("#_val").hasText("Max");
+
+    this.model.set("nested.name", "Tom");
+    await settled();
+
+    assert.dom("#raw").hasText("Tom");
+    assert.dom("#_val").hasText("Tom");
   });
 });
