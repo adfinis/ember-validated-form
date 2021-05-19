@@ -9702,7 +9702,7 @@ e.registerOptionsForType("serializer",{singleton:!1}),e.registerOptionsForType("
 Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return t.default}})})),define("ember-data/transform",["exports","@ember-data/serializer/transform"],(function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return t.default}})})),define("ember-data/version",["exports"],(function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
-e.default="3.26.0"})),define("ember-element-helper/helpers/-element",["exports"],(function(e){"use strict"
+e.default="3.27.0"})),define("ember-element-helper/helpers/-element",["exports"],(function(e){"use strict"
 function t(){}Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var r=Ember.Helper.extend({init:function(){this._super.apply(this,arguments),this.tagName=t,this.componentName=null},compute:function(e,t){var r=e[0]
 return r!==this.tagName&&(this.tagName=r,"string"==typeof r?"-dynamic-element"===this.componentName?this.componentName="-dynamic-element-alt":this.componentName="-dynamic-element":(this.componentName=null,Ember.runInDebug((function(){try{" (you passed `".concat(r,"`)")}catch(e){}})))),this.componentName}})
