@@ -1,3 +1,22 @@
+# [4.0.0](https://github.com/adfinis-sygroup/ember-validated-form/compare/v3.0.3...v4.0.0) (2021-05-19)
+
+
+### Bug Fixes
+
+* **validated-input:** rewrite to glimmer and support nested changesets ([#581](https://github.com/adfinis-sygroup/ember-validated-form/issues/581)) ([2f3e7c5](https://github.com/adfinis-sygroup/ember-validated-form/commit/2f3e7c5c9e13ad39ecba9358305cfcc4bac8f6b8))
+
+
+### BREAKING CHANGES
+
+* **validated-input:** This drops support for Ember LTS 3.16 and `ember-changeset` < 3.0.0 and `ember-changeset-validations` < 3.0.0
+
+* refactor(validated-input): refactor dynamic component call to angle-brackets
+
+* chore(*): drop node v10 support
+* **validated-input:** drop node v10 support since v10 has reached EOL
+
+* fix(themed-component): convert array to string befor using in key path
+
 ## [3.0.3](https://github.com/adfinis-sygroup/ember-validated-form/compare/v3.0.2...v3.0.3) (2021-04-15)
 
 

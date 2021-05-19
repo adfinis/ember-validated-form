@@ -1,6 +1,6 @@
 {
   "name": "ember-validated-form",
-  "version": "3.0.3",
+  "version": "4.0.0",
   "description": "Easily create forms with client-side validations",
   "keywords": [
     "ember-addon",
@@ -91,7 +91,7 @@
     "prettier": "2.3.0",
     "qunit-dom": "1.6.0"
   },
-  "resolutions":{
+  "resolutions": {
     "graceful-fs": ">=4.2.0"
   },
   "engines": {
