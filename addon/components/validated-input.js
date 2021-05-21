@@ -91,7 +91,9 @@ export class ValidatedInput extends Component {
     if (this["on-update"]) {
       this["on-update"](value, this.args.model);
     } else {
-      set(this.args.model, this.args.name, value);
+      this.args.model.set
+        ? this.args.model.set(this.args.name, value)
+        : set(this.args.model, this.args.name, value);
     }
   }
 }
