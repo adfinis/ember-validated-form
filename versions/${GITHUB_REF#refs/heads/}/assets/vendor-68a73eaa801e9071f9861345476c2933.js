@@ -7537,9 +7537,9 @@ return m}return s.formatMessage(h,(0,n.assign)({description:c},d))}return s.form
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},r=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{}
 return(0,t.assign)((0,t.assign)({},r),e)}})),define("ember-changeset-validations/utils/wrap",["exports","@ember/array"],(function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(e){if((0,t.isArray)(e))return(0,t.A)(e)
-return(0,t.A)([e])}})),define("ember-changeset-validations/validators/confirmation",["exports","ember-changeset-validations/utils/validation-errors","ember-validators","@ember/polyfills"],(function(e,t,r,n){"use strict"
+return(0,t.A)([e])}})),define("ember-changeset-validations/validators/confirmation",["exports","ember-changeset-validations/utils/validation-errors","ember-validators/confirmation","@ember/polyfills"],(function(e,t,r,n){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{}
-return function(i,o,a,s){var c=arguments.length>4&&void 0!==arguments[4]?arguments[4]:{},l=(0,n.assign)({},c,s),u=(0,r.validate)("confirmation",o,e,l,i)
+return function(i,o,a,s){var c=arguments.length>4&&void 0!==arguments[4]?arguments[4]:{},l=(0,n.assign)({},c,s),u=(0,r.default)(o,e,l,i)
 return!0===u||(0,t.default)(i,u)}}})),define("ember-changeset-validations/validators/date",["exports","ember-changeset-validations/utils/validation-errors","ember-changeset-validations/utils/with-defaults","ember-changeset-validations/utils/to-date"],(function(e,t,r,n){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{}
 return e=(0,r.default)(e,{allowBlank:!1,errorFormat:i}),function(r,i){var a=e.allowBlank,s=e,c=s.before,l=s.onOrBefore,u=s.after,f=s.onOrAfter,d=s.message,p="date"
@@ -7547,30 +7547,30 @@ if(a&&null==i)return!0
 var h=(0,n.default)(i)
 return o(h)?c&&(c=(0,n.default)(c),d=d||"[BEFORE] date is NOT before ".concat(i),p="before",h>=c)?(0,t.default)(r,{type:p,value:i,context:{before:c,message:d}}):l&&(l=(0,n.default)(l),d=d||"[ON OR BEFORE] date is NOT on or before ".concat(i),p="onOrBefore",h>l)?(0,t.default)(r,{type:p,value:i,context:{onOrBefore:l,message:d}}):u&&(u=(0,n.default)(u),d=d||"[AFTER] date is NOT after ".concat(i),p="after",h<=u)?(0,t.default)(r,{type:p,value:i,context:{after:u,message:d}}):!(f&&(f=(0,n.default)(f),d=d||"[ON OR AFTER] date is NOT on or after ".concat(i),p="onOrAfter",h<f))||(0,t.default)(r,{type:p,value:i,context:{onOrAfter:f,message:d}}):(0,t.default)(r,{type:p,value:"not a date",context:{value:i,message:d}})}},e.errorFormat=void 0
 var i="MMM Do, YYYY"
-function o(e){return e instanceof Date&&!isNaN(e)}e.errorFormat=i})),define("ember-changeset-validations/validators/exclusion",["exports","ember-changeset-validations/utils/validation-errors","ember-validators"],(function(e,t,r){"use strict"
+function o(e){return e instanceof Date&&!isNaN(e)}e.errorFormat=i})),define("ember-changeset-validations/validators/exclusion",["exports","ember-changeset-validations/utils/validation-errors","ember-validators/exclusion"],(function(e,t,r){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{}
 e.list&&(e.in=e.list)
-return function(n,i){var o=(0,r.validate)("exclusion",i,e,null,n)
-return!0===o||(0,t.default)(n,o)}}})),define("ember-changeset-validations/validators/format",["exports","@ember/utils","ember-changeset-validations/utils/validation-errors","ember-validators"],(function(e,t,r,n){"use strict"
+return function(n,i){var o=(0,r.default)(i,e,null,n)
+return!0===o||(0,t.default)(n,o)}}})),define("ember-changeset-validations/validators/format",["exports","@ember/utils","ember-changeset-validations/utils/validation-errors","ember-validators/format"],(function(e,t,r,n){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},i=!(0,t.isEmpty)(Object.keys(e))
 return function(t,o){if(!i)return!0
-var a=(0,n.validate)("format",o,e,null,t)
-return!0===a||(0,r.default)(t,a)}}})),define("ember-changeset-validations/validators/inclusion",["exports","ember-changeset-validations/utils/validation-errors","ember-validators"],(function(e,t,r){"use strict"
+var a=(0,n.default)(o,e,null,t)
+return!0===a||(0,r.default)(t,a)}}})),define("ember-changeset-validations/validators/inclusion",["exports","ember-changeset-validations/utils/validation-errors","ember-validators/inclusion"],(function(e,t,r){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{}
 e.list&&(e.in=e.list)
-return function(n,i){var o=(0,r.validate)("inclusion",i,e,null,n)
+return function(n,i){var o=(0,r.default)(i,e,null,n)
 return!0===o||(0,t.default)(n,o)}}})),define("ember-changeset-validations/validators/index",["exports","ember-changeset-validations/validators/date","ember-changeset-validations/validators/presence","ember-changeset-validations/validators/length","ember-changeset-validations/validators/number","ember-changeset-validations/validators/format","ember-changeset-validations/validators/inclusion","ember-changeset-validations/validators/exclusion","ember-changeset-validations/validators/confirmation"],(function(e,t,r,n,i,o,a,s,c){"use strict"
-Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"validateDate",{enumerable:!0,get:function(){return t.default}}),Object.defineProperty(e,"validatePresence",{enumerable:!0,get:function(){return r.default}}),Object.defineProperty(e,"validateLength",{enumerable:!0,get:function(){return n.default}}),Object.defineProperty(e,"validateNumber",{enumerable:!0,get:function(){return i.default}}),Object.defineProperty(e,"validateFormat",{enumerable:!0,get:function(){return o.default}}),Object.defineProperty(e,"validateInclusion",{enumerable:!0,get:function(){return a.default}}),Object.defineProperty(e,"validateExclusion",{enumerable:!0,get:function(){return s.default}}),Object.defineProperty(e,"validateConfirmation",{enumerable:!0,get:function(){return c.default}})})),define("ember-changeset-validations/validators/length",["exports","ember-changeset-validations/utils/validation-errors","ember-changeset-validations/utils/with-defaults","ember-validators"],(function(e,t,r,n){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"validateDate",{enumerable:!0,get:function(){return t.default}}),Object.defineProperty(e,"validatePresence",{enumerable:!0,get:function(){return r.default}}),Object.defineProperty(e,"validateLength",{enumerable:!0,get:function(){return n.default}}),Object.defineProperty(e,"validateNumber",{enumerable:!0,get:function(){return i.default}}),Object.defineProperty(e,"validateFormat",{enumerable:!0,get:function(){return o.default}}),Object.defineProperty(e,"validateInclusion",{enumerable:!0,get:function(){return a.default}}),Object.defineProperty(e,"validateExclusion",{enumerable:!0,get:function(){return s.default}}),Object.defineProperty(e,"validateConfirmation",{enumerable:!0,get:function(){return c.default}})})),define("ember-changeset-validations/validators/length",["exports","ember-changeset-validations/utils/validation-errors","ember-changeset-validations/utils/with-defaults","ember-validators/length"],(function(e,t,r,n){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{}
-return e=(0,r.default)(e,{useBetweenMessage:!0}),function(r,i){var o=(0,n.validate)("length",i,e,null,r)
-return!0===o||(0,t.default)(r,o)}}})),define("ember-changeset-validations/validators/number",["exports","ember-changeset-validations/utils/validation-errors","ember-changeset-validations/utils/with-defaults","ember-validators"],(function(e,t,r,n){"use strict"
+return e=(0,r.default)(e,{useBetweenMessage:!0}),function(r,i){var o=(0,n.default)(i,e,null,r)
+return!0===o||(0,t.default)(r,o)}}})),define("ember-changeset-validations/validators/number",["exports","ember-changeset-validations/utils/validation-errors","ember-changeset-validations/utils/with-defaults","ember-validators/number"],(function(e,t,r,n){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{};(e=(0,r.default)(e,{allowString:!0,allowNone:!1})).allowBlank&&(e.allowNone=!0)
-return function(r,i){var o=(0,n.validate)("number",i,e,null,r)
-return!0===o||(0,t.default)(r,o)}}})),define("ember-changeset-validations/validators/presence",["exports","ember-changeset-validations/utils/validation-errors","ember-validators"],(function(e,t,r){"use strict"
+return function(r,i){var o=(0,n.default)(i,e,null,r)
+return!0===o||(0,t.default)(r,o)}}})),define("ember-changeset-validations/validators/presence",["exports","ember-changeset-validations/utils/validation-errors","ember-validators/presence"],(function(e,t,r){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(e){var n
 "boolean"==typeof e?e={presence:e}:e&&void 0!==e.on&&("string"==typeof e.on?n=[e.on]:Array.isArray(e.on)&&(n=e.on),delete e.on)
 return function(i,o,a,s,c){if(n&&!n.some((function(e){return s[e]||void 0===s[e]&&c[e]})))return!0
-var l=(0,r.validate)("presence",o,e,null,i)
+var l=(0,r.default)(o,e,null,i)
 return"boolean"==typeof l||"string"==typeof l?l:("present"===l.type?l.type="blank":"blank"===l.type&&(l.type="present"),(0,t.default)(i,l))}}})),define("ember-changeset/helpers/changeset-get",["exports","@ember/component/helper"],(function(e,t){"use strict"
 function r(e,t){return function(e){if(Array.isArray(e))return e}(e)||function(e,t){var r=e&&("undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"])
 if(null==r)return
@@ -13506,7 +13506,7 @@ if(Array.isArray(e)&&parseInt(f,10)<0)throw new Error("Negative indices are not 
 var d=i(n.safeGet(e,f)),p=Array.isArray(n.safeGet(e,f)),h=d||p
 if(h){if(h&&s(n.safeGet(e,f))){var m=c(n.safeGet(e,f))
 if(i(m)){var v,y=D(m,o),b=s(r)?c(r):r,g=Array.isArray(e)||N(e),_=g?o.slice(u+1,o.length).join("."):o.slice(1,o.length).join(".")
-v=g&&!b?b:F(y,_,b,n),n.safeSet(e,f,new a(v))
+v=g&&!b||u===o.length-1?b:F(y,_,b,n),n.safeSet(e,f,new a(v))
 break}n.safeSet(e,f,{})}}else n.safeSet(e,f,{})
 if(u===o.length-1){n.safeSet(e,f,r)
 break}e=n.safeGet(e,f)}return l}var B=Object.keys
@@ -13625,7 +13625,7 @@ return this.trigger("afterValidation",e),c},e.prototype._handleValidation=functi
 return this[de]=this._deleteKey(de,r),i?n:this.addError(r,{value:n,validation:e})},e.prototype._validate=function(e,t,r){var n=this._validator,i=this[ue]
 if("function"==typeof n){var o=n({key:e,newValue:t,oldValue:r,changes:this.change,content:i})
 return void 0===o||o}return!0},e.prototype._setProperty=function(e){var t=e.key,r=e.value,n=e.oldValue,i=this[fe]
-if(n!==r){var o=this.setDeep(i,t,new a(r),{safeSet:this.safeSet})
+if(n!==r||void 0===n){var o=this.setDeep(i,t,new a(r),{safeSet:this.safeSet})
 this[fe]=o}else R(i,t)&&(this[fe]=this._deleteKey(fe,t))},e.prototype._setIsValidating=function(e,t){var r=this._runningValidations
 this.setDeep(r,e,t)},e.prototype._notifyVirtualProperties=function(e){return e||(e=this._rollbackKeys()),e},e.prototype._rollbackKeys=function(){var e=this[fe],t=this[de]
 return ce(new Set(ce(le(e),le(t))))},e.prototype._deleteKey=function(e,t){void 0===t&&(t="")
@@ -13646,7 +13646,7 @@ try{for(var l=O(o),u=l.next();!u.done;u=l.next()){var f=u.value
 if(!a||!Object.prototype.hasOwnProperty.call(a,f))return!1
 a=r(a,f),s(a)&&(a=c(a))}}catch(e){n={error:e}}finally{try{u&&!u.done&&(i=l.return)&&i.call(l)}finally{if(n)throw n.error}}return!0}(o,e,this.safeGet)&&this.getDeep(a,e))return
 if(this.isObject(d)){if(s(d))return c(d)
-var p=this.safeGet(a,r),h=this.getDeep(p,n.join(".")),m=function(e,t){var r=e
+var p=this.safeGet(a,r)||{},h=this.getDeep(p,n.join(".")),m=function(e,t){var r=e
 if(-1===t.indexOf("."))return r[t]
 for(var n="string"==typeof t?t.split("."):t,i=0;i<n.length;i++){if(null==r)return
 r=s(r[n[i]])?c(r[n[i]]):r[n[i]]}return r}(o,e)
