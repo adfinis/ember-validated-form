@@ -1,3 +1,10 @@
+## [4.0.1](https://github.com/adfinis-sygroup/ember-validated-form/compare/v4.0.0...v4.0.1) (2021-05-21)
+
+
+### Bug Fixes
+
+* **validated-input:** use changeset.set if available to preserve state tracking on nested objects ([#609](https://github.com/adfinis-sygroup/ember-validated-form/issues/609)) ([d3b92ee](https://github.com/adfinis-sygroup/ember-validated-form/commit/d3b92ee5dfb7e0a6f4fbdb1899d9be34b67d1722))
+
 # [4.0.0](https://github.com/adfinis-sygroup/ember-validated-form/compare/v3.0.3...v4.0.0) (2021-05-19)
 
 
