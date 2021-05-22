@@ -52,7 +52,7 @@
     "@glimmer/tracking": "1.0.4",
     "babel-eslint": "10.1.0",
     "broccoli-asset-rev": "3.0.0",
-    "ember-changeset": "3.13.3",
+    "ember-changeset": "3.13.6",
     "ember-changeset-validations": "3.14.4",
     "ember-cli": "3.26.1",
     "ember-cli-addon-docs": "1.0.0",
