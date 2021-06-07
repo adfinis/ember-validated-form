@@ -13493,7 +13493,7 @@ if(Array.isArray(e)&&parseInt(f,10)<0)throw new Error("Negative indices are not 
 var d=i(n.safeGet(e,f)),p=Array.isArray(n.safeGet(e,f)),h=d||p
 if(h){if(h&&s(n.safeGet(e,f))){var m=c(n.safeGet(e,f))
 if(i(m)){var v,y=D(m,o),b=s(r)?c(r):r,g=Array.isArray(e)||N(e),_=g?o.slice(u+1,o.length).join("."):o.slice(1,o.length).join(".")
-v=g&&!b||u===o.length-1?b:F(y,_,b,n),n.safeSet(e,f,new a(v))
+v=g&&void 0===b||u===o.length-1?b:F(y,_,b,n),n.safeSet(e,f,new a(v))
 break}n.safeSet(e,f,{})}}else n.safeSet(e,f,{})
 if(u===o.length-1){n.safeSet(e,f,r)
 break}e=n.safeGet(e,f)}return l}var B=Object.keys
@@ -13519,13 +13519,13 @@ var n=Array.isArray(t),i=Array.isArray(e)
 if(n===i)return n||null==e?t:Y(e,t,r)
 var o=N(t)
 return i&&o?I(Y(L(e),t,r)):t}var X=function(){return(X=Object.assign||function(e){for(var t,r=1,n=arguments.length;r<n;r++)for(var i in t=arguments[r])Object.prototype.hasOwnProperty.call(t,i)&&(e[i]=t[i])
-return e}).apply(this,arguments)},J={get:function(e,t){if("symbol"!==n(t)){var r,o=e.safeGet(e.changes,t)
-if(o){if(s(o))return c(o)
-r=o}if(i(r)){var a=e.children[t]
-if(void 0===a&&e.content){var l=e.safeGet(e.content,t)
-a=e.children[t]=new te(r,l,e.safeGet)}if(a)return a.proxy}if(void 0!==r)return r
-if(e.content){var u=e.content
-if(e.safeGet(u,t))return e.safeGet(u,t)}return"function"==typeof e[t]||e.hasOwnProperty(t)?e[t]:void 0}},ownKeys:function(e){return Reflect.ownKeys(e.changes)},getOwnPropertyDescriptor:function(e,t){return Reflect.getOwnPropertyDescriptor(e.changes,t)},has:function(e,t){return Reflect.has(e.changes,t)},set:function(e,t,r){return t.startsWith("_")?Reflect.set(e,t,r):Reflect.set(e.changes,t,new a(r))}}
+return e}).apply(this,arguments)},J={get:function(e,t){if("symbol"!==n(t)){var r=e.safeGet(e.changes,t)
+if(s(r))return c(r)
+if(i(r)){var o=e.children[t]
+if(void 0===o&&e.content){var a=e.safeGet(e.content,t)
+o=e.children[t]=new te(r,a,e.safeGet)}if(o)return o.proxy}if(void 0!==r)return r
+if(e.content){var l=e.content
+if(e.safeGet(l,t))return e.safeGet(l,t)}return"function"==typeof e[t]||e.hasOwnProperty(t)?e[t]:void 0}},ownKeys:function(e){return Reflect.ownKeys(e.changes)},getOwnPropertyDescriptor:function(e,t){return Reflect.getOwnPropertyDescriptor(e.changes,t)},has:function(e,t){return Reflect.has(e.changes,t)},set:function(e,t,r){return t.startsWith("_")?Reflect.set(e,t,r):Reflect.set(e.changes,t,new a(r))}}
 function ee(e,t){return e[t]}var te=function(){function e(e,t,r,n){void 0===e&&(e={}),void 0===t&&(t={}),void 0===r&&(r=ee),void 0===n&&(n=n),this.safeGet=r,this.isObject=n,this.changes=e,this.content=t,this.proxy=new Proxy(this,J),this.children=Object.create(null)}return e.prototype.get=function(e){return this.safeGet(this.changes,e)},e.prototype.set=function(e,t){return F(this.changes,e,t)},e.prototype.unwrap=function(){var e=this.changes
 if(i(e)){e=k(e,this.isObject)
 var t=this.content
