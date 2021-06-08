@@ -13612,8 +13612,9 @@ return this.trigger("afterValidation",e),c},e.prototype._handleValidation=functi
 return this[de]=this._deleteKey(de,r),i?n:this.addError(r,{value:n,validation:e})},e.prototype._validate=function(e,t,r){var n=this._validator,i=this[ue]
 if("function"==typeof n){var o=n({key:e,newValue:t,oldValue:r,changes:this.change,content:i})
 return void 0===o||o}return!0},e.prototype._setProperty=function(e){var t=e.key,r=e.value,n=e.oldValue,i=this[fe]
-if(n!==r||void 0===n){var o=this.setDeep(i,t,new a(r),{safeSet:this.safeSet})
-this[fe]=o}else R(i,t)&&(this[fe]=this._deleteKey(fe,t))},e.prototype._setIsValidating=function(e,t){var r=this._runningValidations
+if(function(e,t){return e instanceof Date&&t instanceof Date?e.getTime()===t.getTime():e===t}(r,n)&&void 0!==n)R(i,t)&&(this[fe]=this._deleteKey(fe,t))
+else{var o=this.setDeep(i,t,new a(r),{safeSet:this.safeSet})
+this[fe]=o}},e.prototype._setIsValidating=function(e,t){var r=this._runningValidations
 this.setDeep(r,e,t)},e.prototype._notifyVirtualProperties=function(e){return e||(e=this._rollbackKeys()),e},e.prototype._rollbackKeys=function(){var e=this[fe],t=this[de]
 return ce(new Set(ce(le(e),le(t))))},e.prototype._deleteKey=function(e,t){void 0===t&&(t="")
 var r=this[e],n=t.split(".")
