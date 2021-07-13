@@ -36,6 +36,20 @@
     update=update
     setDirty=setDirty
   }}
+{{else if (or (eq type "checkboxGroup") (eq type "checkbox-group"))}}
+  {{component checkboxGroupComponent
+    value=value
+    options=options
+    inputId=inputId
+    name=(or inputName name)
+    disabled=disabled
+
+    isValid=isValid
+    isInvalid=isInvalid
+
+    update=update
+    setDirty=setDirty
+  }}
 {{else if (eq type "checkbox")}}
   {{component checkboxComponent
     value=value

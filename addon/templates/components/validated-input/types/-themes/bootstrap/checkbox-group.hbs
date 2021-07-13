@@ -1,0 +1,14 @@
+{{#each options as |option i|}}
+  <div class="custom-control custom-checkbox">
+    <input
+      type     = "checkbox"
+      class    = "custom-control-input {{if isValid "is-valid"}} {{if isInvalid "is-invalid"}}"
+      checked  = {{includes option.key value}}
+      name     = {{name}}
+      id       = "{{inputId}}-{{i}}"
+      disabled = {{disabled}}
+      {{on "input" (fn this.onUpdate option.key)}}
+    >
+    <label class="custom-control-label" for="{{inputId}}-{{i}}">{{option.label}}</label>
+  </div>
+{{/each}}
