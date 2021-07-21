@@ -1,4 +1,4 @@
-import { render, click, settled } from "@ember/test-helpers";
+import { render, click, fillIn, settled } from "@ember/test-helpers";
 import Changeset from "ember-changeset";
 import { hbs } from "ember-cli-htmlbars";
 import { setupRenderingTest } from "ember-qunit";
@@ -50,6 +50,20 @@ module("Integration | Component | validated input", function (hooks) {
     await render(hbs`{{validated-input name="firstName" model=model}}`);
 
     assert.dom("input").hasValue("Max");
+  });
+
+  test("it calls on-update if given", async function (assert) {
+    this.set("model", new Changeset({ firstName: "Max" }));
+    this.set("update", (value, changeset) => {
+      changeset.set("firstName", value.toUpperCase());
+    });
+    await render(
+      hbs`{{validated-input name="firstName" model=model on-update=update}}`
+    );
+
+    await fillIn("input", "foo");
+
+    assert.dom("input").hasValue("FOO");
   });
 
   test("it renders inputs with value even if model is defined", async function (assert) {

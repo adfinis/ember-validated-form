@@ -88,8 +88,8 @@ export class ValidatedInput extends Component {
 
   @action
   update(value) {
-    if (this["on-update"]) {
-      this["on-update"](value, this.args.model);
+    if (this.args["on-update"]) {
+      this.args["on-update"](value, this.args.model);
     } else {
       this.args.model.set
         ? this.args.model.set(this.args.name, value)
