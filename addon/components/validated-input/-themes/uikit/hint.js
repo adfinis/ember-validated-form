@@ -1,5 +1,5 @@
 import Component from "../../hint";
 
-export default Component.extend({
-  classNames: ["uk-text-muted"],
-});
+export default class UikitHintComponent extends Component {
+  class = "uk-text-muted";
+}

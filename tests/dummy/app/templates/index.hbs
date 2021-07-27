@@ -19,7 +19,7 @@
   <DocsDemo as |demo|>
     <demo.example>
       {{!-- BEGIN-SNIPPET quickstart-template.hbs --}}
-      {{#if model.saved}}
+      {{#if @model.saved}}
         <div class="alert alert-success">
           Model was successfully saved!
         </div>
@@ -46,6 +46,7 @@
           @type="textarea"
           @label="About me"
           @name="aboutMe"
+          @rows="10"
           @hint="Write a short description about yourself"
         />
 
@@ -68,7 +69,7 @@
         />
 
         <f.input
-          @renderComponent={{component "favorite-colors-component" colors=this.colors}}
+          @renderComponent={{component "favorite-colors" colors=this.colors}}
           @label="Favorite Color"
           @name="color"
           @required={{true}}
@@ -90,7 +91,7 @@
     <demo.snippet @name="quickstart-route.js" @label="route.js" />
     <demo.snippet @name="quickstart-controller.js" />
     <demo.snippet @name="quickstart-validations.js" @label="validations/user.js" />
-    <demo.snippet @name="favorite-colors-component.js" @label="components/favorite-colors-component.js" />
-    <demo.snippet @name="favorite-colors-component.hbs" @label="templates/components/favorite-colors-component.hbs" />
+    <demo.snippet @name="favorite-colors.js" @label="components/favorite-colors.js" />
+    <demo.snippet @name="favorite-colors.hbs" @label="components/favorite-colors.hbs" />
   </DocsDemo>
 </div>

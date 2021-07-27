@@ -1,0 +1,13 @@
+<input
+  class={{this.class}}
+  value={{@value}}
+  placeholder={{@placeholder}}
+  type={{@type}}
+  id={{@inputId}}
+  name={{@name}}
+  autofocus={{@autofocus}}
+  autocomplete={{@autocomplete}}
+  disabled={{@disabled}}
+  {{on "input" this.onUpdate}}
+  {{on "blur" @setDirty}}
+>

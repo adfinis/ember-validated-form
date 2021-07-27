@@ -1,0 +1,121 @@
+<div class={{this.class}}>
+  {{#unless (eq @type "checkbox")}}
+    <@labelComponent />
+  {{/unless}}
+
+  {{#if (eq @type "select")}}
+    {{#let (component this.selectComponent) as |Select|}}
+      <Select
+        @disabled={{@disabled}}
+        @name={{or @inputName @name}}
+        @promptIsSelectable={{@promptIsSelectable}}
+        @optionLabelPath={{@optionLabelPath}}
+        @optionValuePath={{@optionValuePath}}
+        @optionTargetPath={{@optionTargetPath}}
+        @includeBlank={{@includeBlank}}
+        @multiple={{@multiple}}
+        @value={{@value}}
+        @options={{@options}}
+        @inputId={{@inputId}}
+
+        @isValid={{@isValid}}
+        @isInvalid={{@isInvalid}}
+
+        @update={{@update}}
+        @setDirty={{@setDirty}}
+      />
+    {{/let}}
+  {{else if (or (eq @type "radioGroup") (eq @type "radio-group"))}}
+    {{#let (component this.radioGroupComponent) as |RadioGroup|}}
+      <RadioGroup
+        @value={{@value}}
+        @options={{@options}}
+        @inputId={{@inputId}}
+        @name={{or @inputName @name}}
+        @disabled={{@disabled}}
+
+        @isValid={{@isValid}}
+        @isInvalid={{@isInvalid}}
+
+        @update={{@update}}
+        @setDirty={{@setDirty}}
+      />
+    {{/let}}
+  {{else if (or (eq @type "checkboxGroup") (eq @type "checkbox-group"))}}
+    {{#let (component this.checkboxGroupComponent) as |CheckboxGroup|}}
+      <CheckboxGroup
+        @value={{@value}}
+        @options={{@options}}
+        @inputId={{@inputId}}
+        @name={{or @inputName @name}}
+        @disabled={{@disabled}}
+
+        @isValid={{@isValid}}
+        @isInvalid={{@isInvalid}}
+
+        @update={{@update}}
+        @setDirty={{@setDirty}}
+      />
+    {{/let}}
+  {{else if (eq @type "checkbox")}}
+    {{#let (component this.checkboxComponent) as |Checkbox|}}
+      <Checkbox
+        @value={{@value}}
+        @options={{@options}}
+        @inputId={{@inputId}}
+        @name={{or @inputName @name}}
+        @disabled={{@disabled}}
+
+        @isValid={{@isValid}}
+        @isInvalid={{@isInvalid}}
+
+        @update={{@update}}
+        @setDirty={{@setDirty}}
+
+        @labelComponent={{@labelComponent}}
+      />
+    {{/let}}
+  {{else if (eq @type "textarea")}}
+    {{#let (component this.textareaComponent) as |Textarea|}}
+      <Textarea
+        @inputId={{@inputId}}
+        @name={{or @inputName @name}}
+        @value={{@value}}
+        @placeholder={{@placeholder}}
+        @disabled={{@disabled}}
+        @autofocus={{@autofocus}}
+        @autocomplete={{@autocomplete}}
+        @rows={{@rows}}
+        @cols={{@cols}}
+
+        @isValid={{@isValid}}
+        @isInvalid={{@isInvalid}}
+
+        @update={{@update}}
+        @setDirty={{@setDirty}}
+      />
+    {{/let}}
+  {{else}}
+    {{#let (component this.inputComponent) as |Input|}}
+      <Input
+        @type={{@type}}
+        @inputId={{@inputId}}
+        @name={{or @inputName @name}}
+        @value={{@value}}
+        @placeholder={{@placeholder}}
+        @disabled={{@disabled}}
+        @autofocus={{@autofocus}}
+        @autocomplete={{@autocomplete}}
+
+        @isValid={{@isValid}}
+        @isInvalid={{@isInvalid}}
+
+        @update={{@update}}
+        @setDirty={{@setDirty}}
+      />
+    {{/let}}
+  {{/if}}
+
+  <@hintComponent />
+  <@errorComponent />
+</div>

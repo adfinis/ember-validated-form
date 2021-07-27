@@ -8,13 +8,14 @@ module("Integration | Component | validated-input/render", function (hooks) {
 
   test("it renders", async function (assert) {
     await render(hbs`
-      {{validated-input/render
-        type='text'
-        name='test'
-        labelComponent=(component 'validated-input/label' label='Test')
+      <ValidatedInput::Render
+        @type="text"
+        @name="test"
+        @labelComponent={{component "validated-input/label" label="Test"}}
 
-        update=(action (mut value))
-      }}
+        @update={{fn (mut this.value)}}
+        @setDirty={{fn (mut this.dirty) true}}
+      />
     `);
 
     assert.dom("input[type=text]").exists();

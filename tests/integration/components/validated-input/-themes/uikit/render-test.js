@@ -12,14 +12,14 @@ module(
 
     test("it renders", async function (assert) {
       await render(hbs`
-        {{validated-input/-themes/uikit/render
-          type='text'
-          name='test'
+        <ValidatedInput::-Themes::Uikit::Render
+          @type="text"
+          @name="test"
+          @labelComponent={{component "validated-input/-themes/uikit/label" label="Test"}}
 
-          labelComponent=(component 'validated-input/-themes/uikit/label' label='Test')
-
-          update=(action (mut value))
-        }}
+          @update={{fn (mut this.value)}}
+          @setDirty={{fn (mut this.dirty) true}}
+        />
       `);
 
       assert.dom(".uk-margin").exists();

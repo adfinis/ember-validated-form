@@ -1,12 +1,10 @@
-import { computed } from "@ember/object";
-
 import Component from "../../button";
 
-export default Component.extend({
-  classNames: ["btn"],
-  classNameBindings: ["style"],
+export default class BootstrapButton extends Component {
+  get class() {
+    const style = this.args.type === "submit" ? "btn-primary" : "btn-default";
+    const loading = this.args.loading ? "loading" : "";
 
-  style: computed("type", function () {
-    return this.type === "submit" ? "btn-primary" : "btn-default";
-  }),
-});
+    return `btn ${style} ${loading}`;
+  }
+}

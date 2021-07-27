@@ -12,14 +12,15 @@ module(
 
     test("it renders", async function (assert) {
       await render(hbs`
-      {{validated-input/-themes/bootstrap/render
-        type='text'
-        name='test'
-        labelComponent=(component 'validated-input/-themes/bootstrap/label' label='Test')
+        <ValidatedInput::-Themes::Bootstrap::Render
+          @type="text"
+          @name="test"
+          @labelComponent={{component "validated-input/-themes/bootstrap/label" label="Test"}}
 
-        update=(action (mut value))
-      }}
-    `);
+          @update={{fn (mut this.value)}}
+          @setDirty={{fn (mut this.dirty) true}}
+        />
+      `);
 
       assert.dom(".form-group").exists();
 

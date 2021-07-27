@@ -18,7 +18,7 @@ a `renderComponent`:
       {{f.input
         label='Favorite Color'
         name='color'
-        renderComponent=(component 'favorite-colors-component'
+        renderComponent=(component 'favorite-colors'
           colors=(array (hash color='red' name='Red') (hash color='blue' name='Blue') (hash color='green' name='green'))
         )
       }}
@@ -26,7 +26,7 @@ a `renderComponent`:
   {{/demo.example}}
 
   {{demo.snippet 'custom-input-template.hbs'}}
-  {{demo.snippet 'favorite-colors-component.hbs' label='templates/components/favorite-colors-component.hbs'}}
+  {{demo.snippet 'favorite-colors.hbs' label='components/favorite-colors.hbs'}}
 {{/docs-demo}}
 <!-- prettier-ignore-end -->
 
@@ -80,7 +80,7 @@ inside a label tag.
   {{/demo.example}}
 
   {{demo.snippet 'custom-label-template.hbs'}}
-  {{demo.snippet 'custom-label-component-template.hbs' label='templates/components/custom-label.hbs'}}
+  {{demo.snippet 'custom-label-component-template.hbs' label='components/custom-label.hbs'}}
 {{/docs-demo}}
 <!-- prettier-ignore-end -->
 
@@ -103,7 +103,7 @@ inside a label tag.
   {{/demo.example}}
 
   {{demo.snippet 'custom-hint-template.hbs'}}
-  {{demo.snippet 'custom-hint-component-template.hbs' label='templates/components/custom-hint.hbs'}}
+  {{demo.snippet 'custom-hint-component-template.hbs' label='components/custom-hint.hbs'}}
 {{/docs-demo}}
 <!-- prettier-ignore-end -->
 
@@ -122,7 +122,7 @@ inside a label tag.
   {{/demo.example}}
 
   {{demo.snippet 'custom-error-template.hbs'}}
-  {{demo.snippet 'custom-error-component-template.hbs' label='templates/components/custom-error.hbs'}}
+  {{demo.snippet 'custom-error-component-template.hbs' label='components/custom-error.hbs'}}
 {{/docs-demo}}
 <!-- prettier-ignore-end -->
 
@@ -141,7 +141,7 @@ inside a label tag.
   {{/demo.example}}
 
   {{demo.snippet 'custom-button-template.hbs'}}
-  {{demo.snippet 'custom-button-component-template.hbs' label='templates/components/custom-button.hbs'}}
+  {{demo.snippet 'custom-button-component-template.hbs' label='components/custom-button.hbs'}}
 {{/docs-demo}}
 <!-- prettier-ignore-end -->
 

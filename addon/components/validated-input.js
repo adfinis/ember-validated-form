@@ -1,11 +1,9 @@
-import { setComponentTemplate } from "@ember/component";
 import { action, set, get } from "@ember/object";
 import { guidFor } from "@ember/object/internals";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 
 import themedComponent from "../-private/themed-component";
-import template from "../templates/components/validated-input";
 
 /**
  * This component wraps form inputs.
@@ -20,7 +18,7 @@ import template from "../templates/components/validated-input";
  * @class validated-input
  * @export default
  */
-export class ValidatedInput extends Component {
+export default class ValidatedInputComponent extends Component {
   inputId = guidFor(this);
 
   @tracked dirty;
@@ -97,5 +95,3 @@ export class ValidatedInput extends Component {
     }
   }
 }
-
-export default setComponentTemplate(template, ValidatedInput);

@@ -3,26 +3,23 @@ import Controller from "@ember/controller";
 import UserValidations from "dummy/validations/user";
 import { task, timeout } from "ember-concurrency";
 
-export default Controller.extend({
-  UserValidations,
+export default class IndexController extends Controller {
+  UserValidations = UserValidations;
 
-  init(...args) {
-    this._super(...args);
-
-    this.colors = [
+  get colors() {
+    return [
       { name: "Red", color: "red" },
       { name: "Green", color: "green" },
       { name: "Blue", color: "blue" },
     ];
+  }
 
-    this.countries = [
-      "United States",
-      "United Kingdom",
-      "Switzerland",
-      "Other",
-    ];
+  get countries() {
+    return ["United States", "United Kingdom", "Switzerland", "Other"];
+  }
 
-    this.genders = [
+  get genders() {
+    return [
       {
         key: "m",
         label: "Male",
@@ -32,11 +29,12 @@ export default Controller.extend({
         label: "Female",
       },
     ];
-  },
+  }
 
-  submit: task(function* (model) {
+  @task
+  *submit(model) {
     yield timeout(1000);
     model.save();
-  }),
-});
+  }
+}
 // END-SNIPPET
