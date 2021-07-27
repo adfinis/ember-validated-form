@@ -42,7 +42,7 @@ two arguments: `update(value, changeset)`.
 **autocomplete `<String>`**  
 Binding to the [`<input>` `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete).
 
-The supported field types are `checkbox`, `radioGroup`, `select`, `textarea`
+The supported field types are `checkbox`, `checkboxGroup`, `radioGroup`, `select`, `textarea`
 and any type that can be specified on an `<input>` element. This addon does
 not much more than translating `{{f.input type='select'}}` to
 `{{one-way-select}}` or `{{f.input type='text'}}` to `<input type="text">`
@@ -189,3 +189,24 @@ localize your labels using an internationalization addon like
   {{demo.snippet 'translations.js' label='locales/fr/translations.js'}}
 {{/docs-demo}}
 -->
+
+### Checkbox group
+
+This component renders a list of `<input type="checkbox">` elements.
+
+<!-- prettier-ignore-start -->
+{{#docs-demo as |demo|}}
+  {{#demo.example name='checkbox-group-template.hbs'}}
+    {{#validated-form model=(changeset (hash shape=null)) as |f|}}
+      {{f.input
+        type    = 'checkboxGroup'
+        label   = 'Shapes'
+        name    = 'shape'
+        options = (array (hash key='t' label='Triangle') (hash key='s' label='Square') (hash key='c' label='Circle'))
+      }}
+    {{/validated-form}}
+  {{/demo.example}}
+
+  {{demo.snippet 'checkbox-group-template.hbs'}}
+{{/docs-demo}}
+<!-- prettier-ignore-end -->

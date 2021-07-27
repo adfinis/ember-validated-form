@@ -1,0 +1,14 @@
+{{#each options as |option i|}}
+  <label>
+    <input
+      type     = "checkbox"
+      checked  = {{eq value option.key}}
+      value    = {{option.key}}
+      name     = {{name}}
+      id       = "{{inputId}}-{{i}}"
+      disabled = {{disabled}}
+      {{on "input" (fn this.onUpdate option.key)}}
+    >
+    {{option.label}}
+  </label>
+{{/each}}
