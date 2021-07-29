@@ -9900,9 +9900,11 @@ e.Task=w,l.TRACKED_INITIAL_TASK_STATE&&Object.defineProperties(w.prototype,l.TRA
 var x=function(e){v(i,e)
 var n=b(i)
 function i(e){var t
-return p(this,i),(t=n.call(this,e)).taskObj=e.taskObj,t._encapsulatedTaskStates=new WeakMap,t._encapsulatedTaskInstanceProxies=new WeakMap,t}return m(i,[{key:"_taskInstanceFactory",value:function(e,n){var i=(0,t.getOwner)(this.context),c=r.default.extend(this.taskObj).create({context:this.context});(0,t.setOwner)(c,i)
-var l=new o.TaskInstance({task:this,args:e,executor:new a.TaskInstanceExecutor({generatorFactory:function(){return c.perform.apply(c,e)},env:s.EMBER_ENVIRONMENT,debug:this.debug}),performType:n,hasEnabledEvents:this.hasEnabledEvents})
-return this._encapsulatedTaskStates.set(l,c),this._wrappedEncapsulatedTaskInstance(l)}},{key:"_wrappedEncapsulatedTaskInstance",value:function(e){if(!e)return null
+return p(this,i),(t=n.call(this,e)).taskObj=e.taskObj,t._encapsulatedTaskStates=new WeakMap,t._encapsulatedTaskInstanceProxies=new WeakMap,t}return m(i,[{key:"_getEncapsulatedTaskClass",value:function(){var e=this._encapsulatedTaskImplClass
+return e||(e=r.default.extend(this.taskObj,{unknownProperty:function(e){var t=this.__ec__encap_current_ti
+return t?t[e]:void 0}})),e}},{key:"_taskInstanceFactory",value:function(e,r){var n,i=(0,t.getOwner)(this.context),c=this._getEncapsulatedTaskClass().create({context:this.context});(0,t.setOwner)(c,i)
+var l=new o.TaskInstance({task:this,args:e,executor:new a.TaskInstanceExecutor({generatorFactory:function(){return c.perform.apply(n,e)},env:s.EMBER_ENVIRONMENT,debug:this.debug}),performType:r,hasEnabledEvents:this.hasEnabledEvents})
+return c.__ec__encap_current_ti=l,this._encapsulatedTaskStates.set(l,c),n=this._wrappedEncapsulatedTaskInstance(l)}},{key:"_wrappedEncapsulatedTaskInstance",value:function(e){if(!e)return null
 var t=this._encapsulatedTaskInstanceProxies,n=t.get(e)
 if(!n){var i=this._encapsulatedTaskStates.get(e)
 n=new Proxy(e,{get:function(e,t){return t in e?e[t]:(0,r.get)(i,t.toString())},has:function(e,t){return t in e||t in i},ownKeys:function(e){return Reflect.ownKeys(e).concat(Reflect.ownKeys(i))},defineProperty:function(r,n,o){var a=t.get(e)
