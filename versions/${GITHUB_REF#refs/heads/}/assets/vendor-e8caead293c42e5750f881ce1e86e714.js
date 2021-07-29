@@ -811,7 +811,7 @@ if(!r||"new"===r.state)return(r=new s(e,[],c,null)).module.exports=t,r.state="fi
  *            Portions Copyright 2008-2011 Apple Inc. All rights reserved.
  * @license   Licensed under MIT license
  *            See https://raw.github.com/emberjs/ember.js/master/LICENSE
- * @version   3.27.4
+ * @version   3.27.5
  */
 var e,t;(function(){var r="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:null
 if(null===r)throw new Error("unable to locate global object")
@@ -1447,7 +1447,7 @@ function Vr(e){return null==e}function Fr(e){return!Vr(e)}function Br(e){return"
 var Ur=function(e){function n(){var t
 return(t=e.apply(this,arguments)||this).modernized=t.shouldModernize(),t.currentRouteCache=(0,l.createCache)((function(){return(0,l.consumeTag)((0,l.tagFor)(t.routing,"currentState")),(0,l.untrack)((function(){return t.routing.currentRouteName}))})),t}(0,t.inheritsLoose)(n,e),n.toString=function(){return"LinkTo"}
 var i=n.prototype
-return i.validateArguments=function(){e.prototype.validateArguments.call(this)},i.click=function(e){if((0,u.isSimpleClick)(e)){var t=e.target
+return i.validateArguments=function(){e.prototype.validateArguments.call(this)},i.click=function(e){if((0,u.isSimpleClick)(e)){var t=e.currentTarget
 if((""===t.target||"_self"===t.target)&&(this.preventDefault(e),!this.isDisabled&&!this.isLoading)){var r=this.routing,n=this.route,i=this.models,o=this.query,a=this.replace,s={routeName:n,queryParams:o,transition:void 0};(0,h.flaggedInstrument)("interaction.link-to",s,(function(){s.transition=r.transitionTo(n,i,o,a)}))}}},i.classFor=function(e){var t=this.named(e+"Class")
 return!0===t||Vr(t)?" "+e:t?" "+t:""},i.namespaceRoute=function(e){var t=this.engineMountPoint
 return void 0===t?e:"application"===e?t:t+"."+e},i.isActiveForState=function(e){var t=this
@@ -4584,7 +4584,7 @@ return n.Adapter=i,n.QUnitAdapter=o,Object.defineProperty(V,"Test",{configurable
 var $=V
 t.default=$})),e("ember/version",["exports"],(function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
-e.default="3.27.4"})),e("route-recognizer",["exports"],(function(e){"use strict"
+e.default="3.27.5"})),e("route-recognizer",["exports"],(function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var t=Object.create
 function r(){var e=t(null)
