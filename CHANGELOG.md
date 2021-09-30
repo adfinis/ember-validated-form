@@ -1,3 +1,19 @@
+# [4.1.0](https://github.com/adfinis-sygroup/ember-validated-form/compare/v4.0.1...v4.1.0) (2021-09-30)
+
+
+### Bug Fixes
+
+* **deps:** [security] bump handlebars from 4.7.6 to 4.7.7 ([#588](https://github.com/adfinis-sygroup/ember-validated-form/issues/588)) ([d167207](https://github.com/adfinis-sygroup/ember-validated-form/commit/d167207ee059bd9b968a08fb61f18f43dadab0ab))
+* **deps:** [security] bump striptags from 3.1.1 to 3.2.0 ([#637](https://github.com/adfinis-sygroup/ember-validated-form/issues/637)) ([3632f52](https://github.com/adfinis-sygroup/ember-validated-form/commit/3632f52e7fa1fc6f0e17dd3365a74a80ceb92833))
+* **deps:** [security] bump trim-newlines from 3.0.0 to 3.0.1 ([#634](https://github.com/adfinis-sygroup/ember-validated-form/issues/634)) ([10e3974](https://github.com/adfinis-sygroup/ember-validated-form/commit/10e397452b30a3af11a299c5bcdafd703d9b0c18))
+* **deps:** [security] bump ws from 6.2.1 to 6.2.2 ([#624](https://github.com/adfinis-sygroup/ember-validated-form/issues/624)) ([910ec64](https://github.com/adfinis-sygroup/ember-validated-form/commit/910ec64b2f84562fd77a8be14094fd2f326d60b6))
+* call on-update hook correctly ([#641](https://github.com/adfinis-sygroup/ember-validated-form/issues/641)) ([b8688b6](https://github.com/adfinis-sygroup/ember-validated-form/commit/b8688b6d9dedbd9096d34c3b236bf59efb045556))
+
+
+### Features
+
+* checkbox groups ([#640](https://github.com/adfinis-sygroup/ember-validated-form/issues/640)) ([9099ce8](https://github.com/adfinis-sygroup/ember-validated-form/commit/9099ce81bbedc53c961653dca59c555d96ee9128))
+
 ## [4.0.1](https://github.com/adfinis-sygroup/ember-validated-form/compare/v4.0.0...v4.0.1) (2021-05-21)
 
 
