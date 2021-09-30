@@ -36,8 +36,8 @@
   "-latest": {
     "path": "",
     "name": "Latest",
-    "sha": "46b0d26242afa9ae604c76f62e3e82aaeadbf5ad",
-    "tag": "v3.0.3"
+    "sha": "c0e7affb54570465319f445a0a23f4cdcb3200ad",
+    "tag": "v4.1.0"
   },
   "v2.0.0-alpha.1": {
     "path": "versions/v2.0.0-alpha.1",
@@ -78,7 +78,7 @@
   "${GITHUB_REF#refs/heads/}": {
     "path": "versions/${GITHUB_REF#refs/heads/}",
     "name": "${GITHUB_REF#refs/heads/}",
-    "sha": "dada17a8b3b2f83a01cae11f3db10b3b2c4555f1",
-    "tag": null
+    "sha": "c0e7affb54570465319f445a0a23f4cdcb3200ad",
+    "tag": "v4.1.0"
   }
 }
