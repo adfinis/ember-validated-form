@@ -80,5 +80,11 @@
     "name": "${GITHUB_REF#refs/heads/}",
     "sha": "de53640cabecd23594bf1af86186d7ef84d9dd00",
     "tag": null
+  },
+  "${GITHUB_REF##*/}": {
+    "path": "versions/${GITHUB_REF##*/}",
+    "name": "${GITHUB_REF##*/}",
+    "sha": "657b312857474725f3a997f338f1bc166e6a1c98",
+    "tag": null
   }
 }
