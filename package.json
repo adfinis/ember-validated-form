@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@adfinis-sygroup/eslint-config": "1.4.2",
-    "@adfinis-sygroup/semantic-release-config": "3.1.0",
+    "@adfinis-sygroup/semantic-release-config": "3.2.0",
     "@babel/core": "7.15.8",
     "@ember/optional-features": "2.0.0",
     "@ember/test-helpers": "2.5.0",
