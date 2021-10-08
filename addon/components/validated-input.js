@@ -38,11 +38,6 @@ export default class ValidatedInputComponent extends Component {
     this.required = this.args.required ?? false;
     this.type = this.args.type ?? "text";
     this.validateBeforeSubmit = this.args.validateBeforeSubmit ?? true;
-
-    this.renderComponent = this.args.renderComponent ?? this.renderComponent;
-    this.labelComponent = this.args.labelComponent ?? this.labelComponent;
-    this.hintComponent = this.args.hintComponent ?? this.hintComponent;
-    this.errorComponent = this.args.errorComponent ?? this.errorComponent;
   }
 
   get _val() {

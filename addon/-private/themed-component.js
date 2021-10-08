@@ -1,42 +1,38 @@
 import { getOwner } from "@ember/application";
-import { computed, get, set } from "@ember/object";
 
-export default (component) => {
-  return computed({
-    get() {
-      const parts = component.split("/");
-      const componentNameParts = parts.slice(1, parts.length).join("/");
+export default function (component) {
+  return function (_, propertyName) {
+    return {
+      get() {
+        const parts = component.split("/");
+        const componentName = parts.slice(1, parts.length).join("/");
 
-      if (get(this, `overrideComponents.${componentNameParts}`)) {
-        return get(this, `overrideComponents.${componentNameParts}`);
-      }
+        if (this.args[propertyName]) {
+          return this.args[propertyName];
+        }
 
-      const config =
-        getOwner(this).resolveRegistration("config:environment")[
-          "ember-validated-form"
-        ] !== undefined
-          ? getOwner(this).resolveRegistration("config:environment")[
-              "ember-validated-form"
-            ]
-          : {};
+        const config =
+          getOwner(this).resolveRegistration("config:environment")[
+            "ember-validated-form"
+          ] !== undefined
+            ? getOwner(this).resolveRegistration("config:environment")[
+                "ember-validated-form"
+              ]
+            : {};
 
-      const theme = config.theme;
-      const defaultComponent = get(config, `defaults.${componentNameParts}`);
+        const theme = config.theme;
+        const defaultComponent = config.defaults?.[componentName];
 
-      const name = parts.pop();
-      const basePath = parts.join("/");
+        const name = parts.pop();
+        const basePath = parts.join("/");
 
-      return (
-        defaultComponent ||
-        (theme ? `${basePath}/-themes/${theme}/${name}` : `${basePath}/${name}`)
-      );
-    },
-    set(key, value) {
-      if (!get(this, `overrideComponents`)) {
-        set(this, `overrideComponents`, {});
-      }
-      set(this, `overrideComponents.${key}`, value);
-      return value;
-    },
-  });
-};
+        return (
+          defaultComponent ||
+          (theme
+            ? `${basePath}/-themes/${theme}/${name}`
+            : `${basePath}/${name}`)
+        );
+      },
+    };
+  };
+}
