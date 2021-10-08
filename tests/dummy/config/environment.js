@@ -7,9 +7,6 @@ module.exports = function (environment) {
     rootURL: "/",
     locationType: "auto",
     historySupportMiddleware: true,
-    i18n: {
-      defaultLocale: "fr",
-    },
     "ember-validated-form": {
       theme: "bootstrap",
       defaults: {
