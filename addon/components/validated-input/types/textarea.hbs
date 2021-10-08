@@ -1,16 +1,7 @@
 <textarea
   class={{this.class}}
-  value={{@value}}
-  placeholder={{@placeholder}}
-  name={{@name}}
-  id={{@inputId}}
-  disabled={{@disabled}}
-  autofocus={{@autofocus}}
-  rows={{@rows}}
-  cols={{@cols}}
-  autocomplete={{@autocomplete}}
+  ...attributes
   {{on "input" this.onUpdate}}
   {{on "blur" @setDirty}}
 >
-
 </textarea>

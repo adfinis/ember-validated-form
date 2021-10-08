@@ -56,8 +56,7 @@
       @multiple={{@multiple}}
       @update={{this.update}}
       @setDirty={{this.setDirty}}
-      @labelComponent={{
-        component
+      @labelComponent={{component
         this.labelComponent
         label=@label
         required=@required
@@ -66,8 +65,7 @@
         inputId=this.inputId
       }}
       @hintComponent={{if @hint (component this.hintComponent hint=@hint)}}
-      @errorComponent={{
-        if
+      @errorComponent={{if
         (and this.showValidity this.errors)
         (component this.errorComponent errors=this.errors)
       }}

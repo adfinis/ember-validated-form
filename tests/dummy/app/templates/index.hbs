@@ -7,18 +7,36 @@
   @byline="Easily create forms with client side validations."
 />
 
-<p class="my-4 text-center">Built with ♥ by <a href="https://github.com/adfinis-sygroup">Adfinis SyGroup</a></p>
+<p class="my-4 text-center">Built with ♥ by
+  <a href="https://github.com/adfinis-sygroup">Adfinis SyGroup</a></p>
 
 <div class="d-flex justify-content-center">
-  <a class="ml-1" href="https://emberobserver.com/addons/ember-validated-form" rel="nofollow"><img alt="Ember Observer Score" src="https://emberobserver.com/badges/ember-validated-form.svg"></a>
-  <a class="ml-1" href="https://travis-ci.org/adfinis-sygroup/ember-validated-form" rel="nofollow"><img alt="Build Status" src="https://travis-ci.org/adfinis-sygroup/ember-validated-form.svg?branch=main"></a>
-  <a class="ml-1" href="https://github.com/prettier/prettier"><img alt="Code style" src="https://img.shields.io/badge/code_style-prettier-red.svg"></a>
+  <a
+    class="ml-1"
+    href="https://emberobserver.com/addons/ember-validated-form"
+    rel="nofollow"
+  ><img
+      alt="Ember Observer Score"
+      src="https://emberobserver.com/badges/ember-validated-form.svg"
+    /></a>
+  <a
+    class="ml-1"
+    href="https://travis-ci.org/adfinis-sygroup/ember-validated-form"
+    rel="nofollow"
+  ><img
+      alt="Build Status"
+      src="https://travis-ci.org/adfinis-sygroup/ember-validated-form.svg?branch=main"
+    /></a>
+  <a class="ml-1" href="https://github.com/prettier/prettier"><img
+      alt="Code style"
+      src="https://img.shields.io/badge/code_style-prettier-red.svg"
+    /></a>
 </div>
 
 <div class="docs-container">
   <DocsDemo as |demo|>
     <demo.example>
-      {{!-- BEGIN-SNIPPET quickstart-template.hbs --}}
+      {{! BEGIN-SNIPPET quickstart-template.hbs }}
       {{#if @model.saved}}
         <div class="alert alert-success">
           Model was successfully saved!
@@ -28,19 +46,12 @@
       <ValidatedForm
         @model={{changeset @model this.UserValidations}}
         @on-submit={{perform this.submit}}
-      as |f|>
+        as |f|
+      >
 
-        <f.input
-          @label="First name"
-          @name="firstName"
-          @required={{true}}
-        />
+        <f.input @label="First name" @name="firstName" @required={{true}} />
 
-        <f.input
-          @label="Last name"
-          @name="lastName"
-          @required={{true}}
-        />
+        <f.input @label="Last name" @name="lastName" @required={{true}} />
 
         <f.input
           @type="textarea"
@@ -84,14 +95,23 @@
 
         <f.submit @label="Save" />
       </ValidatedForm>
-      {{!-- END-SNIPPET --}}
+      {{! END-SNIPPET }}
     </demo.example>
 
     <demo.snippet @name="quickstart-template.hbs" />
     <demo.snippet @name="quickstart-route.js" @label="route.js" />
     <demo.snippet @name="quickstart-controller.js" />
-    <demo.snippet @name="quickstart-validations.js" @label="validations/user.js" />
-    <demo.snippet @name="favorite-colors.js" @label="components/favorite-colors.js" />
-    <demo.snippet @name="favorite-colors.hbs" @label="components/favorite-colors.hbs" />
+    <demo.snippet
+      @name="quickstart-validations.js"
+      @label="validations/user.js"
+    />
+    <demo.snippet
+      @name="favorite-colors.js"
+      @label="components/favorite-colors.js"
+    />
+    <demo.snippet
+      @name="favorite-colors.hbs"
+      @label="components/favorite-colors.hbs"
+    />
   </DocsDemo>
 </div>

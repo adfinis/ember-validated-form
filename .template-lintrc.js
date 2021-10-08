@@ -1,9 +1,6 @@
 "use strict";
 
 module.exports = {
-  extends: "recommended",
-  rules: {
-    "simple-unless": false,
-    "no-inline-styles": false,
-  },
+  plugins: ["ember-template-lint-plugin-prettier"],
+  extends: ["recommended", "ember-template-lint-plugin-prettier:recommended"],
 };

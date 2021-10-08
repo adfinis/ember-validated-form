@@ -1,13 +1,15 @@
 {{#let (component @labelComponent) as |Label|}}
-  <Label class="{{if @isValid "uk-text-success"}} {{if @isInvalid "uk-text-danger"}}">
+  <Label
+    class="{{if @isValid "uk-text-success"}} {{if @isInvalid "uk-text-danger"}}"
+  >
     <input
-      class    = "uk-checkbox uk-margin-small-right"
-      type     = "checkbox"
-      name     = {{@name}}
-      id       = {{@inputId}}
-      disabled = {{@disabled}}
-      checked  = {{@value}}
+      class="uk-checkbox uk-margin-small-right"
+      type="checkbox"
+      name={{@name}}
+      id={{@inputId}}
+      disabled={{@disabled}}
+      checked={{@value}}
       {{on "input" this.onUpdate}}
-    >
+    />
   </Label>
 {{/let}}

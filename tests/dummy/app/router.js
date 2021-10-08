@@ -13,7 +13,6 @@ Router.map(function () {
     this.route("usage");
     this.route("quickstart");
     this.route("configuration");
-    this.route("configuration");
     this.route("customization");
     this.route("troubleshooting");
 

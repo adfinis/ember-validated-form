@@ -1,8 +1,10 @@
-{{!-- BEGIN-SNIPPET custom-error-component-template.hbs --}}
+{{! template-lint-disable no-inline-styles }}
+{{! BEGIN-SNIPPET custom-error-component-template.hbs }}
 <div style="color: darkorange;">
-  <br>
+  <br />
   {{#each @errors as |error i|}}
-    <strong>&gt; Error #{{i}}:</strong> {{error}}<br>
+    <strong>&gt; Error #{{i}}:</strong>
+    {{error}}<br />
   {{/each}}
 </div>
-{{!-- END-SNIPPET --}}
+{{! END-SNIPPET }}
