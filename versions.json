@@ -86,5 +86,11 @@
     "name": "${GITHUB_REF##*/}",
     "sha": "7529c787bc50be200cb963896d193889414784be",
     "tag": null
+  },
+  "main": {
+    "path": "versions/main",
+    "name": "main",
+    "sha": "1b167a2f4bc823d60c4b09365513a93ae78996ae",
+    "tag": null
   }
 }
