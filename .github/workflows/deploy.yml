@@ -25,4 +25,4 @@ jobs:
         env:
           CI: true
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
-          ADDON_DOCS_VERSION_PATH: ${GITHUB_REF#refs/heads/}
+          ADDON_DOCS_UPDATE_LATEST: true
