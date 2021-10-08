@@ -1,4 +1,4 @@
-import { htmlSafe } from "@ember/string";
+import { htmlSafe } from "@ember/template";
 import Component from "@glimmer/component";
 
 export default class ColorComponent extends Component {
