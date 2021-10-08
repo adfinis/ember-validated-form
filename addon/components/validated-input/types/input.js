@@ -1,19 +1,11 @@
-import Component from "@ember/component";
+import { action } from "@ember/object";
+import Component from "@glimmer/component";
 
-export default Component.extend({
-  tagName: "input",
-  type: "text",
-  attributeBindings: [
-    "value",
-    "placeholder",
-    "type",
-    "inputId:id",
-    "name",
-    "autofocus",
-    "autocomplete",
-    "disabled",
+export default class InputComponent extends Component {
+  @action
+  onUpdate(event) {
+    event.preventDefault();
 
-    "update:oninput",
-    "setDirty:onblur",
-  ],
-});
+    this.args.update(event.target.value);
+  }
+}

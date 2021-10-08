@@ -6,19 +6,23 @@ import { module, test } from "qunit";
 module("Integration | Component | validated-button/button", function (hooks) {
   setupRenderingTest(hooks);
 
+  hooks.beforeEach(function () {
+    this.noop = () => {};
+  });
+
   test("it renders", async function (assert) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`{{validated-button/button}}`);
+    await render(hbs`<ValidatedButton::Button @onClick={{this.noop}} />`);
 
     assert.equal(this.element.textContent.trim(), "");
 
     // Template block usage:
     await render(hbs`
-      {{#validated-button/button}}
+      <ValidatedButton::Button @onClick={{this.noop}}>
         template block text
-      {{/validated-button/button}}
+      </ValidatedButton::Button>
     `);
 
     assert.equal(this.element.textContent.trim(), "template block text");

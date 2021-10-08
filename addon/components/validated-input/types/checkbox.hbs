@@ -1,0 +1,9 @@
+<input
+  type     = "checkbox"
+  name     = {{@name}}
+  id       = {{@inputId}}
+  disabled = {{@disabled}}
+  checked  = {{@value}}
+  {{on "input" this.onUpdate}}
+>
+<@labelComponent />

@@ -1,19 +1,10 @@
-import Component from "@ember/component";
-import { computed } from "@ember/object";
 import { htmlSafe } from "@ember/string";
+import Component from "@glimmer/component";
 
-export default Component.extend({
-  classNames: ["badge", "badge-primary"],
-
-  attributeBindings: ["style"],
-
-  style: computed("color.color", function () {
+export default class ColorComponent extends Component {
+  get style() {
     return htmlSafe(
-      `background-color: ${this.color.color}; font-size: 1rem; cursor: pointer;`
+      `background-color: ${this.args.color.color}; font-size: 1rem; cursor: pointer;`
     );
-  }),
-
-  click() {
-    this.colorSelected(this.color);
-  },
-});
+  }
+}

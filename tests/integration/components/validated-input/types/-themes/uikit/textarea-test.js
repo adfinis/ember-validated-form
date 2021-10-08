@@ -11,7 +11,12 @@ module(
     setupConfigTest(hooks, { theme: "uikit" });
 
     test("it renders", async function (assert) {
-      await render(hbs`{{validated-input/types/-themes/uikit/textarea}}`);
+      await render(hbs`
+        <ValidatedInput::Types::-Themes::Uikit::Textarea
+          @update={{fn (mut this.value)}}
+          @setDirty={{fn (mut this.dirty) true}}
+        />
+      `);
 
       assert.dom("textarea").hasClass("uk-textarea");
     });

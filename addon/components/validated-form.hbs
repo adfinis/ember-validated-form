@@ -1,0 +1,20 @@
+<form
+  autocomplete={{@autocomplete}}
+  class={{if this.submitted "submitted"}}
+>
+  {{yield (hash
+    model=@model
+    loading=this.loading
+    input=(component "validated-input"
+      model=@model
+      submitted=this.submitted
+      validateBeforeSubmit=@validateBeforeSubmit
+    )
+    submit=(component "validated-button"
+      type="submit"
+      loading=this.loading
+      label="Save"
+      action=this.submit
+    )
+  )}}
+</form>

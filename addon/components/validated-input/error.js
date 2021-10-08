@@ -1,8 +1,7 @@
-import Component from "@ember/component";
+import Component from "@glimmer/component";
 
-import layout from "../../templates/components/validated-input/error";
-
-export default Component.extend({
-  layout,
-  tagName: "span",
-});
+export default class ErrorComponent extends Component {
+  get errorString() {
+    return this.args.errors?.join(", ");
+  }
+}

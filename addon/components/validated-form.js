@@ -1,70 +1,56 @@
-import Component from "@ember/component";
+import { action } from "@ember/object";
+import Component from "@glimmer/component";
+import { tracked } from "@glimmer/tracking";
 import { resolve } from "rsvp";
-
-import layout from "../templates/components/validated-form";
 
 const PROP_ON_SUBMIT = "on-submit";
 const PROP_ON_INVALID_SUBMIT = "on-invalid-submit";
 
-export default Component.extend({
-  tagName: "form",
+export default class ValidatedFormComponent extends Component {
+  @tracked loading = false;
+  @tracked submitted = false;
+  @tracked validateBeforeSubmit = true;
 
-  classNameBindings: ["submitted"],
-  attributeBindings: ["autocomplete"],
+  constructor(...args) {
+    super(...args);
 
-  loading: false,
-
-  submitted: false,
-
-  layout,
-
-  validateBeforeSubmit: true,
-
-  init(...args) {
-    this._super(...args);
-    if (this.model && this.model.validate) {
-      this.model.validate();
+    if (this.args.model && this.args.model.validate) {
+      this.args.model.validate();
     }
-  },
+  }
 
-  submit() {
-    this.set("submitted", true);
-    const model = this.model;
+  @action
+  async submit(event) {
+    event.preventDefault();
+
+    this.submitted = true;
+    const model = this.args.model;
 
     if (!model || !model.validate) {
       this.runCallback(PROP_ON_SUBMIT);
       return false;
     }
 
-    model.validate().then(() => {
-      if (!this.element) {
-        // We were removed from the DOM while validating
-        return;
-      }
+    await model.validate();
 
-      if (model.get("isInvalid")) {
-        this.runCallback(PROP_ON_INVALID_SUBMIT);
-      } else {
-        this.runCallback(PROP_ON_SUBMIT);
-      }
-    });
+    if (model.get("isInvalid")) {
+      this.runCallback(PROP_ON_INVALID_SUBMIT);
+    } else {
+      this.runCallback(PROP_ON_SUBMIT);
+    }
+
     return false;
-  },
+  }
 
   runCallback(callbackProp) {
-    const callback = this.get(callbackProp);
+    const callback = this.args[callbackProp];
     if (typeof callback !== "function") {
       return;
     }
-    const model = this.model;
 
-    this.set("loading", true);
-    resolve(callback(model)).finally(() => {
-      if (!this.element) {
-        // We were removed from the DOM while running on-submit()
-        return;
-      }
-      this.set("loading", false);
+    this.loading = true;
+    resolve(callback(this.args.model)).finally(() => {
+      this.loading = false;
     });
-  },
-});
+  }
+}

@@ -1,9 +1,3 @@
-import Component from "@ember/component";
+import Component from "@glimmer/component";
 
-import layout from "../../templates/components/validated-button/button";
-
-export default Component.extend({
-  layout,
-  tagName: "button",
-  attributeBindings: ["disabled", "type", "action:onclick"],
-});
+export default class ButtonComponent extends Component {}

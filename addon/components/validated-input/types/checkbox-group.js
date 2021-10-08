@@ -1,13 +1,11 @@
-import Component from "@ember/component";
 import { action } from "@ember/object";
+import Component from "@glimmer/component";
 
-import layout from "../../../templates/components/validated-input/types/checkbox-group";
-
-export default Component.extend({
-  layout,
-
+export default class CheckboxGroupComponent extends Component {
   @action
-  onUpdate(key) {
+  onUpdate(event, key) {
+    event.preventDefault();
+
     const value = this.value || [];
     const index = value.indexOf(key);
 
@@ -17,7 +15,7 @@ export default Component.extend({
       value.push(key);
     }
 
-    this.update(value);
-    this.setDirty();
-  },
-});
+    this.args.update(value);
+    this.args.setDirty();
+  }
+}

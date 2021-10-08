@@ -1,0 +1,17 @@
+{{#each @options as |option i|}}
+  {{#unless (eq i 0)}}<br>{{/unless}}
+  <label class="uk-form-label {{if @isValid "uk-text-success"}} {{if @isInvalid "uk-text-danger"}}">
+    <input
+      type       = "radio"
+      class      = "uk-radio uk-margin-small-right"
+      checked    = {{eq @value option.key}}
+      value      = {{option.key}}
+      name       = {{@name}}
+      id         = "{{@inputId}}-{{i}}"
+      disabled   = {{@disabled}}
+      {{on "input" (fn this.onUpdate option.key)}}
+    >
+    {{option.label}}
+  </label>
+{{/each}}
+

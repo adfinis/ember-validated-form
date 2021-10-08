@@ -1,0 +1,23 @@
+{{!-- BEGIN-SNIPPET favorite-colors.hbs --}}
+<@labelComponent />
+
+<div class="{{if @isValid "is-valid"}} {{if @isInvalid "is-invalid"}}">
+  {{#if @value}}
+    {{@value.name}}
+    <button
+      class="btn btn-secondary"
+      type="button"
+      {{on "click" this.clearSelection}}
+    >Clear Selection</button>
+    <br>
+    <br>
+  {{/if}}
+
+  {{#each @colors as |color|}}
+    <ColorComponent @color={{color}} @colorSelected={{this.onColorSelected}} />
+  {{/each}}
+</div>
+
+<@hintComponent />
+<@errorComponent class="d-block" />
+{{!-- END-SNIPPET --}}

@@ -1,5 +1,5 @@
 import Component from "../../error";
 
-export default Component.extend({
-  classNames: ["invalid-feedback"],
-});
+export default class BootstrapErrorComponent extends Component {
+  class = "invalid-feedback";
+}

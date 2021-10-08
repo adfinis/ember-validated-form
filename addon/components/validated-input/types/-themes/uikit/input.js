@@ -1,6 +1,13 @@
 import Component from "../../input";
 
-export default Component.extend({
-  classNames: ["uk-input"],
-  classNameBindings: ["isValid:uk-form-success", "isInvalid:uk-form-danger"],
-});
+export default class UikitInputComponent extends Component {
+  get class() {
+    const style = this.args.isValid
+      ? "uk-form-success"
+      : this.args.isInvalid
+      ? "uk-form-danger"
+      : "";
+
+    return `uk-input ${style}`;
+  }
+}

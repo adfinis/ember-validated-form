@@ -1,15 +1,18 @@
-import EmberObject from "@ember/object";
+// BEGIN-SNIPPET quickstart-route.js
 import Route from "@ember/routing/route";
+import { tracked } from "@glimmer/tracking";
 
-export default Route.extend({
-  // BEGIN-SNIPPET quickstart-route.js
+class Model {
+  @tracked saved = false;
+
+  save() {
+    this.saved = true;
+  }
+}
+
+export default class IndexRoute extends Route {
   model() {
-    return EmberObject.create({
-      saved: false,
-      save() {
-        this.set("saved", true);
-      },
-    });
-  },
-  // END-SNIPPET
-});
+    return new Model();
+  }
+}
+// END-SNIPPET

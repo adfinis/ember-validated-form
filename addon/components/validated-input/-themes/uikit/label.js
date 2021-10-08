@@ -1,5 +1,5 @@
 import Component from "../../label";
 
-export default Component.extend({
-  classNames: ["uk-form-label"],
-});
+export default class UikitLabelComponent extends Component {
+  class = "uk-form-label";
+}

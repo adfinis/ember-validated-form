@@ -1,5 +1,5 @@
 import Component from "../../render";
 
-export default Component.extend({
-  classNames: ["form-group"],
-});
+export default class BootstrapRenderComponent extends Component {
+  class = "form-group";
+}

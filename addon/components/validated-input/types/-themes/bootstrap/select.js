@@ -1,6 +1,13 @@
-import layout from "../../../../../templates/components/validated-input/types/-themes/bootstrap/select";
 import Component from "../../select";
 
-export default Component.extend({
-  layout,
-});
+export default class BootstrapSelectComponent extends Component {
+  get class() {
+    const style = this.args.isValid
+      ? "is-valid"
+      : this.args.isInvalid
+      ? "is-invalid"
+      : "";
+
+    return `form-control ${style}`;
+  }
+}

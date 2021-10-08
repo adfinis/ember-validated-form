@@ -9,7 +9,12 @@ module(
     setupRenderingTest(hooks);
 
     test("it renders", async function (assert) {
-      await render(hbs`{{validated-input/types/textarea}}`);
+      await render(hbs`
+      <ValidatedInput::Types::Textarea
+        @update={{fn (mut this.value)}}
+        @setDirty={{fn (mut this.dirty) true}}
+      />
+    `);
 
       assert.dom("textarea").exists();
     });

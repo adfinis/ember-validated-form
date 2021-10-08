@@ -1,8 +1,12 @@
-import Component from "@ember/component";
+import { action } from "@ember/object";
+import Component from "@glimmer/component";
 
-import layout from "../../../templates/components/validated-input/types/radio-group";
+export default class RadioGroupComponent extends Component {
+  @action
+  onUpdate(value, event) {
+    event.preventDefault();
 
-export default Component.extend({
-  layout,
-  tagName: "",
-});
+    this.args.update(value);
+    this.args.setDirty();
+  }
+}

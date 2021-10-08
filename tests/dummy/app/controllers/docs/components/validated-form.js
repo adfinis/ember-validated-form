@@ -1,21 +1,21 @@
 import Controller from "@ember/controller";
-import { task } from "ember-concurrency";
+import { action } from "@ember/object";
+import { dropTask } from "ember-concurrency";
 
-export default Controller.extend({
+export default class extends Controller {
   // BEGIN-SNIPPET validated-form-task-controller.js
-  submit: task(function* (model) {
+  @dropTask
+  *submitTask(model) {
     yield model.save();
     // ... more code to show success messages etc.
-  }).drop(), // Use the .drop() modifier to prevent the task from running twice
+  }
   // END-SNIPPET
 
   // BEGIN-SNIPPET validated-form-action-controller.js
-  actions: {
-    submit(model) {
-      return model.save().then(() => {
-        // ... more code to show success messages etc.
-      });
-    },
-  },
+  @action
+  async submitAction(model) {
+    await model.save();
+    // ... more code to show success messages etc.
+  }
   // END-SNIPPET
-});
+}

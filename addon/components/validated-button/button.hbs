@@ -1,0 +1,9 @@
+<button
+  class={{this.class}}
+  type={{@type}}
+  disabled={{@disabled}}
+  {{on "click" @onClick}}
+  ...attributes
+>
+  {{#if (has-block)}}{{~yield~}}{{else}}{{~@label~}}{{/if}}
+</button>
