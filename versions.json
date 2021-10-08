@@ -1,10 +1,4 @@
 {
-  "master": {
-    "path": "versions/master",
-    "name": "master",
-    "sha": "c95ea2ed452b992e577d169edbc70735bedcd03a",
-    "tag": null
-  },
   "v1.3.1": {
     "sha": "e4a15996e1433c70d9189ef3055e12ff3ff91589",
     "tag": "v1.3.1",
@@ -74,18 +68,6 @@
     "name": "v2.0.0",
     "sha": "de078601607b8870075fb7e79d81ea51fcc66eb6",
     "tag": "v2.0.0"
-  },
-  "${GITHUB_REF#refs/heads/}": {
-    "path": "versions/${GITHUB_REF#refs/heads/}",
-    "name": "${GITHUB_REF#refs/heads/}",
-    "sha": "de53640cabecd23594bf1af86186d7ef84d9dd00",
-    "tag": null
-  },
-  "${GITHUB_REF##*/}": {
-    "path": "versions/${GITHUB_REF##*/}",
-    "name": "${GITHUB_REF##*/}",
-    "sha": "7529c787bc50be200cb963896d193889414784be",
-    "tag": null
   },
   "main": {
     "path": "versions/main",
