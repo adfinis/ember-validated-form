@@ -1,5 +1,5 @@
-import Component from "@ember/component";
 import { render } from "@ember/test-helpers";
+import Component from "@glimmer/component";
 import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
@@ -8,9 +8,9 @@ module("Integration | Component | validated label", function (hooks) {
   setupRenderingTest(hooks);
 
   test("it renders labels", async function (assert) {
-    await render(
-      hbs`{{validated-input label="Default name" name="default-name"}}`
-    );
+    await render(hbs`
+      <ValidatedInput @label="Default name" @name="default-name" />
+    `);
 
     assert.dom("label").hasText("Default name");
     const input = this.element.querySelector("input");
@@ -18,40 +18,40 @@ module("Integration | Component | validated label", function (hooks) {
   });
 
   test("it renders custom label component", async function (assert) {
-    this.owner.register("component:custom-label", Component.extend());
+    this.owner.register("component:custom-label", class extends Component {});
     this.owner.register(
       "template:components/custom-label",
       hbs`<label style="color: green;"></label>`
     );
 
-    await render(
-      hbs`{{validated-input labelComponent=(component "custom-label")}}`
-    );
+    await render(hbs`
+      <ValidatedInput @labelComponent={{component "custom-label"}} />
+    `);
 
     assert.dom("label").hasAttribute("style", "color: green;");
   });
 
   test("it passes original variables to custom component", async function (assert) {
-    this.owner.register("component:custom-label", Component.extend());
+    this.owner.register("component:custom-label", class extends Component {});
     this.owner.register(
       "template:components/custom-label",
       hbs`
         <label style="color: green;">
-          <span id="orig-label">{{label}}</span>
-          <span id="orig-input-id">{{inputId}}</span>
-          <span id="orig-input-required">{{required}}</span>
+          <span id="orig-label">{{@label}}</span>
+          <span id="orig-input-id">{{@inputId}}</span>
+          <span id="orig-input-required">{{@required}}</span>
         </label>
       `
     );
 
     await render(hbs`
-      {{validated-input
-        label="Name custom"
-        name="orig-name"
-        required=true
-        labelComponent=(component "custom-label")
-      }}
-      `);
+      <ValidatedInput
+        @label="Name custom"
+        @name="orig-name"
+        @required={{true}}
+        @labelComponent={{component "custom-label"}}
+      />
+    `);
 
     assert.dom("label").hasAttribute("style", "color: green;");
     assert.dom("#orig-label").hasText("Name custom");
@@ -62,15 +62,17 @@ module("Integration | Component | validated label", function (hooks) {
   });
 
   test("it passes custom variables to custom component", async function (assert) {
-    this.owner.register("component:custom-label", Component.extend());
+    this.owner.register("component:custom-label", class extends Component {});
     this.owner.register(
       "template:components/custom-label",
-      hbs`<label style="color: green;">{{customVariable}}</label>`
+      hbs`<label style="color: green;">{{@customVariable}}</label>`
     );
 
-    await render(
-      hbs`{{validated-input labelComponent=(component "custom-label" customVariable="Awesome!")}}`
-    );
+    await render(hbs`
+      <ValidatedInput
+        @labelComponent={{component "custom-label" customVariable="Awesome!"}}
+      />
+    `);
 
     assert.dom("label").hasAttribute("style", "color: green;");
     assert.dom("label").hasText("Awesome!");

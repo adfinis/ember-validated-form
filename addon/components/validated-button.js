@@ -1,11 +1,7 @@
-import Component from "@ember/component";
+import Component from "@glimmer/component";
 
 import themedComponent from "../-private/themed-component";
-import layout from "../templates/components/validated-button";
 
-export default Component.extend({
-  layout,
-  type: "button",
-  tagName: "",
-  buttonComponent: themedComponent("validated-button/button"),
-});
+export default class ValidatedButtonComponent extends Component {
+  @themedComponent("validated-button/button") buttonComponent;
+}

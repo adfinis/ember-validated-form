@@ -1,9 +1,3 @@
-import Component from "@ember/component";
+import Component from "@glimmer/component";
 
-import layout from "../../templates/components/validated-input/label";
-
-export default Component.extend({
-  layout,
-  tagName: "label",
-  attributeBindings: ["inputId:for"],
-});
+export default class LabelComponent extends Component {}

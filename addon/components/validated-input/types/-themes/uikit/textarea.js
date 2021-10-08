@@ -1,6 +1,13 @@
 import Component from "../../textarea";
 
-export default Component.extend({
-  classNames: ["uk-textarea"],
-  classNameBindings: ["isValid:uk-form-success", "isInvalid:uk-form-danger"],
-});
+export default class UikitTextareaComponent extends Component {
+  get class() {
+    const style = this.args.isValid
+      ? "uk-form-success"
+      : this.args.isInvalid
+      ? "uk-form-danger"
+      : "";
+
+    return `uk-textarea ${style}`;
+  }
+}

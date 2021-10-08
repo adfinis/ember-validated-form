@@ -1,8 +1,3 @@
-import Component from "@ember/component";
+import Component from "@glimmer/component";
 
-import layout from "../../../templates/components/validated-input/types/select";
-
-export default Component.extend({
-  layout,
-  tagName: "",
-});
+export default class SelectComponent extends Component {}

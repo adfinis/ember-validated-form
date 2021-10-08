@@ -1,7 +1,0 @@
-{{#with (component buttonComponent onclick=action disabled=disabled label=label type=type class=class) as |button|}}
-  {{#if hasBlock}}
-    {{#component button}}{{yield}}{{/component}}
-  {{else}}
-    {{component button}}
-  {{/if}}
-{{/with}}

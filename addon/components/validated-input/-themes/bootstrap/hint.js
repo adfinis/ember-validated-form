@@ -1,5 +1,5 @@
 import Component from "../../hint";
 
-export default Component.extend({
-  classNames: ["form-text", "text-muted"],
-});
+export default class BootstrapHintComponent extends Component {
+  class = "form-text text-muted";
+}

@@ -1,3 +1,3 @@
 import Component from "../../label";
 
-export default Component.extend({});
+export default class BootstrapLabelComponent extends Component {}

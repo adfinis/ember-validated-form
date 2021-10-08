@@ -1,8 +1,3 @@
-import Component from "@ember/component";
+import Component from "@glimmer/component";
 
-import layout from "../../templates/components/validated-input/hint";
-
-export default Component.extend({
-  layout,
-  tagName: "small",
-});
+export default class HintComponent extends Component {}

@@ -1,6 +1,3 @@
 import Component from "../../error";
 
-export default Component.extend({
-  tagName: "small",
-  classNames: ["uk-text-danger"],
-});
+export default class UikitErrorComponent extends Component {}
