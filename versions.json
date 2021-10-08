@@ -84,7 +84,7 @@
   "${GITHUB_REF##*/}": {
     "path": "versions/${GITHUB_REF##*/}",
     "name": "${GITHUB_REF##*/}",
-    "sha": "657b312857474725f3a997f338f1bc166e6a1c98",
+    "sha": "7529c787bc50be200cb963896d193889414784be",
     "tag": null
   }
 }
