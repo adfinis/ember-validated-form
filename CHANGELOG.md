@@ -1,3 +1,27 @@
+# [5.0.0](https://github.com/adfinis-sygroup/ember-validated-form/compare/v4.1.0...v5.0.0) (2021-10-08)
+
+
+### chore
+
+* **deps:** update ember and other dependencies ([41e099c](https://github.com/adfinis-sygroup/ember-validated-form/commit/41e099c4da82135c562493e5b2a4f9420dca73c6))
+* **ember:** remove support for ember 3.20 ([0cfebfc](https://github.com/adfinis-sygroup/ember-validated-form/commit/0cfebfcc5792a1df52093a972878af1617ec8100))
+
+
+### Features
+
+* refactor all components to glimmer and use native classes ([cee7373](https://github.com/adfinis-sygroup/ember-validated-form/commit/cee7373a3c0783a02fe00b5e510c41ba604403c2))
+
+
+### BREAKING CHANGES
+
+* **ember:** Remove support for ember LTS 3.20 since that version
+has a bug with autotracking.
+* **deps:** Require `ember-auto-import` v2+
+* While the public API won't change, there is a huge
+chance that this will break implementations if someone's extending the
+components of this addon. Components that do need to be refactored to
+glimmer.
+
 # [4.1.0](https://github.com/adfinis-sygroup/ember-validated-form/compare/v4.0.1...v4.1.0) (2021-09-30)
 
 
