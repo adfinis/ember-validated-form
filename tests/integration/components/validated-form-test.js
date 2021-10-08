@@ -178,7 +178,7 @@ module("Integration | Component | validated form", function (hooks) {
 
     await click("button");
 
-    assert.equal(invalidSubmitCalled, true);
+    assert.true(invalidSubmitCalled);
   });
 
   test("it does not call on-invalid-submit after submit if changeset is valid", async function (assert) {
@@ -208,7 +208,7 @@ module("Integration | Component | validated form", function (hooks) {
     await click("button");
 
     assert.notOk(invalidSubmitCalled);
-    assert.equal(submitCalled, true);
+    assert.true(submitCalled);
   });
 
   test("it performs basic validations on focus out", async function (assert) {

@@ -1,4 +1,4 @@
-{{!-- BEGIN-SNIPPET favorite-colors.hbs --}}
+{{! BEGIN-SNIPPET favorite-colors.hbs }}
 <@labelComponent />
 
 <div class="{{if @isValid "is-valid"}} {{if @isInvalid "is-invalid"}}">
@@ -9,8 +9,8 @@
       type="button"
       {{on "click" this.clearSelection}}
     >Clear Selection</button>
-    <br>
-    <br>
+    <br />
+    <br />
   {{/if}}
 
   {{#each @colors as |color|}}
@@ -20,4 +20,4 @@
 
 <@hintComponent />
 <@errorComponent class="d-block" />
-{{!-- END-SNIPPET --}}
+{{! END-SNIPPET }}

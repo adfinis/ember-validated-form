@@ -1,4 +1,14 @@
-{{#let (component this.buttonComponent onClick=@action loading=@loading disabled=@disabled label=@label type=@type) as |Button|}}
+{{#let
+  (component
+    this.buttonComponent
+    onClick=@action
+    loading=@loading
+    disabled=@disabled
+    label=@label
+    type=@type
+  )
+  as |Button|
+}}
   {{#if (has-block)}}
     <Button ...attributes>{{yield}}</Button>
   {{else}}

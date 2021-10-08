@@ -218,7 +218,7 @@ module("Integration | Component | validated input", function (hooks) {
 
     await click("button");
 
-    assert.equal("Merlin", model.get("firstName"));
+    assert.equal(model.get("firstName"), "Merlin");
   });
 
   test("it yields an action marking the input as dirty", async function (assert) {
