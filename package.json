@@ -50,7 +50,7 @@
     "@babel/core": "7.15.8",
     "@ember/optional-features": "2.0.0",
     "@ember/test-helpers": "2.5.0",
-    "@embroider/test-setup": "0.45.0",
+    "@embroider/test-setup": "0.47.1",
     "@fortawesome/ember-fontawesome": "0.2.3",
     "@fortawesome/free-solid-svg-icons": "5.15.4",
     "@glimmer/component": "1.0.4",
