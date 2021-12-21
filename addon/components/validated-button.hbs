@@ -1,9 +1,9 @@
 {{#let
   (component
     this.buttonComponent
-    onClick=@action
-    loading=@loading
-    disabled=@disabled
+    onClick=this.click
+    loading=this.loading
+    disabled=(or @disabled this.loading)
     label=@label
     type=@type
   )
