@@ -25,11 +25,13 @@ Specifies if the button is loading. Default: Automatic integration of `ember-con
 <!-- prettier-ignore-start -->
 {{#docs-demo as |demo|}}
   {{#demo.example name='button-template.hbs'}}
-    {{#validated-form on-submit=(action (mut saved) true) as |f|}}
-      {{f.submit label='Save'}}
-      {{#f.submit}}Still save but in block style...{{/f.submit}}
-      {{if saved 'Saved!'}}
-    {{/validated-form}}
+    <ValidatedForm @on-submit={{fn (mut saved) true}} as |f|>
+      {{#let f.submit as |Submit|}}
+        <Submit @label={{"Save"}} />
+        <Submit>Save button in block style...</Submit>
+      {{/let}}
+        {{if saved 'Saved!'}}
+    </ValidatedForm>
   {{/demo.example}}
 
   {{demo.snippet 'button-template.hbs'}}
@@ -50,11 +52,13 @@ Passes a function which is triggered after clicking on the button and when the v
 <!-- prettier-ignore-start -->
 {{#docs-demo as |demo|}}
   {{#demo.example name='button-advanced-template.hbs'}}
-    {{#validated-form as |f|}}
-      {{f.button label='Custom action' on-click=(action (mut triggered) true)}}
-      {{#f.button on-click=(action (mut triggered) true)}}Custom action button in block style...{{/f.button}}
+    <ValidatedForm as |f|>
+      {{#let f.button as |CustomButton|}}
+        <CustomButton @label="Real Custom" @on-click={{fn (mut triggered) true}}/>
+        <CustomButton @on-click={{fn (mut triggered) true}}>Custom action button in block style...</CustomButton>
+      {{/let}}
       {{if triggered 'Action triggered!'}}
-    {{/validated-form}}
+    </ValidatedForm>
   {{/demo.example}}
 
   {{demo.snippet 'button-advanced-template.hbs'}}
