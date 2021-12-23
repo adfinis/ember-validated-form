@@ -11,7 +11,9 @@ module(
     setupConfigTest(hooks, { theme: "uikit" });
 
     test("it renders", async function (assert) {
-      await render(hbs`{{validated-input/-themes/uikit/label label='Test'}}`);
+      await render(
+        hbs`<ValidatedInput::-themes::uikit::Label @label="Test" />`
+      );
 
       assert.dom("label").hasClass("uk-form-label");
       assert.dom("label").hasText("Test");

@@ -23,7 +23,7 @@ module(
       ]);
 
       await render(
-        hbs`{{validated-input/types/-themes/uikit/select options=options}}`
+        hbs`<ValidatedInput::types::-themes::uikit::Select @options={{this.options}} />`
       );
 
       assert.dom("select").hasClass("uk-select");

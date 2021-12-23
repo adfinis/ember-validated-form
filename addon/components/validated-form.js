@@ -1,4 +1,5 @@
 import { action } from "@ember/object";
+import { scheduleOnce } from "@ember/runloop";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { resolve } from "rsvp";
@@ -15,8 +16,12 @@ export default class ValidatedFormComponent extends Component {
     super(...args);
 
     if (this.args.model && this.args.model.validate) {
-      this.args.model.validate();
+      scheduleOnce("actions", this, "validateModel", this.args.model);
     }
+  }
+
+  validateModel(model) {
+    model.validate();
   }
 
   @action

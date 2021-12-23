@@ -12,7 +12,7 @@ module(
 
     test("it renders", async function (assert) {
       await render(
-        hbs`{{validated-input/-themes/bootstrap/label label='Test'}}`
+        hbs`<ValidatedInput::-themes::bootstrap::Label @label="Test" />`
       );
 
       assert.dom("label").hasText("Test");

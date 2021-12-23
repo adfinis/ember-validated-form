@@ -125,7 +125,7 @@ module("Integration | Component | validated form", function (hooks) {
 
     await render(hbs`
       <ValidatedForm
-        @model={{changeset model UserValidations}}
+        @model={{changeset this.model this.UserValidations}}
         @on-submit={{this.submit}}
         as |f|>
         <f.input @label="First name" @name="firstName"/>
@@ -456,7 +456,7 @@ module("Integration | Component | validated form", function (hooks) {
     });
 
     await render(hbs`
-      {{#if show}}
+      {{#if this.show}}
         <ValidatedForm
           @model={{changeset this.model}}
           @on-submit={{this.submit}}
@@ -488,7 +488,7 @@ module("Integration | Component | validated form", function (hooks) {
     });
 
     await render(hbs`
-      {{#if show}}
+      {{#if this.show}}
         <ValidatedForm
           @model={{changeset this.model}}
           @on-submit={{this.submit}}

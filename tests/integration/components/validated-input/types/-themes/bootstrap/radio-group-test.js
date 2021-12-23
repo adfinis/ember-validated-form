@@ -23,7 +23,10 @@ module(
       ]);
 
       await render(
-        hbs`{{validated-input/types/-themes/bootstrap/radio-group options=options update=(action (mut value))}}`
+        hbs`<ValidatedInput::types::-themes::bootstrap::RadioGroup
+          @options={{this.options}}
+          @update={{fn (mut this.value)}}
+        />`
       );
 
       assert.dom("div.custom-control.custom-radio").exists({ count: 2 });

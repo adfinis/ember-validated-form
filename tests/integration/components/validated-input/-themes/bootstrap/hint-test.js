@@ -11,7 +11,9 @@ module(
     setupConfigTest(hooks, { theme: "bootstrap" });
 
     test("it renders", async function (assert) {
-      await render(hbs`{{validated-input/-themes/bootstrap/hint hint='Test'}}`);
+      await render(
+        hbs`<ValidatedInput::-themes::bootstrap::hint @hint="Test" />`
+      );
 
       assert.dom("small").hasClass("form-text");
       assert.dom("small").hasClass("text-muted");

@@ -9,7 +9,7 @@ module("Integration | Component | validated-input/error", function (hooks) {
   test("it renders", async function (assert) {
     this.set("errors", ["foo", "bar", "baz"]);
 
-    await render(hbs`{{validated-input/error errors=errors}}`);
+    await render(hbs`<ValidatedInput::Error @errors={{this.errors}} />`);
 
     assert.dom("span").hasText("foo, bar, baz");
   });

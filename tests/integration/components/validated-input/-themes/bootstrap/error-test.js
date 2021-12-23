@@ -14,7 +14,7 @@ module(
       this.set("errors", ["foo", "bar", "baz"]);
 
       await render(
-        hbs`{{validated-input/-themes/bootstrap/error errors=errors}}`
+        hbs`<ValidatedInput::-themes::bootstrap::error @errors={{this.errors}} />`
       );
 
       assert.dom("span").hasClass("invalid-feedback");

@@ -55,7 +55,7 @@ module("Integration | Component | validated form defaults", function (hooks) {
       `
     );
 
-    this.model = { error: { test1: { validation: ["Error"] } } };
+    this.set("model", { error: { test1: { validation: ["Error"] } } });
 
     await render(hbs`
       <ValidatedForm as |f|>
