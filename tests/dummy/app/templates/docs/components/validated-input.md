@@ -106,6 +106,7 @@ The select element also supports the following options:
 - `includeBlank` --> will get replaced by `prompt` in future releases
 - `prompt`
 - `promptIsSelectable`
+- `groupLabelPath`
 
 <!-- prettier-ignore-start -->
 {{#docs-demo as |demo|}}
@@ -126,6 +127,26 @@ The select element also supports the following options:
   {{demo.snippet 'select-template.hbs'}}
 {{/docs-demo}}
 <!-- prettier-ignore-end -->
+
+**Grouping** is supported in two ways: First by using the `groupLabelPath` property (e.g. `type` in th example below) or second by pre-grouped options in the form of:
+
+```js
+[
+  {
+    groupName: 'one',
+    options: [
+      { id: 1, label: 'First', type: 'group1' },
+      { id: 2, label: 'Second', type: 'group1' }
+    ]
+  },
+  {
+    groupName: 'two',
+    options: [
+      { id: 3, label: 'Third', type: 'group2' }
+    ]
+  }
+]
+```
 
 ### Checkbox
 

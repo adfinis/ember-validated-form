@@ -15,16 +15,35 @@
       selected={{not @value}}
     >{{or @prompt @includeBlank}}</option>
   {{/if}}
-  {{#each @options as |opt|}}
-    {{#let
-      (if @optionValuePath (get opt @optionValuePath) opt)
-      as |optionValue|
-    }}
-      <option selected={{eq optionValue @value}} value={{optionValue}}>{{if
-          @optionLabelPath
-          (get opt @optionLabelPath)
-          opt
-        }}</option>
-    {{/let}}
-  {{/each}}
+
+  {{#if this.hasGrouping}}
+    {{#each this.optionGroups as |optionGroup|}}
+      <optgroup label={{optionGroup.groupName}}>
+        {{#each optionGroup.options as |opt|}}
+          {{#let
+            (if @optionValuePath (get opt @optionValuePath) opt)
+            as |optionValue|
+          }}
+            <option
+              selected={{eq optionValue @value}}
+              value={{optionValue}}
+            >{{if @optionLabelPath (get opt @optionLabelPath) opt}}</option>
+          {{/let}}
+        {{/each}}
+      </optgroup>
+    {{/each}}
+  {{else}}
+    {{#each @options as |opt|}}
+      {{#let
+        (if @optionValuePath (get opt @optionValuePath) opt)
+        as |optionValue|
+      }}
+        <option selected={{eq optionValue @value}} value={{optionValue}}>{{if
+            @optionLabelPath
+            (get opt @optionLabelPath)
+            opt
+          }}</option>
+      {{/let}}
+    {{/each}}
+  {{/if}}
 </select>
