@@ -31,9 +31,11 @@ the `loading` template parameter:
 <!-- prettier-ignore-start -->
 {{#docs-demo as |demo|}}
   {{#demo.example name='validated-form-action-template.hbs'}}
-    {{#validated-form model=(changeset model) on-submit=(action 'submit') as |f|}}
-      {{f.submit label=(if f.loading 'Saving...' 'Save') disabled=f.loading}}
-    {{/validated-form}}
+    <ValidatedForm @model={{(changeset model)}} @on-submit={{this.submit}} as |f|>
+      {{#let f.submit as |Submit|}}
+        <Submit @label={{if f.loading 'Saving...' 'Save'}} @disabled={{f.loading}}/>
+      {{/let}}
+    </ValidatedForm>
   {{/demo.example}}
 
   {{demo.snippet 'validated-form-action-template.hbs'}}
@@ -47,9 +49,11 @@ It also works very well with [ember-concurrency](http://ember-concurrency.com/) 
 <!-- prettier-ignore-start -->
 {{#docs-demo as |demo|}}
   {{#demo.example name='validated-form-task-template.hbs'}}
-    {{#validated-form model=(changeset model) on-submit=(perform submit) as |f|}}
-      {{f.submit label=(if f.loading 'Saving...' 'Save') disabled=f.loading}}
-    {{/validated-form}}
+    <ValidatedForm @model={{(changeset model)}} @on-submit={{perform this.submit}} as |f|>
+      {{#let f.submit as |Submit|}}
+        <Submit @label={{if f.loading 'Saving...' 'Save'}} @disabled={{f.loading}}/>
+      {{/let}}
+    </ValidatedForm>
   {{/demo.example}}
 
   {{demo.snippet 'validated-form-task-template.hbs'}}
