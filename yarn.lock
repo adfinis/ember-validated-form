@@ -9123,14 +9123,6 @@ ember-modifier@^2.1.0:
     ember-cli-typescript "^4.2.1"
     ember-compatibility-helpers "^1.2.5"
 
-ember-one-way-select@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/ember-one-way-select/-/ember-one-way-select-4.0.1.tgz#f16c614b5b23fa4677686ed762a3839e5ee3adf2"
-  integrity sha512-B1Li794T1lmg7/d+PSQMnfPTCnDA+FBYD+UOpdIZ9oqMrX0NtQLeERzNVqOR7MbsDAvMkvQFV3YSIVQOuKJjhg==
-  dependencies:
-    ember-cli-babel "^7.22.1"
-    ember-cli-htmlbars "^5.3.1"
-
 ember-power-select@4.1.6:
   version "4.1.6"
   resolved "https://registry.yarnpkg.com/ember-power-select/-/ember-power-select-4.1.6.tgz#03e767a8e9d5d2fc301bec35644d15f53c006d79"

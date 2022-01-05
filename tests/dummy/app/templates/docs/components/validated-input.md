@@ -96,18 +96,16 @@ The textarea element also supports the following options:
 
 ### Select
 
-The select element supports more options (see [`{{one-way-select}}`](https://github.com/DockYard/ember-one-way-select)):
+The select element also supports the following options:
 
 - `value`
 - `options`
 - `optionLabelPath`
 - `optionValuePath`
 - `optionTargetPath`
-- `includeBlank`
+- `includeBlank` --> will get replaced by `prompt` in future releases
+- `prompt`
 - `promptIsSelectable`
-
-The `prompt` property is currently not supported (see this [related
-issue](https://github.com/DockYard/ember-one-way-controls/issues/152)).
 
 <!-- prettier-ignore-start -->
 {{#docs-demo as |demo|}}
@@ -117,6 +115,7 @@ issue](https://github.com/DockYard/ember-one-way-controls/issues/152)).
         type               = 'select'
         label              = 'Country'
         name               = 'country'
+        value              = 'Germany'
         options            = (array 'USA' 'Switzerland' 'Germany' 'Spain' 'India')
         includeBlank       = 'Please choose...'
         promptIsSelectable = true
