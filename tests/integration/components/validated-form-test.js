@@ -10,17 +10,11 @@ import { defer } from "rsvp";
 module("Integration | Component | validated form", function (hooks) {
   setupRenderingTest(hooks);
 
-  hooks.beforeEach(function () {
-    this.actions = {};
-    this.send = (actionName, ...args) =>
-      this.actions[actionName].apply(this, args);
-  });
-
   test("it renders simple inputs", async function (assert) {
     await render(hbs`
-      {{#validated-form as |f|}}
-        {{f.input label="First name"}}
-      {{/validated-form}}
+      <ValidatedForm as |f|>
+        <f.input @label="First name" />
+      </ValidatedForm>
     `);
 
     assert.dom("form label").hasText("First name");
@@ -29,9 +23,9 @@ module("Integration | Component | validated form", function (hooks) {
 
   test("it renders textareas", async function (assert) {
     await render(hbs`
-      {{#validated-form as |f|}}
-        {{f.input type="textarea" label="my label"}}
-      {{/validated-form}}
+      <ValidatedForm as |f|>
+        <f.input @type="textarea" @label="my label" />
+      </ValidatedForm>
     `);
 
     assert.dom("form label").hasText("my label");
@@ -48,9 +42,9 @@ module("Integration | Component | validated form", function (hooks) {
     });
 
     await render(hbs`
-      {{#validated-form as |f|}}
-        {{f.input type='radioGroup' label='Options' name='testOptions' options=buttonGroupData.options}}
-      {{/validated-form}}
+      <ValidatedForm as |f|>
+        <f.input @type='radioGroup' @label='Options' @name='testOptions' @options={{this.buttonGroupData.options}} />
+      </ValidatedForm>
     `);
 
     assert.dom('input[type="radio"]').exists({ count: 3 });
@@ -65,15 +59,15 @@ module("Integration | Component | validated form", function (hooks) {
   });
 
   test("it renders submit buttons", async function (assert) {
-    this.actions.stub = function () {};
+    this.set("stub", function () {});
 
     await render(hbs`
-      {{#validated-form
-        on-submit=(action "stub")
-        as |f|}}
-        {{f.input label="First name"}}
-        {{f.submit label="Save!"}}
-      {{/validated-form}}
+      <ValidatedForm
+        @on-submit={{this.stub}}
+        as |f|>
+        <f.input @label="First name"/>
+        <f.submit @label="Save!"/>
+      </ValidatedForm>
     `);
 
     assert.dom("form button").hasAttribute("type", "submit");
@@ -82,9 +76,9 @@ module("Integration | Component | validated form", function (hooks) {
 
   test("it renders an always-showing hint", async function (assert) {
     await render(hbs`
-      {{#validated-form as |f|}}
-        {{f.input label="First name" hint="Not your middle name!"}}
-      {{/validated-form}}
+      <ValidatedForm as |f|>
+        <f.input @label="First name" @hint="Not your middle name!" />
+      </ValidatedForm>
     `);
 
     assert.dom("input + div").doesNotExist();
@@ -94,30 +88,30 @@ module("Integration | Component | validated form", function (hooks) {
 
   test("does not render a <p> tag for buttons if no callbacks were passed", async function (assert) {
     await render(hbs`
-      {{#validated-form as |f|}}
-        {{f.input label="First name"}}
-      {{/validated-form}}
+      <ValidatedForm as |f|>
+        <f.input @label="First name" />
+      </ValidatedForm>
     `);
 
     assert.dom("form > p").doesNotExist();
   });
 
   test("it supports default button labels", async function (assert) {
-    this.actions.stub = function () {};
+    this.set("stub", function () {});
 
     await render(hbs`
-      {{#validated-form
-        on-submit=(action "stub")
-        as |f|}}
-        {{f.submit}}
-      {{/validated-form}}
+      <ValidatedForm
+        @on-submit={{this.stub}}
+        as |f|>
+        <f.submit />
+      </ValidatedForm>
     `);
 
     assert.dom("form button[type=submit]").hasText("Save");
   });
 
   test("it performs basic validations on submit", async function (assert) {
-    this.actions.submit = function () {};
+    this.set("submit", function () {});
     this.set("UserValidations", UserValidations);
 
     run(() => {
@@ -130,13 +124,13 @@ module("Integration | Component | validated form", function (hooks) {
     });
 
     await render(hbs`
-      {{#validated-form
-        model=(changeset model UserValidations)
-        on-submit=(action "submit")
-        as |f|}}
-        {{f.input label="First name" name="firstName"}}
-        {{f.submit}}
-      {{/validated-form}}
+      <ValidatedForm
+        @model={{changeset this.model this.UserValidations}}
+        @on-submit={{this.submit}}
+        as |f|>
+        <f.input @label="First name" @name="firstName"/>
+        <f.submit/>
+      </ValidatedForm>
     `);
 
     assert.dom("span.invalid-feedback").doesNotExist();
@@ -152,9 +146,9 @@ module("Integration | Component | validated form", function (hooks) {
 
   test("it calls on-invalid-submit after submit if changeset is invalid", async function (assert) {
     let invalidSubmitCalled;
-    this.actions.invalidSubmit = function () {
+    this.set("invalidSubmit", function () {
       invalidSubmitCalled = true;
-    };
+    });
     this.set("UserValidations", UserValidations);
 
     run(() => {
@@ -167,13 +161,14 @@ module("Integration | Component | validated form", function (hooks) {
     });
 
     await render(hbs`
-      {{#validated-form
-        model=(changeset model UserValidations)
-        on-invalid-submit=(action "invalidSubmit")
-        as |f|}}
-        {{f.input label="First name" name="firstName"}}
-        {{f.submit}}
-      {{/validated-form}}
+      <ValidatedForm
+        @model={{changeset this.model this.UserValidations}}
+        @on-invalid-submit={{this.invalidSubmit}}
+        as |f|
+      >
+        <f.input label="First name" name="firstName"/>
+        <f.submit/>
+      </ValidatedForm>
     `);
 
     await click("button");
@@ -183,26 +178,26 @@ module("Integration | Component | validated form", function (hooks) {
 
   test("it does not call on-invalid-submit after submit if changeset is valid", async function (assert) {
     let invalidSubmitCalled, submitCalled;
-    this.actions.submit = function () {
+    this.set("submit", function () {
       submitCalled = true;
-    };
-    this.actions.invalidSubmit = function () {
+    });
+    this.set("invalidSubmit", function () {
       invalidSubmitCalled = true;
-    };
+    });
 
     run(() => {
       this.set("model", EmberObject.create({}));
     });
 
     await render(hbs`
-      {{#validated-form
-        model=model
-        on-submit=(action "submit")
-        on-invalid-submit=(action "invalidSubmit")
-        as |f|}}
-        {{f.input label="First name" name="firstName"}}
-        {{f.submit}}
-      {{/validated-form}}
+      <ValidatedForm
+        @model={{this.model}}
+        @on-submit={{this.submit}}
+        @on-invalid-submit={{this.invalidSubmit}}
+        as |f|>
+        <f.input @label="First name" @name="firstName"/>
+        <f.submit/>
+      </ValidatedForm>
     `);
 
     await click("button");
@@ -211,8 +206,79 @@ module("Integration | Component | validated form", function (hooks) {
     assert.true(submitCalled);
   });
 
+  test("it performs validation and calls onClick function on custom buttons", async function (assert) {
+    assert.expect(3);
+
+    this.set("onClick", function (model) {
+      assert.step("onClick");
+      assert.strictEqual(model.firstName, "xenia");
+    });
+    this.set("onInvalidClick", function () {
+      assert.step("onInvalidClick");
+    });
+
+    run(() => {
+      this.set(
+        "model",
+        EmberObject.create({
+          firstName: "xenia",
+        })
+      );
+    });
+
+    await render(hbs`
+      <ValidatedForm
+        @model={{this.model}}
+        as |f|
+      >
+        <f.input @label="First name" @name="firstName"/>
+        <f.button @on-click={{this.onClick}} @on-invalid-click={{this.onInvalidClick}}/>
+      </ValidatedForm>
+    `);
+
+    await click("button");
+
+    assert.verifySteps(["onClick"]);
+  });
+
+  test("it performs validation and calls onInvalidClick function on custom buttons", async function (assert) {
+    assert.expect(3);
+
+    this.set("onClick", function () {
+      assert.step("onClick");
+    });
+    this.set("onInvalidClick", function (model) {
+      assert.step("onInvalidClick");
+      assert.strictEqual(model.firstName, "x");
+    });
+    this.set("UserValidations", UserValidations);
+
+    run(() => {
+      this.set(
+        "model",
+        EmberObject.create({
+          firstName: "x",
+        })
+      );
+    });
+
+    await render(hbs`
+      <ValidatedForm
+        @model={{changeset this.model this.UserValidations}}
+        as |f|
+      >
+        <f.input @label="First name" @name="firstName"/>
+        <f.button @on-click={{this.onClick}} @on-invalid-click={{this.onInvalidClick}}/>
+      </ValidatedForm>
+    `);
+
+    await click("button");
+
+    assert.verifySteps(["onInvalidClick"]);
+  });
+
   test("it performs basic validations on focus out", async function (assert) {
-    this.actions.submit = function () {};
+    this.set("submit", function () {});
     this.set("UserValidations", UserValidations);
 
     run(() => {
@@ -220,12 +286,14 @@ module("Integration | Component | validated form", function (hooks) {
     });
 
     await render(hbs`
-      {{#validated-form
-        model=(changeset model UserValidations)
-        on-submit=(action "submit")
-        as |f|}}
-        {{f.input label="First name" name="firstName"}}
-      {{/validated-form}}
+      <ValidatedForm
+        @model={{changeset this.model this.UserValidations}}
+        @on-submit=this.submit
+        as |f|
+      >
+        <f.input @label="First name" @name="firstName"/>
+        <f.submit />
+      </ValidatedForm>
     `);
 
     assert.dom("input + div").doesNotExist();
@@ -238,7 +306,7 @@ module("Integration | Component | validated form", function (hooks) {
   });
 
   test("it skips basic validations on focus out with validateBeforeSubmit=false set on the form", async function (assert) {
-    this.actions.submit = function () {};
+    this.set("submit", function () {});
     this.set("UserValidations", UserValidations);
 
     run(() => {
@@ -246,14 +314,14 @@ module("Integration | Component | validated form", function (hooks) {
     });
 
     await render(hbs`
-      {{#validated-form
-        model=(changeset model UserValidations)
-        on-submit=(action "submit")
-        validateBeforeSubmit=false
-        as |f|}}
-        {{f.input label="First name" name="firstName"}}
-        {{f.submit}}
-      {{/validated-form}}
+      <ValidatedForm
+        @model={{changeset this.model this.UserValidations}}
+        @on-submit={{this.submit}}
+        @validateBeforeSubmit={{false}}
+        as |f|>
+        <f.input @label="First name" @name="firstName" />
+        <f.submit/>
+      </ValidatedForm>
     `);
 
     assert.dom("span.invalid-feedback").doesNotExist();
@@ -269,7 +337,7 @@ module("Integration | Component | validated form", function (hooks) {
   });
 
   test("it skips basic validations on focus out with validateBeforeSubmit=false set on the input", async function (assert) {
-    this.actions.submit = function () {};
+    this.set("submit", function () {});
     this.set("UserValidations", UserValidations);
 
     run(() => {
@@ -277,12 +345,12 @@ module("Integration | Component | validated form", function (hooks) {
     });
 
     await render(hbs`
-      {{#validated-form
-        model=(changeset model UserValidations)
-        on-submit=(action "submit")
-        as |f|}}
-        {{f.input label="First name" name="firstName" validateBeforeSubmit=false}}
-      {{/validated-form}}
+      <ValidatedForm
+        @model={{changeset this.model this.UserValidations}}
+        @on-submit={{this.submit}}
+        as |f|>
+        <f.input @label="First name" @name="firstName" @validateBeforeSubmit={{false}} />
+      </ValidatedForm>
     `);
 
     assert.dom("input + div").doesNotExist();
@@ -296,19 +364,19 @@ module("Integration | Component | validated form", function (hooks) {
   test("on-submit can be an action returning a promise", async function (assert) {
     const deferred = defer();
 
-    this.actions.submit = () => deferred.promise;
+    this.set("submit", () => deferred.promise);
 
     run(() => {
       this.set("model", EmberObject.create({}));
     });
 
     await render(hbs`
-      {{#validated-form
-        model=(changeset model)
-        on-submit=(action "submit")
-        as |f|}}
-        {{f.submit class=(if f.loading 'loading')}}
-      {{/validated-form}}
+      <ValidatedForm
+        @model={{changeset this.model}}
+        @on-submit={{this.submit}}
+        as |f|>
+        <f.submit class={{if f.loading 'loading'}}/>
+      </ValidatedForm>
     `);
 
     assert.dom("button").doesNotHaveClass("loading");
@@ -323,19 +391,19 @@ module("Integration | Component | validated form", function (hooks) {
   });
 
   test("on-submit can be an action returning a non-promise", async function (assert) {
-    this.actions.submit = () => undefined;
+    this.set("submit", () => undefined);
 
     run(() => {
       this.set("model", EmberObject.create({}));
     });
 
     await render(hbs`
-      {{#validated-form
-        model=(changeset model)
-        on-submit=(action "submit")
-        as |f|}}
-        {{f.submit}}
-      {{/validated-form}}
+      <ValidatedForm
+        @model={{changeset this.model}}
+        @on-submit={{this.submit}}
+        as |f|>
+        <f.submit/>
+      </ValidatedForm>
     `);
 
     assert.dom("button").doesNotHaveClass("loading");
@@ -348,22 +416,22 @@ module("Integration | Component | validated form", function (hooks) {
   test("it yields the loading state", async function (assert) {
     const deferred = defer();
 
-    this.actions.submit = () => deferred.promise;
+    this.set("submit", () => deferred.promise);
 
     run(() => {
       this.set("model", EmberObject.create({}));
     });
 
     await render(hbs`
-      {{#validated-form
-        model=(changeset model)
-        on-submit=(action "submit")
-        as |f|}}
+      <ValidatedForm
+        @model={{changeset this.model}}
+        @on-submit={{this.submit}}
+        as |f|>
         {{#if f.loading}}
           <span class="loading">loading...</span>
         {{/if}}
-        {{f.submit}}
-      {{/validated-form}}
+        <f.submit/>
+      </ValidatedForm>
     `);
     assert.dom("span.loading").doesNotExist();
 
@@ -379,25 +447,25 @@ module("Integration | Component | validated form", function (hooks) {
   test("it handles being removed from the DOM during sync submit", async function (assert) {
     this.set("show", true);
 
-    this.actions.submit = () => {
+    this.set("submit", () => {
       this.set("show", false);
-    };
+    });
 
     run(() => {
       this.set("model", EmberObject.create({}));
     });
 
     await render(hbs`
-      {{#if show}}
-        {{#validated-form
-          model=(changeset model)
-          on-submit=(action "submit")
-          as |f|}}
+      {{#if this.show}}
+        <ValidatedForm
+          @model={{changeset this.model}}
+          @on-submit={{this.submit}}
+          as |f|>
           {{#if f.loading}}
             <span class="loading">loading...</span>
           {{/if}}
-          {{f.submit}}
-        {{/validated-form}}
+          <f.submit/>
+        </ValidatedForm>
       {{/if}}
     `);
 
@@ -409,27 +477,27 @@ module("Integration | Component | validated form", function (hooks) {
     this.set("show", true);
     const deferred = defer();
 
-    this.actions.submit = () => {
+    this.set("submit", () => {
       return deferred.promise.then(() => {
         this.set("show", false);
       });
-    };
+    });
 
     run(() => {
       this.set("model", EmberObject.create({}));
     });
 
     await render(hbs`
-      {{#if show}}
-        {{#validated-form
-          model=(changeset model)
-          on-submit=(action "submit")
-          as |f|}}
+      {{#if this.show}}
+        <ValidatedForm
+          @model={{changeset this.model}}
+          @on-submit={{this.submit}}
+          as |f|>
           {{#if f.loading}}
             <span class="loading">loading...</span>
           {{/if}}
-          {{f.submit}}
-        {{/validated-form}}
+          <f.submit/>
+        </ValidatedForm>
       {{/if}}
     `);
 
@@ -440,8 +508,8 @@ module("Integration | Component | validated form", function (hooks) {
 
   test("it binds the autocomplete attribute", async function (assert) {
     await render(hbs`
-      {{#validated-form autocomplete="off"}}
-      {{/validated-form}}
+      <ValidatedForm @autocomplete="off">
+      </ValidatedForm>
     `);
 
     assert.dom("form").hasAttribute("autocomplete", "off");

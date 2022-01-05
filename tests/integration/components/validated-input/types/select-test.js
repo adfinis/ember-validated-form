@@ -14,7 +14,9 @@ module(
         { key: 2, label: 2 },
       ]);
 
-      await render(hbs`{{validated-input/types/select options=options}}`);
+      await render(
+        hbs`<ValidatedInput::Types::Select @options={{this.options}} />`
+      );
 
       assert.dom("select").exists();
       assert.dom("option").exists({ count: 2 });

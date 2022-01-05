@@ -7,7 +7,7 @@ module("Integration | Component | validated-input/hint", function (hooks) {
   setupRenderingTest(hooks);
 
   test("it renders", async function (assert) {
-    await render(hbs`{{validated-input/hint hint='Test'}}`);
+    await render(hbs`<ValidatedInput::Hint @hint="Test" />`);
 
     assert.dom("small").hasText("Test");
   });

@@ -15,10 +15,10 @@ module(
       ]);
 
       await render(hbs`
-      {{validated-input/types/checkbox-group
-        options=options
-        update=(action (mut value))
-      }}
+      <ValidatedInput::types::CheckboxGroup
+        @options={{this.options}}
+        @update={{fn (mut this.value)}}
+      />
       `);
 
       assert.dom("input[type=checkbox]").exists({ count: 2 });

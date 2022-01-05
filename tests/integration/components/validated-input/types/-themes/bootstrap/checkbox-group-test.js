@@ -12,10 +12,10 @@ module(
 
     test("it renders", async function (assert) {
       await render(hbs`
-        {{validated-input/types/-themes/bootstrap/checkbox-group
-          options = (array (hash key='t' label='Triangle') (hash key='s' label='Square'))
-          update=(action (mut value))
-        }}
+        <ValidatedInput::types::-themes::bootstrap::CheckboxGroup
+          @options={{array (hash key='t' label='Triangle') (hash key='s' label='Square')}}
+          @update={{fn (mut this.value)}}
+        />
         `);
 
       assert.dom("div.custom-control.custom-checkbox").exists();

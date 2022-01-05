@@ -3,7 +3,7 @@ import Component from "@glimmer/component";
 
 export default class CheckboxGroupComponent extends Component {
   @action
-  onUpdate(event, key) {
+  onUpdate(key, event) {
     event.preventDefault();
 
     const value = this.value || [];

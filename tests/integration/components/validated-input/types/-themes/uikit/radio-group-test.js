@@ -23,7 +23,10 @@ module(
       ]);
 
       await render(
-        hbs`{{validated-input/types/-themes/uikit/radio-group options=options update=(action (mut value))}}`
+        hbs`<ValidatedInput::types::-themes::uikit::RadioGroup
+          @options={{this.options}}
+          @update={{fn (mut this.value)}}
+        />`
       );
 
       assert.dom("label > input").exists({ count: 2 });

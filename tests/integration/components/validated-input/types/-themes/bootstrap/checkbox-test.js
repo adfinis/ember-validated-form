@@ -12,10 +12,10 @@ module(
 
     test("it renders", async function (assert) {
       await render(hbs`
-        {{validated-input/types/-themes/bootstrap/checkbox
-          labelComponent=(component 'validated-input/-themes/bootstrap/label' label='Test')
-          update=(action (mut value))
-        }}
+        <ValidatedInput::types::-themes::bootstrap::Checkbox
+          @labelComponent={{component "validated-input/-themes/bootstrap/label" label="Test"}}
+          @update={{fn (mut this.value)}}
+        />
         `);
 
       assert.dom("div.custom-control.custom-checkbox").exists();

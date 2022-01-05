@@ -12,10 +12,10 @@ module(
 
     test("it renders", async function (assert) {
       await render(hbs`
-        {{validated-input/types/-themes/uikit/checkbox
-          labelComponent=(component 'validated-input/-themes/uikit/label' label='Test')
-          update=(action (mut value))
-        }}
+        <ValidatedInput::types::-themes::uikit::Checkbox
+          @labelComponent={{component "validated-input/-themes/uikit/label" label="Test"}}
+          @update={{fn (mut this.value)}}
+        />
         `);
 
       assert.dom("label > input").exists();

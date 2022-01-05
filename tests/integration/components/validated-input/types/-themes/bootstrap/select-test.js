@@ -23,7 +23,7 @@ module(
       ]);
 
       await render(
-        hbs`{{validated-input/types/-themes/bootstrap/select options=options}}`
+        hbs`<ValidatedInput::types::-themes::bootstrap::Select @options={{this.options}} />`
       );
 
       assert.dom("select").hasClass("form-control");

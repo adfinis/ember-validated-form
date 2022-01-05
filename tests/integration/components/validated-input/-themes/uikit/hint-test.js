@@ -11,7 +11,7 @@ module(
     setupConfigTest(hooks, { theme: "uikit" });
 
     test("it renders", async function (assert) {
-      await render(hbs`{{validated-input/-themes/uikit/hint hint='Test'}}`);
+      await render(hbs`<ValidatedInput::-themes::uikit::Hint @hint="Test" />`);
 
       assert.dom("small").hasClass("uk-text-muted");
       assert.dom("small").hasText("Test");

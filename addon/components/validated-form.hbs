@@ -16,6 +16,13 @@
         label="Save"
         action=this.submit
       )
+      button=(component
+        "validated-button"
+        type="button"
+        loading=this.loading
+        label="Action"
+        model=@model
+      )
     )
   }}
 </form>

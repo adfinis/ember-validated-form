@@ -15,10 +15,10 @@ module(
       ]);
 
       await render(hbs`
-      {{validated-input/types/radio-group
-        options=options
-        update=(action (mut value))
-      }}
+      <ValidatedInput::Types::RadioGroup
+        @options={{this.options}}
+        @update={{fn (mut this.value)}}
+      />
       `);
 
       assert.dom("input[type=radio]").exists({ count: 2 });

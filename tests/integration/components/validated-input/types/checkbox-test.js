@@ -10,10 +10,10 @@ module(
 
     test("it renders", async function (assert) {
       await render(hbs`
-      {{validated-input/types/checkbox
-        labelComponent=(component 'validated-input/label' label='Test')
-        update=(action (mut value))
-      }}
+      <ValidatedInput::types::Checkbox
+        @labelComponent={{component "validated-input/label" label="Test"}}
+        @update={{fn (mut this.value)}}
+      />
       `);
 
       assert.dom("input[type=checkbox]").exists();
