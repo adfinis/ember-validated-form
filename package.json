@@ -41,7 +41,6 @@
     "ember-auto-import": "^2.2.0",
     "ember-cli-babel": "^7.26.6",
     "ember-cli-htmlbars": "^5.7.1",
-    "ember-one-way-select": "^4.0.1",
     "ember-truth-helpers": "^3.0.0"
   },
   "devDependencies": {
@@ -111,7 +110,7 @@
     "node": "12.* || 14.* || >= 16"
   },
   "ember": {
-    "edition": "octane"
+    "edition": "classic"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",

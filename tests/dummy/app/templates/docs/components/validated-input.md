@@ -96,7 +96,7 @@ The textarea element also supports the following options:
 
 ### Select
 
-The select element supports more options (see [`{{one-way-select}}`](https://github.com/DockYard/ember-one-way-select)):
+The select element also supports the following options:
 
 - `value`
 - `options`
@@ -105,9 +105,6 @@ The select element supports more options (see [`{{one-way-select}}`](https://git
 - `optionTargetPath`
 - `includeBlank`
 - `promptIsSelectable`
-
-The `prompt` property is currently not supported (see this [related
-issue](https://github.com/DockYard/ember-one-way-controls/issues/152)).
 
 <!-- prettier-ignore-start -->
 {{#docs-demo as |demo|}}

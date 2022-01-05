@@ -1,17 +1,24 @@
-{{! template-lint-disable no-passed-in-event-handlers }}
-<OneWaySelect
-  @value={{@value}}
-  @options={{@options}}
-  @optionLabelPath={{@optionLabelPath}}
-  @optionValuePath={{@optionValuePath}}
-  @optionTargetPath={{@optionTargetPath}}
-  @name={{@name}}
-  @id={{@inputId}}
-  @class={{this.class}}
-  @update={{@update}}
-  @focusOut={{@setDirty}}
-  @includeBlank={{@includeBlank}}
-  @disabled={{@disabled}}
-  @multiple={{@multiple}}
-  @promptIsSelectable={{or @promptIsSelectable false}}
-/>
+<select
+  class={{this.class}}
+  ...attributes
+  name={{@name}}
+  id={{@inpudId}}
+  disabled={{@disabled}}
+  multiple={{@multiple}}
+  {{on "change" this.onUpdate}}
+  {{on "blur" this.onDirty}}
+>
+  {{#if @includeBlank}}
+    <option
+      value=""
+      disabled={{or @promptIsSelectable false}}
+      selected={{this.nothingIsSelected}}
+    >{{@includeBlank}}</option>
+  {{/if}}
+  {{#each @options as |opt|}}
+    <option
+      selected={{and (not this.nothingIsSelected)}}
+      value={{if @optionValuePath (get opt @optionValuePath) opt}}
+    >{{if @optionLabelPath (get opt @optionLabelPath) opt}}</option>
+  {{/each}}
+</select>
