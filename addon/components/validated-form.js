@@ -25,6 +25,11 @@ export default class ValidatedFormComponent extends Component {
   }
 
   @action
+  markAsDirty() {
+    this.submitted = true;
+  }
+
+  @action
   async submit(event) {
     event.preventDefault();
 

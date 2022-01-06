@@ -1,7 +1,8 @@
 import EmberObject from "@ember/object";
 import { run } from "@ember/runloop";
-import { render, click, blur, focus } from "@ember/test-helpers";
+import { render, click, blur, fillIn, focus } from "@ember/test-helpers";
 import UserValidations from "dummy/validations/user";
+import { validateLength } from "ember-changeset-validations/validators";
 import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
@@ -144,6 +145,43 @@ module("Integration | Component | validated form", function (hooks) {
       .hasText("First name must be between 3 and 40 characters");
   });
 
+  test("it shows error message for custom buttons if (and only if) triggerValidations is passed", async function (assert) {
+    this.set("UserValidations", UserValidations);
+
+    run(() => {
+      this.set(
+        "model",
+        EmberObject.create({
+          firstName: "x",
+        })
+      );
+    });
+
+    this.set("triggerValidations", false);
+
+    await render(hbs`
+      <ValidatedForm
+        @model={{changeset this.model this.UserValidations}}
+        as |f|>
+        <f.input @label="First name" @name="firstName"/>
+        <f.button @label="Hello" @triggerValidations={{this.triggerValidations}} />
+      </ValidatedForm>
+    `);
+
+    assert.dom("span.invalid-feedback").doesNotExist();
+    await click("button");
+    assert.dom("span.invalid-feedback").doesNotExist();
+
+    this.set("triggerValidations", true);
+    await click("button");
+
+    assert.dom("input").hasValue("x");
+    assert.dom("span.invalid-feedback").exists({ count: 1 });
+    assert
+      .dom("span.invalid-feedback")
+      .hasText("First name must be between 3 and 40 characters");
+  });
+
   test("it calls on-invalid-submit after submit if changeset is invalid", async function (assert) {
     let invalidSubmitCalled;
     this.set("invalidSubmit", function () {
@@ -206,43 +244,8 @@ module("Integration | Component | validated form", function (hooks) {
     assert.true(submitCalled);
   });
 
-  test("it performs validation and calls onClick function on custom buttons", async function (assert) {
-    assert.expect(3);
-
-    this.set("onClick", function (model) {
-      assert.step("onClick");
-      assert.strictEqual(model.firstName, "xenia");
-    });
-    this.set("onInvalidClick", function () {
-      assert.step("onInvalidClick");
-    });
-
-    run(() => {
-      this.set(
-        "model",
-        EmberObject.create({
-          firstName: "xenia",
-        })
-      );
-    });
-
-    await render(hbs`
-      <ValidatedForm
-        @model={{this.model}}
-        as |f|
-      >
-        <f.input @label="First name" @name="firstName"/>
-        <f.button @on-click={{this.onClick}} @on-invalid-click={{this.onInvalidClick}}/>
-      </ValidatedForm>
-    `);
-
-    await click("button");
-
-    assert.verifySteps(["onClick"]);
-  });
-
   test("it performs validation and calls onInvalidClick function on custom buttons", async function (assert) {
-    assert.expect(3);
+    assert.expect(5);
 
     this.set("onClick", function () {
       assert.step("onClick");
@@ -251,7 +254,9 @@ module("Integration | Component | validated form", function (hooks) {
       assert.step("onInvalidClick");
       assert.strictEqual(model.firstName, "x");
     });
-    this.set("UserValidations", UserValidations);
+    this.set("SimpleValidations", {
+      firstName: [validateLength({ min: 3, max: 40 })],
+    });
 
     run(() => {
       this.set(
@@ -264,7 +269,7 @@ module("Integration | Component | validated form", function (hooks) {
 
     await render(hbs`
       <ValidatedForm
-        @model={{changeset this.model this.UserValidations}}
+        @model={{changeset this.model this.SimpleValidations}}
         as |f|
       >
         <f.input @label="First name" @name="firstName"/>
@@ -273,8 +278,10 @@ module("Integration | Component | validated form", function (hooks) {
     `);
 
     await click("button");
-
     assert.verifySteps(["onInvalidClick"]);
+    await fillIn("input[name=firstName]", "Some name");
+    await click("button");
+    assert.verifySteps(["onClick"]);
   });
 
   test("it performs basic validations on focus out", async function (assert) {

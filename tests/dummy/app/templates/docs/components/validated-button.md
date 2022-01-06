@@ -1,6 +1,7 @@
 # Validated button
 
 `{{validated-form}}` yields two kinds of button components:
+
 - `{{f.submit}}`: a submit button for the form
 - `{{f.button}}`: a customizable button without HTML-form specific functionality.
 
@@ -14,7 +15,7 @@ The label of the form button.
 
 **type `<String>`**
 Type of the button. Default for submit: `submit` and for standard button: `button`.
-*Watch out:* If you define `type=submit` then the `on-submit` handler of the form will be triggered.
+_Watch out:_ If you define `type=submit` then the `on-submit` handler of the form will be triggered.
 
 **disabled `<Boolean>`**
 Specifies if the button is disabled.
@@ -38,16 +39,18 @@ Specifies if the button is loading. Default: Automatic integration of `ember-con
 {{/docs-demo}}
 <!-- prettier-ignore-end -->
 
-
 Further you can leverage the `{{f.button}}` component for custom actions. The model of the wrapping form component will get passed to the on-click handler as first argument.
 
-Passing a custom on click function is possible on the `{{f.buttton}}` via:
+Custom buttons support the following additional options:
 
 **on-click `<Function>`**
 Passes an on-click function to the button component.
 
 **on-invalid-click `<Function>`**
 Passes a function which is triggered after clicking on the button and when the validation proved the contents to be invalid.
+
+**triggerValidations `<Boolean>`**
+Trigger the form validations when the button is clicked (or, more precisely: show all error messages).
 
 <!-- prettier-ignore-start -->
 {{#docs-demo as |demo|}}
