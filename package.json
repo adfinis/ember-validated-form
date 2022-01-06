@@ -41,7 +41,7 @@
   "devDependencies": {
     "@adfinis-sygroup/eslint-config": "1.5.0",
     "@adfinis-sygroup/semantic-release-config": "3.2.1",
-    "@babel/core": "7.16.5",
+    "@babel/core": "7.16.7",
     "@babel/helper-create-regexp-features-plugin": "^7.16.7",
     "@babel/helper-environment-visitor": "^7.16.5",
     "@babel/plugin-proposal-decorators": "^7.16.7",
