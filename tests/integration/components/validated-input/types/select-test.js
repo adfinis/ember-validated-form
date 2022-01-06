@@ -23,6 +23,25 @@ module(
       assert.dom("option:first-child").hasProperty("selected", true);
     });
 
+    test("it works with solitary optionTargetPath property", async function (assert) {
+      assert.expect(2);
+      this.set("options", [
+        { key: 111, label: "firstOption" },
+        { key: 222, label: "secondOption" },
+      ]);
+
+      this.set("update", (value) => {
+        assert.strictEqual(value, 222);
+      });
+
+      await render(
+        hbs`<ValidatedInput::Types::Select @options={{this.options}} @update={{this.update}} @optionTargetPath="key" />`
+      );
+
+      assert.dom("option:first-child").hasText("111");
+      await select("select", "222");
+    });
+
     test("it renders option groups via groupLabelPath", async function (assert) {
       this.set("options", [
         { key: 1, label: 1, group: "one" },
@@ -111,15 +130,85 @@ module(
     });
 
     test("multiselect is working", async function (assert) {
+      assert.expect(3);
       this.set("options", ["1", "2"]);
+      this.set("update", (values) => {
+        assert.deepEqual(values, this.options);
+      });
 
       await render(
-        hbs`<ValidatedInput::Types::Select @options={{this.options}} @multiple={{true}} />`
+        hbs`<ValidatedInput::Types::Select @options={{this.options}} @multiple={{true}} @update={{this.update}} />`
       );
 
       await select("select", this.options);
       assert.dom("option:first-child").hasProperty("selected", true);
       assert.dom("option:last-child").hasProperty("selected", true);
+    });
+
+    test("multiselect works with pre grouped options", async function (assert) {
+      assert.expect(1);
+      this.set("update", (values) => {
+        assert.deepEqual(values, this.options[0].options);
+      });
+      this.set("options", [
+        {
+          groupName: "one",
+          options: [
+            { id: 1, label: "First", type: "group1" },
+            { id: 2, label: "Second", type: "group1" },
+          ],
+        },
+        {
+          groupName: "two",
+          options: [{ id: 3, label: "Third", type: "group2" }],
+        },
+      ]);
+
+      await render(
+        hbs`<ValidatedInput::Types::Select
+          @multiple={{true}}
+          @options={{this.options}}
+          @optionValuePath="id"
+          @optionLabelPath="label"
+          @update={{this.update}} />`
+      );
+
+      await select("select", ["1", "2"]);
+    });
+
+    test("multiselect works with pre grouped options and optionsTargetPath", async function (assert) {
+      assert.expect(1);
+      this.set("update", (values) => {
+        assert.deepEqual(
+          values,
+          this.options[0].options.map((val) => val.id)
+        );
+      });
+      this.set("options", [
+        {
+          groupName: "one",
+          options: [
+            { id: 1, label: "First", type: "group1" },
+            { id: 2, label: "Second", type: "group1" },
+          ],
+        },
+        {
+          groupName: "two",
+          options: [{ id: 3, label: "Third", type: "group2" }],
+        },
+      ]);
+
+      await render(
+        hbs`<ValidatedInput::Types::Select
+          @multiple={{true}}
+          @options={{this.options}}
+          @optionValuePath="id"
+          @optionTargetPath="id"
+          @optionLabelPath="label"
+          @update={{this.update}} />`
+      );
+
+      await select("select", ["1", "2"]);
     });
   }
 );
