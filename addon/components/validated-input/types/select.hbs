@@ -1,17 +1,49 @@
-{{! template-lint-disable no-passed-in-event-handlers }}
-<OneWaySelect
-  @value={{@value}}
-  @options={{@options}}
-  @optionLabelPath={{@optionLabelPath}}
-  @optionValuePath={{@optionValuePath}}
-  @optionTargetPath={{@optionTargetPath}}
-  @name={{@name}}
-  @id={{@inputId}}
-  @class={{this.class}}
-  @update={{@update}}
-  @focusOut={{@setDirty}}
-  @includeBlank={{@includeBlank}}
-  @disabled={{@disabled}}
-  @multiple={{@multiple}}
-  @promptIsSelectable={{or @promptIsSelectable false}}
-/>
+<select
+  class={{this.class}}
+  ...attributes
+  name={{@name}}
+  id={{@inpudId}}
+  disabled={{@disabled}}
+  multiple={{@multiple}}
+  {{on "change" this.onUpdate}}
+  {{on "blur" this.onBlur}}
+>
+  {{#if (or @prompt @includeBlank)}}
+    <option
+      value=""
+      disabled={{not @promptIsSelectable}}
+      selected={{not @value}}
+    >{{or @prompt @includeBlank}}</option>
+  {{/if}}
+
+  {{#if this.hasGrouping}}
+    {{#each this.optionGroups as |optionGroup|}}
+      <optgroup label={{optionGroup.groupName}}>
+        {{#each optionGroup.options as |opt|}}
+          {{#let
+            (if @optionValuePath (get opt @optionValuePath) opt)
+            as |optionValue|
+          }}
+            <option
+              selected={{eq optionValue @value}}
+              value={{optionValue}}
+            >{{if @optionLabelPath (get opt @optionLabelPath) opt}}</option>
+          {{/let}}
+        {{/each}}
+      </optgroup>
+    {{/each}}
+  {{else}}
+    {{#each @options as |opt|}}
+      {{#let
+        (if @optionValuePath (get opt @optionValuePath) opt)
+        as |optionValue|
+      }}
+        <option selected={{eq optionValue @value}} value={{optionValue}}>{{if
+            @optionLabelPath
+            (get opt @optionLabelPath)
+            opt
+          }}</option>
+      {{/let}}
+    {{/each}}
+  {{/if}}
+</select>

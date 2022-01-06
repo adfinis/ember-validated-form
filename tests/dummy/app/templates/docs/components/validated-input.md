@@ -96,18 +96,17 @@ The textarea element also supports the following options:
 
 ### Select
 
-The select element supports more options (see [`{{one-way-select}}`](https://github.com/DockYard/ember-one-way-select)):
+The select element also supports the following options:
 
 - `value`
 - `options`
 - `optionLabelPath`
 - `optionValuePath`
 - `optionTargetPath`
-- `includeBlank`
+- `includeBlank` --> will get replaced by `prompt` in future releases
+- `prompt`
 - `promptIsSelectable`
-
-The `prompt` property is currently not supported (see this [related
-issue](https://github.com/DockYard/ember-one-way-controls/issues/152)).
+- `groupLabelPath`
 
 <!-- prettier-ignore-start -->
 {{#docs-demo as |demo|}}
@@ -117,6 +116,7 @@ issue](https://github.com/DockYard/ember-one-way-controls/issues/152)).
         type               = 'select'
         label              = 'Country'
         name               = 'country'
+        value              = 'Germany'
         options            = (array 'USA' 'Switzerland' 'Germany' 'Spain' 'India')
         includeBlank       = 'Please choose...'
         promptIsSelectable = true
@@ -127,6 +127,26 @@ issue](https://github.com/DockYard/ember-one-way-controls/issues/152)).
   {{demo.snippet 'select-template.hbs'}}
 {{/docs-demo}}
 <!-- prettier-ignore-end -->
+
+**Grouping** is supported in two ways: First by using the `groupLabelPath` property (e.g. `type` in th example below) or second by pre-grouped options in the form of:
+
+```js
+[
+  {
+    groupName: 'one',
+    options: [
+      { id: 1, label: 'First', type: 'group1' },
+      { id: 2, label: 'Second', type: 'group1' }
+    ]
+  },
+  {
+    groupName: 'two',
+    options: [
+      { id: 3, label: 'Third', type: 'group2' }
+    ]
+  }
+]
+```
 
 ### Checkbox
 
