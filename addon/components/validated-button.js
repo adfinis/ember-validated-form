@@ -25,6 +25,11 @@ export default class ValidatedButtonComponent extends Component {
     }
 
     event.preventDefault();
+
+    if (this.args.triggerValidations) {
+      this.args.markAsDirty();
+    }
+
     const model = this.args.model;
 
     if (!model || !model.validate) {
