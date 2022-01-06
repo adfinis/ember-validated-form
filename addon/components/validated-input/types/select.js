@@ -69,10 +69,45 @@ export default class SelectComponent extends Component {
     return groups;
   }
 
+  findOption(target) {
+    const targetPath = this.args.optionTargetPath;
+    const valuePath = this.args.optionValuePath || targetPath;
+    let options = this.args.options;
+
+    //flatten pre grouped options
+    if (this.hasPreGroupedOptions) {
+      options = options.flatMap((group) => group.options);
+    }
+
+    // multi select
+    if (this.args.multiple) {
+      const selectedValues = Array.prototype.filter
+        .call(target.options, (option) => option.selected)
+        .map((option) => option.value);
+
+      const foundOptions = options.filter((item) =>
+        selectedValues.includes(`${valuePath ? item[valuePath] : item}`)
+      );
+      if (targetPath) {
+        return foundOptions.map((item) => item[targetPath]);
+      }
+      return foundOptions;
+    }
+
+    //single select
+    const foundOption = options.find(
+      (item) => `${valuePath ? item[valuePath] : item.value}` === target.value
+    );
+    if (targetPath) {
+      return foundOption[targetPath];
+    }
+    return foundOption;
+  }
+
   @action
   onUpdate(event) {
     if (this.args.update) {
-      this.args.update(event.target.value);
+      this.args.update(this.findOption(event.target));
     }
   }
 
