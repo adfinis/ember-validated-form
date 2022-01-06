@@ -29,13 +29,8 @@
     "start": "ember serve",
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test",
-    "test:ember-compatibility": "ember try:each"
-  },
-  "lint-staged": {
-    "*.{js,json,css,md}": [
-      "prettier --write",
-      "git add"
-    ]
+    "test:ember-compatibility": "ember try:each",
+    "prepare": "husky install"
   },
   "dependencies": {
     "ember-auto-import": "^2.2.0",
@@ -119,6 +114,11 @@
   },
   "release": {
     "extends": "@adfinis-sygroup/semantic-release-config"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.hbs": "ember-template-lint --fix",
+    "*.{scss,graphql,json,md,yml}": "prettier --write"
   },
   "commitlint": {
     "extends": [
