@@ -23,6 +23,7 @@ export default class SelectComponent extends Component {
           until: "6.0.0",
           since: "5.1.0",
           url: "https://github.com/adfinis-sygroup/ember-validated-form/releases/tag/v5.1.0",
+          for: "ember-validated-form",
         }
       );
     }
