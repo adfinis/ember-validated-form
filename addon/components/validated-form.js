@@ -44,6 +44,10 @@ export default class ValidatedFormComponent extends Component {
     await model.validate();
 
     if (model.get("isInvalid")) {
+      const firstError = model.errors[0];
+      if (firstError?.key) {
+        document.querySelector(`[name=${firstError.key}]`)?.scrollIntoView();
+      }
       this.runCallback(PROP_ON_INVALID_SUBMIT);
     } else {
       this.runCallback(PROP_ON_SUBMIT);
