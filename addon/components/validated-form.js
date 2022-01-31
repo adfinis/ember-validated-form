@@ -1,3 +1,4 @@
+import { getOwner } from "@ember/application";
 import { action } from "@ember/object";
 import { scheduleOnce } from "@ember/runloop";
 import Component from "@glimmer/component";
@@ -14,6 +15,10 @@ export default class ValidatedFormComponent extends Component {
 
   constructor(...args) {
     super(...args);
+    this.config =
+      getOwner(this).resolveRegistration("config:environment")[
+        "ember-validated-form"
+      ];
 
     if (this.args.model && this.args.model.validate) {
       scheduleOnce("actions", this, "validateModel", this.args.model);
@@ -44,9 +49,10 @@ export default class ValidatedFormComponent extends Component {
     await model.validate();
 
     if (model.get("isInvalid")) {
-      const firstError = model.errors[0];
-      if (firstError?.key) {
-        document.querySelector(`[name=${firstError.key}]`)?.scrollIntoView();
+      if (this.config?.scrollErrorIntoView && model.errors[0]?.key) {
+        document
+          .querySelector(`[name=${model.errors[0].key}]`)
+          ?.scrollIntoView();
       }
       this.runCallback(PROP_ON_INVALID_SUBMIT);
     } else {
