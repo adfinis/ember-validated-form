@@ -1,7 +1,7 @@
 {{! BEGIN-SNIPPET favorite-colors.hbs }}
 <@labelComponent />
 
-<div class="{{if @isValid "is-valid"}} {{if @isInvalid "is-invalid"}}">
+<div class="{{if @isValid 'is-valid'}} {{if @isInvalid 'is-invalid'}}">
   {{#if @value}}
     {{@value.name}}
     <button
