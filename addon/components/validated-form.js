@@ -49,7 +49,7 @@ export default class ValidatedFormComponent extends Component {
     await model.validate();
 
     if (model.get("isInvalid")) {
-      if (this.config?.scrollErrorIntoView && model.errors[0]?.key) {
+      if (this.config?.features?.scrollErrorIntoView && model.errors[0]?.key) {
         document
           .querySelector(`[name=${model.errors[0].key}]`)
           ?.scrollIntoView();

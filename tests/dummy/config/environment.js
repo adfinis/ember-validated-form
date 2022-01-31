@@ -9,9 +9,11 @@ module.exports = function (environment) {
     historySupportMiddleware: true,
     "ember-validated-form": {
       theme: "bootstrap",
-      scrollErrorIntoView: false,
       defaults: {
         hint: "permanent-custom-hint",
+      },
+      features: {
+        scrollErrorIntoView: false,
       },
     },
     EmberENV: {
