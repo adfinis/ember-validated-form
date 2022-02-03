@@ -3,8 +3,8 @@
     <input
       type="radio"
       class="custom-control-input
-        {{if @isValid "is-valid"}}
-        {{if @isInvalid "is-invalid"}}"
+        {{if @isValid 'is-valid'}}
+        {{if @isInvalid 'is-invalid'}}"
       checked={{eq @value option.key}}
       value={{option.key}}
       name={{@name}}
