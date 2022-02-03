@@ -1,3 +1,11 @@
+# [5.2.0](https://github.com/adfinis-sygroup/ember-validated-form/compare/v5.1.1...v5.2.0) (2022-02-03)
+
+
+### Features
+
+* scroll first invalid element into view ([#733](https://github.com/adfinis-sygroup/ember-validated-form/issues/733)) ([ae7c8b2](https://github.com/adfinis-sygroup/ember-validated-form/commit/ae7c8b2b160307646adf90cd09a091effa549238))
+* **validated-button:** add `triggerValidations` flag ([#721](https://github.com/adfinis-sygroup/ember-validated-form/issues/721)) ([765f5f4](https://github.com/adfinis-sygroup/ember-validated-form/commit/765f5f40c9d2e5ccfca7129fb701ff3bb0ed661e))
+
 # [5.0.0](https://github.com/adfinis-sygroup/ember-validated-form/compare/v4.1.0...v5.0.0) (2021-10-08)
 
 
