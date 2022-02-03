@@ -12,6 +12,9 @@ module.exports = function (environment) {
       defaults: {
         hint: "permanent-custom-hint",
       },
+      features: {
+        scrollErrorIntoView: false,
+      },
     },
     EmberENV: {
       FEATURES: {

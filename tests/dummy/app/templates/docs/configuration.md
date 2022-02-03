@@ -33,3 +33,10 @@ For instance:
   {{demo.snippet 'permanent-custom-hint-component-template.hbs' label='permanent-custom-hint.hbs'}}
 {{/docs-demo}}
 <!-- prettier-ignore-end -->
+
+## Other features
+
+If you want to scroll the first invalid field into view, you can set the
+`scrollErrorIntoView` property to `true` (default: false).
+
+{{docs-snippet name='config-features.js' title='config/environment.js'}}
