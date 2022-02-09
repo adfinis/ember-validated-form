@@ -52,7 +52,7 @@ export default class ValidatedFormComponent extends Component {
       if (this.config?.features?.scrollErrorIntoView && model.errors[0]?.key) {
         document
           .querySelector(`[name=${model.errors[0].key}]`)
-          ?.scrollIntoView();
+          ?.scrollIntoView({ behavior: "smooth" });
       }
       this.runCallback(PROP_ON_INVALID_SUBMIT);
     } else {

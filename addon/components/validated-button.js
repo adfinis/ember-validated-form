@@ -1,3 +1,4 @@
+import { getOwner } from "@ember/application";
 import { action } from "@ember/object";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
@@ -11,6 +12,14 @@ export default class ValidatedButtonComponent extends Component {
   @themedComponent("validated-button/button") buttonComponent;
 
   @tracked _loading;
+
+  constructor(...args) {
+    super(...args);
+    this.config =
+      getOwner(this).resolveRegistration("config:environment")[
+        "ember-validated-form"
+      ];
+  }
 
   get loading() {
     return this.args.loading || this._loading;
@@ -38,6 +47,12 @@ export default class ValidatedButtonComponent extends Component {
     }
 
     await model.validate();
+
+    if (this.config?.features?.scrollErrorIntoView && model.errors[0]?.key) {
+      document
+        .querySelector(`[name=${model.errors[0].key}]`)
+        ?.scrollIntoView({ behavior: "smooth" });
+    }
 
     if (model.get("isInvalid")) {
       this.runCallback(ON_INVALID_CLICK);
