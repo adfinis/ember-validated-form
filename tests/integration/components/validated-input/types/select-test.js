@@ -10,8 +10,8 @@ module(
 
     test("it renders", async function (assert) {
       this.set("options", [
-        { key: 1, label: 1 },
-        { key: 2, label: 2 },
+        { id: 1, label: 1 },
+        { id: 2, label: 2 },
       ]);
 
       await render(
@@ -21,6 +21,25 @@ module(
       assert.dom("select").exists();
       assert.dom("option").exists({ count: 2 });
       assert.dom("option:first-child").hasProperty("selected", true);
+    });
+
+    test("it supports plain (non-object) options", async function (assert) {
+      assert.expect(6);
+      this.set("options", ["foo", "bar"]);
+
+      this.set("update", (value) => {
+        assert.strictEqual(value, "bar");
+      });
+      await render(
+        hbs`<ValidatedInput::Types::Select @options={{this.options}} @update={{this.update}} />`
+      );
+
+      assert.dom("select").exists();
+      assert.dom("option").exists({ count: 2 });
+      assert.dom("option:first-child").hasProperty("selected", true);
+      await select("select", "bar");
+      assert.dom("option:first-child").hasProperty("selected", false);
+      assert.dom("option:last-child").hasProperty("selected", true);
     });
 
     test("it works with solitary optionTargetPath property", async function (assert) {
@@ -38,7 +57,7 @@ module(
         hbs`<ValidatedInput::Types::Select @options={{this.options}} @update={{this.update}} @optionTargetPath="key" />`
       );
 
-      assert.dom("option:first-child").hasText("111");
+      assert.dom("option:first-child").hasText("firstOption");
       await select("select", "222");
     });
 
@@ -130,18 +149,43 @@ module(
     });
 
     test("multiselect is working", async function (assert) {
-      assert.expect(3);
-      this.set("options", ["1", "2"]);
+      assert.expect(4);
+      this.set("options", [
+        { id: 1, label: "label 1" },
+        { id: 2, label: "label 2" },
+        { id: 3, label: "label 3" },
+      ]);
       this.set("update", (values) => {
-        assert.deepEqual(values, this.options);
+        assert.deepEqual(values, [
+          { id: 1, label: "label 1" },
+          { id: 3, label: "label 3" },
+        ]);
       });
 
       await render(
         hbs`<ValidatedInput::Types::Select @options={{this.options}} @multiple={{true}} @update={{this.update}} />`
       );
 
-      await select("select", this.options);
+      await select("select", ["1", "3"]);
       assert.dom("option:first-child").hasProperty("selected", true);
+      assert.dom("option:nth-child(2)").hasProperty("selected", false);
+      assert.dom("option:last-child").hasProperty("selected", true);
+    });
+
+    test("multiselect is working with plain options", async function (assert) {
+      assert.expect(4);
+      this.set("options", ["1", "2", "3"]);
+      this.set("update", (values) => {
+        assert.deepEqual(values, ["1", "3"]);
+      });
+
+      await render(
+        hbs`<ValidatedInput::Types::Select @options={{this.options}} @multiple={{true}} @update={{this.update}} />`
+      );
+
+      await select("select", ["1", "3"]);
+      assert.dom("option:first-child").hasProperty("selected", true);
+      assert.dom("option:nth-child(2)").hasProperty("selected", false);
       assert.dom("option:last-child").hasProperty("selected", true);
     });
 

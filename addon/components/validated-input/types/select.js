@@ -38,6 +38,23 @@ export default class SelectComponent extends Component {
     return this.hasPreGroupedOptions || this.args.groupLabelPath;
   }
 
+  get normalizedOptions() {
+    // normalize options to common data structure, only for rendering
+    return this.args.options.map((opt) => this.normalize(opt));
+  }
+
+  normalize(option) {
+    if (typeof option !== "object") {
+      return { id: option, label: option };
+    }
+    const valuePath = this.args.optionValuePath ?? this.args.optionTargetPath;
+    const labelPath = this.args.optionLabelPath;
+    return {
+      id: valuePath ? option[valuePath] : option.id,
+      label: labelPath ? option[labelPath] : option.label,
+    };
+  }
+
   get optionGroups() {
     const groupLabelPath = this.args.groupLabelPath;
     if (!groupLabelPath) {
@@ -60,7 +77,7 @@ export default class SelectComponent extends Component {
           groups.pushObject(group);
         }
 
-        group.options.pushObject(item);
+        group.options.pushObject(this.normalize(item));
       } else {
         groups.pushObject(item);
       }
@@ -72,6 +89,17 @@ export default class SelectComponent extends Component {
   findOption(target) {
     const targetPath = this.args.optionTargetPath;
     const valuePath = this.args.optionValuePath || targetPath;
+
+    const getValue = (item) => {
+      if (valuePath) {
+        return String(item[valuePath]);
+      }
+      if (typeof item === "object") {
+        return String(item.id);
+      }
+      return String(item);
+    };
+
     let options = this.args.options;
 
     //flatten pre grouped options
@@ -85,9 +113,9 @@ export default class SelectComponent extends Component {
         .call(target.options, (option) => option.selected)
         .map((option) => option.value);
 
-      const foundOptions = options.filter((item) =>
-        selectedValues.includes(`${valuePath ? item[valuePath] : item}`)
-      );
+      const foundOptions = options.filter((item) => {
+        return selectedValues.includes(getValue(item));
+      });
       if (targetPath) {
         return foundOptions.map((item) => item[targetPath]);
       }
@@ -95,9 +123,7 @@ export default class SelectComponent extends Component {
     }
 
     //single select
-    const foundOption = options.find(
-      (item) => `${valuePath ? item[valuePath] : item.value}` === target.value
-    );
+    const foundOption = options.find((item) => getValue(item) === target.value);
     if (targetPath) {
       return foundOption[targetPath];
     }

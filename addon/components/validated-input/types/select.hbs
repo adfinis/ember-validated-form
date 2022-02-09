@@ -20,53 +20,17 @@
     {{#each this.optionGroups as |optionGroup|}}
       <optgroup label={{optionGroup.groupName}}>
         {{#each optionGroup.options as |opt|}}
-          {{#let
-            (if
-              (or @optionValuePath @optionTargetPath)
-              (get opt (or @optionValuePath @optionTargetPath))
-              opt
-            )
-            as |optionValue|
-          }}
-            <option
-              selected={{eq optionValue @value}}
-              value={{optionValue}}
-            >{{#if @optionLabelPath}}
-                {{get opt @optionLabelPath}}
-              {{else if @optionValuePath}}
-                {{get opt @optionValuePath}}
-              {{else if @optionTargetPath}}
-                {{get opt @optionTargetPath}}
-              {{else}}
-                {{opt}}
-              {{/if}}
-            </option>
-          {{/let}}
+          <option selected={{eq opt.id @value}} value={{opt.id}}>
+            {{opt.label}}
+          </option>
         {{/each}}
       </optgroup>
     {{/each}}
   {{else}}
-    {{#each @options as |opt|}}
-      {{#let
-        (if
-          (or @optionValuePath @optionTargetPath)
-          (get opt (or @optionValuePath @optionTargetPath))
-          opt
-        )
-        as |optionValue|
-      }}
-        <option selected={{eq optionValue @value}} value={{optionValue}}>{{#if
-            @optionLabelPath
-          }}
-            {{get opt @optionLabelPath}}
-          {{else if @optionValuePath}}
-            {{get opt @optionValuePath}}
-          {{else if @optionTargetPath}}
-            {{get opt @optionTargetPath}}
-          {{else}}
-            {{opt}}
-          {{/if}}</option>
-      {{/let}}
+    {{#each this.normalizedOptions as |opt|}}
+      <option selected={{eq opt.id @value}} value={{opt.id}}>
+        {{opt.label}}
+      </option>
     {{/each}}
   {{/if}}
 </select>
