@@ -1,3 +1,10 @@
+## [5.2.1](https://github.com/adfinis-sygroup/ember-validated-form/compare/v5.2.0...v5.2.1) (2022-02-09)
+
+
+### Bug Fixes
+
+* respect scrollErrorIntoView for validated buttons as well ([#743](https://github.com/adfinis-sygroup/ember-validated-form/issues/743)) ([fd6be2a](https://github.com/adfinis-sygroup/ember-validated-form/commit/fd6be2a49c5f947bfcf5eb3f7ab61a23ac00064a))
+
 # [5.2.0](https://github.com/adfinis-sygroup/ember-validated-form/compare/v5.1.1...v5.2.0) (2022-02-03)
 
 
