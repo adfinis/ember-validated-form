@@ -14,7 +14,7 @@
   "directories": {
     "test": "tests"
   },
-  "homepage": "https://adfinis-sygroup.github.io/ember-validated-form",
+  "homepage": "https://docs.adfinis.com/ember-validated-form",
   "bugs": {
     "url": "https://github.com/adfinis-sygroup/ember-validated-form/issues"
   },
@@ -104,7 +104,7 @@
   },
   "ember-addon": {
     "configPath": "tests/dummy/config",
-    "demoURL": "https://adfinis-sygroup.github.io/ember-validated-form"
+    "demoURL": "https://docs.adfinis.com/ember-validated-form"
   },
   "release": {
     "extends": "@adfinis-sygroup/semantic-release-config"
