@@ -1,3 +1,10 @@
+## [5.2.2](https://github.com/adfinis-sygroup/ember-validated-form/compare/v5.2.1...v5.2.2) (2022-02-10)
+
+
+### Bug Fixes
+
+* select support for plain options ([#747](https://github.com/adfinis-sygroup/ember-validated-form/issues/747)) ([a58e26d](https://github.com/adfinis-sygroup/ember-validated-form/commit/a58e26ddcd46ec5328c3bb5351bafc7781eacdbd))
+
 ## [5.2.1](https://github.com/adfinis-sygroup/ember-validated-form/compare/v5.2.0...v5.2.1) (2022-02-09)
 
 
