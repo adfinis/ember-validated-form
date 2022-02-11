@@ -1484,10 +1484,10 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@fortawesome/ember-fontawesome@0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@fortawesome/ember-fontawesome/-/ember-fontawesome-0.3.1.tgz#8e19f7a08e85e4293869965c9b914c796ea315d0"
-  integrity sha512-sW0W/t4diQAAswfq3qAKZxfrSUVHlD2BapYxsUJ5MlFOaCNX5U7j6ou0cVFy6aHiRb267DHj13y2XD68PbcrfQ==
+"@fortawesome/ember-fontawesome@0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@fortawesome/ember-fontawesome/-/ember-fontawesome-0.3.2.tgz#d6b40b895e22a01d69ed3f6012089111d8cd6148"
+  integrity sha512-9UR8ROA2zMi4rwXEh7Li/TTSaCsi6iccZ71p5ChVb6eBFdJGEyCfLPiaCKubKb9qiYyyix0DjmTkS+f/1r4mnw==
   dependencies:
     "@fortawesome/fontawesome-svg-core" "^1.2.0"
     broccoli-file-creator "^2.1.1"
