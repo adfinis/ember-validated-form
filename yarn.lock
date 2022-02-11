@@ -1425,7 +1425,7 @@
     ember-cli-version-checker "^5.1.2"
     semver "^7.3.5"
 
-"@embroider/macros@1.1.0", "@embroider/macros@^0.41.0", "@embroider/macros@^0.47.1", "@embroider/macros@^0.49.0", "@embroider/macros@^0.50.0 || ^1.0.0", "@embroider/macros@^1.0.0", "@embroider/macros@^1.1.0":
+"@embroider/macros@1.1.0", "@embroider/macros@^0.41.0", "@embroider/macros@^0.47.1", "@embroider/macros@^0.50.0 || ^1.0.0", "@embroider/macros@^1.0.0", "@embroider/macros@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-1.1.0.tgz#4e11a8a38be9ac20f20c9a09a8df7e97b47ede13"
   integrity sha512-YwOKpgRjoFee7DMHFvAaE8xZVdlft0wcwGGsqW4oqiisfoHaf3YIpCDNy7aYFm9CoZseq827mxyjejxiOEmJaQ==
@@ -1460,7 +1460,7 @@
     lodash "^4.17.21"
     resolve "^1.20.0"
 
-"@embroider/util@^0.39.1 || ^0.40.0 || ^0.41.0 || ^1.0.0", "@embroider/util@^0.47.2", "@embroider/util@^0.49.0", "@embroider/util@^1.0.0", "@embroider/util@^1.1.0":
+"@embroider/util@^0.39.1 || ^0.40.0 || ^0.41.0 || ^1.0.0", "@embroider/util@^0.47.2", "@embroider/util@^1.0.0", "@embroider/util@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@embroider/util/-/util-1.1.0.tgz#f4a90ee47bc59bed7b63c6f44dc5ae1ae73f9951"
   integrity sha512-8bch0JkaLEajXNRmFJNaGNWyWeXMRrrFTaojV4V7Q0RQ5HrZyO2VUD+L9m+RZgz749wEjaeCp2uTkIfSNnZtWA==
@@ -1651,7 +1651,7 @@
     "@handlebars/parser" "~2.0.0"
     simple-html-tokenizer "^0.5.11"
 
-"@glimmer/tracking@1.0.4", "@glimmer/tracking@^1.0.4":
+"@glimmer/tracking@1.0.4", "@glimmer/tracking@^1.0.0", "@glimmer/tracking@^1.0.4":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@glimmer/tracking/-/tracking-1.0.4.tgz#f1bc1412fe5e2236d0f8d502994a8f88af1bbb21"
   integrity sha512-F+oT8I55ba2puSGIzInmVrv/8QA2PcK1VD+GWgFMhF6WC97D+uZX7BFg+a3s/2N4FVBq5KHE+QxZzgazM151Yw==
@@ -6905,7 +6905,7 @@ ember-auto-import@^2.2.3, ember-auto-import@^2.2.4, ember-auto-import@^2.3.0, em
     ember-style-modifier "^0.7.0"
     ember-truth-helpers "^2.1.0 || ^3.0.0"
 
-ember-cache-primitive-polyfill@^1.0.1:
+ember-cache-primitive-polyfill@^1.0.0, ember-cache-primitive-polyfill@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/ember-cache-primitive-polyfill/-/ember-cache-primitive-polyfill-1.0.1.tgz#a27075443bd87e5af286c1cd8a7df24e3b9f6715"
   integrity sha512-hSPcvIKarA8wad2/b6jDd/eU+OtKmi6uP+iYQbzi5TQpjsqV6b4QdRqrLk7ClSRRKBAtdTuutx+m+X+WlEd2lw==
@@ -6959,10 +6959,9 @@ ember-changeset@^4.0.0-beta.1:
     ember-cli-babel "^7.26.6"
     validated-changeset "~1.1.1"
 
-ember-cli-addon-docs@4.2.2:
+ember-cli-addon-docs@anehx/ember-cli-addon-docs#fix-runtime-config:
   version "4.2.2"
-  resolved "https://registry.yarnpkg.com/ember-cli-addon-docs/-/ember-cli-addon-docs-4.2.2.tgz#fbce7b7df6e395dfeed3c4e6161909720b61e70d"
-  integrity sha512-sn0BYT5uNNQ2lhFGEz76F2VXUYsbluIRrFaf7q/4oYdLPH+qcBqoYs7yGwda4fxEeTDmY7CRlgIPC4zEW4mocw==
+  resolved "https://codeload.github.com/anehx/ember-cli-addon-docs/tar.gz/1918b2a36f1f82a60663fc79d2b30f3fecc0764d"
   dependencies:
     "@csstools/postcss-sass" "^4.0.0"
     "@ember/legacy-built-in-components" "^0.4.0"
@@ -6995,8 +6994,8 @@ ember-cli-addon-docs@4.2.2:
     ember-decorators "^6.1.1"
     ember-fetch "^8.1.1"
     ember-get-config "^1.0.0"
-    ember-keyboard "^7.0.0-beta.0"
-    ember-modal-dialog yapplabs/ember-modal-dialog#31ffee4c657ebe96b1f80adbc39c0339b52236e2
+    ember-keyboard "^7.0.1"
+    ember-modal-dialog "^4.0.0"
     ember-responsive "^4.0.2"
     ember-router-generator "^2.0.0"
     ember-router-scroll "^4.1.2"
@@ -7012,7 +7011,7 @@ ember-cli-addon-docs@4.2.2:
     hosted-git-info "^4.0.2"
     html-entities "^2.3.2"
     jsdom "^19.0.0"
-    json-api-serializer "^2.2.1"
+    json-api-serializer "^2.6.6"
     lodash "^4.17.15"
     lunr "^2.3.7"
     marked "^0.8.2"
@@ -7026,6 +7025,7 @@ ember-cli-addon-docs@4.2.2:
     semver "^7.3.2"
     striptags "^3.1.1"
     tailwindcss "1.9.6"
+    tracked-toolbox "^1.2.3"
     walk-sync "^3.0.0"
     yuidocjs "^0.10.2"
 
@@ -7061,7 +7061,7 @@ ember-cli-babel@^6.11.0:
     ember-cli-version-checker "^2.1.2"
     semver "^5.5.0"
 
-ember-cli-babel@^7.0.0, ember-cli-babel@^7.1.0, ember-cli-babel@^7.1.2, ember-cli-babel@^7.1.3, ember-cli-babel@^7.10.0, ember-cli-babel@^7.13.0, ember-cli-babel@^7.13.2, ember-cli-babel@^7.18.0, ember-cli-babel@^7.19.0, ember-cli-babel@^7.21.0, ember-cli-babel@^7.22.1, ember-cli-babel@^7.23.0, ember-cli-babel@^7.23.1, ember-cli-babel@^7.26.0, ember-cli-babel@^7.26.11, ember-cli-babel@^7.26.3, ember-cli-babel@^7.26.5, ember-cli-babel@^7.26.6, ember-cli-babel@^7.26.8, ember-cli-babel@^7.7.3:
+ember-cli-babel@^7.0.0, ember-cli-babel@^7.1.0, ember-cli-babel@^7.1.2, ember-cli-babel@^7.1.3, ember-cli-babel@^7.10.0, ember-cli-babel@^7.13.0, ember-cli-babel@^7.13.2, ember-cli-babel@^7.17.2, ember-cli-babel@^7.18.0, ember-cli-babel@^7.19.0, ember-cli-babel@^7.21.0, ember-cli-babel@^7.22.1, ember-cli-babel@^7.23.0, ember-cli-babel@^7.23.1, ember-cli-babel@^7.26.0, ember-cli-babel@^7.26.11, ember-cli-babel@^7.26.3, ember-cli-babel@^7.26.5, ember-cli-babel@^7.26.6, ember-cli-babel@^7.26.8, ember-cli-babel@^7.7.3:
   version "7.26.11"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-7.26.11.tgz#50da0fe4dcd99aada499843940fec75076249a9f"
   integrity sha512-JJYeYjiz/JTn34q7F5DSOjkkZqy8qwFOOxXfE6pe9yEJqWGu4qErKxlz8I22JoVEQ/aBUO+OcKTpmctvykM9YA==
@@ -7710,7 +7710,7 @@ ember-inflector@^4.0.1:
   dependencies:
     ember-cli-babel "^7.26.5"
 
-ember-keyboard@^7.0.0-beta.0:
+ember-keyboard@^7.0.1:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/ember-keyboard/-/ember-keyboard-7.0.1.tgz#6cf336efd4ea6cb69ec93d20fb0b819bd7241a9d"
   integrity sha512-MKK9/3yzn30ekmFAQO7z+okCQa7Z5wCSI5m7lR3EL2dMIeRd/9eeLhbQNCU00Slx+GjwsGyCEWPqIQmekFJxpQ==
@@ -7748,12 +7748,13 @@ ember-maybe-in-element@^2.0.3:
     ember-cli-version-checker "^5.1.1"
     ember-in-element-polyfill "^1.0.1"
 
-ember-modal-dialog@yapplabs/ember-modal-dialog#31ffee4c657ebe96b1f80adbc39c0339b52236e2:
-  version "4.0.0-alpha.1"
-  resolved "https://codeload.github.com/yapplabs/ember-modal-dialog/tar.gz/31ffee4c657ebe96b1f80adbc39c0339b52236e2"
+ember-modal-dialog@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/ember-modal-dialog/-/ember-modal-dialog-4.0.0.tgz#ab599ad14055550706800bd9aac3a2cbb7799748"
+  integrity sha512-ofh+xG8v6Lg60R3JXaG9pW683OWCexDQT/JT7S0TOgywSHzdC9WYE4/kIbvxZ6T9Ka87CosP+cz2A2iJ/jvZNQ==
   dependencies:
-    "@embroider/macros" "^0.49.0"
-    "@embroider/util" "^0.49.0"
+    "@embroider/macros" "^1.0.0"
+    "@embroider/util" "^1.0.0"
     ember-cli-babel "^7.26.8"
     ember-cli-htmlbars "^6.0.1"
     ember-cli-version-checker "^2.1.0"
@@ -10876,7 +10877,7 @@ jsesc@~0.5.0:
   resolved "https://registry.yarnpkg.com/jsesc/-/jsesc-0.5.0.tgz#e7dee66e35d6fc16f710fe91d5cf69f70f08911d"
   integrity sha1-597mbjXW/Bb3EP6R1c9p9w8IkR0=
 
-json-api-serializer@^2.2.1:
+json-api-serializer@^2.6.6:
   version "2.6.6"
   resolved "https://registry.yarnpkg.com/json-api-serializer/-/json-api-serializer-2.6.6.tgz#fa5d283b913e0ea25653f4d04f981dc44d66dd4f"
   integrity sha512-l7/e2O5/0+GU38RTMowRUKxRlT8zFc1oryAYBxqK54sFZnvJOJI2bo4XbbxnkTtvSzwkyv5DoBUuFm0hvG3avg==
@@ -15993,6 +15994,24 @@ tr46@~0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/tr46/-/tr46-0.0.3.tgz#8184fd347dac9cdc185992f3a6622e14b9d9ab6a"
   integrity sha1-gYT9NH2snNwYWZLzpmIuFLnZq2o=
+
+tracked-maps-and-sets@^2.0.0:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/tracked-maps-and-sets/-/tracked-maps-and-sets-2.2.1.tgz#323dd40540c561e8b0ffdec8bf129c68ec5025f9"
+  integrity sha512-XYrXh6L/GpGmVmG3KcN/qoDyi4FxHh8eZY/BA/RuoxynskV+GZSfwrX3R+5DR2CIkzkCx4zi4kkDRg1AMDfDhg==
+  dependencies:
+    "@glimmer/tracking" "^1.0.0"
+    ember-cli-babel "^7.17.2"
+
+tracked-toolbox@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/tracked-toolbox/-/tracked-toolbox-1.2.3.tgz#66ee74b948b270958f9401e93d8a69635ed294f9"
+  integrity sha512-0axTjBYinHurXoat9Qk71GbCxR2GZWDbhV3aGQmeGr7FxGXvfz+/mvuG69Nl3omkOdYy5GRjy7lYXJbDz8lPMA==
+  dependencies:
+    ember-cache-primitive-polyfill "^1.0.0"
+    ember-cli-babel "^7.21.0"
+    ember-cli-htmlbars "^5.3.1"
+    tracked-maps-and-sets "^2.0.0"
 
 traverse@~0.6.6:
   version "0.6.6"
