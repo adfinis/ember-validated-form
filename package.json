@@ -45,7 +45,7 @@
     "@ember/test-helpers": "2.6.0",
     "@embroider/test-setup": "1.1.0",
     "@fortawesome/ember-fontawesome": "0.3.2",
-    "@fortawesome/free-solid-svg-icons": "5.15.4",
+    "@fortawesome/free-solid-svg-icons": "6.0.0",
     "@glimmer/component": "1.0.4",
     "@glimmer/tracking": "1.0.4",
     "babel-eslint": "10.1.0",
