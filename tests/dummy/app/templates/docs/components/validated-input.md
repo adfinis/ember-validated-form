@@ -118,7 +118,7 @@ The select element also supports the following options:
         name               = 'country'
         value              = 'Germany'
         options            = (array 'USA' 'Switzerland' 'Germany' 'Spain' 'India')
-        includeBlank       = 'Please choose...'
+        prompt             = 'Please choose...'
         promptIsSelectable = true
       }}
     {{/validated-form}}
