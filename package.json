@@ -50,7 +50,7 @@
     "@glimmer/tracking": "1.0.4",
     "babel-eslint": "10.1.0",
     "broccoli-asset-rev": "3.0.0",
-    "ember-changeset": "4.0.0-beta.2",
+    "ember-changeset": "4.0.0-beta.5",
     "ember-changeset-validations": "4.0.0-beta.2",
     "ember-cli": "3.28.1",
     "ember-cli-addon-docs": "anehx/ember-cli-addon-docs#fix-runtime-config",
@@ -90,7 +90,7 @@
     "prettier": "2.5.1",
     "qunit": "2.17.2",
     "qunit-dom": "2.0.0",
-    "webpack": "5.68.0"
+    "webpack": "5.69.1"
   },
   "resolutions": {
     "@embroider/macros": "^1.1.0",
