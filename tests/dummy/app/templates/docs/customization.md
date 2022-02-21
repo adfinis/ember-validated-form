@@ -48,11 +48,12 @@ a `renderComponent`:
 - `<String>` **placeholder** The placeholder of the field
 - `<String>` **class** The class for the render wrapper
 
-- [`<String>` **optionLabelPath** ](https://github.com/DockYard/ember-one-way-select#working-with-objects-instead-of-strings)
-- [`<String>` **optionValuePath**](https://github.com/DockYard/ember-one-way-select#working-with-objects-instead-of-strings)
-- [`<String>` **optionTargetPath**](https://github.com/DockYard/ember-one-way-select#working-with-objects-instead-of-strings)
-- [`<Boolean>` **includeBlank**](https://github.com/DockYard/ember-one-way-select#adding-a-blank-or-prompt-option)
-- [`<Boolean>` **multiple**](https://github.com/DockYard/ember-one-way-select#multiple-select)
+- `<String>` **optionLabelPath** The property name of the label if objects are given as options
+- `<String>` **optionValuePath** The property name of the value if objects are given as options
+- `<String>` **optionTargetPath** Identical to `optionValuePath` but the return value will then be that property instead of the whole object
+- `<Boolean>` **prompt** Label of the prompt option (most likely an empty default option), will be omitted if left empty
+- `<Boolean>` **promptIsSelectable** Whether the prompt option is selectable
+- `<Boolean>` **multiple** Whether multiple options can be selected
 
 - `<Action>` **update** Action to update the value
 - `<Action>` **setDirty** Action to mark the field as dirty
