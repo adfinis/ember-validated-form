@@ -2,7 +2,7 @@
 
 ## validated-input
 
-The whole `{{validated-input}}` appearance and behaviour can be customized to
+The whole `<ValidatedInput />` appearance and behaviour can be customized to
 your specific needs.
 
 ### Input
@@ -12,22 +12,26 @@ integrate it with this addon by using the `component` template helper to pass
 a `renderComponent`:
 
 <!-- prettier-ignore-start -->
-{{#docs-demo as |demo|}}
-  {{#demo.example name='custom-input-template.hbs'}}
-    {{#validated-form model=(changeset (hash example=null color=null)) as |f|}}
-      {{f.input
-        label='Favorite Color'
-        name='color'
-        renderComponent=(component 'favorite-colors'
-          colors=(array (hash color='red' name='Red') (hash color='blue' name='Blue') (hash color='green' name='green'))
-        )
-      }}
-    {{/validated-form}}
-  {{/demo.example}}
+<DocsDemo as |demo|>
+  <demo.example @name='custom-input-template.hbs'>
+    <ValidatedForm @model={{changeset (hash example=null color=null)}} as |f|>
+      <f.input
+        @label='Favorite Color'
+        @name='color'
+        @renderComponent={{component 'favorite-colors'
+          colors=(array
+            (hash color='red' name='Red')
+            (hash color='blue' name='Blue')
+            (hash color='green' name='green')
+          )
+        }}
+      />
+    </ValidatedForm>
+  </demo.example>
 
-  {{demo.snippet 'custom-input-template.hbs'}}
-  {{demo.snippet 'favorite-colors.hbs' label='components/favorite-colors.hbs'}}
-{{/docs-demo}}
+  <demo.snippet @name='custom-input-template.hbs' />
+  <demo.snippet @name='favorite-colors.hbs' @label='components/favorite-colors.hbs' />
+</DocsDemo>
 <!-- prettier-ignore-end -->
 
 **Arguments**
@@ -72,16 +76,16 @@ add `{{yield}}` inside the label. This is because, this kind of input renders
 inside a label tag.
 
 <!-- prettier-ignore-start -->
-{{#docs-demo as |demo|}}
-  {{#demo.example name='custom-label-template.hbs'}}
-    {{#validated-form as |f|}}
-      {{f.input labelComponent=(component 'custom-label') label='Custom Label'}}
-    {{/validated-form}}
-  {{/demo.example}}
+<DocsDemo as |demo|>
+  <demo.example @name='custom-label-template.hbs'>
+    <ValidatedForm as |f|>
+      <f.input @labelComponent={{component 'custom-label'}} @label='Custom Label' />
+    </ValidatedForm>
+  </demo.example>
 
-  {{demo.snippet 'custom-label-template.hbs'}}
-  {{demo.snippet 'custom-label-component-template.hbs' label='components/custom-label.hbs'}}
-{{/docs-demo}}
+  <demo.snippet @name='custom-label-template.hbs' />
+  <demo.snippet @name='custom-label-component-template.hbs' @label='components/custom-label.hbs' />
+</DocsDemo>
 <!-- prettier-ignore-end -->
 
 **Arguments**
@@ -95,16 +99,16 @@ inside a label tag.
 ### Hint
 
 <!-- prettier-ignore-start -->
-{{#docs-demo as |demo|}}
-  {{#demo.example name='custom-hint-template.hbs'}}
-    {{#validated-form as |f|}}
-      {{f.input hint='This is a hint' hintComponent=(component 'custom-hint')}}
-    {{/validated-form}}
-  {{/demo.example}}
+<DocsDemo as |demo|>
+  <demo.example @name='custom-hint-template.hbs'>
+    <ValidatedForm as |f|>
+      <f.input @hint='This is a hint' @hintComponent={{component 'custom-hint'}} />
+    </ValidatedForm>
+  </demo.example>
 
-  {{demo.snippet 'custom-hint-template.hbs'}}
-  {{demo.snippet 'custom-hint-component-template.hbs' label='components/custom-hint.hbs'}}
-{{/docs-demo}}
+  <demo.snippet @name='custom-hint-template.hbs' />
+  <demo.snippet @name='custom-hint-component-template.hbs' @label='components/custom-hint.hbs' />
+</DocsDemo>
 <!-- prettier-ignore-end -->
 
 **Arguments**
@@ -114,16 +118,16 @@ inside a label tag.
 ### Error
 
 <!-- prettier-ignore-start -->
-{{#docs-demo as |demo|}}
-  {{#demo.example name='custom-error-template.hbs'}}
-    {{#validated-form as |f|}}
-      {{f.input showValidity=true errors=(array 'foo' 'bar') errorComponent=(component 'custom-error')}}
-    {{/validated-form}}
-  {{/demo.example}}
+<DocsDemo as |demo|>
+  <demo.example @name='custom-error-template.hbs'>
+    <ValidatedForm as |f|>
+      <f.input @showValidity={{true}} @errors={{array 'foo' 'bar'}} @errorComponent={{component 'custom-error'}} />
+    </ValidatedForm>
+  </demo.example>
 
-  {{demo.snippet 'custom-error-template.hbs'}}
-  {{demo.snippet 'custom-error-component-template.hbs' label='components/custom-error.hbs'}}
-{{/docs-demo}}
+  <demo.snippet @name='custom-error-template.hbs' />
+  <demo.snippet @name='custom-error-component-template.hbs' @label='components/custom-error.hbs' />
+</DocsDemo>
 <!-- prettier-ignore-end -->
 
 **Arguments**
@@ -133,16 +137,16 @@ inside a label tag.
 ## validated-button
 
 <!-- prettier-ignore-start -->
-{{#docs-demo as |demo|}}
-  {{#demo.example name='custom-button-template.hbs'}}
-    {{#validated-form as |f|}}
-      {{f.submit label='Submit' buttonComponent=(component 'custom-button')}}
-    {{/validated-form}}
-  {{/demo.example}}
+<DocsDemo as |demo|>
+  <demo.example @name='custom-button-template.hbs'>
+    <ValidatedForm as |f|>
+      <f.submit @label='Submit' @buttonComponent={{component 'custom-button'}} />
+    </ValidatedForm>
+  </demo.example>
 
-  {{demo.snippet 'custom-button-template.hbs'}}
-  {{demo.snippet 'custom-button-component-template.hbs' label='components/custom-button.hbs'}}
-{{/docs-demo}}
+  <demo.snippet @name='custom-button-template.hbs' />
+  <demo.snippet @name='custom-button-component-template.hbs' @label='components/custom-button.hbs' />
+</DocsDemo>
 <!-- prettier-ignore-end -->
 
 **Arguments**

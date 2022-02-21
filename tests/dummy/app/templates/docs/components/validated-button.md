@@ -1,11 +1,11 @@
 # Validated button
 
-`{{validated-form}}` yields two kinds of button components:
+`<ValidatedForm />` yields two kinds of button components:
 
-- `{{f.submit}}`: a submit button for the form
-- `{{f.button}}`: a customizable button without HTML-form specific functionality.
+- `<f.submit />`: a submit button for the form
+- `<f.button />`: a customizable button without HTML-form specific functionality.
 
-You can use them as a block style component `{{#f.submit}}Test{{/f.submit}}` if you don't want to pass the label as a
+You can use them as a block style component `<f.submit>Test</f.submit>` if you don't want to pass the label as a
 property.
 
 Both take the following properties:
@@ -24,19 +24,19 @@ Specifies if the button is disabled.
 Specifies if the button is loading. Default: Automatic integration of `ember-concurrency`.
 
 <!-- prettier-ignore-start -->
-{{#docs-demo as |demo|}}
-  {{#demo.example name='button-template.hbs'}}
-    <ValidatedForm @on-submit={{fn (mut saved) true}} as |f|>
+<DocsDemo as |demo|>
+  <demo.example @name='button-template.hbs'>
+    <ValidatedForm @on-submit={{fn (mut this.saved) true}} as |f|>
       {{#let f.submit as |Submit|}}
         <Submit @label={{"Save"}} />
         <Submit>Save button in block style...</Submit>
       {{/let}}
-        {{if saved 'Saved!'}}
+        {{if this.saved 'Saved!'}}
     </ValidatedForm>
-  {{/demo.example}}
+  </demo.example>
 
-  {{demo.snippet 'button-template.hbs'}}
-{{/docs-demo}}
+  <demo.snippet @name='button-template.hbs' />
+</DocsDemo>
 <!-- prettier-ignore-end -->
 
 Further you can leverage the `{{f.button}}` component for custom actions. The model of the wrapping form component will get passed to the on-click handler as first argument.
@@ -53,17 +53,17 @@ Passes a function which is triggered after clicking on the button and when the v
 Trigger the form validations when the button is clicked (or, more precisely: show all error messages).
 
 <!-- prettier-ignore-start -->
-{{#docs-demo as |demo|}}
-  {{#demo.example name='button-advanced-template.hbs'}}
+<DocsDemo as |demo|>
+  <demo.example @name='button-advanced-template.hbs'>
     <ValidatedForm as |f|>
       {{#let f.button as |CustomButton|}}
-        <CustomButton @label="Real Custom" @on-click={{fn (mut triggered) true}}/>
-        <CustomButton @on-click={{fn (mut triggered) true}}>Custom action button in block style...</CustomButton>
+        <CustomButton @label="Real Custom" @on-click={{fn (mut this.triggered) true}}/>
+        <CustomButton @on-click={{fn (mut this.triggered) true}}>Custom action button in block style...</CustomButton>
       {{/let}}
-      {{if triggered 'Action triggered!'}}
+      {{if this.triggered 'Action triggered!'}}
     </ValidatedForm>
-  {{/demo.example}}
+  </demo.example>
 
-  {{demo.snippet 'button-advanced-template.hbs'}}
-{{/docs-demo}}
+  <demo.snippet @name='button-advanced-template.hbs' />
+</DocsDemo>
 <!-- prettier-ignore-end -->
