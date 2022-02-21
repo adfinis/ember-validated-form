@@ -1,6 +1,6 @@
 ## Validated input
 
-`{{validated-form}}` yields an object, that contains the [contextual
+`<ValidatedForm />` yields an object, that contains the [contextual
 component](https://emberjs.com/blog/2016/01/15/ember-2-3-released.html#toc_contextual-components)
 `input`. All input fields share some common properties:
 
@@ -42,12 +42,11 @@ two arguments: `update(value, changeset)`.
 **autocomplete `<String>`**  
 Binding to the [`<input>` `autocomplete` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autocomplete).
 
-The supported field types are `checkbox`, `checkboxGroup`, `radioGroup`, `select`, `textarea`
-and any type that can be specified on an `<input>` element. This addon does
-not much more than translating `{{f.input type='select'}}` to
-`{{one-way-select}}` or `{{f.input type='text'}}` to `<input type="text">`
-with the various other properties (`name`, `disabled`, etc.) and event
-handlers.
+The supported field types are `checkbox`, `checkboxGroup`, `radioGroup`,
+`select`, `textarea` and any type that can be specified on an `<input>` element.
+This addon does not much more than translating `<f.input @type='select' />` to
+`<select>` or `<f.input @type='text' />` to `<input type="text">` with the
+various other properties (`name`, `disabled`, etc.) and event handlers.
 
 However, some field types require extra parameters. The supported field types
 are listed below.
@@ -62,16 +61,16 @@ specifying their type. The element also supports the following options:
 - `autofocus`
 
 <!-- prettier-ignore-start -->
-{{#docs-demo as |demo|}}
-  {{#demo.example name='text-input-template.hbs'}}
-    {{#validated-form model=(changeset (hash firstName=null email=null)) as |f|}}
-      {{f.input label='First name' name='firstName'}}
-      {{f.input type='email' label='Email' name='email' placeholder='you@example.com'}}
-    {{/validated-form}}
-  {{/demo.example}}
+<DocsDemo as |demo|>
+  <demo.example @name='text-input-template.hbs'>
+    <ValidatedForm @model={{changeset (hash firstName=null email=null)}} as |f|>
+      <f.input @label='First name' @name='firstName' />
+      <f.input @type='email' @label='Email' @name='email' @placeholder='you@example.com' />
+    </ValidatedForm>
+  </demo.example>
 
-  {{demo.snippet 'text-input-template.hbs'}}
-{{/docs-demo}}
+  <demo.snippet @name='text-input-template.hbs' />
+</DocsDemo>
 <!-- prettier-ignore-end -->
 
 ### Textarea
@@ -83,15 +82,15 @@ The textarea element also supports the following options:
 - `placeholder`
 
 <!-- prettier-ignore-start -->
-{{#docs-demo as |demo|}}
-  {{#demo.example name='textarea-template.hbs'}}
-    {{#validated-form model=(changeset (hash description=null)) as |f|}}
-      {{f.input type='textarea' label='Description' name='description'}}
-    {{/validated-form}}
-  {{/demo.example}}
+<DocsDemo as |demo|>
+  <demo.example @name='textarea-template.hbs'>
+    <ValidatedForm @model={{changeset (hash description=null)}} as |f|>
+      <f.input @type='textarea' @label='Description' @name='description' />
+    </ValidatedForm>
+  </demo.example>
 
-  {{demo.snippet 'textarea-template.hbs'}}
-{{/docs-demo}}
+  <demo.snippet @name='textarea-template.hbs' />
+</DocsDemo>
 <!-- prettier-ignore-end -->
 
 ### Select
@@ -103,29 +102,29 @@ The select element also supports the following options:
 - `optionLabelPath`
 - `optionValuePath`
 - `optionTargetPath`
-- `includeBlank` --> will get replaced by `prompt` in future releases
+- `includeBlank` (deprecated in favor of `prompt`)
 - `prompt`
 - `promptIsSelectable`
 - `groupLabelPath`
 
 <!-- prettier-ignore-start -->
-{{#docs-demo as |demo|}}
-  {{#demo.example name='select-template.hbs'}}
-    {{#validated-form model=(changeset (hash country=null)) as |f|}}
-      {{f.input
-        type               = 'select'
-        label              = 'Country'
-        name               = 'country'
-        value              = 'Germany'
-        options            = (array 'USA' 'Switzerland' 'Germany' 'Spain' 'India')
-        includeBlank       = 'Please choose...'
-        promptIsSelectable = true
-      }}
-    {{/validated-form}}
-  {{/demo.example}}
+<DocsDemo as |demo|>
+  <demo.example @name='select-template.hbs'>
+    <ValidatedForm @model={{changeset (hash country=null)}} as |f|>
+      <f.input
+        @type='select'
+        @label='Country'
+        @name='country'
+        @value='Germany'
+        @options={{array 'USA' 'Switzerland' 'Germany' 'Spain' 'India'}}
+        @prompt='Please choose...'
+        @promptIsSelectable={{true}}
+      />
+    </ValidatedForm>
+  </demo.example>
 
-  {{demo.snippet 'select-template.hbs'}}
-{{/docs-demo}}
+  <demo.snippet @name='select-template.hbs' />
+</DocsDemo>
 <!-- prettier-ignore-end -->
 
 **Grouping** is supported in two ways: First by using the `groupLabelPath` property (e.g. `type` in th example below) or second by pre-grouped options in the form of:
@@ -133,19 +132,17 @@ The select element also supports the following options:
 ```js
 [
   {
-    groupName: 'one',
+    groupName: "one",
     options: [
-      { id: 1, label: 'First', type: 'group1' },
-      { id: 2, label: 'Second', type: 'group1' }
-    ]
+      { id: 1, label: "First", type: "group1" },
+      { id: 2, label: "Second", type: "group1" },
+    ],
   },
   {
-    groupName: 'two',
-    options: [
-      { id: 3, label: 'Third', type: 'group2' }
-    ]
-  }
-]
+    groupName: "two",
+    options: [{ id: 3, label: "Third", type: "group2" }],
+  },
+];
 ```
 
 ### Checkbox
@@ -153,15 +150,15 @@ The select element also supports the following options:
 This component renders an `<input type="checkbox">` elements.
 
 <!-- prettier-ignore-start -->
-{{#docs-demo as |demo|}}
-  {{#demo.example name='checkbox-template.hbs'}}
-    {{#validated-form model=(changeset (hash terms=null)) as |f|}}
-      {{f.input type='checkbox' label='I agree with the terms and conditions' name='terms'}}
-    {{/validated-form}}
-  {{/demo.example}}
+<DocsDemo as |demo|>
+  <demo.example @name='checkbox-template.hbs'>
+    <ValidatedForm @model={{changeset (hash terms=null)}} as |f|>
+      <f.input @type='checkbox' @label='I agree with the terms and conditions' @name='terms' />
+    </ValidatedForm>
+  </demo.example>
 
-  {{demo.snippet 'checkbox-template.hbs'}}
-{{/docs-demo}}
+  <demo.snippet @name='checkbox-template.hbs' />
+</DocsDemo>
 <!-- prettier-ignore-end -->
 
 ### Radio button group
@@ -169,20 +166,20 @@ This component renders an `<input type="checkbox">` elements.
 This component renders a list of `<input type="radio">` elements.
 
 <!-- prettier-ignore-start -->
-{{#docs-demo as |demo|}}
-  {{#demo.example name='radio-template.hbs'}}
-    {{#validated-form model=(changeset (hash shape=null)) as |f|}}
-      {{f.input
-        type    = 'radioGroup'
-        label   = 'Shapes'
-        name    = 'shape'
-        options = (array (hash key='t' label='Triangle') (hash key='s' label='Square') (hash key='c' label='Circle'))
-      }}
-    {{/validated-form}}
-  {{/demo.example}}
+<DocsDemo as |demo|>
+  <demo.example @name='radio-template.hbs'>
+    <ValidatedForm @model={{changeset (hash shape=null)}} as |f|>
+      <f.input
+        @type='radioGroup'
+        @label='Shapes'
+        @name='shape'
+        @options={{array (hash key='t' label='Triangle') (hash key='s' label='Square') (hash key='c' label='Circle')}}
+      />
+    </ValidatedForm>
+  </demo.example>
 
-  {{demo.snippet 'radio-template.hbs'}}
-{{/docs-demo}}
+  <demo.snippet @name='radio-template.hbs' />
+</DocsDemo>
 <!-- prettier-ignore-end -->
 
 <!-- this doesn't work
@@ -191,23 +188,23 @@ invoke this component using block form. This is helpful if you need to
 localize your labels using an internationalization addon like
 [ember-intl](https://github.com/ember-intl/ember-intl).
 
-{{#docs-demo as |demo|}}
-  {{#demo.example name='radio-i18n-template.hbs'}}
-    {{#validated-form model=(changeset (hash shape=null)) as |f|}}
-      {{#f.input
-        type    = 'radioGroup'
-        label   = (t 'some.scope.shapes')
-        name    = 'shape'
-        options = (array (hash key='t' label='some.scope.triangle') (hash key='s' label='some.scope.square') (hash key='c' label='some.scope.circle'))
-      as |option|}}
+<DocsDemo as |demo|>
+  <demo.example @name='radio-i18n-template.hbs'>
+    <ValidatedForm @model={{changeset (hash shape=null)}} as |f|>
+      <f.input
+        @type='radioGroup'
+        @label={{t 'some.scope.shapes'}}
+        @name='shape'
+        @options={{array (hash key='t' label='some.scope.triangle') (hash key='s' label='some.scope.square') (hash key='c' label='some.scope.circle')}}
+      as |option|>
         {{t option.label}}
-      {{/f.input}}
-    {{/validated-form}}
-  {{/demo.example}}
+      </f.input>
+    </ValidatedForm>
+  </demo.example>
 
-  {{demo.snippet 'radio-i18n-template.hbs'}}
-  {{demo.snippet 'translations.js' label='locales/fr/translations.js'}}
-{{/docs-demo}}
+  <demo.snippet @name='radio-i18n-template.hbs' />
+  <demo.snippet @name='translations.js' @label='locales/fr/translations.js' />
+</DocsDemo>
 -->
 
 ### Checkbox group
@@ -215,18 +212,18 @@ localize your labels using an internationalization addon like
 This component renders a list of `<input type="checkbox">` elements.
 
 <!-- prettier-ignore-start -->
-{{#docs-demo as |demo|}}
-  {{#demo.example name='checkbox-group-template.hbs'}}
-    {{#validated-form model=(changeset (hash shape=null)) as |f|}}
-      {{f.input
-        type    = 'checkboxGroup'
-        label   = 'Shapes'
-        name    = 'shape'
-        options = (array (hash key='t' label='Triangle') (hash key='s' label='Square') (hash key='c' label='Circle'))
-      }}
-    {{/validated-form}}
-  {{/demo.example}}
+<DocsDemo as |demo|>
+  <demo.example @name='checkbox-group-template.hbs'>
+    <ValidatedForm @model={{changeset (hash shape=null)}} as |f|>
+      <f.input
+        @type='checkboxGroup'
+        @label='Shapes'
+        @name='shape'
+        @options={{array (hash key='t' label='Triangle') (hash key='s' label='Square') (hash key='c' label='Circle')}}
+      />
+    </ValidatedForm>
+  </demo.example>
 
-  {{demo.snippet 'checkbox-group-template.hbs'}}
-{{/docs-demo}}
+  <demo.snippet @name='checkbox-group-template.hbs' />
+</DocsDemo>
 <!-- prettier-ignore-end -->
