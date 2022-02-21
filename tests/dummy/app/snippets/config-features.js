@@ -4,7 +4,7 @@ var ENV = {
     theme: "bootstrap",
     features: {
       scrollErrorIntoView: true,
-    }
+    },
   },
   // ...
 };

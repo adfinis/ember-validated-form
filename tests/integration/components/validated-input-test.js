@@ -220,7 +220,7 @@ module("Integration | Component | validated input", function (hooks) {
 
     await click("button");
 
-    assert.equal(model.get("firstName"), "Merlin");
+    assert.strictEqual(model.get("firstName"), "Merlin");
   });
 
   test("it yields an action marking the input as dirty", async function (assert) {
@@ -252,7 +252,7 @@ module("Integration | Component | validated input", function (hooks) {
 
     const label = this.element.querySelector("label");
     const input = this.element.querySelector("input");
-    assert.equal(label.getAttribute("for"), input.getAttribute("id"));
+    assert.strictEqual(label.getAttribute("for"), input.getAttribute("id"));
   });
 
   test("it can change the value from outside the input", async function (assert) {

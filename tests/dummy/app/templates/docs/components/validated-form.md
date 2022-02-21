@@ -1,6 +1,6 @@
 # Validated form
 
-The `{{validated-form}}` component accepts the following arguments:
+The `<ValidatedForm />` component accepts the following arguments:
 
 **model `<Changeset>`**  
 Changeset object containing the model that backs the form.
@@ -29,35 +29,35 @@ prevent the form from being submitted multiple times. This can be done using
 the `loading` template parameter:
 
 <!-- prettier-ignore-start -->
-{{#docs-demo as |demo|}}
-  {{#demo.example name='validated-form-action-template.hbs'}}
-    <ValidatedForm @model={{changeset model}} @on-submit={{this.submit}} as |f|>
+<DocsDemo as |demo|>
+  <demo.example @name='validated-form-action-template.hbs'>
+    <ValidatedForm @model={{changeset this.model}} @on-submit={{this.submitAction}} as |f|>
       {{#let f.submit as |Submit|}}
         <Submit @label={{if f.loading 'Saving...' 'Save'}} @disabled={{f.loading}}/>
       {{/let}}
     </ValidatedForm>
-  {{/demo.example}}
+  </demo.example>
 
-  {{demo.snippet 'validated-form-action-template.hbs'}}
-  {{demo.snippet 'validated-form-action-controller.js'}}
-  {{demo.snippet 'validated-form-route.js' label='route.js'}}
-{{/docs-demo}}
+  <demo.snippet @name='validated-form-action-template.hbs' />
+  <demo.snippet @name='validated-form-action-controller.js' />
+  <demo.snippet @name='validated-form-route.js' @label='route.js' />
+</DocsDemo>
 <!-- prettier-ignore-end -->
 
 It also works very well with [ember-concurrency](http://ember-concurrency.com/) tasks:
 
 <!-- prettier-ignore-start -->
-{{#docs-demo as |demo|}}
-  {{#demo.example name='validated-form-task-template.hbs'}}
-    <ValidatedForm @model={{changeset model}} @on-submit={{perform this.submit}} as |f|>
+<DocsDemo as |demo|>
+  <demo.example @name='validated-form-task-template.hbs'>
+    <ValidatedForm @model={{changeset this.model}} @on-submit={{perform this.submitTask}} as |f|>
       {{#let f.submit as |Submit|}}
         <Submit @label={{if f.loading 'Saving...' 'Save'}} @disabled={{f.loading}}/>
       {{/let}}
     </ValidatedForm>
-  {{/demo.example}}
+  </demo.example>
 
-  {{demo.snippet 'validated-form-task-template.hbs'}}
-  {{demo.snippet 'validated-form-task-controller.js'}}
-  {{demo.snippet 'validated-form-route.js' label='route.js'}}
-{{/docs-demo}}
+  <demo.snippet @name='validated-form-task-template.hbs' />
+  <demo.snippet @name='validated-form-task-controller.js' />
+  <demo.snippet @name='validated-form-route.js' @label='route.js' />
+</DocsDemo>
 <!-- prettier-ignore-end -->
