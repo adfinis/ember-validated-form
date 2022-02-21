@@ -5,7 +5,6 @@ excellent addons
 
 - [ember-changeset](https://github.com/DockYard/ember-changeset)
 - [ember-changeset-validations](https://github.com/DockYard/ember-changeset-validations/)
-- [ember-one-way-select](https://github.com/DockYard/ember-one-way-select)
 
 and provides a handy out-of-the-box setup for user-friendly client-side
 validations, featuring
