@@ -8,6 +8,7 @@
       id="{{@inputId}}-{{i}}"
       disabled={{@disabled}}
       {{on "input" (fn this.onUpdate option.key)}}
+      ...attributes
     />
     {{option.label}}
   </label>

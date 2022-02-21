@@ -1,12 +1,12 @@
 <select
   class={{this.class}}
-  ...attributes
   name={{@name}}
   id={{@inpudId}}
   disabled={{@disabled}}
   multiple={{@multiple}}
   {{on "change" this.onUpdate}}
   {{on "blur" this.onBlur}}
+  ...attributes
 >
   {{#if (or @prompt @includeBlank)}}
     <option
