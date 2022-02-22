@@ -1,7 +1,8 @@
 // BEGIN-SNIPPET quickstart-controller.js
 import Controller from "@ember/controller";
-import UserValidations from "dummy/validations/user";
 import { task, timeout } from "ember-concurrency";
+
+import UserValidations from "dummy/validations/user";
 
 export default class IndexController extends Controller {
   UserValidations = UserValidations;

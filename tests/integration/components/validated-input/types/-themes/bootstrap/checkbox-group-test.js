@@ -1,8 +1,9 @@
 import { render } from "@ember/test-helpers";
-import setupConfigTest from "dummy/tests/helpers/setup-config-test";
 import { hbs } from "ember-cli-htmlbars";
 import { setupRenderingTest } from "ember-qunit";
 import { module, test } from "qunit";
+
+import setupConfigTest from "dummy/tests/helpers/setup-config-test";
 
 module(
   "Integration | Component | validated-input/types/-themes/bootstrap/checkbox-group",

@@ -1,12 +1,13 @@
 import EmberObject from "@ember/object";
 import { run } from "@ember/runloop";
 import { render, click, blur, fillIn, focus } from "@ember/test-helpers";
-import UserValidations from "dummy/validations/user";
 import { validateLength } from "ember-changeset-validations/validators";
 import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
 import { defer } from "rsvp";
+
+import UserValidations from "dummy/validations/user";
 
 module("Integration | Component | validated form", function (hooks) {
   setupRenderingTest(hooks);
