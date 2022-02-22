@@ -1,3 +1,19 @@
+# [5.3.0](https://github.com/adfinis-sygroup/ember-validated-form/compare/v5.2.2...v5.3.0) (2022-02-22)
+
+
+### Bug Fixes
+
+* addon docs root url ([7d8151f](https://github.com/adfinis-sygroup/ember-validated-form/commit/7d8151fa9d854cdf9595f27347fa57652e58ef10))
+* **blueprint:** add ember-truth-helpers to default blueprint ([a401589](https://github.com/adfinis-sygroup/ember-validated-form/commit/a401589dab6d013f5d659865927919346655295d))
+* **deps:** move required deps to dependencies instead of devDependencies ([46629ce](https://github.com/adfinis-sygroup/ember-validated-form/commit/46629ceb48210bbc58898c299a9388ce7fa816ec))
+* new link to docs ([c1073e5](https://github.com/adfinis-sygroup/ember-validated-form/commit/c1073e55e3a916ed393e33bcf4a045124c320967))
+* **select:** pass prompt argument down to input component ([64a1377](https://github.com/adfinis-sygroup/ember-validated-form/commit/64a1377d64618fa880b332f8a693e1c7f1a321f7))
+
+
+### Features
+
+* pass attributes to input components ([dc0417d](https://github.com/adfinis-sygroup/ember-validated-form/commit/dc0417d125fe4c20cb59b76531ae4f7391258259))
+
 ## [5.2.2](https://github.com/adfinis-sygroup/ember-validated-form/compare/v5.2.1...v5.2.2) (2022-02-10)
 
 
