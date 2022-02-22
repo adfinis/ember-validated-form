@@ -1,10 +1,41 @@
-<input
-  type="checkbox"
-  name={{@name}}
-  id={{@inputId}}
-  disabled={{@disabled}}
-  checked={{@value}}
-  {{on "input" this.onUpdate}}
-  ...attributes
-/>
-<@labelComponent />
+{{#if (macroCondition (macroGetOwnConfig "isUikit"))}}
+  <@labelComponent
+    class="{{if @isValid 'uk-text-success'}} {{if @isInvalid 'uk-text-danger'}}"
+  >
+    <input
+      class="uk-checkbox uk-margin-small-right"
+      type="checkbox"
+      name={{@name}}
+      id={{@inputId}}
+      disabled={{@disabled}}
+      checked={{@value}}
+      {{on "input" this.onUpdate}}
+    />
+  </@labelComponent>
+{{else if (macroCondition (macroGetOwnConfig "isBootstrap"))}}
+  <div class="custom-control custom-checkbox">
+    <input
+      class="custom-control-input
+        {{if @isValid 'is-valid'}}
+        {{if @isInvalid 'is-invalid'}}"
+      type="checkbox"
+      name={{@name}}
+      id={{@inputId}}
+      disabled={{@disabled}}
+      checked={{@value}}
+      {{on "input" this.onUpdate}}
+    />
+    <@labelComponent class="custom-control-label" />
+  </div>
+{{else}}
+  <input
+    type="checkbox"
+    name={{@name}}
+    id={{@inputId}}
+    disabled={{@disabled}}
+    checked={{@value}}
+    {{on "input" this.onUpdate}}
+    ...attributes
+  />
+  <@labelComponent />
+{{/if}}

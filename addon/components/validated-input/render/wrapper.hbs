@@ -1,0 +1,5 @@
+{{#if (macroCondition (macroGetOwnConfig "isUikit"))}}
+  <div class="uk-form-controls">{{yield}}</div>
+{{else}}
+  {{yield}}
+{{/if}}

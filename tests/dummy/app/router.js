@@ -15,6 +15,7 @@ Router.map(function () {
     this.route("configuration");
     this.route("customization");
     this.route("troubleshooting");
+    this.route("migration-v6");
 
     this.route("components", function () {
       this.route("validated-form");

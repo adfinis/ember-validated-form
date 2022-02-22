@@ -55,7 +55,7 @@ jobs:
         run: yarn install
 
       - name: Run tests
-        run: yarn test:ember
+        run: yarn ember try:each --skip-cleanup
 
   test-floating:
     name: Floating Tests
@@ -73,7 +73,7 @@ jobs:
         run: yarn install --no-lockfile
 
       - name: Run tests
-        run: yarn test:ember
+        run: yarn ember try:each --skip-cleanup
 
   test-compatibility:
     name: Compatibility Tests
@@ -82,6 +82,7 @@ jobs:
     timeout-minutes: 10
 
     strategy:
+      fail-fast: false
       matrix:
         scenario:
           - ember-lts-4.4
@@ -89,6 +90,8 @@ jobs:
           - ember-release
           - ember-beta
           - ember-canary
+          - embroider-safe
+          - embroider-optimized
 
     steps:
       - uses: actions/checkout@v3
@@ -99,6 +102,7 @@ jobs:
 
       - name: Install dependencies
         run: yarn install
-
       - name: Run tests
-        run: yarn ember try:one ${{ matrix.scenario }} --skip-cleanup
+        run: yarn ember try:each --skip-cleanup
+        env:
+          EMBER_SCENARIO: ${{ matrix.scenario }}

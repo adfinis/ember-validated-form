@@ -1,5 +1,20 @@
 <textarea
-  class={{this.class}}
+  class={{class-list
+    (if
+      (macroCondition (macroGetOwnConfig "isUikit"))
+      (class-list
+        "uk-textarea"
+        (if @isValid "uk-form-success")
+        (if @isInvalid "uk-form-danger")
+      )
+    )
+    (if
+      (macroCondition (macroGetOwnConfig "isBootstrap"))
+      (class-list
+        "form-control" (if @isValid "is-valid") (if @isInvalid "is-invalid")
+      )
+    )
+  }}
   {{on "input" this.onUpdate}}
   {{on "blur" @setDirty}}
   ...attributes

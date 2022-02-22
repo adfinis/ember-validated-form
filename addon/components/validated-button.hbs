@@ -1,17 +1,19 @@
-{{#let
-  (component
-    this.buttonComponent
-    onClick=this.click
-    loading=this.loading
-    disabled=(or @disabled this.loading)
-    label=@label
-    type=@type
-  )
-  as |Button|
-}}
-  {{#if (has-block)}}
-    <Button ...attributes>{{yield}}</Button>
-  {{else}}
-    <Button ...attributes />
-  {{/if}}
-{{/let}}
+{{#if (has-block)}}
+  <this.buttonComponent
+    @onClick={{this.click}}
+    @loading={{this.loading}}
+    @disabled={{or @disabled this.loading}}
+    @label={{@label}}
+    @type={{@type}}
+    ...attributes
+  >{{yield}}</this.buttonComponent>
+{{else}}
+  <this.buttonComponent
+    @onClick={{this.click}}
+    @loading={{this.loading}}
+    @disabled={{or @disabled this.loading}}
+    @label={{@label}}
+    @type={{@type}}
+    ...attributes
+  />
+{{/if}}

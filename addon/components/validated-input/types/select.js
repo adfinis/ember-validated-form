@@ -8,7 +8,6 @@ import Component from "@glimmer/component";
  * Our implementation is slightly simpler, since it does not support
  * the block syntax for options.
  */
-
 export default class SelectComponent extends Component {
   constructor(...args) {
     super(...args);

@@ -1,1 +1,15 @@
-<span class={{this.class}} ...attributes>{{yield}}{{this.errorString}}</span>
+{{#if (macroCondition (macroGetOwnConfig "isUikit"))}}
+  <small class="uk-text-danger" ...attributes>
+    {{yield}}{{this.errorString}}
+  </small>
+{{else}}
+  <span
+    class={{if
+      (macroCondition (macroGetOwnConfig "isBootstrap"))
+      "invalid-feedback"
+    }}
+    ...attributes
+  >
+    {{yield}}{{this.errorString}}
+  </span>
+{{/if}}

@@ -1,12 +1,17 @@
 {{! template-lint-disable no-autofocus-attribute }}
-<div class={{this.class}}>
+<div
+  class={{class-list
+    (if (macroCondition (macroGetOwnConfig "isUikit")) "uk-margin")
+    (if (macroCondition (macroGetOwnConfig "isBootstrap")) "form-group")
+  }}
+>
   {{#if (not-eq @type "checkbox")}}
     <@labelComponent />
   {{/if}}
 
-  {{#if (eq @type "select")}}
-    {{#let (component this.selectComponent) as |Select|}}
-      <Select
+  <ValidatedInput::Render::Wrapper>
+    {{#if (eq @type "select")}}
+      <this.selectComponent
         @disabled={{@disabled}}
         @includeBlank={{@includeBlank}}
         @inputId={{@inputId}}
@@ -25,10 +30,8 @@
         @value={{@value}}
         ...attributes
       />
-    {{/let}}
-  {{else if (or (eq @type "radioGroup") (eq @type "radio-group"))}}
-    {{#let (component this.radioGroupComponent) as |RadioGroup|}}
-      <RadioGroup
+    {{else if (or (eq @type "radioGroup") (eq @type "radio-group"))}}
+      <this.radioGroupComponent
         @disabled={{@disabled}}
         @inputId={{@inputId}}
         @isInvalid={{@isInvalid}}
@@ -40,10 +43,8 @@
         @value={{@value}}
         ...attributes
       />
-    {{/let}}
-  {{else if (or (eq @type "checkboxGroup") (eq @type "checkbox-group"))}}
-    {{#let (component this.checkboxGroupComponent) as |CheckboxGroup|}}
-      <CheckboxGroup
+    {{else if (or (eq @type "checkboxGroup") (eq @type "checkbox-group"))}}
+      <this.checkboxGroupComponent
         @disabled={{@disabled}}
         @inputId={{@inputId}}
         @isInvalid={{@isInvalid}}
@@ -55,10 +56,8 @@
         @value={{@value}}
         ...attributes
       />
-    {{/let}}
-  {{else if (eq @type "checkbox")}}
-    {{#let (component this.checkboxComponent) as |Checkbox|}}
-      <Checkbox
+    {{else if (eq @type "checkbox")}}
+      <this.checkboxComponent
         @disabled={{@disabled}}
         @inputId={{@inputId}}
         @isInvalid={{@isInvalid}}
@@ -71,10 +70,8 @@
         @value={{@value}}
         ...attributes
       />
-    {{/let}}
-  {{else if (eq @type "textarea")}}
-    {{#let (component this.textareaComponent) as |DynamicTextarea|}}
-      <DynamicTextarea
+    {{else if (eq @type "textarea")}}
+      <this.textareaComponent
         autocomplete={{@autocomplete}}
         autofocus={{@autofocus}}
         cols={{@cols}}
@@ -90,10 +87,8 @@
         @update={{@update}}
         ...attributes
       />
-    {{/let}}
-  {{else}}
-    {{#let (component this.inputComponent) as |DynamicInput|}}
-      <DynamicInput
+    {{else}}
+      <this.inputComponent
         autocomplete={{@autocomplete}}
         autofocus={{@autofocus}}
         disabled={{@disabled}}
@@ -108,8 +103,8 @@
         @update={{@update}}
         ...attributes
       />
-    {{/let}}
-  {{/if}}
+    {{/if}}
+  </ValidatedInput::Render::Wrapper>
 
   <@hintComponent />
   <@errorComponent />

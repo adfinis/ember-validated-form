@@ -1,0 +1,19 @@
+<custom-render>
+  <@labelComponent />
+  <@hintComponent />
+  <@errorComponent />
+
+  {{#if (eq @type "select")}}
+    <this.selectComponent />
+  {{else if (or (eq @type "radioGroup") (eq @type "radio-group"))}}
+    <this.radioGroupComponent />
+  {{else if (or (eq @type "checkboxGroup") (eq @type "checkbox-group"))}}
+    <this.checkboxGroupComponent />
+  {{else if (eq @type "checkbox")}}
+    <this.checkboxComponent />
+  {{else if (eq @type "textarea")}}
+    <this.textareaComponent />
+  {{else}}
+    <this.inputComponent />
+  {{/if}}
+</custom-render>
