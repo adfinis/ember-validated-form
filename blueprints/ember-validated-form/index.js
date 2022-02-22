@@ -10,6 +10,7 @@ module.exports = {
       packages: [
         { name: "ember-changeset" },
         { name: "ember-changeset-validations" },
+        { name: "ember-truth-helpers" },
       ],
     });
   },
