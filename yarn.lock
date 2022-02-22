@@ -1396,7 +1396,7 @@
     ember-cli-version-checker "^5.1.2"
     semver "^7.3.5"
 
-"@embroider/macros@1.2.0", "@embroider/macros@^0.50.0 || ^1.0.0", "@embroider/macros@^1.0.0", "@embroider/macros@^1.2.0":
+"@embroider/macros@1.2.0", "@embroider/macros@^0.50.0 || ^1.0.0", "@embroider/macros@^1.0.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-1.2.0.tgz#9a2d99225fba6dcb69e795cddad9f4948c2a2b6b"
   integrity sha512-WD2V3OKXZB73OymI/zC2+MbqIYaAskhjtSOVVY6yG6kWILyVsJ6+fcbNHEnZyGqs4sm0TvHVJfevmA2OXV8Pww==
@@ -1431,7 +1431,7 @@
     lodash "^4.17.21"
     resolve "^1.20.0"
 
-"@embroider/util@^1.0.0", "@embroider/util@^1.2.0":
+"@embroider/util@^1.0.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@embroider/util/-/util-1.2.0.tgz#8aa8413252ca4a566cb482b46be3b41997f36ea2"
   integrity sha512-uWgEAhMWghljnYxwsSKZkrB3tY9avJlkJoHvjN+ZazwP/5EfsB7Ck++2WEfIOBOOPEoQr1MYHVlvr+hIMwLrVw==

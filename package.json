@@ -90,10 +90,6 @@
     "qunit-dom": "2.0.0",
     "webpack": "5.69.1"
   },
-  "resolutions": {
-    "@embroider/macros": "^1.2.0",
-    "@embroider/util": "^1.2.0"
-  },
   "engines": {
     "node": "12.* || 14.* || >= 16"
   },
