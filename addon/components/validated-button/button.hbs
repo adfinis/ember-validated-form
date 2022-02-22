@@ -1,5 +1,21 @@
 <button
-  class={{this.class}}
+  class={{class-list
+    (if
+      (macroCondition (macroGetOwnConfig "isUikit"))
+      (class-list
+        "uk-button"
+        (if (eq @type "submit") "uk-button-primary" "uk-button-default")
+      )
+    )
+    (if
+      (macroCondition (macroGetOwnConfig "isBootstrap"))
+      (class-list
+        "btn"
+        (if (eq @type "submit") "btn-primary" "btn-default")
+        (if @loading "loading")
+      )
+    )
+  }}
   type={{@type}}
   disabled={{@disabled}}
   {{on "click" @onClick}}

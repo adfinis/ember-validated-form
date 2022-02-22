@@ -7,15 +7,6 @@ module.exports = function (environment) {
     rootURL: "/",
     locationType: "history",
     historySupportMiddleware: true,
-    "ember-validated-form": {
-      theme: "bootstrap",
-      defaults: {
-        hint: "permanent-custom-hint",
-      },
-      features: {
-        scrollErrorIntoView: false,
-      },
-    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -47,8 +38,6 @@ module.exports = function (environment) {
 
     ENV.APP.rootElement = "#ember-testing";
     ENV.APP.autoboot = false;
-
-    ENV["ember-validated-form"].defaults = {};
   }
 
   if (environment === "production") {

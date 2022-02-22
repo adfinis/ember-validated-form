@@ -1,13 +1,11 @@
 {{#if (has-block)}}
-  {{#let (component this.labelComponent) as |LabelComponent|}}
-    <LabelComponent
-      @label={{@label}}
-      @required={{this.required}}
-      @isValid={{this.isValid}}
-      @isInvalid={{this.isInvalid}}
-      @inputId={{this.inputId}}
-    />
-  {{/let}}
+  <this.labelComponent
+    @label={{@label}}
+    @required={{this.required}}
+    @isValid={{this.isValid}}
+    @isInvalid={{this.isInvalid}}
+    @inputId={{this.inputId}}
+  />
 
   {{yield
     (hash
@@ -23,54 +21,55 @@
   }}
 
   {{#if @hint}}
-    {{component this.hintComponent hint=@hint}}
+    <this.hintComponent @hint={{@hint}} />
   {{/if}}
 
   {{#if (and this.showValidity this.errors)}}
-    {{component this.errorComponent errors=this.errors}}
+    <this.errorComponent @errors={{this.errors}} />
   {{/if}}
 {{else}}
-  {{#let (component this.renderComponent) as |RenderComponent|}}
-    <RenderComponent
-      @type={{this.type}}
-      @value={{this._val}}
-      @inputId={{this.inputId}}
-      @options={{@options}}
-      @name={{@name}}
-      @inputName={{@inputName}}
-      @disabled={{@disabled}}
-      @autofocus={{@autofocus}}
-      @autocomplete={{@autocomplete}}
-      @rows={{@rows}}
-      @cols={{@cols}}
-      @model={{@model}}
-      @isValid={{this.isValid}}
-      @isInvalid={{this.isInvalid}}
-      @placeholder={{@placeholder}}
-      @class={{@class}}
-      @prompt={{@prompt}}
-      @promptIsSelectable={{@promptIsSelectable}}
-      @optionLabelPath={{@optionLabelPath}}
-      @optionValuePath={{@optionValuePath}}
-      @optionTargetPath={{@optionTargetPath}}
-      @includeBlank={{@includeBlank}}
-      @multiple={{@multiple}}
-      @update={{this.update}}
-      @setDirty={{this.setDirty}}
-      @labelComponent={{component
-        this.labelComponent
-        label=@label
-        required=@required
-        isValid=this.isValid
-        isInvalid=this.isInvalid
-        inputId=this.inputId
-      }}
-      @hintComponent={{if @hint (component this.hintComponent hint=@hint)}}
-      @errorComponent={{if
-        (and this.showValidity this.errors)
-        (component this.errorComponent errors=this.errors)
-      }}
-      ...attributes
-    />
-  {{/let}}
+  <this.renderComponent
+    @type={{this.type}}
+    @value={{this._val}}
+    @inputId={{this.inputId}}
+    @options={{@options}}
+    @name={{@name}}
+    @inputName={{@inputName}}
+    @disabled={{@disabled}}
+    @autofocus={{@autofocus}}
+    @autocomplete={{@autocomplete}}
+    @rows={{@rows}}
+    @cols={{@cols}}
+    @model={{@model}}
+    @isValid={{this.isValid}}
+    @isInvalid={{this.isInvalid}}
+    @placeholder={{@placeholder}}
+    @class={{@class}}
+    @prompt={{@prompt}}
+    @promptIsSelectable={{@promptIsSelectable}}
+    @optionLabelPath={{@optionLabelPath}}
+    @optionValuePath={{@optionValuePath}}
+    @optionTargetPath={{@optionTargetPath}}
+    @includeBlank={{@includeBlank}}
+    @multiple={{@multiple}}
+    @update={{this.update}}
+    @setDirty={{this.setDirty}}
+    @labelComponent={{component
+      (ensure-safe-component this.labelComponent)
+      label=@label
+      required=@required
+      isValid=this.isValid
+      isInvalid=this.isInvalid
+      inputId=this.inputId
+    }}
+    @hintComponent={{if
+      @hint
+      (component (ensure-safe-component this.hintComponent) hint=@hint)
+    }}
+    @errorComponent={{if
+      (and this.showValidity this.errors)
+      (component (ensure-safe-component this.errorComponent) errors=this.errors)
+    }}
+    ...attributes
+  />
 {{/if}}

@@ -1,9 +1,9 @@
-var ENV = {
+const app = new EmberAddon(defaults, {
   // ...
   "ember-validated-form": {
     defaults: {
-      hint: "permanent-custom-hint",
+      hint: "myapp/components/permanent-custom-hint",
     },
   },
   // ...
-};
+});

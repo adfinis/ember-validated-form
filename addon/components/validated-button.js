@@ -1,25 +1,17 @@
-import { getOwner } from "@ember/application";
 import { action } from "@ember/object";
+import { macroCondition, getOwnConfig } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { resolve } from "rsvp";
 
-import themedComponent from "../-private/themed-component";
+import passedOrDefault from "ember-validated-form/passed-or-default";
 
 const ON_CLICK = "on-click";
 const ON_INVALID_CLICK = "on-invalid-click";
 export default class ValidatedButtonComponent extends Component {
-  @themedComponent("validated-button/button") buttonComponent;
-
   @tracked _loading;
 
-  constructor(...args) {
-    super(...args);
-    this.config =
-      getOwner(this).resolveRegistration("config:environment")[
-        "ember-validated-form"
-      ];
-  }
+  @passedOrDefault("button") buttonComponent;
 
   get loading() {
     return this.args.loading || this._loading;
@@ -48,10 +40,12 @@ export default class ValidatedButtonComponent extends Component {
 
     await model.validate();
 
-    if (this.config?.features?.scrollErrorIntoView && model.errors[0]?.key) {
-      document
-        .querySelector(`[name=${model.errors[0].key}]`)
-        ?.scrollIntoView({ behavior: "smooth" });
+    if (macroCondition(getOwnConfig().scrollErrorIntoView)) {
+      if (model.errors[0]?.key) {
+        document
+          .querySelector(`[name=${model.errors[0].key}]`)
+          ?.scrollIntoView({ behavior: "smooth" });
+      }
     }
 
     if (model.get("isInvalid")) {

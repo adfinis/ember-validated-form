@@ -3,7 +3,7 @@ import { guidFor } from "@ember/object/internals";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 
-import themedComponent from "../-private/themed-component";
+import passedOrDefault from "ember-validated-form/passed-or-default";
 
 /**
  * This component wraps form inputs.
@@ -26,10 +26,10 @@ export default class ValidatedInputComponent extends Component {
   @tracked type;
   @tracked validateBeforeSubmit;
 
-  @themedComponent("validated-input/render") renderComponent;
-  @themedComponent("validated-input/label") labelComponent;
-  @themedComponent("validated-input/hint") hintComponent;
-  @themedComponent("validated-input/error") errorComponent;
+  @passedOrDefault("error") errorComponent;
+  @passedOrDefault("hint") hintComponent;
+  @passedOrDefault("label") labelComponent;
+  @passedOrDefault("render") renderComponent;
 
   constructor(...args) {
     super(...args);

@@ -1,22 +1,22 @@
-var ENV = {
+const app = new EmberAddon(defaults, {
   // ...
   "ember-validated-form": {
     defaults: {
-      error: "x-my-error",
-      hint: "x-my-hint",
-      label: "x-my-label",
-      render: "x-my-render",
+      error: "myapp/components/x-my-error",
+      hint: "myapp/components/x-my-hint",
+      label: "myapp/components/x-my-label",
+      render: "myapp/components/x-my-render",
 
       // button
-      button: "x-my-button",
+      button: "myapp/components/x-my-button",
 
       // types
-      "types/checkbox": "x-my-checkbox",
-      "types/input": "x-my-input",
-      "types/radio-group": "x-my-radio-group",
-      "types/select": "x-my-select",
-      "types/textarea": "x-my-textarea",
+      "types/checkbox": "myapp/components/x-my-checkbox",
+      "types/input": "myapp/components/x-my-input",
+      "types/radio-group": "myapp/components/x-my-radio-group",
+      "types/select": "myapp/components/x-my-select",
+      "types/textarea": "myapp/components/x-my-textarea",
     },
   },
   // ...
-};
+});

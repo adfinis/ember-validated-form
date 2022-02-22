@@ -16,7 +16,7 @@ are more than welcome!**
 If you want to specify a global custom component for yourself you can set the
 `defaults.[component]` property to the name of your custom component.
 
-<DocsSnippet @name='config-defaults.js' @title='config/environment.js' />
+<DocsSnippet @name='config-defaults.js' @title='ember-cli-build.js' />
 
 For instance:
 
@@ -28,8 +28,8 @@ For instance:
     </ValidatedForm>
   </demo.example>
 
-  <demo.snippet @name='config-custom-hint.js' @label='config.js' />
-  <demo.snippet @name='permanent-custom-hint-component-template.hbs' @label='permanent-custom-hint.hbs' />
+  <demo.snippet @name='config-custom-hint.js' @label='ember-cli-build.js' />
+  <demo.snippet @name='permanent-custom-hint-component-template.hbs' @label='myapp/components/permanent-custom-hint.hbs' />
 </DocsDemo>
 <!-- prettier-ignore-end -->
 
@@ -38,4 +38,4 @@ For instance:
 If you want to scroll the first invalid field into view, you can set the
 `scrollErrorIntoView` property to `true` (default: false).
 
-<DocsSnippet @name='config-features.js' @title='config/environment.js' />
+<DocsSnippet @name='config-features.js' @title='ember-cli-build.js' />

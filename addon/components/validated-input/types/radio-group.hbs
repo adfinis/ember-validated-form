@@ -1,15 +1,55 @@
 {{#each @options as |option i|}}
-  <label>
-    <input
-      type="radio"
-      checked={{eq @value option.key}}
-      value={{option.key}}
-      name={{@name}}
-      id="{{@inputId}}-{{i}}"
-      disabled={{@disabled}}
-      {{on "input" (fn this.onUpdate option.key)}}
-      ...attributes
-    />
-    {{option.label}}
-  </label>
+  {{#if (macroCondition (macroGetOwnConfig "isUikit"))}}
+    {{#if (not-eq i 0)}}<br />{{/if}}
+    <label
+      class="uk-form-label
+        {{if @isValid 'uk-text-success'}}
+        {{if @isInvalid 'uk-text-danger'}}"
+    >
+      <input
+        type="radio"
+        class="uk-radio uk-margin-small-right"
+        checked={{eq @value option.key}}
+        value={{option.key}}
+        name={{@name}}
+        id="{{@inputId}}-{{i}}"
+        disabled={{@disabled}}
+        {{on "input" (fn this.onUpdate option.key)}}
+      />
+      {{option.label}}
+    </label>
+  {{else if (macroCondition (macroGetOwnConfig "isBootstrap"))}}
+    <div class="custom-control custom-radio">
+      <input
+        type="radio"
+        class="custom-control-input
+          {{if @isValid 'is-valid'}}
+          {{if @isInvalid 'is-invalid'}}"
+        checked={{eq @value option.key}}
+        value={{option.key}}
+        name={{@name}}
+        id="{{@inputId}}-{{i}}"
+        disabled={{@disabled}}
+        {{on "input" (fn this.onUpdate option.key)}}
+      />
+      <label
+        class="custom-control-label"
+        for="{{@inputId}}-{{i}}"
+      >{{option.label}}</label>
+    </div>
+  {{else}}
+    <label>
+      <input
+        type="radio"
+        checked={{eq @value option.key}}
+        value={{option.key}}
+        name={{@name}}
+        id="{{@inputId}}-{{i}}"
+        disabled={{@disabled}}
+        {{on "input" (fn this.onUpdate option.key)}}
+        ...attributes
+      />
+      {{option.label}}
+    </label>
+  {{/if}}
 {{/each}}
