@@ -5,7 +5,7 @@ module.exports = function (environment) {
     modulePrefix: "dummy",
     environment,
     rootURL: "/",
-    locationType: "auto",
+    locationType: "history",
     historySupportMiddleware: true,
     "ember-validated-form": {
       theme: "bootstrap",
