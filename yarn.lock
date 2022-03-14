@@ -6852,10 +6852,10 @@ ember-cached-decorator-polyfill@^0.1.4:
     ember-cli-babel "^7.21.0"
     ember-cli-babel-plugin-helpers "^1.1.1"
 
-ember-changeset-validations@^4.0.0-beta.3:
-  version "4.0.0-beta.3"
-  resolved "https://registry.yarnpkg.com/ember-changeset-validations/-/ember-changeset-validations-4.0.0-beta.3.tgz#c38fbd5decc2892fce627758f5cd729211d73e54"
-  integrity sha512-HpZTmQTIO+prw+9oUZut7NXfzdzpgFckEjMS0TZ9OYADptmKiC6ke/+DSV9/uCMYyK6GjHXoDAGW/8SjkapdiQ==
+ember-changeset-validations@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/ember-changeset-validations/-/ember-changeset-validations-4.0.0.tgz#1f9a6a43261ddae9266e167a90cb202196d02229"
+  integrity sha512-yEyLZtot5rcwrdOlSIy59eZN2k8THil5FQf2XnXENocJA3uAtQUqIbBrLqyvZroIzV63/uNZf5If1ZH6+M+Ahw==
   dependencies:
     ember-auto-import "^2.4.0"
     ember-cli-babel "^7.26.6"
