@@ -1,5 +1,12 @@
 version: 2
 updates:
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "friday"
+      time: "12:00"
+      timezone: "Europe/Zurich"
   - package-ecosystem: npm
     directory: "/"
     schedule:
@@ -9,3 +16,8 @@ updates:
       timezone: "Europe/Zurich"
     open-pull-requests-limit: 10
     versioning-strategy: increase
+    ignore:
+      # https://github.com/ember-cli/ember-cli/issues/9307
+      - dependency-name: eslint
+        versions:
+          - ">= 8"
