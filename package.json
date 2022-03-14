@@ -52,7 +52,7 @@
     "@fortawesome/free-solid-svg-icons": "6.0.0",
     "babel-eslint": "10.1.0",
     "broccoli-asset-rev": "3.0.0",
-    "ember-cli": "4.1.1",
+    "ember-cli": "4.2.0",
     "ember-cli-addon-docs": "ember-learn/ember-cli-addon-docs#667701d60650cf7af51611dbff9abf1879776421",
     "ember-cli-dependency-checker": "3.2.0",
     "ember-cli-deploy": "1.0.2",
