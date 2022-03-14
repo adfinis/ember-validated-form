@@ -4464,8 +4464,7 @@ return this.eachRelationship(((e,n)=>{let a=t[n.kind]
 void 0===a&&(a=t[n.kind]=[],i.push({name:n.kind,properties:a,expand:!0})),a.push(e),r.push(e)})),i.push({name:"Flags",properties:["isLoaded","hasDirtyAttributes","isSaving","isDeleted","isError","isNew","isValid"]}),{propertyInfo:{includeOtherProperties:!0,groups:i,expensiveProperties:r}}},re.reopen(i.DeprecatedEvented,{trigger(e){{let t=this[e]
 if("function"==typeof t){let e=arguments.length,r=new Array(e-1)
 for(let t=1;t<e;t++)r[t-1]=arguments[t]
-t.apply(this,r)}}this.has(e)&&this._super(...arguments)}}),re.reopen({toJSON(e){let t=this._internalModel.store.serializerFor("-default"),r=this._internalModel.createSnapshot()
-return t.serialize(r,e)}})
+t.apply(this,r)}}this.has(e)&&this._super(...arguments)}})
 var ne=y.default.extend(L.default,i.DeprecatedEvented,{isAsync:!1,isLoaded:!1,init(){this._super(...arguments),this.isLoaded=this.isLoaded||!1,this._length=0,this._meta=this._meta||null,this._links=this._links||null,this.isPolymorphic=this.isPolymorphic||!1,this.currentState=[],this._isUpdating=!1,this._isDirty=!1,this._hasNotified=!1,this.retrieveLatest()},get _hasArrayObservers(){return this.hasArrayObservers||this.__hasArrayObservers},notify(){this._isDirty=!0,this._hasArrayObservers&&!this._hasNotified?this.retrieveLatest():(this._hasNotified=!0,this.notifyPropertyChange("[]"),this.notifyPropertyChange("firstObject"),this.notifyPropertyChange("lastObject"))},get length(){return this._isDirty&&this.retrieveLatest(),r.get(this,"[]"),this._length},set length(e){this._length=e},get links(){return r.get(this,"[]"),this._isDirty&&this.retrieveLatest(),this._links},set links(e){this._links=e},get meta(){return r.get(this,"[]"),this._isDirty&&this.retrieveLatest(),this._meta},set meta(e){this._meta=e},objectAt(e){this._isDirty&&this.retrieveLatest()
 let t=this.currentState[e]
 if(void 0!==t)return t.getRecord()},replace(e,t,r){this.store._backburner.join((()=>{let n
@@ -4725,15 +4724,13 @@ i.set(r,`data.relationships.${t}`,l)},_normalizeEmbeddedRelationship(e,t,r){let 
 t.options.polymorphic&&(i=r.type)
 let n=e.modelFor(i)
 return e.serializerFor(i).normalize(n,r,null)},isEmbeddedRecordsMixin:!0})
-var u=l.default.extend({serialize:null,deserialize:null}),d=u.extend({deserialize(e,t){if(o.isNone(e)&&!0===t.allowNull)return null
+class u extends l.default{}function d(e){return e==e&&e!==1/0&&e!==-1/0}e.BooleanTransform=class extends u{deserialize(e,t){if(o.isNone(e)&&!0===t.allowNull)return null
 let r=typeof e
-return"boolean"===r?e:"string"===r?/^(true|t|1)$/i.test(e):"number"===r&&1===e},serialize:(e,t)=>o.isNone(e)&&!0===t.allowNull?null:Boolean(e)}),f=u.extend({deserialize(e){let t=typeof e
+return"boolean"===r?e:"string"===r?/^(true|t|1)$/i.test(e):"number"===r&&1===e}serialize(e,t){return o.isNone(e)&&!0===t.allowNull?null:Boolean(e)}},e.DateTransform=class extends u{deserialize(e){let t=typeof e
 if("string"===t){let t=e.indexOf("+")
-return-1!==t&&e.length-5===t?(t+=3,new Date(e.slice(0,t)+":"+e.slice(t))):new Date(e)}return"number"===t?new Date(e):null==e?e:null},serialize:e=>e instanceof Date&&!isNaN(e)?e.toISOString():null})
-function h(e){return e==e&&e!==1/0&&e!==-1/0}var p=u.extend({deserialize(e){let t
-return""===e||null==e?null:(t=Number(e),h(t)?t:null)},serialize(e){let t
-return""===e||null==e?null:(t=Number(e),h(t)?t:null)}}),m=u.extend({deserialize:e=>o.isNone(e)?null:String(e),serialize:e=>o.isNone(e)?null:String(e)})
-e.BooleanTransform=d,e.DateTransform=f,e.EmbeddedRecordsMixin=c,e.NumberTransform=p,e.StringTransform=m,e.Transform=u,e.modelHasAttributeOrRelationshipNamedType=function(e){return i.get(e,"attributes").has("type")||i.get(e,"relationshipsByName").has("type")},Object.defineProperty(e,"__esModule",{value:!0})})),define("@ember-data/serializer/index",["exports","@ember/object"],(function(e,t){"use strict"
+return-1!==t&&e.length-5===t?(t+=3,new Date(e.slice(0,t)+":"+e.slice(t))):new Date(e)}return"number"===t?new Date(e):null==e?e:null}serialize(e){return e instanceof Date&&!isNaN(e)?e.toISOString():null}},e.EmbeddedRecordsMixin=c,e.NumberTransform=class extends u{deserialize(e){let t
+return""===e||null==e?null:(t=Number(e),d(t)?t:null)}serialize(e){let t
+return""===e||null==e?null:(t=Number(e),d(t)?t:null)}},e.StringTransform=class extends u{deserialize(e){return o.isNone(e)?null:String(e)}serialize(e){return o.isNone(e)?null:String(e)}},e.Transform=u,e.modelHasAttributeOrRelationshipNamedType=function(e){return i.get(e,"attributes").has("type")||i.get(e,"relationshipsByName").has("type")},Object.defineProperty(e,"__esModule",{value:!0})})),define("@ember-data/serializer/index",["exports","@ember/object"],(function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var r=t.default.extend({normalizeResponse:null,serialize:null,normalize:(e,t)=>t})
 e.default=r})),define("@ember-data/serializer/json-api",["exports","@ember/debug","@ember/string","@ember/utils","ember-inflector","@ember-data/serializer/json","@ember-data/store"],(function(e,t,r,i,n,a,o){"use strict"
@@ -4990,10 +4987,8 @@ for(let l=0;l<n;l++){let t=e[l],r=t.identifier
 a[l]=r,s.set(r,t.options),o[r.id]=t}if(i){let e,i=new Array(n)
 for(let t=0;t<n;t++){let e=s.get(a[t])
 i[t]=new be(e,a[t],this._store)}e=r.groupRecordsForFindMany?r.groupRecordsForFindMany(this,i):[i]
-for(let n=0,a=e.length;n<a;n++)this._processCoalescedGroup(o,e[n],r,s,t)}else for(let l=0;l<n;l++)this._fetchRecord(e[l])}getPendingFetch(e,t){let r=this.requestCache.getPendingRequestsForRecord(e).filter((e=>"query"===e.type&&function(e,t){void 0===e&&(e={})
-void 0===t&&(t={})
-return e.include===t.include}(t,e.request.data[0].options)))
-if(r.length>0)return r[0][he]}flushAllPendingFetches(){this.isDestroyed||(this._pendingFetch.forEach(this._flushPendingFetchForType,this),this._pendingFetch.clear())}destroy(){this.isDestroyed=!0}}var xe=P.default
+for(let n=0,a=e.length;n<a;n++)this._processCoalescedGroup(o,e[n],r,s,t)}else for(let l=0;l<n;l++)this._fetchRecord(e[l])}getPendingFetch(e){let t=this.requestCache.getPendingRequestsForRecord(e).filter((e=>"query"===e.type))
+if(t.length>0)return t[0][he]}flushAllPendingFetches(){this.isDestroyed||(this._pendingFetch.forEach(this._flushPendingFetchForType,this),this._pendingFetch.clear())}destroy(){this.isDestroyed=!0}}var xe=P.default
 class we{constructor(e,t,r){void 0===r&&(r={}),this._snapshots=void 0,this._recordArray=void 0,this._type=void 0,this.length=void 0,this.meta=void 0,this.adapterOptions=void 0,this.include=void 0,this._snapshots=null,this._recordArray=e,this.length=e.get("length"),this._type=null,this.meta=t,this.adapterOptions=r.adapterOptions,this.include=r.include}get type(){return this._type||(this._type=this._recordArray.get("type"))}get modelName(){return this._recordArray.modelName}snapshots(){return null!==this._snapshots||(this._snapshots=this._recordArray._takeSnapshot()),this._snapshots}}class ke{constructor(e){this._idToModel=Object.create(null),this._models=[],this.modelName=e}get(e){return this._idToModel[e]||null}has(e){return!!this._idToModel[e]}get length(){return this._models.length}get recordIdentifiers(){return this._models.map((e=>e.identifier))}set(e,t){this._idToModel[e]=t}add(e,t){t&&(this._idToModel[t]=e),this._models.push(e)}remove(e,t){delete this._idToModel[t]
 let r=this._models.indexOf(e);-1!==r&&this._models.splice(r,1)}contains(e){return-1!==this._models.indexOf(e)}get models(){return this._models}clear(){let e=this._models
 this._models=[]
@@ -5080,8 +5075,7 @@ return Ze(t)&&t.links&&(e=t.links.related,e=e&&"string"!=typeof e?e.href:e),e||n
 return e&&e.links?e.links:null}meta(){let e=null,t=this._resource()
 return t&&t.meta&&"object"==typeof t.meta&&(e=t.meta),e}}var it,nt,at,ot
 function st(e,t){if(!Object.prototype.hasOwnProperty.call(e,t))throw new TypeError("attempted to use private field on non-instance")
-return e}Object.defineProperty(rt.prototype,"internalModel",{get(){return et.get(this)}})
-var lt=0
+return e}var lt=0
 function ct(e){return"__private_"+lt+++"_"+e}function ut(e,t,r,i,n){var a={}
 return Object.keys(i).forEach((function(e){a[e]=i[e]})),a.enumerable=!!a.enumerable,a.configurable=!!a.configurable,("value"in a||a.initializer)&&(a.writable=!0),a=r.slice().reverse().reduce((function(r,i){return i(e,t,r)||r}),a),n&&void 0!==a.initializer&&(a.value=a.initializer?a.initializer.call(n):void 0,a.initializer=void 0),void 0===a.initializer&&(Object.defineProperty(e,t,a),a=null),a}let dt=(at=ct("token"),ot=ct("relatedToken"),nt=ut((it=class extends rt{constructor(e,t,r,i){var n,a,o,s
 super(e,t),Object.defineProperty(this,at,{writable:!0,value:void 0}),Object.defineProperty(this,ot,{writable:!0,value:null}),n=this,a="_ref",s=this,(o=nt)&&Object.defineProperty(n,a,{enumerable:o.enumerable,configurable:o.configurable,writable:o.writable,value:o.initializer?o.initializer.call(s):void 0}),this.key=i,this.belongsToRelationship=r,this.type=r.definition.type
@@ -5291,15 +5285,15 @@ const n=Ne(this).build({type:r,id:i.id})
 return n.send("loadedData"),n.didCreateRecord(),n.getRecord(i)}))))}_generateId(e,t){let r=this.adapterFor(e)
 return r&&r.generateIdForRecord?r.generateIdForRecord(this,e,t):null}deleteRecord(e){this._backburner.join((()=>{{let t=Oe(e)
 if(t){let e=Ne(this).peek(t)
-e&&e.deleteRecord()}else e.deleteRecord()}}))}unloadRecord(e){{let t=Oe(e)
+e&&e.deleteRecord()}}}))}unloadRecord(e){{let t=Oe(e)
 if(t){let e=Ne(this).peek(t)
-e&&e.unloadRecord()}else e.unloadRecord()}}find(e,t,r){return this.findRecord(e,t)}findRecord(e,t,r){if(mr(e))r=t
+e&&e.unloadRecord()}}}find(e,t,r){return this.findRecord(e,t)}findRecord(e,t,r){if(mr(e))r=t
 else{e=Z(j(e),N(t))}const i=Ne(this).lookup(e)
 if(r=r||{},!i.currentState.isLoaded)return this._findByInternalModel(i,r)
 return ne(this._findRecord(i,r),`DS: Store#findRecord ${i.identifier}`)}_findRecord(e,t){if(t.reload)return this._scheduleFetch(e,t)
 let r=e.createSnapshot(t),i=this.adapterFor(e.modelName)
 return void 0===t.reload&&i.shouldReloadRecord&&i.shouldReloadRecord(this,r)?this._scheduleFetch(e,t):(!1===t.backgroundReload||(t.backgroundReload||!i.shouldBackgroundReloadRecord||i.shouldBackgroundReloadRecord(this,r))&&this._scheduleFetch(e,t),f.Promise.resolve(e))}_findByInternalModel(e,t){return void 0===t&&(t={}),t.preload&&this._backburner.join((()=>{e.preloadData(t.preload)})),ne(this._findEmptyInternalModel(e,t),`DS: Store#findRecord ${e.modelName} with id: ${e.id}`)}_findEmptyInternalModel(e,t){if(e.currentState.isEmpty)return this._scheduleFetch(e,t)
-if(e.currentState.isLoading){let r=this._fetchManager.getPendingFetch(e.identifier,t)
+if(e.currentState.isLoading){let r=this._fetchManager.getPendingFetch(e.identifier)
 return r?r.then((()=>f.Promise.resolve(e))):this._scheduleFetch(e,t)}return f.Promise.resolve(e)}findByIds(e,t){let r=new Array(t.length),i=j(e)
 for(let n=0;n<t.length;n++)r[n]=this.findRecord(i,t[n])
 return ie(f.all(r).then(o.A,null,`DS: Store#findByIds of ${i} complete`))}_fetchRecord(e,t){let r=e.modelName
@@ -5359,7 +5353,7 @@ const n=e.data?this._internalModelForResource(e.data):null
 let{isStale:a,hasDematerializedInverse:o,hasReceivedData:s,isEmpty:l,shouldForceReload:c}=e._relationship.state
 const u=hr(this,e)
 let d=e.links&&e.links.related&&(c||o||a||!u&&!l)
-if(n){let e=this._fetchManager.getPendingFetch(n.identifier,i)
+if(n){let e=this._fetchManager.getPendingFetch(n.identifier)
 if(e)return e.then((()=>n.getRecord()))}if(d)return this._fetchBelongsToLinkFromResource(e,t,r,i)
 let h=s&&u&&!l,p=o||l&&e.data,m=void 0===e.data||null===e.data
 if(!c&&!a&&(h||p))return m?f.resolve(null):this._findByInternalModel(n,i)
@@ -5561,7 +5555,7 @@ Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(e){return e?
 function t(e){return i.packages[e]}function r(){return i.global}Object.defineProperty(e,"__esModule",{value:!0}),e.config=t,e.each=function(e){if(!Array.isArray(e))throw new Error("the argument to the each() macro must be an array")
 return e},e.getGlobalConfig=r,e.isTesting=function(){let e=i.global,t=e&&e["@embroider/macros"]
 return Boolean(t&&t.isTesting)},e.macroCondition=function(e){return e}
-const i={packages:{"/home/runner/work/ember-validated-form/ember-validated-form/node_modules/ember-get-config":{config:{modulePrefix:"dummy",environment:"production",rootURL:"/ADDON_DOCS_ROOT_URL/",locationType:"history",historySupportMiddleware:!0,"ember-validated-form":{theme:"bootstrap",defaults:{hint:"permanent-custom-hint"},features:{scrollErrorIntoView:!1}},EmberENV:{FEATURES:{},EXTEND_PROTOTYPES:{Date:!1},_APPLICATION_TEMPLATE_WRAPPER:!1,_DEFAULT_ASYNC_OBSERVERS:!0,_JQUERY_INTEGRATION:!1,_TEMPLATE_ONLY_GLIMMER_COMPONENTS:!0},APP:{},"ember-cli-addon-docs":{projectName:"ember-validated-form",projectDescription:"Easily create forms with client-side validations",projectTag:"5.2.2",projectHref:"https://github.com/adfinis-sygroup/ember-validated-form",docsAppPathInRepo:"tests/dummy/app",addonPathInRepo:"addon",primaryBranch:"master",latestVersionName:"-latest",deployVersion:"ADDON_DOCS_DEPLOY_VERSION",searchTokenSeparator:"\\s+",showImportPaths:!0},"ember-modal-dialog":{hasEmberTether:"2.0.1"}}}},global:{"@embroider/macros":{isTesting:!1}}}
+const i={packages:{"/home/runner/work/ember-validated-form/ember-validated-form/node_modules/ember-get-config":{config:{modulePrefix:"dummy",environment:"production",rootURL:"/ADDON_DOCS_ROOT_URL/",locationType:"history",historySupportMiddleware:!0,"ember-validated-form":{theme:"bootstrap",defaults:{hint:"permanent-custom-hint"},features:{scrollErrorIntoView:!1}},EmberENV:{FEATURES:{},EXTEND_PROTOTYPES:{Date:!1},_APPLICATION_TEMPLATE_WRAPPER:!1,_DEFAULT_ASYNC_OBSERVERS:!0,_JQUERY_INTEGRATION:!1,_TEMPLATE_ONLY_GLIMMER_COMPONENTS:!0},APP:{},"ember-cli-addon-docs":{projectName:"ember-validated-form",projectDescription:"Easily create forms with client-side validations",projectTag:"5.3.0",projectHref:"https://github.com/adfinis-sygroup/ember-validated-form",docsAppPathInRepo:"tests/dummy/app",addonPathInRepo:"addon",primaryBranch:"master",latestVersionName:"-latest",deployVersion:"ADDON_DOCS_DEPLOY_VERSION",searchTokenSeparator:"\\s+",showImportPaths:!0},"ember-modal-dialog":{hasEmberTether:"2.0.1"}}}},global:{"@embroider/macros":{isTesting:!1}}}
 let n="undefined"!=typeof window?window._embroider_macros_runtime_config:void 0
 if(n){let e={config:t,getGlobalConfig:r,setConfig(e,t){i.packages[e]=t},setGlobalConfig(e,t){i.global[e]=t}}
 for(let t of n)t(e)}})),define("@embroider/util/ember-private-api",["exports","@embroider/macros/es-compat"],(function(e,t){"use strict"
@@ -6914,13 +6908,12 @@ Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"defaul
 Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return t.EmbeddedRecordsMixin}})})),define("ember-data/serializers/json-api",["exports","@ember-data/serializer/json-api"],(function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return t.default}})})),define("ember-data/serializers/json",["exports","@ember-data/serializer/json"],(function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return t.default}})})),define("ember-data/serializers/rest",["exports","@ember-data/serializer/rest"],(function(e,t){"use strict"
-Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return t.default}})})),define("ember-data/setup-container",["exports","@ember/debug","@ember-data/store"],(function(e,t,r){"use strict"
-Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(e){(function(e){0
-e.registerOptionsForType("serializer",{singleton:!1}),e.registerOptionsForType("adapter",{singleton:!1}),e.hasRegistration("service:store")||e.register("service:store",r.default)})(e)}})),define("ember-data/store",["exports","@ember-data/store"],(function(e,t){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return t.default}})})),define("ember-data/setup-container",["exports","@ember-data/store"],(function(e,t){"use strict"
+Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(e){(function(e){e.registerOptionsForType("serializer",{singleton:!1}),e.registerOptionsForType("adapter",{singleton:!1}),e.hasRegistration("service:store")||e.register("service:store",t.default)})(e)}})),define("ember-data/store",["exports","@ember-data/store"],(function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return t.default}})})),define("ember-data/transform",["exports","@ember-data/serializer/transform"],(function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return t.default}})})),define("ember-data/version",["exports"],(function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
-e.default="4.1.0"})),define("ember-fetch/errors",["exports"],(function(e){"use strict"
+e.default="4.2.0"})),define("ember-fetch/errors",["exports"],(function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.isAbortError=function(e){return"AbortError"==e.name},e.isBadRequestResponse=function(e){return 400===e.status},e.isConflictResponse=function(e){return 409===e.status},e.isForbiddenResponse=function(e){return 403===e.status},e.isGoneResponse=function(e){return 410===e.status},e.isInvalidResponse=function(e){return 422===e.status},e.isNotFoundResponse=function(e){return 404===e.status},e.isServerErrorResponse=function(e){return e.status>=500&&e.status<600},e.isUnauthorizedResponse=function(e){return 401===e.status}})),define("ember-fetch/types",["exports"],(function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.isPlainObject=function(e){return"[object Object]"===Object.prototype.toString.call(e)}})),define("ember-fetch/utils/determine-body-promise",["exports","@ember/debug"],(function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(e,r){return e.text().then((function(i){let n=i
@@ -6943,7 +6936,7 @@ else for(c in o)e(c,o[c])
 return i}("",e).join("&").replace(/%20/g,"+")}function n(e,t,r){void 0!==r&&(null===r&&(r=""),r="function"==typeof r?r():r,e[e.length]=`${encodeURIComponent(t)}=${encodeURIComponent(r)}`)}var a=i
 e.default=a})),define("ember-get-config/index",["exports"],(function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
-e.default={modulePrefix:"dummy",environment:"production",rootURL:"/ADDON_DOCS_ROOT_URL/",locationType:"history",historySupportMiddleware:!0,"ember-validated-form":{theme:"bootstrap",defaults:{hint:"permanent-custom-hint"},features:{scrollErrorIntoView:!1}},EmberENV:{FEATURES:{},EXTEND_PROTOTYPES:{Date:!1},_APPLICATION_TEMPLATE_WRAPPER:!1,_DEFAULT_ASYNC_OBSERVERS:!0,_JQUERY_INTEGRATION:!1,_TEMPLATE_ONLY_GLIMMER_COMPONENTS:!0},APP:{},"ember-cli-addon-docs":{projectName:"ember-validated-form",projectDescription:"Easily create forms with client-side validations",projectTag:"5.2.2",projectHref:"https://github.com/adfinis-sygroup/ember-validated-form",docsAppPathInRepo:"tests/dummy/app",addonPathInRepo:"addon",primaryBranch:"master",latestVersionName:"-latest",deployVersion:"ADDON_DOCS_DEPLOY_VERSION",searchTokenSeparator:"\\s+",showImportPaths:!0},"ember-modal-dialog":{hasEmberTether:"2.0.1"}}})),define("ember-inflector/index",["exports","ember-inflector/lib/system"],(function(e,t){"use strict"
+e.default={modulePrefix:"dummy",environment:"production",rootURL:"/ADDON_DOCS_ROOT_URL/",locationType:"history",historySupportMiddleware:!0,"ember-validated-form":{theme:"bootstrap",defaults:{hint:"permanent-custom-hint"},features:{scrollErrorIntoView:!1}},EmberENV:{FEATURES:{},EXTEND_PROTOTYPES:{Date:!1},_APPLICATION_TEMPLATE_WRAPPER:!1,_DEFAULT_ASYNC_OBSERVERS:!0,_JQUERY_INTEGRATION:!1,_TEMPLATE_ONLY_GLIMMER_COMPONENTS:!0},APP:{},"ember-cli-addon-docs":{projectName:"ember-validated-form",projectDescription:"Easily create forms with client-side validations",projectTag:"5.3.0",projectHref:"https://github.com/adfinis-sygroup/ember-validated-form",docsAppPathInRepo:"tests/dummy/app",addonPathInRepo:"addon",primaryBranch:"master",latestVersionName:"-latest",deployVersion:"ADDON_DOCS_DEPLOY_VERSION",searchTokenSeparator:"\\s+",showImportPaths:!0},"ember-modal-dialog":{hasEmberTether:"2.0.1"}}})),define("ember-inflector/index",["exports","ember-inflector/lib/system"],(function(e,t){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0,Object.defineProperty(e,"pluralize",{enumerable:!0,get:function(){return t.pluralize}}),Object.defineProperty(e,"singularize",{enumerable:!0,get:function(){return t.singularize}})
 var r=t.Inflector
 e.default=r})),define("ember-inflector/lib/helpers/pluralize",["exports","ember-inflector","ember-inflector/lib/utils/make-helper"],(function(e,t,r){"use strict"
