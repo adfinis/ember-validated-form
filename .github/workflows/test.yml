@@ -31,12 +31,15 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
+      - name: Get yarn cache directory path
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
       - uses: actions/cache@v2
         with:
-          path: node_modules
+          path: ${{ steps.yarn-cache.outputs.dir }}
           key: yarn-${{ hashFiles('yarn.lock') }}
           restore-keys: |
-            yarn-${{ hashFiles('yarn.lock') }}
             yarn-
 
       - name: Install dependencies
@@ -57,12 +60,15 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
+      - name: Get yarn cache directory path
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
       - uses: actions/cache@v2
         with:
-          path: node_modules
+          path: ${{ steps.yarn-cache.outputs.dir }}
           key: yarn-${{ hashFiles('yarn.lock') }}
           restore-keys: |
-            yarn-${{ hashFiles('yarn.lock') }}
             yarn-
 
       - name: Install dependencies
@@ -108,12 +114,15 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
+      - name: Get yarn cache directory path
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
       - uses: actions/cache@v2
         with:
-          path: node_modules
+          path: ${{ steps.yarn-cache.outputs.dir }}
           key: yarn-${{ hashFiles('yarn.lock') }}
           restore-keys: |
-            yarn-${{ hashFiles('yarn.lock') }}
             yarn-
 
       - name: Install dependencies
@@ -122,12 +131,11 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: |
-            yarn
+            ${{ steps.yarn-cache.outputs.dir }}
             package
             yarn.lock
-          key: yarn-${{ matrix.scenario }}-${{ hashFiles('yarn.lock') }}-${{ hashFiles('config/ember-try.js') }}
+          key: yarn-${{ matrix.scenario }}-${{ hashFiles('yarn.lock') }} }}
           restore-keys: |
-            yarn-${{ matrix.scenario }}-${{ hashFiles('yarn.lock') }}-${{ hashFiles('config/ember-try.js') }}
             yarn-${{ matrix.scenario }}-
             yarn-
 
