@@ -46,7 +46,7 @@
     "@adfinis-sygroup/eslint-config": "1.5.0",
     "@adfinis-sygroup/semantic-release-config": "3.4.0",
     "@ember/optional-features": "2.0.0",
-    "@ember/test-helpers": "2.7.0",
+    "@ember/test-helpers": "2.8.1",
     "@embroider/test-setup": "1.6.0",
     "@fortawesome/ember-fontawesome": "0.3.2",
     "@fortawesome/free-solid-svg-icons": "6.1.1",
