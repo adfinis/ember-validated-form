@@ -8023,10 +8023,10 @@ ember-template-lint-plugin-prettier@4.0.0:
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
-ember-template-lint@4.8.0:
-  version "4.8.0"
-  resolved "https://registry.yarnpkg.com/ember-template-lint/-/ember-template-lint-4.8.0.tgz#023a4e4117f48acf87fea88d4b902f676b50d9cd"
-  integrity sha512-cn28J9bFd1qXuF23Sb7ydyFto1N+n6XjS/TfcrxKJ4eK5Wew0Ix4RDAdHy/Gc29zD2K0sAuwCwMAIokwCLI9Kg==
+ember-template-lint@4.10.0:
+  version "4.10.0"
+  resolved "https://registry.yarnpkg.com/ember-template-lint/-/ember-template-lint-4.10.0.tgz#7a0a15817ec3e83c5ac9c4b47e8018b007308635"
+  integrity sha512-Cvs7K8UxjhNecONpBlDAx6VzA7IwC7yunFGsvg/3gZqDpNVZvK4lwqCeIe/bsD3lDbMBETVHzKovgCq3pafvdw==
   dependencies:
     "@lint-todo/utils" "^13.0.3"
     aria-query "^5.0.0"
@@ -8043,7 +8043,7 @@ ember-template-lint@4.8.0:
     micromatch "^4.0.5"
     resolve "^1.22.0"
     v8-compile-cache "^2.3.0"
-    yargs "^17.4.1"
+    yargs "^17.5.1"
 
 ember-template-recast@^6.1.3:
   version "6.1.3"
@@ -17501,7 +17501,7 @@ yargs@^16.2.0:
     y18n "^5.0.5"
     yargs-parser "^20.2.2"
 
-yargs@^17.0.0, yargs@^17.4.1:
+yargs@^17.0.0, yargs@^17.5.1:
   version "17.5.1"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-17.5.1.tgz#e109900cab6fcb7fd44b1d8249166feb0b36e58e"
   integrity sha512-t6YAJcxDkNX7NFYiVtKvWUz8l+PaKTLiL63mJYWR2GnHq2gjEWISzsLp9wg3aY36dY1j+gfIEL3pIF+XlJJfbA==
