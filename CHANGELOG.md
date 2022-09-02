@@ -1,3 +1,10 @@
+## [5.3.1](https://github.com/adfinis-sygroup/ember-validated-form/compare/v5.3.0...v5.3.1) (2022-09-02)
+
+
+### Bug Fixes
+
+* **select:** fix promptIsSelectable in combination with targetPath ([#853](https://github.com/adfinis-sygroup/ember-validated-form/issues/853)) ([526d81f](https://github.com/adfinis-sygroup/ember-validated-form/commit/526d81f25eb47f938fa2fa031d5f5e710a0386bf))
+
 # [5.3.0](https://github.com/adfinis-sygroup/ember-validated-form/compare/v5.2.2...v5.3.0) (2022-02-22)
 
 
