@@ -7736,7 +7736,7 @@ e||(e=a.default.create({groupName:n,options:(0,i.A)()}),t.pushObject(e)),e.optio
 let n=this.args.options
 if(this.hasPreGroupedOptions&&(n=n.flatMap((e=>e.options))),this.args.multiple){const r=Array.prototype.filter.call(e.options,(e=>e.selected)).map((e=>e.value)),a=n.filter((e=>r.includes(i(e))))
 return t?a.map((e=>e[t])):a}const a=n.find((t=>i(t)===e.value))
-return t?a[t]:a}onUpdate(e){this.args.update&&this.args.update(this.findOption(e.target))}onBlur(e){this.args.setDirty&&this.args.setDirty(e.target.value)}},l(s.prototype,"onUpdate",[a.action],Object.getOwnPropertyDescriptor(s.prototype,"onUpdate"),s.prototype),l(s.prototype,"onBlur",[a.action],Object.getOwnPropertyDescriptor(s.prototype,"onBlur"),s.prototype),s)
+return t&&a?a[t]:a}onUpdate(e){this.args.update&&this.args.update(this.findOption(e.target))}onBlur(e){this.args.setDirty&&this.args.setDirty(e.target.value)}},l(s.prototype,"onUpdate",[a.action],Object.getOwnPropertyDescriptor(s.prototype,"onUpdate"),s.prototype),l(s.prototype,"onBlur",[a.action],Object.getOwnPropertyDescriptor(s.prototype,"onBlur"),s.prototype),s)
 e.default=u,(0,t.setComponentTemplate)(c,u)})),define("ember-validated-form/components/validated-input/types/textarea",["exports","@ember/component","@ember/template-factory","@ember/object","@glimmer/component"],(function(e,t,r,i,n){"use strict"
 var a
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
