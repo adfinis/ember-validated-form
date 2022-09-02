@@ -125,7 +125,9 @@ export default class SelectComponent extends Component {
 
     //single select
     const foundOption = options.find((item) => getValue(item) === target.value);
-    if (targetPath) {
+
+    // If @promptIsSelectable is set to true, foundOption in this case will be undefined.
+    if (targetPath && foundOption) {
       return foundOption[targetPath];
     }
     return foundOption;
