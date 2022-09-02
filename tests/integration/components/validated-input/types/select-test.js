@@ -254,5 +254,32 @@ module(
 
       await select("select", ["1", "2"]);
     });
+
+    test("prompt is selectable in compination with optionTargetPath, optionValuePath and optionLabelPath", async function (assert) {
+      assert.expect(3);
+      const values = [2, undefined];
+      this.set("options", [
+        { value: 1, text: "one" },
+        { value: 2, text: "two" },
+      ]);
+      this.set("update", (value) => {
+        assert.strictEqual(value, values.shift());
+      });
+
+      await render(
+        hbs`<ValidatedInput::Types::Select
+          @update={{this.update}}
+          @options={{this.options}}
+          @prompt="Choose this"
+          @promptIsSelectable={{true}}
+          @optionLabelPath="text"
+          @optionTargetPath="value"
+          @optionValuePath="value" />`
+      );
+
+      await select("select", "2");
+      await select("select", "option:first-child");
+      assert.dom("option:first-child").hasProperty("disabled", false);
+    });
   }
 );
