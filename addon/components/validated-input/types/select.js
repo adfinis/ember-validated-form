@@ -1,4 +1,3 @@
-import { A as emberArray, isArray } from "@ember/array";
 import { deprecate } from "@ember/debug";
 import EmberObject, { action, get } from "@ember/object";
 import Component from "@glimmer/component";
@@ -31,7 +30,8 @@ export default class SelectComponent extends Component {
 
   get hasPreGroupedOptions() {
     return (
-      this.args.options[0]?.groupName && isArray(this.args.options[0]?.options)
+      this.args.options[0]?.groupName &&
+      Array.isArray(this.args.options[0]?.options)
     );
   }
 
@@ -61,26 +61,26 @@ export default class SelectComponent extends Component {
     if (!groupLabelPath) {
       return this.args.options;
     }
-    const groups = emberArray();
+    const groups = [];
 
     this.args.options.forEach((item) => {
       const label = get(item, groupLabelPath);
 
       if (label) {
-        let group = groups.findBy("groupName", label);
+        let group = groups.find((group) => group.groupName === label);
 
         if (!group) {
           group = EmberObject.create({
             groupName: label,
-            options: emberArray(),
+            options: [],
           });
 
-          groups.pushObject(group);
+          groups.push(group);
         }
 
-        group.options.pushObject(this.normalize(item));
+        group.options.push(this.normalize(item));
       } else {
-        groups.pushObject(item);
+        groups.push(item);
       }
     });
 

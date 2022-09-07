@@ -39,7 +39,7 @@
     "ember-changeset": "^4.1.0",
     "ember-changeset-validations": "^4.1.0",
     "ember-cli-babel": "^7.26.11",
-    "ember-cli-htmlbars": "^6.0.1",
+    "ember-cli-htmlbars": "^6.1.0",
     "ember-truth-helpers": "^3.0.0"
   },
   "devDependencies": {
@@ -47,12 +47,12 @@
     "@adfinis-sygroup/semantic-release-config": "3.4.0",
     "@ember/optional-features": "2.0.0",
     "@ember/test-helpers": "2.8.1",
-    "@embroider/test-setup": "1.6.0",
+    "@embroider/test-setup": "1.8.3",
     "@fortawesome/ember-fontawesome": "0.4.0",
     "@fortawesome/free-solid-svg-icons": "6.1.1",
     "babel-eslint": "10.1.0",
     "broccoli-asset-rev": "3.0.0",
-    "ember-cli": "4.3.0",
+    "ember-cli": "4.6.0",
     "ember-cli-addon-docs": "ember-learn/ember-cli-addon-docs#667701d60650cf7af51611dbff9abf1879776421",
     "ember-cli-dependency-checker": "3.3.1",
     "ember-cli-deploy": "1.0.2",
@@ -76,11 +76,11 @@
     "ember-try": "2.0.0",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.5.0",
-    "eslint-plugin-ember": "10.6.1",
+    "eslint-plugin-ember": "11.0.2",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-prettier": "4.0.0",
-    "eslint-plugin-qunit": "7.2.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-qunit": "7.3.1",
     "husky": "8.0.1",
     "lint-staged": "13.0.3",
     "loader.js": "4.7.0",
@@ -91,7 +91,7 @@
     "webpack": "5.74.0"
   },
   "engines": {
-    "node": "12.* || 14.* || >= 16"
+    "node": "14.* || >= 16"
   },
   "ember": {
     "edition": "octane"
