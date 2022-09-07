@@ -30,17 +30,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-
-      - name: Get yarn cache directory path
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v3
-        with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
-          key: yarn-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            yarn-
+          cache: "yarn"
 
       - name: Install dependencies
         run: yarn install
@@ -59,17 +49,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-
-      - name: Get yarn cache directory path
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v3
-        with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
-          key: yarn-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            yarn-
+          cache: "yarn"
 
       - name: Install dependencies
         run: yarn install
@@ -115,31 +95,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
-
-      - name: Get yarn cache directory path
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v3
-        with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
-          key: yarn-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            yarn-
+          cache: "yarn"
 
       - name: Install dependencies
         run: yarn install
-
-      - uses: actions/cache@v3
-        with:
-          path: |
-            ${{ steps.yarn-cache.outputs.dir }}
-            package
-            yarn.lock
-          key: yarn-${{ matrix.scenario }}-${{ hashFiles('yarn.lock') }} }}
-          restore-keys: |
-            yarn-${{ matrix.scenario }}-
-            yarn-
 
       - name: Run tests
         run: yarn ember try:one ${{ matrix.scenario }} --skip-cleanup
