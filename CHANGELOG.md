@@ -1,3 +1,26 @@
+# [6.0.0](https://github.com/adfinis/ember-validated-form/compare/v5.3.1...v6.0.0) (2022-09-08)
+
+
+### chore
+
+* **deps:** update ember and drop node 12 support ([3f3fb67](https://github.com/adfinis/ember-validated-form/commit/3f3fb67e269b8e8e30f5939ccbbc58a01a2a6aa0))
+* **select:** remove deprecated option includeBlank on selects ([3ef60b2](https://github.com/adfinis/ember-validated-form/commit/3ef60b21c1bc10259ab3865aacb5b3e2fdeda6bc))
+
+
+### Features
+
+* support embroider builds ([b0b0bde](https://github.com/adfinis/ember-validated-form/commit/b0b0bdea32a035fa499a9b0bae7ed245b4dd66f7))
+
+
+### BREAKING CHANGES
+
+* **select:** Remove deprecated option `includeBlank` on select
+inputs.
+* This changes the global configuration for features,
+themes and default components completely. For instructions on how to
+migrate, check the migration to v6 guide.
+* **deps:** Drop support for Node v12 and Ember LTS 3.24
+
 ## [5.3.1](https://github.com/adfinis/ember-validated-form/compare/v5.3.0...v5.3.1) (2022-09-02)
 
 ### Bug Fixes
