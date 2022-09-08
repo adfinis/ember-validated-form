@@ -102,7 +102,6 @@ The select element also supports the following options:
 - `optionLabelPath`
 - `optionValuePath`
 - `optionTargetPath`
-- `includeBlank` (deprecated in favor of `prompt`)
 - `prompt`
 - `promptIsSelectable`
 - `groupLabelPath`

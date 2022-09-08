@@ -1,4 +1,3 @@
-import { deprecate } from "@ember/debug";
 import EmberObject, { action, get } from "@ember/object";
 import Component from "@glimmer/component";
 
@@ -9,24 +8,6 @@ import Component from "@glimmer/component";
  * the block syntax for options.
  */
 export default class SelectComponent extends Component {
-  constructor(...args) {
-    super(...args);
-
-    if (this.args.includeBlank) {
-      deprecate(
-        "The `includeBlank` property is deprecated. Please use `prompt` instead.",
-        false,
-        {
-          id: "ember-validated-form:NoMoreincludeBlank",
-          until: "6.0.0",
-          since: "5.1.0",
-          url: "https://github.com/adfinis/ember-validated-form/releases/tag/v5.1.0",
-          for: "ember-validated-form",
-        }
-      );
-    }
-  }
-
   get hasPreGroupedOptions() {
     return (
       this.args.options[0]?.groupName &&
