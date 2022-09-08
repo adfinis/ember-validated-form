@@ -23,12 +23,12 @@
   {{on "blur" this.onBlur}}
   ...attributes
 >
-  {{#if (or @prompt @includeBlank)}}
+  {{#if @prompt}}
     <option
       value=""
       disabled={{not @promptIsSelectable}}
       selected={{not @value}}
-    >{{or @prompt @includeBlank}}</option>
+    >{{@prompt}}</option>
   {{/if}}
 
   {{#if this.hasGrouping}}

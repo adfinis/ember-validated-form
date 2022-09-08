@@ -1,5 +1,7 @@
 # Migration to v6
 
+## Config
+
 `ember-validated-form` is heavily based on dynamic component invokation which
 needed alot of changes in order to make it work with embroider. For the
 consumers of the addon, the only thing that changes is the static configuration.
@@ -51,3 +53,8 @@ const app = new EmberAddon(defaults, {
 As you can see above, the values in the section `defaults` changed as well.
 Previously the value was just the name of the component used as default, since
 v6 this needs to be an importable path (which allows static analysis).
+
+## Removed deprecations
+
+The `includeBlank` argument for validated inputs has been removed in favor of
+`prompt`.
