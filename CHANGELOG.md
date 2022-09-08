@@ -1,3 +1,10 @@
+## [6.0.1](https://github.com/adfinis/ember-validated-form/compare/v6.0.0...v6.0.1) (2022-09-08)
+
+
+### Bug Fixes
+
+* **deps:** add missing dependency tracked-toolbox ([5b0f1a7](https://github.com/adfinis/ember-validated-form/commit/5b0f1a74dd33b20bcdb6bc09d55b7dc1426f5642))
+
 # [6.0.0](https://github.com/adfinis/ember-validated-form/compare/v5.3.1...v6.0.0) (2022-09-08)
 
 
