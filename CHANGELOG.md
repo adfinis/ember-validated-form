@@ -1,3 +1,10 @@
+## [6.0.2](https://github.com/adfinis/ember-validated-form/compare/v6.0.1...v6.0.2) (2022-09-09)
+
+
+### Bug Fixes
+
+* **deps:** remove unnecessary dependency to tracked-toolbox ([605c001](https://github.com/adfinis/ember-validated-form/commit/605c0018c44dcfd99685c35b3ba656cfab420a35))
+
 ## [6.0.1](https://github.com/adfinis/ember-validated-form/compare/v6.0.0...v6.0.1) (2022-09-08)
 
 
