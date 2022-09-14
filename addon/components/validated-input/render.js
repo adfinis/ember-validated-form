@@ -9,4 +9,5 @@ export default class RenderComponent extends Component {
   @passedOrDefault("types/radio-group") radioGroupComponent;
   @passedOrDefault("types/select") selectComponent;
   @passedOrDefault("types/textarea") textareaComponent;
+  @passedOrDefault("types/date") dateComponent;
 }

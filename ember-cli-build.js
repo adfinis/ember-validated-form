@@ -20,6 +20,7 @@ const SCENARIO_CONFIGS = {
       "types/select": "dummy/components/x-custom-select",
       "types/radio-group": "dummy/components/x-custom-radio-group",
       "types/textarea": "dummy/components/x-custom-textarea",
+      "types/date": "dummy/components/x-custom-date",
     },
   },
 };

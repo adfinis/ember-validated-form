@@ -13,6 +13,10 @@
     <this.checkboxComponent />
   {{else if (eq @type "textarea")}}
     <this.textareaComponent />
+  {{else if (and
+    (eq @type "date") (not-eq this.dateComponent this.inputComponent)
+  )}}
+    <this.dateComponent />
   {{else}}
     <this.inputComponent />
   {{/if}}

@@ -1,0 +1,17 @@
+{{! BEGIN-SNIPPET flatpickr-wrapper.hbs }}
+<@labelComponent />
+
+<div class="{{if @isValid 'is-valid'}} {{if @isInvalid 'is-invalid'}}">
+  <EmberFlatpickr
+    placeholder={{@placeholder}}
+    @date={{@value}}
+    @onChange={{@update}}
+    class="form-control"
+    ...attributes
+  />
+
+</div>
+
+<@hintComponent />
+<@errorComponent />
+{{! END-SNIPPET }}

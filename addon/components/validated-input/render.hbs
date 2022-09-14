@@ -86,6 +86,23 @@
         @update={{@update}}
         ...attributes
       />
+    {{else if (and
+      (eq @type "date") (not-eq this.dateComponent this.inputComponent)
+    )}}
+      <this.dateComponent
+        @autocomplete={{@autocomplete}}
+        @autofocus={{@autofocus}}
+        @disabled={{@disabled}}
+        @id={{@inputId}}
+        @name={{or @inputName @name}}
+        @placeholder={{@placeholder}}
+        @value={{@value}}
+        @isInvalid={{@isInvalid}}
+        @isValid={{@isValid}}
+        @setDirty={{@setDirty}}
+        @update={{@update}}
+        ...attributes
+      />
     {{else}}
       <this.inputComponent
         autocomplete={{@autocomplete}}

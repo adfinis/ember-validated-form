@@ -135,6 +135,60 @@ inside a label tag.
 
 - `<String[]>` **errors** The error messages of the field
 
+### Date
+
+`ember-validated-form` has no default date picker implemented. If you specify an input
+with type `date`, a plain input with the HTML5 (depending on your browser) will
+be rendered.
+
+<!-- prettier-ignore-start -->
+<DocsDemo as |demo|>
+  <demo.example>
+    <ValidatedForm as |f|>
+      <f.input @type='date' @label='Birthday (Plain HTML5)' @name='birthday' @hint='Enter your birthday' />
+    </ValidatedForm>
+  </demo.example>
+</DocsDemo>
+<!-- prettier-ignore-end -->
+
+This is on purpose due to there being many date picker components/addons
+available. And not every date picker fits every theme.
+
+If you would like to configure a custom date picker, configure a custom date
+component as specified in the _Defaults_ section of <DocsLink @route="docs.configuration">`Configuration`</DocsLink>.
+
+<!-- prettier-ignore-start -->
+<DocsDemo as |demo|>
+  <demo.example @name='custom-input-template.hbs'>
+    <ValidatedForm @model={{changeset (hash birthday=null)}} as |f|>
+      <f.input
+        @label='Birthday (Flatpickr)'
+        @name='birthday'
+        @placeholder="Click to open Flatpickr!"
+        @hint='Enter your birthday'
+        @renderComponent={{component 'flatpickr-wrapper'}}
+      />
+    </ValidatedForm>
+  </demo.example>
+
+  <demo.snippet @name='flatpickr-wrapper.hbs' @label='myapp/components/flatpickr-wrapper.hbs' />
+  <demo.snippet @name='config-custom-date.js' @label='ember-cli-build.js' />
+</DocsDemo>
+<!-- prettier-ignore-end -->
+
+**Arguments**
+
+- `<*>` **value** The current value of the field
+- `<Action>` **update** Action to update the value
+- `<String>` **inputId** The ID of the field (generated with `guidFor` from `@ember/object/internals`)
+- `<String>` **placeholder** The placeholder of the field
+- `<Boolean>` **isValid** Whether the form data is valid
+- `<Boolean>` **isInvalid** Whether the form data is invalid
+- `<Action>` **setDirty** Action to mark the field as dirty
+- `<String>` **name** The name of the field
+- `<Boolean>` **disabled** Whether the field is disabled
+- `<Boolean>` **autocomplete** Whether to enable autocompletion on the field
+
 ## validated-button
 
 <!-- prettier-ignore-start -->
