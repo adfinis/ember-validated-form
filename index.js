@@ -58,6 +58,9 @@ module.exports = {
     this.options["@embroider/macros"].setOwnConfig["types/textarea"] =
       defaults["types/textarea"] ??
       "ember-validated-form/components/validated-input/types/textarea";
+    this.options["@embroider/macros"].setOwnConfig["types/date"] =
+      defaults["types/date"] ??
+      "ember-validated-form/components/validated-input/types/input";
   },
 
   options: {

@@ -50,7 +50,7 @@ module("Integration | Component | validated form defaults", function (hooks) {
   testCustomComponents(
     "renders custom type components",
     async function (assert) {
-      assert.expect(6);
+      assert.expect(7);
 
       await render(hbs`
       <ValidatedForm as |f|>
@@ -60,6 +60,7 @@ module("Integration | Component | validated form defaults", function (hooks) {
         <f.input @type="radio-group" />
         <f.input @type="select" />
         <f.input @type="textarea" />
+        <f.input @type="date" />
       </ValidatedForm>
     `);
 
@@ -69,6 +70,7 @@ module("Integration | Component | validated form defaults", function (hooks) {
       assert.dom("custom-radio-group").exists();
       assert.dom("custom-select").exists();
       assert.dom("custom-textarea").exists();
+      assert.dom("custom-date").exists();
     }
   );
 });
