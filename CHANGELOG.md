@@ -1,3 +1,10 @@
+# [6.1.0](https://github.com/adfinis/ember-validated-form/compare/v6.0.2...v6.1.0) (2022-09-16)
+
+
+### Features
+
+* **input:** allow custom date component to be configured ([#861](https://github.com/adfinis/ember-validated-form/issues/861)) ([33bbafa](https://github.com/adfinis/ember-validated-form/commit/33bbafa4ac6a24d332ab4b1548abc4f2daef541f))
+
 ## [6.0.2](https://github.com/adfinis/ember-validated-form/compare/v6.0.1...v6.0.2) (2022-09-09)
 
 
