@@ -48,6 +48,13 @@
         @on-submit={{perform this.submit}}
         as |f|
       >
+        <f.input
+          @type="radioGroup"
+          @label="Title"
+          @name="title"
+          @options={{this.titles}}
+          @required={{true}}
+        />
 
         <f.input @label="First name" @name="firstName" @required={{true}} />
 
@@ -71,13 +78,7 @@
           @required={{true}}
         />
 
-        <f.input
-          @type="radioGroup"
-          @label="Gender"
-          @name="gender"
-          @options={{this.genders}}
-          @required={{true}}
-        />
+        <f.input @type="date" @label="Date of birth" @name="birthday" />
 
         <f.input
           @renderComponent={{component "favorite-colors" colors=this.colors}}
@@ -87,13 +88,23 @@
         />
 
         <f.input
+          @type="checkboxGroup"
+          @label="Receive notifications about"
+          @name="notifications"
+          @options={{this.notifications}}
+        />
+
+        <f.input
           @type="checkbox"
           @label="I agree with the terms and conditions"
           @name="terms"
           @required={{true}}
         />
 
-        <f.submit @label="Save" />
+        <f.submit
+          @label={{if this.submit.isRunning "Saving..." "Save"}}
+          @loading={{this.submit.isRunning}}
+        />
       </ValidatedForm>
       {{! END-SNIPPET }}
     </demo.example>
