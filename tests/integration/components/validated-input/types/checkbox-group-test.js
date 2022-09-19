@@ -1,4 +1,4 @@
-import { render } from "@ember/test-helpers";
+import { click, render } from "@ember/test-helpers";
 import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module } from "qunit";
@@ -28,6 +28,29 @@ module(
       `);
 
       assert.dom("input[type=checkbox]").exists({ count: 2 });
+    });
+
+    testDefault("it can select multiple values", async function (assert) {
+      this.options = [
+        { key: 1, label: 1 },
+        { key: 2, label: 2 },
+      ];
+      this.value = [];
+
+      await render(hbs`
+        <ValidatedInput::Types::CheckboxGroup
+          @options={{this.options}}
+          @value={{this.value}}
+          @update={{fn (mut this.value)}}
+          @setDirty={{fn (mut this.dirty) true}}
+        />
+      `);
+
+      await click('input[value="1"]');
+      await click('input[value="2"]');
+
+      assert.deepEqual(this.value, [1, 2]);
+      assert.true(this.dirty);
     });
 
     testUikit("it renders", async function (assert) {
