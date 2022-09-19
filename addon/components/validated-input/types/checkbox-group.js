@@ -6,16 +6,11 @@ export default class CheckboxGroupComponent extends Component {
   onUpdate(key, event) {
     event.preventDefault();
 
-    const value = this.value || [];
-    const index = value.indexOf(key);
+    const value = new Set(this.args.value || []);
 
-    if (index > -1) {
-      value.splice(index, 1);
-    } else {
-      value.push(key);
-    }
+    value.delete(key) || value.add(key);
 
-    this.args.update(value);
+    this.args.update([...value]);
     this.args.setDirty();
   }
 }
