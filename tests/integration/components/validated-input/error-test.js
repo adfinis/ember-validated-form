@@ -35,6 +35,7 @@ module("Integration | Component | validated-input/error", function (hooks) {
     await render(hbs`<ValidatedInput::Error @errors={{this.errors}} />`);
 
     assert.dom("span").hasClass("invalid-feedback");
+    assert.dom("span").hasClass("d-block");
     assert.dom("span").hasText("foo, bar, baz");
   });
 });
