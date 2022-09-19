@@ -19,23 +19,28 @@ export default class IndexController extends Controller {
     return ["United States", "United Kingdom", "Switzerland", "Other"];
   }
 
-  get genders() {
+  get titles() {
     return [
-      {
-        key: "m",
-        label: "Male",
-      },
-      {
-        key: "f",
-        label: "Female",
-      },
+      { key: "mr", label: "Mr." },
+      { key: "mrs", label: "Mrs." },
+      { key: "ms", label: "Ms." },
+      { key: "prof", label: "Prof." },
+      { key: "dr", label: "Dr." },
+    ];
+  }
+
+  get notifications() {
+    return [
+      { key: "offers", label: "Offers" },
+      { key: "news", label: "News" },
+      { key: "features", label: "Features" },
     ];
   }
 
   @task
   *submit(model) {
     yield timeout(1000);
-    model.save();
+    yield model.save();
   }
 }
 // END-SNIPPET
