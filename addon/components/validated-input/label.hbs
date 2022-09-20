@@ -3,5 +3,5 @@
   for={{@inputId}}
   ...attributes
 >
-  {{yield}}{{@label}}{{if @required " *"}}
+  {{yield}}{{@label}}{{if (and @label @required) " *"}}
 </label>
