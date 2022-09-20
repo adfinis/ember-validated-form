@@ -1,3 +1,11 @@
+## [6.1.1](https://github.com/adfinis/ember-validated-form/compare/v6.1.0...v6.1.1) (2022-09-20)
+
+
+### Bug Fixes
+
+* **bootstrap:** make sure error feedback is always visible ([1722144](https://github.com/adfinis/ember-validated-form/commit/17221448567a4fb6dc53c39c3f42eb8eb66bdc3d))
+* **checkbox-group:** fix multiple selection in checkbox group ([6bb902b](https://github.com/adfinis/ember-validated-form/commit/6bb902b0577c68671f09f9cda65b5f16ac1b8fcb))
+
 # [6.1.0](https://github.com/adfinis/ember-validated-form/compare/v6.0.2...v6.1.0) (2022-09-16)
 
 
