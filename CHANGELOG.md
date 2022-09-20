@@ -1,3 +1,10 @@
+## [6.1.2](https://github.com/adfinis/ember-validated-form/compare/v6.1.1...v6.1.2) (2022-09-20)
+
+
+### Bug Fixes
+
+* **label:** only show requiredness indicator if a label is given ([72c212d](https://github.com/adfinis/ember-validated-form/commit/72c212dc036c643dca43e1c22a7ec43384f70ab5))
+
 ## [6.1.1](https://github.com/adfinis/ember-validated-form/compare/v6.1.0...v6.1.1) (2022-09-20)
 
 
