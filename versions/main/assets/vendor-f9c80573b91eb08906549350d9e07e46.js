@@ -7820,7 +7820,7 @@ const i=(0,r.createTemplateFactory)({id:"tkm0yXOm",block:'[[[11,"small"],[16,0,[
 var s=(0,t.setComponentTemplate)(i,(0,n.default)())
 e.default=s})),define("ember-validated-form/components/validated-input/label",["exports","@ember/component","@ember/template-factory","@ember/component/template-only"],(function(e,t,r,n){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
-const i=(0,r.createTemplateFactory)({id:"pTyOvgbs",block:'[[[11,"label"],[16,0,[27]],[16,"for",[30,1]],[17,2],[12],[1,"\\n  "],[18,5,null],[1,[30,3]],[1,[52,[30,4]," *"]],[1,"\\n"],[13]],["@inputId","&attrs","@label","@required","&default"],false,["yield","if"]]',moduleName:"ember-validated-form/components/validated-input/label.hbs",isStrictMode:!1})
+const i=(0,r.createTemplateFactory)({id:"lCLX1tfP",block:'[[[11,"label"],[16,0,[27]],[16,"for",[30,1]],[17,2],[12],[1,"\\n  "],[18,5,null],[1,[30,3]],[1,[52,[28,[37,2],[[30,3],[30,4]],null]," *"]],[1,"\\n"],[13]],["@inputId","&attrs","@label","@required","&default"],false,["yield","if","and"]]',moduleName:"ember-validated-form/components/validated-input/label.hbs",isStrictMode:!1})
 var s=(0,t.setComponentTemplate)(i,(0,n.default)())
 e.default=s}))
 define("ember-validated-form/components/validated-input/render",["exports","@ember/component","@ember/template-factory","@glimmer/component","ember-validated-form/passed-or-default"],(function(e,t,r,n,i){"use strict"
