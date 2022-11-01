@@ -1,5 +1,6 @@
 import { action, set, get } from "@ember/object";
 import { guidFor } from "@ember/object/internals";
+import { isEmpty } from "@ember/utils";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 
@@ -20,6 +21,14 @@ import passedOrDefault from "ember-validated-form/passed-or-default";
  */
 export default class ValidatedInputComponent extends Component {
   inputId = guidFor(this);
+
+  get errorId() {
+    return `${this.inputId}-error`;
+  }
+
+  get hintId() {
+    return !isEmpty(this.args.hint) ? `${this.inputId}-hint` : null;
+  }
 
   @tracked dirty;
   @tracked required;
