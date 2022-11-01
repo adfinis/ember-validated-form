@@ -87,6 +87,10 @@ module("Integration | Component | validated form", function (hooks) {
     assert.dom("input + div").doesNotExist();
     assert.dom("input + small").exists({ count: 1 });
     assert.dom("input + small").hasText("Not your middle name!");
+
+    const hintId = this.element.querySelector("input + small").id;
+
+    assert.dom("input").hasAria("describedby", hintId);
   });
 
   testDefault(
@@ -142,6 +146,7 @@ module("Integration | Component | validated form", function (hooks) {
     `);
 
       assert.dom("span.invalid-feedback").doesNotExist();
+      assert.dom("input").doesNotHaveAria("invalid");
 
       await click("button");
 
@@ -150,6 +155,11 @@ module("Integration | Component | validated form", function (hooks) {
       assert
         .dom("span.invalid-feedback")
         .hasText("First name must be between 3 and 40 characters");
+
+      const errorId = this.element.querySelector("span.invalid-feedback").id;
+
+      assert.dom("input").hasAria("invalid", "true");
+      assert.dom("input").hasAria("describedby", errorId);
     }
   );
 

@@ -21,11 +21,11 @@
   }}
 
   {{#if @hint}}
-    <this.hintComponent @hint={{@hint}} />
+    <this.hintComponent @hint={{@hint}} id={{this.hintId}} />
   {{/if}}
 
   {{#if (and this.showValidity this.errors)}}
-    <this.errorComponent @errors={{this.errors}} />
+    <this.errorComponent @errors={{this.errors}} id={{this.errorId}} />
   {{/if}}
 {{else}}
   <this.renderComponent
@@ -64,12 +64,20 @@
     }}
     @hintComponent={{if
       @hint
-      (component (ensure-safe-component this.hintComponent) hint=@hint)
+      (component
+        (ensure-safe-component this.hintComponent) hint=@hint id=this.hintId
+      )
     }}
     @errorComponent={{if
       (and this.showValidity this.errors)
-      (component (ensure-safe-component this.errorComponent) errors=this.errors)
+      (component
+        (ensure-safe-component this.errorComponent)
+        errors=this.errors
+        id=this.errorId
+      )
     }}
+    aria-invalid={{if this.isInvalid "true"}}
+    aria-describedby={{if this.isInvalid this.errorId this.hintId}}
     ...attributes
   />
 {{/if}}

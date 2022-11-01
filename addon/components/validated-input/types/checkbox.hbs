@@ -10,6 +10,7 @@
       disabled={{@disabled}}
       checked={{@value}}
       {{on "input" this.onUpdate}}
+      ...attributes
     />
   </@labelComponent>
 {{else if (macroCondition (macroGetOwnConfig "isBootstrap"))}}
@@ -24,6 +25,7 @@
       disabled={{@disabled}}
       checked={{@value}}
       {{on "input" this.onUpdate}}
+      ...attributes
     />
     <@labelComponent class="custom-control-label" />
   </div>

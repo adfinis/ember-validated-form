@@ -15,6 +15,7 @@
         id="{{@inputId}}-{{i}}"
         disabled={{@disabled}}
         {{on "input" (fn this.onUpdate option.key)}}
+        ...attributes
       />
       {{option.label}}
     </label>
@@ -31,6 +32,7 @@
         id="{{@inputId}}-{{i}}"
         disabled={{@disabled}}
         {{on "input" (fn this.onUpdate option.key)}}
+        ...attributes
       />
       <label
         class="custom-control-label"
