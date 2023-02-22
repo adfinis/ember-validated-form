@@ -61,6 +61,10 @@ module.exports = {
     this.options["@embroider/macros"].setOwnConfig["types/date"] =
       defaults["types/date"] ??
       "ember-validated-form/components/validated-input/types/input";
+
+    Object.keys(defaults).map (key => {
+      this.options["@embroider/macros"].setOwnConfig[key] = defaults[key];
+    });      
   },
 
   options: {
