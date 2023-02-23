@@ -1,3 +1,15 @@
+# [6.2.0](https://github.com/adfinis/ember-validated-form/compare/v6.1.2...v6.2.0) (2023-02-23)
+
+
+### Bug Fixes
+
+* scroll error into view with nested key names ([#904](https://github.com/adfinis/ember-validated-form/issues/904)) ([5c192a5](https://github.com/adfinis/ember-validated-form/commit/5c192a5b00abf05d80f36d1fad8b67a79a36e43c))
+
+
+### Features
+
+* **a11y:** add aria invalid and describedby attributes on validation ([6e16a51](https://github.com/adfinis/ember-validated-form/commit/6e16a5122f134ca991205c03c0dd8628288e4b08)), closes [#48](https://github.com/adfinis/ember-validated-form/issues/48)
+
 ## [6.1.2](https://github.com/adfinis/ember-validated-form/compare/v6.1.1...v6.1.2) (2022-09-20)
 
 
