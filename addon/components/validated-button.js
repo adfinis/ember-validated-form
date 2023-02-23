@@ -43,7 +43,7 @@ export default class ValidatedButtonComponent extends Component {
     if (macroCondition(getOwnConfig().scrollErrorIntoView)) {
       if (model.errors[0]?.key) {
         document
-          .querySelector(`[name=${model.errors[0].key}]`)
+          .querySelector(`[name=${model.errors[0].key.replaceAll(".", "\\.")}]`)
           ?.scrollIntoView({ behavior: "smooth" });
       }
     }
