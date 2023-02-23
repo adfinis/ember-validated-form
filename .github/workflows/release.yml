@@ -9,8 +9,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
+          ref: ${{ github.event.ref }}
           fetch-depth: 0
-          persist-credentials: false
+          token: ${{ secrets.GH_TOKEN }}
       - uses: actions/setup-node@v3
         with:
           node-version: 14
@@ -18,6 +19,11 @@ jobs:
 
       - name: Install dependencies
         run: yarn install
+        
+      - name: Configure git
+        run: |
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
       - name: Release on NPM
         env:
