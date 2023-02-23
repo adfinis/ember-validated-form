@@ -48,7 +48,9 @@ export default class ValidatedFormComponent extends Component {
       if (macroCondition(getOwnConfig().scrollErrorIntoView)) {
         if (model.errors[0]?.key) {
           document
-            .querySelector(`[name=${model.errors[0].key.replaceAll(".", "\\.")}]`)
+            .querySelector(
+              `[name=${model.errors[0].key.replaceAll(".", "\\.")}]`
+            )
             ?.scrollIntoView({ behavior: "smooth" });
         }
       }
