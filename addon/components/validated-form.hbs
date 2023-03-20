@@ -1,4 +1,8 @@
-<form autocomplete={{@autocomplete}} class={{if this.submitted "submitted"}}>
+<form
+  autocomplete={{@autocomplete}}
+  class={{if this.submitted "submitted"}}
+  ...attributes
+>
   {{yield
     (hash
       model=@model
