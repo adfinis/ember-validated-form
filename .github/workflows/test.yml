@@ -9,7 +9,7 @@ on:
       - main
 
 env:
-  NODE_VERSION: 14
+  NODE_VERSION: 18
 
 concurrency:
   group: test-${{ github.ref }}
@@ -23,7 +23,7 @@ jobs:
 
     strategy:
       matrix:
-        target: [js, hbs]
+        target: [js, hbs, css]
 
     steps:
       - uses: actions/checkout@v3
@@ -85,8 +85,8 @@ jobs:
       fail-fast: false
       matrix:
         scenario:
+          - ember-lts-4.8
           - ember-lts-4.4
-          - ember-lts-3.28
           - ember-release
           - ember-beta
           - ember-canary

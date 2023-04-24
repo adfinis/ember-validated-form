@@ -15,34 +15,28 @@ module(
     setupRenderingTest(hooks);
 
     testDefault("it renders", async function (assert) {
-      await render(hbs`
-        <ValidatedInput::Types::Input
-          @update={{fn (mut this.value)}}
-          @setDirty={{fn (mut this.dirty) true}}
-        />
-      `);
+      await render(hbs`<ValidatedInput::Types::Input
+  @update={{fn (mut this.value)}}
+  @setDirty={{fn (mut this.dirty) true}}
+/>`);
 
       assert.dom("input").exists();
     });
 
     testUikit("it renders", async function (assert) {
-      await render(hbs`
-        <ValidatedInput::Types::Input
-          @update={{fn (mut this.value)}}
-          @setDirty={{fn (mut this.dirty) true}}
-        />
-      `);
+      await render(hbs`<ValidatedInput::Types::Input
+  @update={{fn (mut this.value)}}
+  @setDirty={{fn (mut this.dirty) true}}
+/>`);
 
       assert.dom("input").hasClass("uk-input");
     });
 
     testBootstrap("it renders", async function (assert) {
-      await render(hbs`
-        <ValidatedInput::Types::Input
-          @update={{fn (mut this.value)}}
-          @setDirty={{fn (mut this.dirty) true}}
-        />
-      `);
+      await render(hbs`<ValidatedInput::Types::Input
+  @update={{fn (mut this.value)}}
+  @setDirty={{fn (mut this.dirty) true}}
+/>`);
 
       assert.dom("input").hasClass("form-control");
     });

@@ -15,23 +15,19 @@ module(
     setupRenderingTest(hooks);
 
     testDefault("it renders", async function (assert) {
-      await render(hbs`
-        <ValidatedInput::Types::Checkbox
-          @labelComponent={{component "validated-input/label" label="Test"}}
-          @update={{fn (mut this.value)}}
-        />
-      `);
+      await render(hbs`<ValidatedInput::Types::Checkbox
+  @labelComponent={{component "validated-input/label" label="Test"}}
+  @update={{fn (mut this.value)}}
+/>`);
 
       assert.dom("input[type=checkbox]").exists();
     });
 
     testUikit("it renders", async function (assert) {
-      await render(hbs`
-        <ValidatedInput::Types::Checkbox
-          @labelComponent={{component "validated-input/label" label="Test"}}
-          @update={{fn (mut this.value)}}
-        />
-      `);
+      await render(hbs`<ValidatedInput::Types::Checkbox
+  @labelComponent={{component "validated-input/label" label="Test"}}
+  @update={{fn (mut this.value)}}
+/>`);
 
       assert.dom("label > input").exists();
       assert.dom("input").hasClass("uk-checkbox");
@@ -39,12 +35,10 @@ module(
     });
 
     testBootstrap("it renders", async function (assert) {
-      await render(hbs`
-        <ValidatedInput::Types::Checkbox
-          @labelComponent={{component "validated-input/label" label="Test"}}
-          @update={{fn (mut this.value)}}
-        />
-      `);
+      await render(hbs`<ValidatedInput::Types::Checkbox
+  @labelComponent={{component "validated-input/label" label="Test"}}
+  @update={{fn (mut this.value)}}
+/>`);
 
       assert.dom("div.custom-control.custom-checkbox").exists();
       assert.dom("input").hasClass("custom-control-input");

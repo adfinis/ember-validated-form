@@ -13,18 +13,16 @@ module("Integration | Component | validated form defaults", function (hooks) {
 
     this.set("model", { error: { test1: { validation: ["Error"] } } });
 
-    await render(hbs`
-      <ValidatedForm as |f|>
-        <f.input
-          @name="test1"
-          @type="text"
-          @label="Label!"
-          @hint="Hint!"
-          @submitted={{true}}
-          @model={{this.model}}
-        />
-      </ValidatedForm>
-    `);
+    await render(hbs`<ValidatedForm as |f|>
+  <f.input
+    @name="test1"
+    @type="text"
+    @label="Label!"
+    @hint="Hint!"
+    @submitted={{true}}
+    @model={{this.model}}
+  />
+</ValidatedForm>`);
 
     assert.dom("custom-render").exists();
     assert.dom("custom-label").exists();
@@ -37,11 +35,9 @@ module("Integration | Component | validated form defaults", function (hooks) {
     async function (assert) {
       assert.expect(1);
 
-      await render(hbs`
-      <ValidatedForm as |f|>
-        <f.submit @label="Submit!" />
-      </ValidatedForm>
-    `);
+      await render(hbs`<ValidatedForm as |f|>
+  <f.submit @label="Submit!" />
+</ValidatedForm>`);
 
       assert.dom("custom-button").exists();
     }
@@ -52,17 +48,15 @@ module("Integration | Component | validated form defaults", function (hooks) {
     async function (assert) {
       assert.expect(7);
 
-      await render(hbs`
-      <ValidatedForm as |f|>
-        <f.input @type="checkbox" />
-        <f.input @type="checkbox-group" />
-        <f.input @type="text" />
-        <f.input @type="radio-group" />
-        <f.input @type="select" />
-        <f.input @type="textarea" />
-        <f.input @type="date" />
-      </ValidatedForm>
-    `);
+      await render(hbs`<ValidatedForm as |f|>
+  <f.input @type="checkbox" />
+  <f.input @type="checkbox-group" />
+  <f.input @type="text" />
+  <f.input @type="radio-group" />
+  <f.input @type="select" />
+  <f.input @type="textarea" />
+  <f.input @type="date" />
+</ValidatedForm>`);
 
       assert.dom("custom-checkbox").exists();
       assert.dom("custom-checkbox-group").exists();

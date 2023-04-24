@@ -14,22 +14,18 @@ module("Integration | Component | validated form", function (hooks) {
   setupRenderingTest(hooks);
 
   testDefault("it renders simple inputs", async function (assert) {
-    await render(hbs`
-      <ValidatedForm as |f|>
-        <f.input @label="First name" />
-      </ValidatedForm>
-    `);
+    await render(hbs`<ValidatedForm as |f|>
+  <f.input @label="First name" />
+</ValidatedForm>`);
 
     assert.dom("form label").hasText("First name");
     assert.dom("form input").hasAttribute("type", "text");
   });
 
   testDefault("it renders textareas", async function (assert) {
-    await render(hbs`
-      <ValidatedForm as |f|>
-        <f.input @type="textarea" @label="my label" />
-      </ValidatedForm>
-    `);
+    await render(hbs`<ValidatedForm as |f|>
+  <f.input @type="textarea" @label="my label" />
+</ValidatedForm>`);
 
     assert.dom("form label").hasText("my label");
     assert.dom("form textarea").exists({ count: 1 });
@@ -44,11 +40,14 @@ module("Integration | Component | validated form", function (hooks) {
       ],
     });
 
-    await render(hbs`
-      <ValidatedForm as |f|>
-        <f.input @type='radioGroup' @label='Options' @name='testOptions' @options={{this.buttonGroupData.options}} />
-      </ValidatedForm>
-    `);
+    await render(hbs`<ValidatedForm as |f|>
+  <f.input
+    @type="radioGroup"
+    @label="Options"
+    @name="testOptions"
+    @options={{this.buttonGroupData.options}}
+  />
+</ValidatedForm>`);
 
     assert.dom('input[type="radio"]').exists({ count: 3 });
     assert.dom("label:nth-of-type(1)").hasText("Options");
@@ -64,25 +63,19 @@ module("Integration | Component | validated form", function (hooks) {
   testDefault("it renders submit buttons", async function (assert) {
     this.set("stub", function () {});
 
-    await render(hbs`
-      <ValidatedForm
-        @on-submit={{this.stub}}
-        as |f|>
-        <f.input @label="First name"/>
-        <f.submit @label="Save!"/>
-      </ValidatedForm>
-    `);
+    await render(hbs`<ValidatedForm @on-submit={{this.stub}} as |f|>
+  <f.input @label="First name" />
+  <f.submit @label="Save!" />
+</ValidatedForm>`);
 
     assert.dom("form button").hasAttribute("type", "submit");
     assert.dom("form button").hasText("Save!");
   });
 
   testDefault("it renders an always-showing hint", async function (assert) {
-    await render(hbs`
-      <ValidatedForm as |f|>
-        <f.input @label="First name" @hint="Not your middle name!" />
-      </ValidatedForm>
-    `);
+    await render(hbs`<ValidatedForm as |f|>
+  <f.input @label="First name" @hint="Not your middle name!" />
+</ValidatedForm>`);
 
     assert.dom("input + div").doesNotExist();
     assert.dom("input + small").exists({ count: 1 });
@@ -96,11 +89,9 @@ module("Integration | Component | validated form", function (hooks) {
   testDefault(
     "does not render a <p> tag for buttons if no callbacks were passed",
     async function (assert) {
-      await render(hbs`
-      <ValidatedForm as |f|>
-        <f.input @label="First name" />
-      </ValidatedForm>
-    `);
+      await render(hbs`<ValidatedForm as |f|>
+  <f.input @label="First name" />
+</ValidatedForm>`);
 
       assert.dom("form > p").doesNotExist();
     }
@@ -109,13 +100,9 @@ module("Integration | Component | validated form", function (hooks) {
   testDefault("it supports default button labels", async function (assert) {
     this.set("stub", function () {});
 
-    await render(hbs`
-      <ValidatedForm
-        @on-submit={{this.stub}}
-        as |f|>
-        <f.submit />
-      </ValidatedForm>
-    `);
+    await render(hbs`<ValidatedForm @on-submit={{this.stub}} as |f|>
+  <f.submit />
+</ValidatedForm>`);
 
     assert.dom("form button[type=submit]").hasText("Save");
   });
@@ -135,15 +122,14 @@ module("Integration | Component | validated form", function (hooks) {
         );
       });
 
-      await render(hbs`
-      <ValidatedForm
-        @model={{changeset this.model this.UserValidations}}
-        @on-submit={{this.submit}}
-        as |f|>
-        <f.input @label="First name" @name="firstName"/>
-        <f.submit/>
-      </ValidatedForm>
-    `);
+      await render(hbs`<ValidatedForm
+  @model={{changeset this.model this.UserValidations}}
+  @on-submit={{this.submit}}
+  as |f|
+>
+  <f.input @label="First name" @name="firstName" />
+  <f.submit />
+</ValidatedForm>`);
 
       assert.dom("span.invalid-feedback").doesNotExist();
       assert.dom("input").doesNotHaveAria("invalid");
@@ -179,14 +165,10 @@ module("Integration | Component | validated form", function (hooks) {
 
       this.set("triggerValidations", false);
 
-      await render(hbs`
-      <ValidatedForm
-        @model={{changeset this.model this.UserValidations}}
-        as |f|>
-        <f.input @label="First name" @name="firstName"/>
-        <f.button @label="Hello" @triggerValidations={{this.triggerValidations}} />
-      </ValidatedForm>
-    `);
+      await render(hbs`<ValidatedForm @model={{changeset this.model this.UserValidations}} as |f|>
+  <f.input @label="First name" @name="firstName" />
+  <f.button @label="Hello" @triggerValidations={{this.triggerValidations}} />
+</ValidatedForm>`);
 
       assert.dom("span.invalid-feedback").doesNotExist();
       await click("button");
@@ -221,16 +203,14 @@ module("Integration | Component | validated form", function (hooks) {
         );
       });
 
-      await render(hbs`
-      <ValidatedForm
-        @model={{changeset this.model this.UserValidations}}
-        @on-invalid-submit={{this.invalidSubmit}}
-        as |f|
-      >
-        <f.input label="First name" name="firstName"/>
-        <f.submit/>
-      </ValidatedForm>
-    `);
+      await render(hbs`<ValidatedForm
+  @model={{changeset this.model this.UserValidations}}
+  @on-invalid-submit={{this.invalidSubmit}}
+  as |f|
+>
+  <f.input label="First name" name="firstName" />
+  <f.submit />
+</ValidatedForm>`);
 
       await click("button");
 
@@ -241,7 +221,8 @@ module("Integration | Component | validated form", function (hooks) {
   testDefault(
     "it does not call on-invalid-submit after submit if changeset is valid",
     async function (assert) {
-      let invalidSubmitCalled, submitCalled;
+      let invalidSubmitCalled;
+      let submitCalled;
       this.set("submit", function () {
         submitCalled = true;
       });
@@ -253,16 +234,15 @@ module("Integration | Component | validated form", function (hooks) {
         this.set("model", EmberObject.create({}));
       });
 
-      await render(hbs`
-      <ValidatedForm
-        @model={{this.model}}
-        @on-submit={{this.submit}}
-        @on-invalid-submit={{this.invalidSubmit}}
-        as |f|>
-        <f.input @label="First name" @name="firstName"/>
-        <f.submit/>
-      </ValidatedForm>
-    `);
+      await render(hbs`<ValidatedForm
+  @model={{this.model}}
+  @on-submit={{this.submit}}
+  @on-invalid-submit={{this.invalidSubmit}}
+  as |f|
+>
+  <f.input @label="First name" @name="firstName" />
+  <f.submit />
+</ValidatedForm>`);
 
       await click("button");
 
@@ -296,15 +276,13 @@ module("Integration | Component | validated form", function (hooks) {
         );
       });
 
-      await render(hbs`
-      <ValidatedForm
-        @model={{changeset this.model this.SimpleValidations}}
-        as |f|
-      >
-        <f.input @label="First name" @name="firstName"/>
-        <f.button @on-click={{this.onClick}} @on-invalid-click={{this.onInvalidClick}}/>
-      </ValidatedForm>
-    `);
+      await render(hbs`<ValidatedForm @model={{changeset this.model this.SimpleValidations}} as |f|>
+  <f.input @label="First name" @name="firstName" />
+  <f.button
+    @on-click={{this.onClick}}
+    @on-invalid-click={{this.onInvalidClick}}
+  />
+</ValidatedForm>`);
 
       await click("button");
       assert.verifySteps(["onInvalidClick"]);
@@ -324,16 +302,14 @@ module("Integration | Component | validated form", function (hooks) {
         this.set("model", EmberObject.create({}));
       });
 
-      await render(hbs`
-      <ValidatedForm
-        @model={{changeset this.model this.UserValidations}}
-        @on-submit=this.submit
-        as |f|
-      >
-        <f.input @label="First name" @name="firstName"/>
-        <f.submit />
-      </ValidatedForm>
-    `);
+      await render(hbs`<ValidatedForm
+  @model={{changeset this.model this.UserValidations}}
+  @on-submit={{this.submit}}
+  as |f|
+>
+  <f.input @label="First name" @name="firstName" />
+  <f.submit />
+</ValidatedForm>`);
 
       assert.dom("input + div").doesNotExist();
 
@@ -355,16 +331,15 @@ module("Integration | Component | validated form", function (hooks) {
         this.set("model", EmberObject.create({}));
       });
 
-      await render(hbs`
-      <ValidatedForm
-        @model={{changeset this.model this.UserValidations}}
-        @on-submit={{this.submit}}
-        @validateBeforeSubmit={{false}}
-        as |f|>
-        <f.input @label="First name" @name="firstName" />
-        <f.submit/>
-      </ValidatedForm>
-    `);
+      await render(hbs`<ValidatedForm
+  @model={{changeset this.model this.UserValidations}}
+  @on-submit={{this.submit}}
+  @validateBeforeSubmit={{false}}
+  as |f|
+>
+  <f.input @label="First name" @name="firstName" />
+  <f.submit />
+</ValidatedForm>`);
 
       assert.dom("span.invalid-feedback").doesNotExist();
 
@@ -389,14 +364,17 @@ module("Integration | Component | validated form", function (hooks) {
         this.set("model", EmberObject.create({}));
       });
 
-      await render(hbs`
-      <ValidatedForm
-        @model={{changeset this.model this.UserValidations}}
-        @on-submit={{this.submit}}
-        as |f|>
-        <f.input @label="First name" @name="firstName" @validateBeforeSubmit={{false}} />
-      </ValidatedForm>
-    `);
+      await render(hbs`<ValidatedForm
+  @model={{changeset this.model this.UserValidations}}
+  @on-submit={{this.submit}}
+  as |f|
+>
+  <f.input
+    @label="First name"
+    @name="firstName"
+    @validateBeforeSubmit={{false}}
+  />
+</ValidatedForm>`);
 
       assert.dom("input + div").doesNotExist();
 
@@ -418,14 +396,13 @@ module("Integration | Component | validated form", function (hooks) {
         this.set("model", EmberObject.create({}));
       });
 
-      await render(hbs`
-      <ValidatedForm
-        @model={{changeset this.model}}
-        @on-submit={{this.submit}}
-        as |f|>
-        <f.submit class={{if f.loading 'loading'}}/>
-      </ValidatedForm>
-    `);
+      await render(hbs`<ValidatedForm
+  @model={{changeset this.model}}
+  @on-submit={{this.submit}}
+  as |f|
+>
+  <f.submit class={{if f.loading "loading"}} />
+</ValidatedForm>`);
 
       assert.dom("button").doesNotHaveClass("loading");
 
@@ -448,14 +425,13 @@ module("Integration | Component | validated form", function (hooks) {
         this.set("model", EmberObject.create({}));
       });
 
-      await render(hbs`
-      <ValidatedForm
-        @model={{changeset this.model}}
-        @on-submit={{this.submit}}
-        as |f|>
-        <f.submit/>
-      </ValidatedForm>
-    `);
+      await render(hbs`<ValidatedForm
+  @model={{changeset this.model}}
+  @on-submit={{this.submit}}
+  as |f|
+>
+  <f.submit />
+</ValidatedForm>`);
 
       assert.dom("button").doesNotHaveClass("loading");
 
@@ -474,17 +450,16 @@ module("Integration | Component | validated form", function (hooks) {
       this.set("model", EmberObject.create({}));
     });
 
-    await render(hbs`
-      <ValidatedForm
-        @model={{changeset this.model}}
-        @on-submit={{this.submit}}
-        as |f|>
-        {{#if f.loading}}
-          <span class="loading">loading...</span>
-        {{/if}}
-        <f.submit/>
-      </ValidatedForm>
-    `);
+    await render(hbs`<ValidatedForm
+  @model={{changeset this.model}}
+  @on-submit={{this.submit}}
+  as |f|
+>
+  {{#if f.loading}}
+    <span class="loading">loading...</span>
+  {{/if}}
+  <f.submit />
+</ValidatedForm>`);
     assert.dom("span.loading").doesNotExist();
 
     await click("button");
@@ -509,19 +484,18 @@ module("Integration | Component | validated form", function (hooks) {
         this.set("model", EmberObject.create({}));
       });
 
-      await render(hbs`
-      {{#if this.show}}
-        <ValidatedForm
-          @model={{changeset this.model}}
-          @on-submit={{this.submit}}
-          as |f|>
-          {{#if f.loading}}
-            <span class="loading">loading...</span>
-          {{/if}}
-          <f.submit/>
-        </ValidatedForm>
-      {{/if}}
-    `);
+      await render(hbs`{{#if this.show}}
+  <ValidatedForm
+    @model={{changeset this.model}}
+    @on-submit={{this.submit}}
+    as |f|
+  >
+    {{#if f.loading}}
+      <span class="loading">loading...</span>
+    {{/if}}
+    <f.submit />
+  </ValidatedForm>
+{{/if}}`);
 
       await click("button");
       assert.ok(true);
@@ -544,19 +518,18 @@ module("Integration | Component | validated form", function (hooks) {
         this.set("model", EmberObject.create({}));
       });
 
-      await render(hbs`
-      {{#if this.show}}
-        <ValidatedForm
-          @model={{changeset this.model}}
-          @on-submit={{this.submit}}
-          as |f|>
-          {{#if f.loading}}
-            <span class="loading">loading...</span>
-          {{/if}}
-          <f.submit/>
-        </ValidatedForm>
-      {{/if}}
-    `);
+      await render(hbs`{{#if this.show}}
+  <ValidatedForm
+    @model={{changeset this.model}}
+    @on-submit={{this.submit}}
+    as |f|
+  >
+    {{#if f.loading}}
+      <span class="loading">loading...</span>
+    {{/if}}
+    <f.submit />
+  </ValidatedForm>
+{{/if}}`);
 
       await click("button");
       run(() => deferred.resolve());
@@ -565,10 +538,7 @@ module("Integration | Component | validated form", function (hooks) {
   );
 
   testDefault("it binds the autocomplete attribute", async function (assert) {
-    await render(hbs`
-      <ValidatedForm @autocomplete="off">
-      </ValidatedForm>
-    `);
+    await render(hbs`<ValidatedForm @autocomplete="off" />`);
 
     assert.dom("form").hasAttribute("autocomplete", "off");
   });

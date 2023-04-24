@@ -14,12 +14,12 @@ jobs:
           token: ${{ secrets.GH_TOKEN }}
       - uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 18
           cache: "yarn"
 
       - name: Install dependencies
         run: yarn install
-        
+
       - name: Configure git
         run: |
           git config user.name "${GITHUB_ACTOR}"
