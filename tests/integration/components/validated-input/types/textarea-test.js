@@ -15,34 +15,28 @@ module(
     setupRenderingTest(hooks);
 
     testDefault("it renders", async function (assert) {
-      await render(hbs`
-        <ValidatedInput::Types::Textarea
-          @update={{fn (mut this.value)}}
-          @setDirty={{fn (mut this.dirty) true}}
-        />
-      `);
+      await render(hbs`<ValidatedInput::Types::Textarea
+  @update={{fn (mut this.value)}}
+  @setDirty={{fn (mut this.dirty) true}}
+/>`);
 
       assert.dom("textarea").exists();
     });
 
     testUikit("it renders", async function (assert) {
-      await render(hbs`
-        <ValidatedInput::Types::Textarea
-          @update={{fn (mut this.value)}}
-          @setDirty={{fn (mut this.dirty) true}}
-        />
-      `);
+      await render(hbs`<ValidatedInput::Types::Textarea
+  @update={{fn (mut this.value)}}
+  @setDirty={{fn (mut this.dirty) true}}
+/>`);
 
       assert.dom("textarea").hasClass("uk-textarea");
     });
 
     testBootstrap("it renders", async function (assert) {
-      await render(hbs`
-        <ValidatedInput::Types::Textarea
-          @update={{fn (mut this.value)}}
-          @setDirty={{fn (mut this.dirty) true}}
-        />
-      `);
+      await render(hbs`<ValidatedInput::Types::Textarea
+  @update={{fn (mut this.value)}}
+  @setDirty={{fn (mut this.dirty) true}}
+/>`);
 
       assert.dom("textarea").hasClass("form-control");
     });

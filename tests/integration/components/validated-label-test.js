@@ -13,9 +13,9 @@ module("Integration | Component | validated label", function (hooks) {
   setupRenderingTest(hooks);
 
   testDefault("it renders labels", async function (assert) {
-    await render(hbs`
-      <ValidatedInput @label="Default name" @name="default-name" />
-    `);
+    await render(
+      hbs`<ValidatedInput @label="Default name" @name="default-name" />`
+    );
 
     assert.dom("label").hasText("Default name");
     const input = this.element.querySelector("input");
@@ -30,9 +30,7 @@ module("Integration | Component | validated label", function (hooks) {
     );
     this.CustomLabel = CustomLabel;
 
-    await render(hbs`
-      <ValidatedInput @labelComponent={{this.CustomLabel}} />
-    `);
+    await render(hbs`<ValidatedInput @labelComponent={{this.CustomLabel}} />`);
 
     assert.dom("label").hasAttribute("style", "color: green;");
   });
@@ -42,25 +40,21 @@ module("Integration | Component | validated label", function (hooks) {
     async function (assert) {
       class CustomLabel extends Component {}
       setComponentTemplate(
-        hbs`
-        <label style="color: green;">
-          <span id="orig-label">{{@label}}</span>
-          <span id="orig-input-id">{{@inputId}}</span>
-          <span id="orig-input-required">{{@required}}</span>
-        </label>
-      `,
+        hbs`<label style="color: green;">
+  <span id="orig-label">{{@label}}</span>
+  <span id="orig-input-id">{{@inputId}}</span>
+  <span id="orig-input-required">{{@required}}</span>
+</label>`,
         CustomLabel
       );
       this.CustomLabel = CustomLabel;
 
-      await render(hbs`
-      <ValidatedInput
-        @label="Name custom"
-        @name="orig-name"
-        @required={{true}}
-        @labelComponent={{this.CustomLabel}}
-      />
-    `);
+      await render(hbs`<ValidatedInput
+  @label="Name custom"
+  @name="orig-name"
+  @required={{true}}
+  @labelComponent={{this.CustomLabel}}
+/>`);
 
       assert.dom("label").hasAttribute("style", "color: green;");
       assert.dom("#orig-label").hasText("Name custom");
@@ -81,11 +75,12 @@ module("Integration | Component | validated label", function (hooks) {
       );
       this.CustomLabel = CustomLabel;
 
-      await render(hbs`
-      <ValidatedInput
-        @labelComponent={{component (ensure-safe-component this.CustomLabel) customVariable="Awesome!"}}
-      />
-    `);
+      await render(hbs`<ValidatedInput
+  @labelComponent={{component
+    (ensure-safe-component this.CustomLabel)
+    customVariable="Awesome!"
+  }}
+/>`);
 
       assert.dom("label").hasAttribute("style", "color: green;");
       assert.dom("label").hasText("Awesome!");

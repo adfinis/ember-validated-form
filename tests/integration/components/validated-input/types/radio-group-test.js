@@ -20,12 +20,10 @@ module(
         { key: 2, label: 2 },
       ]);
 
-      await render(hbs`
-        <ValidatedInput::Types::RadioGroup
-          @options={{this.options}}
-          @update={{fn (mut this.value)}}
-        />
-      `);
+      await render(hbs`<ValidatedInput::Types::RadioGroup
+  @options={{this.options}}
+  @update={{fn (mut this.value)}}
+/>`);
 
       assert.dom("input[type=radio]").exists({ count: 2 });
     });
@@ -42,12 +40,10 @@ module(
         },
       ]);
 
-      await render(hbs`
-        <ValidatedInput::Types::RadioGroup
-          @options={{this.options}}
-          @update={{fn (mut this.value)}}
-        />
-      `);
+      await render(hbs`<ValidatedInput::Types::RadioGroup
+  @options={{this.options}}
+  @update={{fn (mut this.value)}}
+/>`);
 
       assert.dom("label > input").exists({ count: 2 });
       assert.dom("input").hasClass("uk-radio");
@@ -66,12 +62,10 @@ module(
         },
       ]);
 
-      await render(hbs`
-        <ValidatedInput::Types::RadioGroup
-          @options={{this.options}}
-          @update={{fn (mut this.value)}}
-        />
-      `);
+      await render(hbs`<ValidatedInput::Types::RadioGroup
+  @options={{this.options}}
+  @update={{fn (mut this.value)}}
+/>`);
 
       assert.dom("div.custom-control.custom-radio").exists({ count: 2 });
       assert.dom("input").hasClass("custom-control-input");

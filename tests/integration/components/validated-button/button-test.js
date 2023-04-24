@@ -21,19 +21,17 @@ module("Integration | Component | validated-button/button", function (hooks) {
 
     assert.dom("button").exists();
 
-    await render(hbs`
-      <ValidatedButton::Button @onClick={{this.noop}}>
-        Test
-      </ValidatedButton::Button>
-    `);
+    await render(hbs`<ValidatedButton::Button @onClick={{this.noop}}>
+  Test
+</ValidatedButton::Button>`);
 
     assert.dom("button").hasText("Test");
   });
 
   testUikit("it renders", async function (assert) {
-    await render(hbs`
-        <ValidatedButton::Button @onClick={{this.noop}} @label="Test" />
-      `);
+    await render(
+      hbs`<ValidatedButton::Button @onClick={{this.noop}} @label="Test" />`
+    );
 
     assert.dom("button").hasText("Test");
     assert.dom("button").hasClass("uk-button");
@@ -41,11 +39,9 @@ module("Integration | Component | validated-button/button", function (hooks) {
   });
 
   testUikit("it renders in block style", async function (assert) {
-    await render(hbs`
-        <ValidatedButton::Button @onClick={{this.noop}}>
-          Test
-        </ValidatedButton::Button>
-      `);
+    await render(hbs`<ValidatedButton::Button @onClick={{this.noop}}>
+  Test
+</ValidatedButton::Button>`);
 
     assert.dom("button").hasText("Test");
   });
@@ -53,18 +49,18 @@ module("Integration | Component | validated-button/button", function (hooks) {
   testUikit(
     "it renders a primary button for submit buttons",
     async function (assert) {
-      await render(hbs`
-        <ValidatedButton::Button @onClick={{this.noop}} @label="Test" @type="submit" />
-      `);
+      await render(
+        hbs`<ValidatedButton::Button @onClick={{this.noop}} @label="Test" @type="submit" />`
+      );
 
       assert.dom("button").hasClass("uk-button-primary");
     }
   );
 
   testBootstrap("it renders", async function (assert) {
-    await render(hbs`
-        <ValidatedButton::Button @onClick={{this.noop}} @label="Test" />
-      `);
+    await render(
+      hbs`<ValidatedButton::Button @onClick={{this.noop}} @label="Test" />`
+    );
 
     assert.dom("button").hasText("Test");
     assert.dom("button").hasClass("btn");
@@ -72,11 +68,9 @@ module("Integration | Component | validated-button/button", function (hooks) {
   });
 
   testBootstrap("it renders in block style", async function (assert) {
-    await render(hbs`
-        <ValidatedButton::Button @onClick={{this.noop}}>
-          Test
-        </ValidatedButton::Button>
-      `);
+    await render(hbs`<ValidatedButton::Button @onClick={{this.noop}}>
+  Test
+</ValidatedButton::Button>`);
 
     assert.dom("button").hasText("Test");
   });
@@ -84,9 +78,9 @@ module("Integration | Component | validated-button/button", function (hooks) {
   testBootstrap(
     "it renders a primary button for submit buttons",
     async function (assert) {
-      await render(hbs`
-        <ValidatedButton::Button @onClick={{this.noop}} @label="Test" @type="submit" />
-      `);
+      await render(
+        hbs`<ValidatedButton::Button @onClick={{this.noop}} @label="Test" @type="submit" />`
+      );
 
       assert.dom("button").hasClass("btn-primary");
     }

@@ -39,7 +39,10 @@ module(
           assert.strictEqual(value, "bar");
         });
         await render(
-          hbs`<ValidatedInput::Types::Select @options={{this.options}} @update={{this.update}} />`
+          hbs`<ValidatedInput::Types::Select
+  @options={{this.options}}
+  @update={{this.update}}
+/>`
         );
 
         assert.dom("select").exists();
@@ -65,7 +68,11 @@ module(
         });
 
         await render(
-          hbs`<ValidatedInput::Types::Select @options={{this.options}} @update={{this.update}} @optionTargetPath="key" />`
+          hbs`<ValidatedInput::Types::Select
+  @options={{this.options}}
+  @update={{this.update}}
+  @optionTargetPath="key"
+/>`
         );
 
         assert.dom("option:first-child").hasText("firstOption");
@@ -82,7 +89,12 @@ module(
         ]);
 
         await render(
-          hbs`<ValidatedInput::Types::Select @options={{this.options}} @groupLabelPath="group" @optionValuePath="key" @optionLabelPath="label"/>`
+          hbs`<ValidatedInput::Types::Select
+  @options={{this.options}}
+  @groupLabelPath="group"
+  @optionValuePath="key"
+  @optionLabelPath="label"
+/>`
         );
 
         assert.dom("select").exists();
@@ -111,7 +123,11 @@ module(
         ]);
 
         await render(
-          hbs`<ValidatedInput::Types::Select @options={{this.options}} @optionValuePath="id" @optionLabelPath="label" />`
+          hbs`<ValidatedInput::Types::Select
+  @options={{this.options}}
+  @optionValuePath="id"
+  @optionLabelPath="label"
+/>`
         );
 
         assert.dom("select").exists();
@@ -131,7 +147,12 @@ module(
       ]);
 
       await render(
-        hbs`<ValidatedInput::Types::Select @optionLabelPath="label" @optionValuePath="key" @value={{this.value}} @options={{this.options}} />`
+        hbs`<ValidatedInput::Types::Select
+  @optionLabelPath="label"
+  @optionValuePath="key"
+  @value={{this.value}}
+  @options={{this.options}}
+/>`
       );
 
       assert.dom("select").hasValue(this.options[1].key);
@@ -146,7 +167,10 @@ module(
       ]);
 
       await render(
-        hbs`<ValidatedInput::Types::Select @options={{this.options}} @prompt="Choose this" />`
+        hbs`<ValidatedInput::Types::Select
+  @options={{this.options}}
+  @prompt="Choose this"
+/>`
       );
 
       assert.dom("option:first-child").hasText("Choose this");
@@ -160,7 +184,11 @@ module(
       ]);
 
       await render(
-        hbs`<ValidatedInput::Types::Select @options={{this.options}} @prompt="Choose this" @promptIsSelectable={{true}} />`
+        hbs`<ValidatedInput::Types::Select
+  @options={{this.options}}
+  @prompt="Choose this"
+  @promptIsSelectable={{true}}
+/>`
       );
 
       assert.dom("option:first-child").hasProperty("disabled", false);
@@ -181,7 +209,11 @@ module(
       });
 
       await render(
-        hbs`<ValidatedInput::Types::Select @options={{this.options}} @multiple={{true}} @update={{this.update}} />`
+        hbs`<ValidatedInput::Types::Select
+  @options={{this.options}}
+  @multiple={{true}}
+  @update={{this.update}}
+/>`
       );
 
       await select("select", ["1", "3"]);
@@ -200,7 +232,11 @@ module(
         });
 
         await render(
-          hbs`<ValidatedInput::Types::Select @options={{this.options}} @multiple={{true}} @update={{this.update}} />`
+          hbs`<ValidatedInput::Types::Select
+  @options={{this.options}}
+  @multiple={{true}}
+  @update={{this.update}}
+/>`
         );
 
         await select("select", ["1", "3"]);
@@ -233,11 +269,12 @@ module(
 
         await render(
           hbs`<ValidatedInput::Types::Select
-          @multiple={{true}}
-          @options={{this.options}}
-          @optionValuePath="id"
-          @optionLabelPath="label"
-          @update={{this.update}} />`
+  @multiple={{true}}
+  @options={{this.options}}
+  @optionValuePath="id"
+  @optionLabelPath="label"
+  @update={{this.update}}
+/>`
         );
 
         await select("select", ["1", "2"]);
@@ -270,12 +307,13 @@ module(
 
         await render(
           hbs`<ValidatedInput::Types::Select
-          @multiple={{true}}
-          @options={{this.options}}
-          @optionValuePath="id"
-          @optionTargetPath="id"
-          @optionLabelPath="label"
-          @update={{this.update}} />`
+  @multiple={{true}}
+  @options={{this.options}}
+  @optionValuePath="id"
+  @optionTargetPath="id"
+  @optionLabelPath="label"
+  @update={{this.update}}
+/>`
         );
 
         await select("select", ["1", "2"]);
@@ -337,13 +375,14 @@ module(
 
         await render(
           hbs`<ValidatedInput::Types::Select
-          @update={{this.update}}
-          @options={{this.options}}
-          @prompt="Choose this"
-          @promptIsSelectable={{true}}
-          @optionLabelPath="text"
-          @optionTargetPath="value"
-          @optionValuePath="value" />`
+  @update={{this.update}}
+  @options={{this.options}}
+  @prompt="Choose this"
+  @promptIsSelectable={{true}}
+  @optionLabelPath="text"
+  @optionTargetPath="value"
+  @optionValuePath="value"
+/>`
         );
 
         await select("select", "2");

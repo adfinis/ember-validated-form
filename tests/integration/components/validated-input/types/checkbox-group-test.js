@@ -20,12 +20,10 @@ module(
         { key: 2, label: 2 },
       ]);
 
-      await render(hbs`
-        <ValidatedInput::Types::CheckboxGroup
-          @options={{this.options}}
-          @update={{fn (mut this.value)}}
-        />
-      `);
+      await render(hbs`<ValidatedInput::Types::CheckboxGroup
+  @options={{this.options}}
+  @update={{fn (mut this.value)}}
+/>`);
 
       assert.dom("input[type=checkbox]").exists({ count: 2 });
     });
@@ -37,14 +35,12 @@ module(
       ];
       this.value = [];
 
-      await render(hbs`
-        <ValidatedInput::Types::CheckboxGroup
-          @options={{this.options}}
-          @value={{this.value}}
-          @update={{fn (mut this.value)}}
-          @setDirty={{fn (mut this.dirty) true}}
-        />
-      `);
+      await render(hbs`<ValidatedInput::Types::CheckboxGroup
+  @options={{this.options}}
+  @value={{this.value}}
+  @update={{fn (mut this.value)}}
+  @setDirty={{fn (mut this.dirty) true}}
+/>`);
 
       await click('input[value="1"]');
       await click('input[value="2"]');
@@ -65,12 +61,10 @@ module(
         },
       ]);
 
-      await render(hbs`
-        <ValidatedInput::Types::CheckboxGroup
-          @options={{this.options}}
-          @update={{fn (mut this.value)}}
-        />
-      `);
+      await render(hbs`<ValidatedInput::Types::CheckboxGroup
+  @options={{this.options}}
+  @update={{fn (mut this.value)}}
+/>`);
 
       assert.dom("label > input").exists();
       assert.dom("input").hasClass("uk-checkbox");
@@ -78,12 +72,13 @@ module(
     });
 
     testBootstrap("it renders", async function (assert) {
-      await render(hbs`
-        <ValidatedInput::Types::CheckboxGroup
-          @options={{array (hash key='t' label='Triangle') (hash key='s' label='Square')}}
-          @update={{fn (mut this.value)}}
-        />
-      `);
+      await render(hbs`<ValidatedInput::Types::CheckboxGroup
+  @options={{array
+    (hash key="t" label="Triangle")
+    (hash key="s" label="Square")
+  }}
+  @update={{fn (mut this.value)}}
+/>`);
 
       assert.dom("div.custom-control.custom-checkbox").exists();
       assert.dom("input").hasClass("custom-control-input");
