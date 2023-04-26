@@ -16,8 +16,3 @@ updates:
       timezone: "Europe/Zurich"
     open-pull-requests-limit: 10
     versioning-strategy: increase
-    ignore:
-      # https://github.com/ember-cli/ember-cli/issues/9307
-      - dependency-name: eslint
-        versions:
-          - ">= 8"
