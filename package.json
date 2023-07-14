@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@embroider/macros": "^1.10.0",
-    "@embroider/util": "^1.10.0",
+    "@embroider/util": "^1.11.2",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
     "ember-changeset": "^4.1.2",
