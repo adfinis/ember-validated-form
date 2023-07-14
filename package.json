@@ -35,7 +35,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@embroider/macros": "^1.10.0",
+    "@embroider/macros": "^1.12.3",
     "@embroider/util": "^1.10.0",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
