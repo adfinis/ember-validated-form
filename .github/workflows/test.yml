@@ -26,7 +26,7 @@ jobs:
         target: [js, hbs, css]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
@@ -45,7 +45,7 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
@@ -64,7 +64,7 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
@@ -94,7 +94,7 @@ jobs:
           - embroider-optimized
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
