@@ -1,3 +1,20 @@
+# [7.0.0](https://github.com/adfinis/ember-validated-form/compare/v6.2.0...v7.0.0) (2023-11-21)
+
+
+### chore
+
+* **deps:** update ember and dependencies ([fc26b0b](https://github.com/adfinis/ember-validated-form/commit/fc26b0be302c24dafccad37a53dc7dd2bcc59bc9))
+
+
+### Features
+
+* allow html attributes to be passed to wrapping form element ([b29f4d8](https://github.com/adfinis/ember-validated-form/commit/b29f4d88133aa58a9613aa9bf9f1f6a2761a7974))
+
+
+### BREAKING CHANGES
+
+* **deps:** Drop support for Ember v3.
+
 # [6.2.0](https://github.com/adfinis/ember-validated-form/compare/v6.1.2...v6.2.0) (2023-02-23)
 
 
