@@ -1602,12 +1602,12 @@
     lodash "^4.17.21"
     resolve "^1.20.0"
 
-"@embroider/util@^1.0.0", "@embroider/util@^1.10.0", "@embroider/util@^1.9.0":
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/@embroider/util/-/util-1.10.0.tgz#8320d73651e7f5d48dac1b71fb9e6d21cac7c803"
-  integrity sha512-utAFKoq6ajI27jyqjvX3PiGL4m+ZyGVlVNbSbE/nOqi2llRyAkh5ltH1WkIK7jhdwQFJouo1NpOSj9J3/HDa3A==
+"@embroider/util@^1.0.0", "@embroider/util@^1.12.1", "@embroider/util@^1.9.0":
+  version "1.12.1"
+  resolved "https://registry.yarnpkg.com/@embroider/util/-/util-1.12.1.tgz#6137c8b54d51a0813c81b9d2c81b9ab577f5259b"
+  integrity sha512-sEjFf2HOcqQdm3auernvvD3oXX/CdGTjo9eB5N8DmQBz9vseYNjn4kQRaAcyHWpCpMHe5Yr0d9xW8+4c9a9fJw==
   dependencies:
-    "@embroider/macros" "^1.10.0"
+    "@embroider/macros" "^1.13.3"
     broccoli-funnel "^3.0.5"
     ember-cli-babel "^7.26.11"
 
