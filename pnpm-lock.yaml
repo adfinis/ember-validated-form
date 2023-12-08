@@ -71,8 +71,8 @@ devDependencies:
     specifier: 3.0.0
     version: 3.0.0
   concurrently:
-    specifier: 8.0.1
-    version: 8.0.1
+    specifier: 8.2.2
+    version: 8.2.2
   ember-auto-import:
     specifier: 2.6.3
     version: 2.6.3(webpack@5.88.2)
@@ -6214,17 +6214,17 @@ packages:
       typedarray: 0.0.6
     dev: true
 
-  /concurrently@8.0.1:
-    resolution: {integrity: sha512-Sh8bGQMEL0TAmAm2meAXMjcASHZa7V0xXQVDBLknCPa9TPtkY9yYs+0cnGGgfdkW0SV1Mlg+hVGfXcoI8d3MJA==}
+  /concurrently@8.2.2:
+    resolution: {integrity: sha512-1dP4gpXFhei8IOtlXRE/T/4H88ElHgTiUzh71YUmtjTEHMSRS2Z/fgOxHSxxusGHogsRfxNq1vyAwxSC+EVyDg==}
     engines: {node: ^14.13.0 || >=16.0.0}
     hasBin: true
     dependencies:
       chalk: 4.1.2
       date-fns: 2.30.0
       lodash: 4.17.21
-      rxjs: 7.8.0
+      rxjs: 7.8.1
       shell-quote: 1.8.1
-      spawn-command: 0.0.2-1
+      spawn-command: 0.0.2
       supports-color: 8.1.1
       tree-kill: 1.2.2
       yargs: 17.7.2
@@ -14934,6 +14934,12 @@ packages:
       tslib: 2.6.2
     dev: true
 
+  /rxjs@7.8.1:
+    resolution: {integrity: sha512-AA3TVj+0A2iuIoQkWEK/tqFjBq2j+6PO6Y0zJcvzLAFhEFIO3HL0vls9hWLncZbAAbK0mar7oZ4V079I/qPMxg==}
+    dependencies:
+      tslib: 2.6.2
+    dev: true
+
   /safe-array-concat@1.0.1:
     resolution: {integrity: sha512-6XbUAseYE2KtOuGueyeobCySj9L4+66Tn6KQMOPQJrAJEowYKW/YR/MGJZl7FdydUdaFu4LYyDZjxf4/Nmo23Q==}
     engines: {node: '>=0.4'}
@@ -15536,8 +15542,8 @@ packages:
     resolution: {integrity: sha512-73BoniQDcRWgnLAf/suKH6V5H54gd1KLzwYN9FB6J/evqTV33htH9xwV/4BHek+++jzxpVlZQKKZkqstPQPmQg==}
     dev: true
 
-  /spawn-command@0.0.2-1:
-    resolution: {integrity: sha512-n98l9E2RMSJ9ON1AKisHzz7V42VDiBQGY6PB1BwRglz99wpVsSuGzQ+jOi6lFXBGVTCrRpltvjm+/XA+tpeJrg==}
+  /spawn-command@0.0.2:
+    resolution: {integrity: sha512-zC8zGoGkmc8J9ndvml8Xksr1Amk9qBujgbF0JAIWO7kXr43w0h/0GJNM/Vustixu+YE8N/MTrQ7N31FvHUACxQ==}
     dev: true
 
   /spawn-error-forwarder@1.0.0:

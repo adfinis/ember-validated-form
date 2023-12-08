@@ -58,7 +58,7 @@
     "@fortawesome/fontawesome-svg-core": "6.4.0",
     "@fortawesome/free-solid-svg-icons": "6.5.1",
     "broccoli-asset-rev": "3.0.0",
-    "concurrently": "8.0.1",
+    "concurrently": "8.2.2",
     "ember-auto-import": "2.6.3",
     "ember-cli": "4.12.1",
     "ember-cli-addon-docs": "5.2.0",
