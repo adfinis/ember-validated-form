@@ -40,7 +40,7 @@ module("Integration | Component | validated form defaults", function (hooks) {
 </ValidatedForm>`);
 
       assert.dom("custom-button").exists();
-    }
+    },
   );
 
   testCustomComponents(
@@ -65,6 +65,6 @@ module("Integration | Component | validated form defaults", function (hooks) {
       assert.dom("custom-select").exists();
       assert.dom("custom-textarea").exists();
       assert.dom("custom-date").exists();
-    }
+    },
   );
 });

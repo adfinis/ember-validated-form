@@ -14,7 +14,7 @@ module("Integration | Component | validated label", function (hooks) {
 
   testDefault("it renders labels", async function (assert) {
     await render(
-      hbs`<ValidatedInput @label="Default name" @name="default-name" />`
+      hbs`<ValidatedInput @label="Default name" @name="default-name" />`,
     );
 
     assert.dom("label").hasText("Default name");
@@ -26,7 +26,7 @@ module("Integration | Component | validated label", function (hooks) {
     class CustomLabel extends Component {}
     setComponentTemplate(
       hbs`<label style="color: green;"></label>`,
-      CustomLabel
+      CustomLabel,
     );
     this.CustomLabel = CustomLabel;
 
@@ -45,7 +45,7 @@ module("Integration | Component | validated label", function (hooks) {
   <span id="orig-input-id">{{@inputId}}</span>
   <span id="orig-input-required">{{@required}}</span>
 </label>`,
-        CustomLabel
+        CustomLabel,
       );
       this.CustomLabel = CustomLabel;
 
@@ -62,7 +62,7 @@ module("Integration | Component | validated label", function (hooks) {
 
       const input = this.element.querySelector("input");
       assert.dom("#orig-input-id").hasText(input.getAttribute("id"));
-    }
+    },
   );
 
   testDefault(
@@ -71,7 +71,7 @@ module("Integration | Component | validated label", function (hooks) {
       class CustomLabel extends Component {}
       setComponentTemplate(
         hbs`<label style="color: green;">{{@customVariable}}</label>`,
-        CustomLabel
+        CustomLabel,
       );
       this.CustomLabel = CustomLabel;
 
@@ -84,6 +84,6 @@ module("Integration | Component | validated label", function (hooks) {
 
       assert.dom("label").hasAttribute("style", "color: green;");
       assert.dom("label").hasText("Awesome!");
-    }
+    },
   );
 });

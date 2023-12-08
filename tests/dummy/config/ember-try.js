@@ -78,7 +78,7 @@ module.exports = function () {
     const embroiderScenario = scenario
       .split("-")
       .map((part, i) =>
-        i === 0 ? part : part.charAt(0).toUpperCase() + part.slice(1)
+        i === 0 ? part : part.charAt(0).toUpperCase() + part.slice(1),
       )
       .join("");
 

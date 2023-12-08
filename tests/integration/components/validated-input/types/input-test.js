@@ -40,5 +40,5 @@ module(
 
       assert.dom("input").hasClass("form-control");
     });
-  }
+  },
 );

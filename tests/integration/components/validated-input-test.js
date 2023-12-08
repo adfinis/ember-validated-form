@@ -16,7 +16,7 @@ module("Integration | Component | validated input", function (hooks) {
 
       assert.dom("input").hasAttribute("type", "text");
       assert.dom("input").hasAttribute("name", "bar");
-    }
+    },
   );
 
   testDefault("it renders email input", async function (assert) {
@@ -53,7 +53,7 @@ module("Integration | Component | validated input", function (hooks) {
     this.set("model", new Changeset({ firstName: "Max" }));
 
     await render(
-      hbs`<ValidatedInput @name="firstName" @model={{this.model}} />`
+      hbs`<ValidatedInput @name="firstName" @model={{this.model}} />`,
     );
 
     assert.dom("input").hasValue("Max");
@@ -69,7 +69,7 @@ module("Integration | Component | validated input", function (hooks) {
   @name="firstName"
   @model={{this.model}}
   @on-update={{this.update}}
-/>`
+/>`,
     );
 
     await fillIn("input", "foo");
@@ -83,11 +83,11 @@ module("Integration | Component | validated input", function (hooks) {
       this.set("model", new Changeset({ firstName: "Max" }));
 
       await render(
-        hbs`<ValidatedInput @name="firstName" @model={{this.model}} @value="foobar" />`
+        hbs`<ValidatedInput @name="firstName" @model={{this.model}} @value="foobar" />`,
       );
 
       assert.dom("input").hasValue("foobar");
-    }
+    },
   );
 
   testDefault(
@@ -96,7 +96,7 @@ module("Integration | Component | validated input", function (hooks) {
       await render(hbs`<ValidatedInput @type="textarea" @name="bar" />`);
 
       assert.dom("textarea").hasAttribute("name", "bar");
-    }
+    },
   );
 
   testDefault("it renders disabled textareas", async function (assert) {
@@ -121,7 +121,7 @@ module("Integration | Component | validated input", function (hooks) {
     this.set("model", new Changeset({ firstName: "Max" }));
 
     await render(
-      hbs`<ValidatedInput @type="textarea" @name="firstName" @model={{this.model}} />`
+      hbs`<ValidatedInput @type="textarea" @name="firstName" @model={{this.model}} />`,
     );
 
     assert.dom("textarea").hasValue("Max");
@@ -131,11 +131,11 @@ module("Integration | Component | validated input", function (hooks) {
     "it renders textareas autocomplete attribute",
     async function (assert) {
       await render(
-        hbs`<ValidatedInput @type="textarea" @autocomplete="given-name" @name="firstName" />`
+        hbs`<ValidatedInput @type="textarea" @autocomplete="given-name" @name="firstName" />`,
       );
 
       assert.dom("textarea").hasAttribute("autocomplete", "given-name");
-    }
+    },
   );
 
   testDefault(
@@ -146,18 +146,18 @@ module("Integration | Component | validated input", function (hooks) {
   @type="password"
   @autocomplete="new-password"
   @name="password"
-/>`
+/>`,
       );
 
       assert.dom("input").hasAttribute("autocomplete", "new-password");
-    }
+    },
   );
 
   testDefault("it renders the block if provided", async function (assert) {
     await render(
       hbs`<ValidatedInput>
   <div id="custom-input"></div>
-</ValidatedInput>`
+</ValidatedInput>`,
     );
 
     assert.dom("#custom-input").exists();
@@ -169,11 +169,11 @@ module("Integration | Component | validated input", function (hooks) {
       await render(
         hbs`<ValidatedInput @value="my-value" as |fi|>
   <input value={{fi.value}} />
-</ValidatedInput>`
+</ValidatedInput>`,
       );
 
       assert.dom("input").hasValue("my-value");
-    }
+    },
   );
 
   testDefault(
@@ -184,11 +184,11 @@ module("Integration | Component | validated input", function (hooks) {
       await render(
         hbs`<ValidatedInput @model={{this.model}} @name="firstName" as |fi|>
   <input value={{fi.value}} />
-</ValidatedInput>`
+</ValidatedInput>`,
       );
 
       assert.dom("input").hasValue("Max");
-    }
+    },
   );
 
   testDefault(
@@ -204,18 +204,18 @@ module("Integration | Component | validated input", function (hooks) {
   as |fi|
 >
   <input value={{fi.value}} />
-</ValidatedInput>`
+</ValidatedInput>`,
       );
 
       assert.dom("input").hasValue("Other Value");
-    }
+    },
   );
 
   testDefault("it yields the provided name", async function (assert) {
     await render(
       hbs`<ValidatedInput @name="foobar" as |fi|>
   <input name={{fi.name}} />
-</ValidatedInput>`
+</ValidatedInput>`,
     );
 
     assert.dom("input").hasAttribute("name", "foobar");
@@ -227,7 +227,7 @@ module("Integration | Component | validated input", function (hooks) {
     await render(
       hbs`<ValidatedInput @model={{this.model}} as |fi|>
   <input value={{fi.model.firstName}} />
-</ValidatedInput>`
+</ValidatedInput>`,
     );
 
     assert.dom("input").hasValue("Max");
@@ -242,13 +242,13 @@ module("Integration | Component | validated input", function (hooks) {
       await render(
         hbs`<ValidatedInput @model={{this.model}} @name="firstName" as |fi|>
   <button type="button" {{on "click" (fn fi.update "Merlin")}}></button>
-</ValidatedInput>`
+</ValidatedInput>`,
       );
 
       await click("button");
 
       assert.strictEqual(model.get("firstName"), "Merlin");
-    }
+    },
   );
 
   testBootstrap(
@@ -259,7 +259,7 @@ module("Integration | Component | validated input", function (hooks) {
       await render(
         hbs`<ValidatedInput @name="test" @model={{this.model}} as |fi|>
   <button type="button" {{on "click" fi.setDirty}}></button>
-</ValidatedInput>`
+</ValidatedInput>`,
       );
 
       assert.dom("span.invalid-feedback").doesNotExist();
@@ -267,14 +267,14 @@ module("Integration | Component | validated input", function (hooks) {
       await click("button");
 
       assert.dom("span.invalid-feedback").exists();
-    }
+    },
   );
 
   testDefault("it yields the input id to the block", async function (assert) {
     await render(
       hbs`<ValidatedInput @label="Name" as |fi|>
   <input id={{fi.inputId}} />
-</ValidatedInput>`
+</ValidatedInput>`,
     );
 
     const label = this.element.querySelector("label");
@@ -288,7 +288,7 @@ module("Integration | Component | validated input", function (hooks) {
       this.set("model", new Changeset({ firstName: "Max" }));
 
       await render(
-        hbs`<ValidatedInput @name="firstName" @model={{this.model}} />`
+        hbs`<ValidatedInput @name="firstName" @model={{this.model}} />`,
       );
 
       assert.dom("input").hasValue("Max");
@@ -296,7 +296,7 @@ module("Integration | Component | validated input", function (hooks) {
       this.set("model.firstName", "Hans");
 
       assert.dom("input").hasValue("Hans");
-    }
+    },
   );
 
   testDefault("it can overwrite the input name", async function (assert) {
@@ -307,7 +307,7 @@ module("Integration | Component | validated input", function (hooks) {
   @name="firstName"
   @inputName="testFirstName"
   @model={{this.model}}
-/>`
+/>`,
     );
 
     assert.dom("input").hasValue("Max");
@@ -321,7 +321,7 @@ module("Integration | Component | validated input", function (hooks) {
       hbs`<span id="raw">{{this.model.nested.name}}</span>
 <ValidatedInput @name="nested.name" @model={{this.model}} as |Input|>
   <span id="_val">{{Input.value}}</span>
-</ValidatedInput>`
+</ValidatedInput>`,
     );
 
     assert.dom("#raw").hasText("Max");

@@ -49,7 +49,7 @@ export default class ValidatedFormComponent extends Component {
         if (model.errors[0]?.key) {
           document
             .querySelector(
-              `[name=${model.errors[0].key.replaceAll(".", "\\.")}]`
+              `[name=${model.errors[0].key.replaceAll(".", "\\.")}]`,
             )
             ?.scrollIntoView({ behavior: "smooth" });
         }
