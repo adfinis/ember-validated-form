@@ -61,6 +61,7 @@ function buildEmbroiderScenario(type) {
     scenarios: config.scenarios.map((scenario) => ({
       ...scenario,
       ...embroiderScenario,
+      env: { ...embroiderScenario.env, ...scenario.env },
       name: `${embroiderScenario.name} (${scenario.name})`,
     })),
   };
