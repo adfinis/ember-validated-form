@@ -17,16 +17,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: wyvox/action-setup-pnpm@v3
         with:
           node-version: 18
-          cache: "yarn"
-
-      - name: Install Dependencies
-        run: yarn install
 
       - name: Deploy to Github Pages
-        run: yarn ember deploy production
+        run: pnpm ember deploy production
         env:
           CI: true
           DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
