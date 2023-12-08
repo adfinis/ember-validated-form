@@ -55,7 +55,7 @@
     "@ember/test-helpers": "2.9.3",
     "@embroider/test-setup": "3.0.3",
     "@fortawesome/ember-fontawesome": "2.0.0",
-    "@fortawesome/fontawesome-svg-core": "6.4.0",
+    "@fortawesome/fontawesome-svg-core": "6.5.1",
     "@fortawesome/free-solid-svg-icons": "6.5.1",
     "broccoli-asset-rev": "3.0.0",
     "concurrently": "8.0.1",
