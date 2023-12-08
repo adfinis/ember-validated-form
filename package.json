@@ -41,7 +41,7 @@
     "@glimmer/tracking": "^1.1.2",
     "ember-changeset": "^4.1.2",
     "ember-changeset-validations": "^4.1.1",
-    "ember-cli-babel": "^7.26.11",
+    "ember-cli-babel": "^8.2.0",
     "ember-cli-htmlbars": "^6.2.0",
     "ember-truth-helpers": "^3.1.1"
   },
