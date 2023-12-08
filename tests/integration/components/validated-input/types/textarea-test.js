@@ -40,5 +40,5 @@ module(
 
       assert.dom("textarea").hasClass("form-control");
     });
-  }
+  },
 );

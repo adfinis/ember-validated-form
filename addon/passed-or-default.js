@@ -8,7 +8,7 @@ export default function passedOrDefault(componentName) {
         return ensureSafeComponent(
           this.args[property] ??
             importSync(getOwnConfig()[componentName]).default,
-          this
+          this,
         );
       },
     };

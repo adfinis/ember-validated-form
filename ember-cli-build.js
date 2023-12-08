@@ -2,8 +2,6 @@
 
 const EmberAddon = require("ember-cli/lib/broccoli/ember-addon");
 
-const TEST_SCENARIO = process.env.TEST_SCENARIO ?? "THEME_DEFAULT";
-
 // Configuration for test scenarios
 const SCENARIO_CONFIGS = {
   THEME_DEFAULT: { theme: null },
@@ -38,10 +36,12 @@ module.exports = function (defaults) {
       defaults: {
         hint: "dummy/components/permanent-custom-hint",
       },
-      ...(SCENARIO_CONFIGS[TEST_SCENARIO] ?? {}),
+      ...(SCENARIO_CONFIGS[process.env.TEST_SCENARIO] ?? {}),
     },
     "@embroider/macros": {
-      setOwnConfig: { testScenario: TEST_SCENARIO },
+      setOwnConfig: {
+        testScenario: process.env.TEST_SCENARIO ?? "THEME_DEFAULT",
+      },
     },
   });
 
@@ -57,23 +57,6 @@ module.exports = function (defaults) {
     skipBabel: [
       {
         package: "qunit",
-      },
-    ],
-    // https://github.com/embroider-build/embroider/issues/1322#issuecomment-1386857904
-    packageRules: [
-      {
-        package: "@ember-data/store",
-        addonModules: {
-          "-private.js": {
-            dependsOnModules: [],
-          },
-          "-private/system/core-store.js": {
-            dependsOnModules: [],
-          },
-          "-private/system/model/internal-model.js": {
-            dependsOnModules: [],
-          },
-        },
       },
     ],
   });

@@ -94,7 +94,7 @@ module("Integration | Component | validated form", function (hooks) {
 </ValidatedForm>`);
 
       assert.dom("form > p").doesNotExist();
-    }
+    },
   );
 
   testDefault("it supports default button labels", async function (assert) {
@@ -118,7 +118,7 @@ module("Integration | Component | validated form", function (hooks) {
           "model",
           EmberObject.create({
             firstName: "x",
-          })
+          }),
         );
       });
 
@@ -146,7 +146,7 @@ module("Integration | Component | validated form", function (hooks) {
 
       assert.dom("input").hasAria("invalid", "true");
       assert.dom("input").hasAria("describedby", errorId);
-    }
+    },
   );
 
   testBootstrap(
@@ -159,7 +159,7 @@ module("Integration | Component | validated form", function (hooks) {
           "model",
           EmberObject.create({
             firstName: "x",
-          })
+          }),
         );
       });
 
@@ -182,7 +182,7 @@ module("Integration | Component | validated form", function (hooks) {
       assert
         .dom("span.invalid-feedback")
         .hasText("First name must be between 3 and 40 characters");
-    }
+    },
   );
 
   testDefault(
@@ -199,7 +199,7 @@ module("Integration | Component | validated form", function (hooks) {
           "model",
           EmberObject.create({
             firstName: "x",
-          })
+          }),
         );
       });
 
@@ -215,7 +215,7 @@ module("Integration | Component | validated form", function (hooks) {
       await click("button");
 
       assert.true(invalidSubmitCalled);
-    }
+    },
   );
 
   testDefault(
@@ -248,7 +248,7 @@ module("Integration | Component | validated form", function (hooks) {
 
       assert.notOk(invalidSubmitCalled);
       assert.true(submitCalled);
-    }
+    },
   );
 
   testDefault(
@@ -272,7 +272,7 @@ module("Integration | Component | validated form", function (hooks) {
           "model",
           EmberObject.create({
             firstName: "x",
-          })
+          }),
         );
       });
 
@@ -289,7 +289,7 @@ module("Integration | Component | validated form", function (hooks) {
       await fillIn("input[name=firstName]", "Some name");
       await click("button");
       assert.verifySteps(["onClick"]);
-    }
+    },
   );
 
   testBootstrap(
@@ -318,7 +318,7 @@ module("Integration | Component | validated form", function (hooks) {
 
       assert.dom("span.invalid-feedback").exists({ count: 1 });
       assert.dom("span.invalid-feedback").hasText("First name can't be blank");
-    }
+    },
   );
 
   testBootstrap(
@@ -351,7 +351,7 @@ module("Integration | Component | validated form", function (hooks) {
       await click("button");
 
       assert.dom("span.invalid-feedback").exists({ count: 1 });
-    }
+    },
   );
 
   testDefault(
@@ -382,7 +382,7 @@ module("Integration | Component | validated form", function (hooks) {
       await blur("input");
 
       assert.dom("input + div").doesNotExist();
-    }
+    },
   );
 
   testDefault(
@@ -413,7 +413,7 @@ module("Integration | Component | validated form", function (hooks) {
       run(() => deferred.resolve());
 
       assert.dom("button").doesNotHaveClass("loading");
-    }
+    },
   );
 
   testDefault(
@@ -438,7 +438,7 @@ module("Integration | Component | validated form", function (hooks) {
       await click("button");
 
       assert.dom("button").doesNotHaveClass("loading");
-    }
+    },
   );
 
   testDefault("it yields the loading state", async function (assert) {
@@ -499,7 +499,7 @@ module("Integration | Component | validated form", function (hooks) {
 
       await click("button");
       assert.ok(true);
-    }
+    },
   );
 
   testDefault(
@@ -534,7 +534,7 @@ module("Integration | Component | validated form", function (hooks) {
       await click("button");
       run(() => deferred.resolve());
       assert.ok(true);
-    }
+    },
   );
 
   testDefault("it binds the autocomplete attribute", async function (assert) {

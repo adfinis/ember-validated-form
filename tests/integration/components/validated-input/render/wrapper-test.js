@@ -16,7 +16,7 @@ module(
 
     testDefault("it renders", async function (assert) {
       await render(
-        hbs`<ValidatedInput::Render::Wrapper>Test</ValidatedInput::Render::Wrapper>`
+        hbs`<ValidatedInput::Render::Wrapper>Test</ValidatedInput::Render::Wrapper>`,
       );
 
       assert.dom(this.element).hasText("Test");
@@ -24,7 +24,7 @@ module(
 
     testBootstrap("it renders", async function (assert) {
       await render(
-        hbs`<ValidatedInput::Render::Wrapper>Test</ValidatedInput::Render::Wrapper>`
+        hbs`<ValidatedInput::Render::Wrapper>Test</ValidatedInput::Render::Wrapper>`,
       );
 
       assert.dom(this.element).hasText("Test");
@@ -32,10 +32,10 @@ module(
 
     testUikit("it renders", async function (assert) {
       await render(
-        hbs`<ValidatedInput::Render::Wrapper>Test</ValidatedInput::Render::Wrapper>`
+        hbs`<ValidatedInput::Render::Wrapper>Test</ValidatedInput::Render::Wrapper>`,
       );
 
       assert.dom("div.uk-form-controls").hasText("Test");
     });
-  }
+  },
 );

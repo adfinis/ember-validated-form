@@ -71,5 +71,5 @@ module(
       assert.dom("input").hasClass("custom-control-input");
       assert.dom("label").hasClass("custom-control-label");
     });
-  }
+  },
 );

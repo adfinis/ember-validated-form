@@ -21,7 +21,7 @@ module(
       ]);
 
       await render(
-        hbs`<ValidatedInput::Types::Select @options={{this.options}} />`
+        hbs`<ValidatedInput::Types::Select @options={{this.options}} />`,
       );
 
       assert.dom("select").exists();
@@ -42,7 +42,7 @@ module(
           hbs`<ValidatedInput::Types::Select
   @options={{this.options}}
   @update={{this.update}}
-/>`
+/>`,
         );
 
         assert.dom("select").exists();
@@ -51,7 +51,7 @@ module(
         await select("select", "bar");
         assert.dom("option:first-child").hasProperty("selected", false);
         assert.dom("option:last-child").hasProperty("selected", true);
-      }
+      },
     );
 
     testDefault(
@@ -72,12 +72,12 @@ module(
   @options={{this.options}}
   @update={{this.update}}
   @optionTargetPath="key"
-/>`
+/>`,
         );
 
         assert.dom("option:first-child").hasText("firstOption");
         await select("select", "222");
-      }
+      },
     );
 
     testDefault(
@@ -94,7 +94,7 @@ module(
   @groupLabelPath="group"
   @optionValuePath="key"
   @optionLabelPath="label"
-/>`
+/>`,
         );
 
         assert.dom("select").exists();
@@ -102,7 +102,7 @@ module(
         assert.dom("optgroup[label='two']").exists({ count: 1 });
         assert.dom("optgroup:first-child option:first-child").hasText("1");
         assert.dom("optgroup:last-child option:first-child").hasValue("2");
-      }
+      },
     );
 
     testDefault(
@@ -127,7 +127,7 @@ module(
   @options={{this.options}}
   @optionValuePath="id"
   @optionLabelPath="label"
-/>`
+/>`,
         );
 
         assert.dom("select").exists();
@@ -136,7 +136,7 @@ module(
         assert.dom("optgroup[label='two']").exists({ count: 1 });
         assert.dom("optgroup:last-child option:first-child").hasText("Third");
         assert.dom("optgroup:last-child option:first-child").hasValue("3");
-      }
+      },
     );
 
     testDefault("it selects the pre-defined value", async function (assert) {
@@ -152,7 +152,7 @@ module(
   @optionValuePath="key"
   @value={{this.value}}
   @options={{this.options}}
-/>`
+/>`,
       );
 
       assert.dom("select").hasValue(this.options[1].key);
@@ -170,7 +170,7 @@ module(
         hbs`<ValidatedInput::Types::Select
   @options={{this.options}}
   @prompt="Choose this"
-/>`
+/>`,
       );
 
       assert.dom("option:first-child").hasText("Choose this");
@@ -188,7 +188,7 @@ module(
   @options={{this.options}}
   @prompt="Choose this"
   @promptIsSelectable={{true}}
-/>`
+/>`,
       );
 
       assert.dom("option:first-child").hasProperty("disabled", false);
@@ -213,7 +213,7 @@ module(
   @options={{this.options}}
   @multiple={{true}}
   @update={{this.update}}
-/>`
+/>`,
       );
 
       await select("select", ["1", "3"]);
@@ -236,14 +236,14 @@ module(
   @options={{this.options}}
   @multiple={{true}}
   @update={{this.update}}
-/>`
+/>`,
         );
 
         await select("select", ["1", "3"]);
         assert.dom("option:first-child").hasProperty("selected", true);
         assert.dom("option:nth-child(2)").hasProperty("selected", false);
         assert.dom("option:last-child").hasProperty("selected", true);
-      }
+      },
     );
 
     testDefault(
@@ -274,11 +274,11 @@ module(
   @optionValuePath="id"
   @optionLabelPath="label"
   @update={{this.update}}
-/>`
+/>`,
         );
 
         await select("select", ["1", "2"]);
-      }
+      },
     );
 
     testDefault(
@@ -288,7 +288,7 @@ module(
         this.set("update", (values) => {
           assert.deepEqual(
             values,
-            this.options[0].options.map((val) => val.id)
+            this.options[0].options.map((val) => val.id),
           );
         });
         this.set("options", [
@@ -313,11 +313,11 @@ module(
   @optionTargetPath="id"
   @optionLabelPath="label"
   @update={{this.update}}
-/>`
+/>`,
         );
 
         await select("select", ["1", "2"]);
-      }
+      },
     );
 
     testUikit("it renders", async function (assert) {
@@ -333,7 +333,7 @@ module(
       ]);
 
       await render(
-        hbs`<ValidatedInput::Types::Select @options={{this.options}} />`
+        hbs`<ValidatedInput::Types::Select @options={{this.options}} />`,
       );
 
       assert.dom("select").hasClass("uk-select");
@@ -353,7 +353,7 @@ module(
       ]);
 
       await render(
-        hbs`<ValidatedInput::Types::Select @options={{this.options}} />`
+        hbs`<ValidatedInput::Types::Select @options={{this.options}} />`,
       );
 
       assert.dom("select").hasClass("form-control");
@@ -382,13 +382,13 @@ module(
   @optionLabelPath="text"
   @optionTargetPath="value"
   @optionValuePath="value"
-/>`
+/>`,
         );
 
         await select("select", "2");
         await select("select", "option:first-child");
         assert.dom("option:first-child").hasProperty("disabled", false);
-      }
+      },
     );
-  }
+  },
 );

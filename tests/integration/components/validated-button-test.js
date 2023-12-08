@@ -19,7 +19,7 @@ module("Integration | Component | validated button", function (hooks) {
 
   testDefault("it renders a button with block style", async function (assert) {
     await render(
-      hbs`<ValidatedButton @action={{this.noop}}>Test</ValidatedButton>`
+      hbs`<ValidatedButton @action={{this.noop}}>Test</ValidatedButton>`,
     );
     assert.dom("button").hasText("Test");
   });
