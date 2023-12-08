@@ -12,13 +12,9 @@ jobs:
           ref: ${{ github.event.ref }}
           fetch-depth: 0
           token: ${{ secrets.GH_TOKEN }}
-      - uses: actions/setup-node@v4
+      - uses: wyvox/action-setup-pnpm@v3
         with:
           node-version: 18
-          cache: "yarn"
-
-      - name: Install dependencies
-        run: yarn install
 
       - name: Configure git
         run: |
@@ -29,4 +25,4 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: yarn semantic-release
+        run: pnpm semantic-release
