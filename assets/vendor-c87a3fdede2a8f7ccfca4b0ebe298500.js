@@ -32,7 +32,7 @@ if(!r||"new"===r.state)return(r=new c(e,[],s,null)).module.exports=t,r.state="fi
  *            Portions Copyright 2008-2011 Apple Inc. All rights reserved.
  * @license   Licensed under MIT license
  *            See https://raw.github.com/emberjs/ember.js/master/LICENSE
- * @version   5.4.0
+ * @version   5.5.0
  */
 var e,t;(function(){var r="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"undefined"!=typeof window?window:"undefined"!=typeof global?global:null
 if(null===r)throw new Error("unable to locate global object")
@@ -356,8 +356,7 @@ var r=t.render
 if(void 0===r)return null
 var n=r.template
 if(void 0===n)return null
-Ce(n)&&(n=n(r.owner))
-return{ref:e,name:r.name,outlet:r.outlet,template:n,controller:r.controller,model:r.model}}(n,e)
+if(Ce(n)){n=n(r.owner)}return{ref:e,name:r.name,outlet:r.outlet,template:n,controller:r.controller,model:r.model}}(n,e)
 if(!function(e,t){if(null===e)return null===t
 if(null===t)return!1
 return e.template===t.template&&e.controller===t.controller}(r,i))if(i=r,null!==r){var s=(0,v.dict)(),o=(0,a.childRefFromParts)(n,["render","model"]),l=(0,a.valueForRef)(o)
@@ -2702,7 +2701,7 @@ r=c?this.invokeWithOnError:this.invoke
 for(var o=this.index;o<a.length;o+=4)if(this.index+=4,null!==(t=a[o+1])&&r(a[o],t,a[o+2],c,a[o+3]),this.index!==this._queueBeingFlushed.length&&this.globalOptions.mustYield&&this.globalOptions.mustYield())return 1}void 0!==i&&i(),this._queueBeingFlushed.length=0,this.index=0,!1!==e&&this._queue.length>0&&this.flush(!0)}hasWork(){return this._queueBeingFlushed.length>0||this._queue.length>0}cancel({target:e,method:t}){var r=this._queue,n=this.targetQueues.get(e)
 void 0!==n&&n.delete(t)
 var i=o(e,t,r)
-return i>-1?(r.splice(i,4),!0):(i=o(e,t,r=this._queueBeingFlushed))>-1&&(r[i+1]=null,!0)}push(e,t,r,n){return this._queue.push(e,t,r,n),{queue:this,target:e,method:t}}pushUnique(e,t,r,n){var i=this.targetQueues.get(e)
+return(i>-1||(i=o(e,t,r=this._queueBeingFlushed))>-1)&&(r[i+1]=null,!0)}push(e,t,r,n){return this._queue.push(e,t,r,n),{queue:this,target:e,method:t}}pushUnique(e,t,r,n){var i=this.targetQueues.get(e)
 void 0===i&&(i=new Map,this.targetQueues.set(e,i))
 var a=i.get(t)
 if(void 0===a){var c=this._queue.push(e,t,r,n)-4
@@ -2833,7 +2832,7 @@ ae.precompile=ie.precompile=t.precompile,ae.compile=ie.compile=t.compile,Object.
 return n.Adapter=i,n.QUnitAdapter=a,Object.defineProperty(re,"Test",{configurable:!0,writable:!0,enumerable:!0,value:n}),Object.defineProperty(re,"setupForTesting",{configurable:!0,writable:!0,enumerable:!0,value:c}),"Test"===e?n:c}}})}ce("HTMLBars"),ce("Handlebars"),se("Test"),se("setupForTesting"),(0,O.runLoadHooks)("Ember")
 t.default=re})),e("ember/version",["exports"],(function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
-e.default="5.4.0"}))
+e.default="5.5.0"}))
 e("route-recognizer",["exports"],(function(e){"use strict"
 Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var t=Object.create
