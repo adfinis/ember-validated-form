@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.23.2",
-    "@embroider/macros": "^1.13.3",
+    "@embroider/macros": "^1.13.4",
     "@embroider/util": "^1.12.1",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
