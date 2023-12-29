@@ -35,7 +35,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@babel/core": "^7.23.2",
+    "@babel/core": "^7.23.6",
     "@embroider/macros": "^1.13.4",
     "@embroider/util": "^1.12.1",
     "@glimmer/component": "^1.1.2",
