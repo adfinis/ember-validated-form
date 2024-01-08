@@ -44,7 +44,7 @@
     "ember-changeset-validations": "^4.1.1",
     "ember-cli-babel": "^8.2.0",
     "ember-cli-htmlbars": "^6.3.0",
-    "ember-truth-helpers": "^3.1.0"
+    "ember-truth-helpers": "^4.0.3"
   },
   "devDependencies": {
     "@adfinis/eslint-config": "2.1.0",
