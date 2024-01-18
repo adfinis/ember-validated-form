@@ -40,11 +40,12 @@
     "@embroider/util": "^1.12.1",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
+    "ember-auto-import": "^2.7.0",
     "ember-changeset": "^4.1.2",
     "ember-changeset-validations": "^4.1.1",
     "ember-cli-babel": "^8.2.0",
     "ember-cli-htmlbars": "^6.3.0",
-    "ember-truth-helpers": "^3.1.0"
+    "ember-truth-helpers": "^4.0.3"
   },
   "devDependencies": {
     "@adfinis/eslint-config": "2.1.0",
@@ -60,7 +61,6 @@
     "@fortawesome/free-solid-svg-icons": "6.5.1",
     "broccoli-asset-rev": "3.0.0",
     "concurrently": "8.2.2",
-    "ember-auto-import": "2.7.2",
     "ember-cli": "5.4.1",
     "ember-cli-addon-docs": "7.0.0",
     "ember-cli-clean-css": "3.0.0",
