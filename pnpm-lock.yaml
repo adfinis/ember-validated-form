@@ -39,7 +39,7 @@ dependencies:
 devDependencies:
   '@adfinis/eslint-config':
     specifier: 2.1.0
-    version: 2.1.0(@babel/core@7.23.7)(@babel/eslint-parser@7.23.3)(@babel/plugin-proposal-decorators@7.23.6)(eslint-config-prettier@9.1.0)(eslint-plugin-ember@11.12.0)(eslint-plugin-import@2.29.1)(eslint-plugin-n@16.6.1)(eslint-plugin-prettier@5.1.2)(eslint-plugin-qunit@8.0.1)(eslint@8.56.0)(prettier@3.1.1)
+    version: 2.1.0(@babel/core@7.23.7)(@babel/eslint-parser@7.23.3)(@babel/plugin-proposal-decorators@7.23.6)(eslint-config-prettier@9.1.0)(eslint-plugin-ember@11.12.0)(eslint-plugin-import@2.29.1)(eslint-plugin-n@16.6.1)(eslint-plugin-prettier@5.1.2)(eslint-plugin-qunit@8.0.1)(eslint@8.56.0)(prettier@3.2.4)
   '@adfinis/semantic-release-config':
     specifier: 4.1.0
     version: 4.1.0(typescript@5.3.3)
@@ -144,7 +144,7 @@ devDependencies:
     version: 5.13.0
   ember-template-lint-plugin-prettier:
     specifier: 5.0.0
-    version: 5.0.0(ember-template-lint@5.13.0)(prettier@3.1.1)
+    version: 5.0.0(ember-template-lint@5.13.0)(prettier@3.2.4)
   ember-try:
     specifier: 3.0.0
     version: 3.0.0
@@ -165,7 +165,7 @@ devDependencies:
     version: 16.6.1(eslint@8.56.0)
   eslint-plugin-prettier:
     specifier: 5.1.2
-    version: 5.1.2(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1)
+    version: 5.1.2(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.2.4)
   eslint-plugin-qunit:
     specifier: 8.0.1
     version: 8.0.1(eslint@8.56.0)
@@ -179,8 +179,8 @@ devDependencies:
     specifier: 4.7.0
     version: 4.7.0
   prettier:
-    specifier: 3.1.1
-    version: 3.1.1
+    specifier: 3.2.4
+    version: 3.2.4
   qunit:
     specifier: 2.20.0
     version: 2.20.0
@@ -198,7 +198,7 @@ devDependencies:
     version: 36.0.0(stylelint@16.1.0)
   stylelint-prettier:
     specifier: 5.0.0
-    version: 5.0.0(prettier@3.1.1)(stylelint@16.1.0)
+    version: 5.0.0(prettier@3.2.4)(stylelint@16.1.0)
   webpack:
     specifier: 5.89.0
     version: 5.89.0
@@ -210,7 +210,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /@adfinis/eslint-config@2.1.0(@babel/core@7.23.7)(@babel/eslint-parser@7.23.3)(@babel/plugin-proposal-decorators@7.23.6)(eslint-config-prettier@9.1.0)(eslint-plugin-ember@11.12.0)(eslint-plugin-import@2.29.1)(eslint-plugin-n@16.6.1)(eslint-plugin-prettier@5.1.2)(eslint-plugin-qunit@8.0.1)(eslint@8.56.0)(prettier@3.1.1):
+  /@adfinis/eslint-config@2.1.0(@babel/core@7.23.7)(@babel/eslint-parser@7.23.3)(@babel/plugin-proposal-decorators@7.23.6)(eslint-config-prettier@9.1.0)(eslint-plugin-ember@11.12.0)(eslint-plugin-import@2.29.1)(eslint-plugin-n@16.6.1)(eslint-plugin-prettier@5.1.2)(eslint-plugin-qunit@8.0.1)(eslint@8.56.0)(prettier@3.2.4):
     resolution: {integrity: sha512-GwxyFjj7SCzmka5zPH/rCDgnySKJHjJftoK0HXYmG+M1B0EGcBrxG15/xWdbERyM55oJvkEjjKUSxlXFHoDxsA==}
     peerDependencies:
       '@babel-plugin-proposal-decorators': '*'
@@ -243,9 +243,9 @@ packages:
       eslint-plugin-ember: 11.12.0(eslint@8.56.0)
       eslint-plugin-import: 2.29.1(eslint@8.56.0)
       eslint-plugin-n: 16.6.1(eslint@8.56.0)
-      eslint-plugin-prettier: 5.1.2(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1)
+      eslint-plugin-prettier: 5.1.2(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.2.4)
       eslint-plugin-qunit: 8.0.1(eslint@8.56.0)
-      prettier: 3.1.1
+      prettier: 3.2.4
     dev: true
 
   /@adfinis/semantic-release-config@4.1.0(typescript@5.3.3):
@@ -2775,12 +2775,12 @@ packages:
       config-chain: 1.1.13
     dev: true
 
-  /@prettier/sync@0.2.1(prettier@3.1.1):
+  /@prettier/sync@0.2.1(prettier@3.2.4):
     resolution: {integrity: sha512-7ls1R6//+GPYD9vof1XaL5psViv83CwpdwlS8oUkWldYgbPhzZ3WgxIQMWqGyBmWPmoBfQg8C7jj7KI/ZuDHhQ==}
     peerDependencies:
       prettier: ^3.0.0
     dependencies:
-      prettier: 3.1.1
+      prettier: 3.2.4
     dev: true
 
   /@rollup/plugin-node-resolve@15.2.3:
@@ -8425,16 +8425,16 @@ packages:
       - supports-color
     dev: true
 
-  /ember-template-lint-plugin-prettier@5.0.0(ember-template-lint@5.13.0)(prettier@3.1.1):
+  /ember-template-lint-plugin-prettier@5.0.0(ember-template-lint@5.13.0)(prettier@3.2.4):
     resolution: {integrity: sha512-aXUYM4yuIdPZ80+AsAU8QBwGSJJ/aAkRsNcQ5vI5HmXiBjzHlDc/ZhmP6iVcYuCmoA/3iKcssMAYwIDbuby4pg==}
     engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
     peerDependencies:
       ember-template-lint: '>= 4.0.0'
       prettier: '>= 3.0.0'
     dependencies:
-      '@prettier/sync': 0.2.1(prettier@3.1.1)
+      '@prettier/sync': 0.2.1(prettier@3.2.4)
       ember-template-lint: 5.13.0
-      prettier: 3.1.1
+      prettier: 3.2.4
       prettier-linter-helpers: 1.0.0
     dev: true
 
@@ -8951,7 +8951,7 @@ packages:
       semver: 7.5.4
     dev: true
 
-  /eslint-plugin-prettier@5.1.2(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1):
+  /eslint-plugin-prettier@5.1.2(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.2.4):
     resolution: {integrity: sha512-dhlpWc9vOwohcWmClFcA+HjlvUpuyynYs0Rf+L/P6/0iQE6vlHW9l5bkfzN62/Stm9fbq8ku46qzde76T1xlSg==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -8967,7 +8967,7 @@ packages:
     dependencies:
       eslint: 8.56.0
       eslint-config-prettier: 9.1.0(eslint@8.56.0)
-      prettier: 3.1.1
+      prettier: 3.2.4
       prettier-linter-helpers: 1.0.0
       synckit: 0.8.6
     dev: true
@@ -13481,8 +13481,8 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
 
-  /prettier@3.1.1:
-    resolution: {integrity: sha512-22UbSzg8luF4UuZtzgiUOfcGM8s4tjBv6dJRT7j275NXsy2jb4aJa4NNveul5x4eqlF1wuhuR2RElK71RvmVaw==}
+  /prettier@3.2.4:
+    resolution: {integrity: sha512-FWu1oLHKCrtpO1ypU6J0SbK2d9Ckwysq6bHj/uaCP26DxrPpppCLQRGVuqAxSTvhF00AcvDRyYrLNW7ocBhFFQ==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
@@ -15120,14 +15120,14 @@ packages:
       stylelint-config-recommended: 14.0.0(stylelint@16.1.0)
     dev: true
 
-  /stylelint-prettier@5.0.0(prettier@3.1.1)(stylelint@16.1.0):
+  /stylelint-prettier@5.0.0(prettier@3.2.4)(stylelint@16.1.0):
     resolution: {integrity: sha512-RHfSlRJIsaVg5Br94gZVdWlz/rBTyQzZflNE6dXvSxt/GthWMY3gEHsWZEBaVGg7GM+XrtVSp4RznFlB7i0oyw==}
     engines: {node: '>=18.12.0'}
     peerDependencies:
       prettier: '>=3.0.0'
       stylelint: '>=16.0.0'
     dependencies:
-      prettier: 3.1.1
+      prettier: 3.2.4
       prettier-linter-helpers: 1.0.0
       stylelint: 16.1.0(typescript@5.3.3)
     dev: true
