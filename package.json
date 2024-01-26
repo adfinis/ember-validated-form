@@ -91,7 +91,7 @@
     "eslint-plugin-n": "16.6.2",
     "eslint-plugin-prettier": "5.1.2",
     "eslint-plugin-qunit": "8.0.1",
-    "husky": "8.0.3",
+    "husky": "9.0.6",
     "lint-staged": "15.2.0",
     "loader.js": "4.7.0",
     "prettier": "3.2.4",
