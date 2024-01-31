@@ -159,7 +159,7 @@ component as specified in the _Defaults_ section of <DocsLink @route="docs.confi
 
 <!-- prettier-ignore-start -->
 <DocsDemo as |demo|>
-  <demo.example @name='custom-input-template.hbs'>
+  <demo.example @name='custom-date-input-template.hbs'>
     <ValidatedForm @model={{changeset (hash birthday=null)}} as |f|>
       <f.input
         @label='Birthday (Flatpickr)'
@@ -171,6 +171,7 @@ component as specified in the _Defaults_ section of <DocsLink @route="docs.confi
     </ValidatedForm>
   </demo.example>
 
+  <demo.snippet @name='custom-date-input-template.hbs' />
   <demo.snippet @name='flatpickr-wrapper.hbs' @label='myapp/components/flatpickr-wrapper.hbs' />
   <demo.snippet @name='config-custom-date.js' @label='ember-cli-build.js' />
 </DocsDemo>
