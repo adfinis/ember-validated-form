@@ -122,8 +122,8 @@ devDependencies:
     specifier: 5.3.0
     version: 5.3.0(@babel/core@7.24.0)(@ember/string@3.1.1)(@glimmer/tracking@1.1.2)(ember-source@5.6.0)
   ember-flatpickr:
-    specifier: 4.0.0
-    version: 4.0.0(@babel/core@7.24.0)(ember-source@5.6.0)
+    specifier: 7.1.0
+    version: 7.1.0(@babel/core@7.24.0)(ember-source@5.6.0)(flatpickr@4.6.13)(webpack@5.90.3)
   ember-load-initializers:
     specifier: 2.1.2
     version: 2.1.2(@babel/core@7.24.0)
@@ -2113,6 +2113,28 @@ packages:
       '@simple-dom/interface': 1.4.0
       broccoli-debug: 0.6.5
       broccoli-funnel: 3.0.8
+      ember-auto-import: 2.7.2(webpack@5.90.3)
+      ember-cli-babel: 7.26.11
+      ember-cli-htmlbars: 6.3.0
+      ember-source: 5.6.0(@babel/core@7.24.0)(@glimmer/component@1.1.2)(rsvp@4.8.5)(webpack@5.90.3)
+    transitivePeerDependencies:
+      - '@glint/template'
+      - supports-color
+      - webpack
+    dev: true
+
+  /@ember/test-helpers@3.3.0(ember-source@5.6.0)(webpack@5.90.3):
+    resolution: {integrity: sha512-HEI28wtjnQuEj9+DstHUEEKPtqPAEVN9AAVr4EifVCd3DyEDy0m6hFT4qbap1WxAIktLja2QXGJg50lVWzZc5g==}
+    engines: {node: 16.* || >= 18}
+    peerDependencies:
+      ember-source: ^4.0.0 || ^5.0.0
+    dependencies:
+      '@ember/test-waiters': 3.1.0
+      '@embroider/macros': 1.13.4
+      '@simple-dom/interface': 1.4.0
+      broccoli-debug: 0.6.5
+      broccoli-funnel: 3.0.8
+      dom-element-descriptors: 0.5.0
       ember-auto-import: 2.7.2(webpack@5.90.3)
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 6.3.0
@@ -7072,6 +7094,10 @@ packages:
       esutils: 2.0.3
     dev: true
 
+  /dom-element-descriptors@0.5.0:
+    resolution: {integrity: sha512-CVzntLid1oFVHTKdTp/Qu7Kz+wSm8uO30TSQyAJ6n4Dz09yTzVQn3S1oRhVhUubxdMuKs1DjDqt88pubHagbPw==}
+    dev: true
+
   /dom-serializer@0.2.2:
     resolution: {integrity: sha512-2/xPb3ORsQ42nHYiSunXkDjPLBaEj/xTwUO4B7XCZQTRk7EBtTOPaygh10YAAh2OI1Qrp6NWfpAhzswj0ydt9g==}
     dependencies:
@@ -8196,27 +8222,23 @@ packages:
       - supports-color
     dev: true
 
-  /ember-flatpickr@4.0.0(@babel/core@7.24.0)(ember-source@5.6.0):
-    resolution: {integrity: sha512-NWCGFZENEcJ5GgtkuAtlAad3uyik4E0wD+/k40tNrlNd+XcGdMVQ4t90ku3GwfTrH9gNR5iq5LajL0dzA5Uhrw==}
-    engines: {node: 14.* || 16.* || >= 18}
+  /ember-flatpickr@7.1.0(@babel/core@7.24.0)(ember-source@5.6.0)(flatpickr@4.6.13)(webpack@5.90.3):
+    resolution: {integrity: sha512-EnjwaHAUxH1Z5cBjDgUQwR4GTMI+8tlphH4CzKTYhbwIaESUTlNGmHXYR/D4T8RSzF/Sp0Wm0F3+309NqUUQew==}
+    engines: {node: 18.* || >= 20, pnpm: ^8.14.1}
     peerDependencies:
-      ember-source: ^3.28.0 || ^4.0.0 || ^5.0.0
+      ember-source: ^4.8.0 || ^5.0.0
+      flatpickr: ^4.0.0
     dependencies:
       '@ember/render-modifiers': 2.1.0(@babel/core@7.24.0)(ember-source@5.6.0)
-      '@glimmer/component': 1.1.2(@babel/core@7.24.0)
-      '@glimmer/tracking': 1.1.2
-      broccoli-funnel: 3.0.8
-      broccoli-merge-trees: 4.2.0
-      broccoli-stew: 3.0.0
-      ember-cli-babel: 7.26.11
-      ember-cli-htmlbars: 6.3.0
-      ember-cli-typescript: 5.2.1
+      '@ember/test-helpers': 3.3.0(ember-source@5.6.0)(webpack@5.90.3)
+      '@embroider/addon-shim': 1.8.7
       ember-source: 5.6.0(@babel/core@7.24.0)(@glimmer/component@1.1.2)(rsvp@4.8.5)(webpack@5.90.3)
       flatpickr: 4.6.13
     transitivePeerDependencies:
       - '@babel/core'
       - '@glint/template'
       - supports-color
+      - webpack
     dev: true
 
   /ember-functions-as-helper-polyfill@2.1.2(ember-source@5.6.0):
