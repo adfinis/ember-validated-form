@@ -43,6 +43,11 @@ module.exports = function (defaults) {
         testScenario: process.env.TEST_SCENARIO ?? "THEME_DEFAULT",
       },
     },
+    babel: {
+      plugins: [
+        require.resolve("ember-concurrency/async-arrow-task-transform"),
+      ],
+    },
   });
 
   /*
