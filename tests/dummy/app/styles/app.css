@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400");
 @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro");
+@import url("flatpickr/dist/flatpickr.css");
 
 body {
   font-family: "Source Sans Pro", sans-serif;
