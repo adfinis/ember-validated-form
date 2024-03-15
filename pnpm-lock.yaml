@@ -12,8 +12,8 @@ dependencies:
     specifier: ^1.15.0
     version: 1.15.0
   '@embroider/util':
-    specifier: ^1.12.1
-    version: 1.12.1(ember-source@5.6.0)
+    specifier: ^1.13.0
+    version: 1.13.0(ember-source@5.6.0)
   '@glimmer/component':
     specifier: ^1.1.2
     version: 1.1.2(@babel/core@7.24.0)
@@ -2213,8 +2213,8 @@ packages:
       resolve: 1.22.8
     dev: true
 
-  /@embroider/util@1.12.1(ember-source@5.6.0):
-    resolution: {integrity: sha512-sEjFf2HOcqQdm3auernvvD3oXX/CdGTjo9eB5N8DmQBz9vseYNjn4kQRaAcyHWpCpMHe5Yr0d9xW8+4c9a9fJw==}
+  /@embroider/util@1.13.0(ember-source@5.6.0):
+    resolution: {integrity: sha512-29NeyZ8jvcQXCZThaARpbU9nBNMXj/5dCuQmFmxyEC2AcHFzBBhhL0ebv6VI2e3f44g+pAFbCMbN434VBh2xqQ==}
     engines: {node: 12.* || 14.* || >= 16}
     peerDependencies:
       '@glint/environment-ember-loose': ^1.0.0
@@ -2226,9 +2226,10 @@ packages:
       '@glint/template':
         optional: true
     dependencies:
+      '@babel/core': 7.24.0
       '@embroider/macros': 1.15.0
       broccoli-funnel: 3.0.8
-      ember-cli-babel: 7.26.11
+      ember-cli-babel: 8.2.0(@babel/core@7.24.0)
       ember-source: 5.6.0(@babel/core@7.24.0)(@glimmer/component@1.1.2)(rsvp@4.8.5)(webpack@5.90.3)
     transitivePeerDependencies:
       - supports-color
@@ -8271,7 +8272,7 @@ packages:
         optional: true
     dependencies:
       '@embroider/macros': 1.15.0
-      '@embroider/util': 1.12.1(ember-source@5.6.0)
+      '@embroider/util': 1.13.0(ember-source@5.6.0)
       ember-cli-babel: 7.26.11
       ember-cli-htmlbars: 6.3.0
       ember-cli-version-checker: 2.2.0
