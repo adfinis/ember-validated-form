@@ -14,7 +14,7 @@ jobs:
           token: ${{ secrets.GH_TOKEN }}
       - uses: wyvox/action-setup-pnpm@v3
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Configure git
         run: |
