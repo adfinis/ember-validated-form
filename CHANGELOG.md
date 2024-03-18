@@ -1,3 +1,10 @@
+## [7.0.1](https://github.com/adfinis/ember-validated-form/compare/v7.0.0...v7.0.1) (2024-03-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependencies ([c2d187b](https://github.com/adfinis/ember-validated-form/commit/c2d187bbbf8652f0bc30637a9b5b5f5c46e44296))
+
 # [7.0.0](https://github.com/adfinis/ember-validated-form/compare/v6.2.0...v7.0.0) (2023-11-21)
 
 
