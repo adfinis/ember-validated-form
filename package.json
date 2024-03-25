@@ -75,7 +75,7 @@
     "ember-cli-test-loader": "3.1.0",
     "ember-concurrency": "4.0.2",
     "ember-data": "5.3.3",
-    "ember-flatpickr": "7.1.0",
+    "ember-flatpickr": "8.0.0",
     "ember-load-initializers": "2.1.2",
     "ember-qunit": "8.0.2",
     "ember-resolver": "11.0.1",
