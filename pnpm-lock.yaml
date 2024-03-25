@@ -122,8 +122,8 @@ devDependencies:
     specifier: 5.3.3
     version: 5.3.3(@babel/core@7.24.3)(@ember/string@3.1.1)(ember-source@5.7.0)
   ember-flatpickr:
-    specifier: 7.1.0
-    version: 7.1.0(@babel/core@7.24.3)(ember-source@5.7.0)(flatpickr@4.6.13)(webpack@5.91.0)
+    specifier: 8.0.0
+    version: 8.0.0(@babel/core@7.24.3)(ember-source@5.7.0)(flatpickr@4.6.13)(webpack@5.91.0)
   ember-load-initializers:
     specifier: 2.1.2
     version: 2.1.2(@babel/core@7.24.3)
@@ -9043,8 +9043,8 @@ packages:
       - supports-color
     dev: true
 
-  /ember-flatpickr@7.1.0(@babel/core@7.24.3)(ember-source@5.7.0)(flatpickr@4.6.13)(webpack@5.91.0):
-    resolution: {integrity: sha512-EnjwaHAUxH1Z5cBjDgUQwR4GTMI+8tlphH4CzKTYhbwIaESUTlNGmHXYR/D4T8RSzF/Sp0Wm0F3+309NqUUQew==}
+  /ember-flatpickr@8.0.0(@babel/core@7.24.3)(ember-source@5.7.0)(flatpickr@4.6.13)(webpack@5.91.0):
+    resolution: {integrity: sha512-zcbBMXJ8o1jr5WvnnL96Wrg+aMuODvzsEp6UPKS41fYGH6fjm7oXNeRVCns9byWgqmSEn6sRKBqK3CetLR6oYg==}
     engines: {node: 18.* || >= 20, pnpm: ^8.14.1}
     peerDependencies:
       ember-source: ^4.8.0 || ^5.0.0
