@@ -65,8 +65,8 @@ devDependencies:
     specifier: 2.0.0
     version: 2.0.0(ember-source@5.7.0)(webpack@5.91.0)
   '@fortawesome/fontawesome-svg-core':
-    specifier: 6.5.1
-    version: 6.5.1
+    specifier: 6.5.2
+    version: 6.5.2
   '@fortawesome/free-solid-svg-icons':
     specifier: 6.5.1
     version: 6.5.1
@@ -2404,7 +2404,7 @@ packages:
     peerDependencies:
       ember-source: ^4.0.0 || >=5.0.0 || ^5.0.0
     dependencies:
-      '@fortawesome/fontawesome-svg-core': 6.5.1
+      '@fortawesome/fontawesome-svg-core': 6.5.2
       '@rollup/plugin-node-resolve': 15.2.3
       array-unique: 0.3.2
       broccoli-file-creator: 2.1.1
@@ -2434,12 +2434,18 @@ packages:
     requiresBuild: true
     dev: true
 
-  /@fortawesome/fontawesome-svg-core@6.5.1:
-    resolution: {integrity: sha512-MfRCYlQPXoLlpem+egxjfkEuP9UQswTrlCOsknus/NcMoblTH2g0jPrapbcIb04KGA7E2GZxbAccGZfWoYgsrQ==}
+  /@fortawesome/fontawesome-common-types@6.5.2:
+    resolution: {integrity: sha512-gBxPg3aVO6J0kpfHNILc+NMhXnqHumFxOmjYCFfOiLZfwhnnfhtsdA2hfJlDnj+8PjAs6kKQPenOTKj3Rf7zHw==}
+    engines: {node: '>=6'}
+    requiresBuild: true
+    dev: true
+
+  /@fortawesome/fontawesome-svg-core@6.5.2:
+    resolution: {integrity: sha512-5CdaCBGl8Rh9ohNdxeeTMxIj8oc3KNBgIeLMvJosBMdslK/UnEB8rzyDRrbKdL1kDweqBPo4GT9wvnakHWucZw==}
     engines: {node: '>=6'}
     requiresBuild: true
     dependencies:
-      '@fortawesome/fontawesome-common-types': 6.5.1
+      '@fortawesome/fontawesome-common-types': 6.5.2
     dev: true
 
   /@fortawesome/free-solid-svg-icons@6.5.1:
