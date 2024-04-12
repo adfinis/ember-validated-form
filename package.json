@@ -98,7 +98,7 @@
     "prettier": "3.2.5",
     "qunit": "2.20.1",
     "qunit-dom": "3.0.0",
-    "semantic-release": "23.0.6",
+    "semantic-release": "23.0.8",
     "stylelint": "16.2.1",
     "stylelint-config-standard": "36.0.0",
     "stylelint-prettier": "5.0.0",
