@@ -49,7 +49,7 @@
   "devDependencies": {
     "@adfinis/eslint-config": "2.1.1",
     "@adfinis/semantic-release-config": "4.1.0",
-    "@babel/eslint-parser": "7.24.1",
+    "@babel/eslint-parser": "7.25.1",
     "@babel/plugin-proposal-decorators": "7.24.1",
     "@ember/optional-features": "2.1.0",
     "@ember/string": "3.1.1",
