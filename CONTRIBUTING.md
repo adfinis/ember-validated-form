@@ -27,12 +27,12 @@ sure that each scenario succeeds. For that, `ember-try` was configured
 accordingly to test each of those scenarios:
 
 - `ember try:each` – Runs the test suite on the current Ember version
-- `TEST_SCENARIO=[...] ember test --server` – Runs the test suite with the given scenario in "watch mode"
-- `EMBER_SCENARIO=[...] ember try:each` – Runs the test suite against multiple Ember versions
+- `TEST_SCENARIO=[...] pnpm test:ember --server` – Runs the test suite with the given scenario in "watch mode"
+- `EMBER_SCENARIO=[...] pnpm test:ember-compatibility` – Runs the test suite against multiple Ember versions
 
 ## Running the dummy application
 
-- `ember serve`
+- `pnpm start`
 - Visit the dummy application at [http://localhost:4200](http://localhost:4200).
 
 For more information on using ember-cli, visit [https://cli.emberjs.com/release/](https://cli.emberjs.com/release/).

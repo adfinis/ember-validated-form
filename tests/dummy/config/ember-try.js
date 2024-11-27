@@ -4,7 +4,7 @@ const embroiderTestSetup = require("@embroider/test-setup");
 const getChannelURL = require("ember-source-channel-url");
 
 const config = {
-  usePnpm: true,
+  packageManager: "pnpm",
   scenarios: [
     {
       name: "theme-default",
