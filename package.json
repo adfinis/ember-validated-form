@@ -89,7 +89,7 @@
     "eslint-plugin-ember": "12.2.0",
     "eslint-plugin-import": "2.29.1",
     "eslint-plugin-n": "16.6.2",
-    "eslint-plugin-prettier": "5.1.3",
+    "eslint-plugin-prettier": "5.2.6",
     "eslint-plugin-qunit": "8.1.2",
     "flatpickr": "4.6.13",
     "husky": "9.0.11",
