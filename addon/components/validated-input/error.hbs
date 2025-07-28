@@ -1,16 +1,9 @@
-{{#if (macroCondition (macroGetOwnConfig "isUikit"))}}
-  <small id={{@id}} class="uk-text-danger" ...attributes>
-    {{yield}}{{this.errorString}}
-  </small>
-{{else}}
-  <span
-    id={{@id}}
-    class={{if
-      (macroCondition (macroGetOwnConfig "isBootstrap"))
-      "d-block invalid-feedback"
-    }}
-    ...attributes
-  >
-    {{yield}}{{this.errorString}}
-  </span>
-{{/if}}
+<div
+  id={{@id}}
+  class="Alert Alert--error"
+  ...attributes
+>
+  <div>
+    {{yield}}{{this.errorString}}<br>
+  </div>
+</div>

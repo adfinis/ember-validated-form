@@ -1,14 +1,18 @@
 {
-  "name": "ember-validated-form",
-  "version": "7.0.1",
-  "description": "Easily create forms with client-side validations",
+  "name": "@chepworth/ember-validated-form",
+  "version": "7.0.1-ember5.0",
+  "description": "Ember 5.x compatible fork of ember-validated-form with bug fixes",
+  "repository": "https://github.com/chepworth/ember-validated-form-ember5",
+  "_originalVersion": "7.0.1",
+  "_forkReason": "Fix passed-or-default.js bug + Ember 5.x compatibility",
   "keywords": [
     "ember-addon",
     "forms",
     "form validation",
-    "validation messages"
+    "validation messages",
+    "ember-5",
+    "bug-fixes"
   ],
-  "repository": "https://github.com/adfinis/ember-validated-form",
   "license": "MIT",
   "author": "Adfinis AG <info@adfinis.com>",
   "directories": {
@@ -40,6 +44,7 @@
     "@embroider/util": "^1.13.0",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
+    "ember-auto-import": "2.7.2",
     "ember-changeset": "^4.1.2",
     "ember-changeset-validations": "^4.1.1",
     "ember-cli-babel": "^8.2.0",
@@ -60,7 +65,6 @@
     "@fortawesome/free-solid-svg-icons": "6.6.0",
     "broccoli-asset-rev": "3.0.0",
     "concurrently": "8.2.2",
-    "ember-auto-import": "2.7.2",
     "ember-cli": "5.7.0",
     "ember-cli-addon-docs": "7.0.1",
     "ember-cli-clean-css": "3.0.0",
@@ -105,7 +109,7 @@
     "webpack": "5.97.1"
   },
   "peerDependencies": {
-    "ember-source": ">= 4.0.0"
+    "ember-source": ">= 5.0.0"
   },
   "packageManager": "pnpm@8.11.0",
   "pnpm": {
@@ -121,10 +125,7 @@
   "ember": {
     "edition": "octane"
   },
-  "ember-addon": {
-    "configPath": "tests/dummy/config",
-    "demoURL": "https://adfinis.github.io/ember-validated-form"
-  },
+  "ember-addon": {},
   "release": {
     "extends": "@adfinis/semantic-release-config"
   },

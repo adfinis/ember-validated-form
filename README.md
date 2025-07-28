@@ -1,22 +1,22 @@
-# ember-validated-form
+# ember-validated-form (Ember 5.x Compatible)
 
-[![npm version](https://badge.fury.io/js/ember-validated-form.svg)](https://badge.fury.io/js/ember-validated-form)
-[![Ember Observer Score](https://emberobserver.com/badges/ember-validated-form.svg)](https://emberobserver.com/addons/ember-validated-form)
-[![Test](https://github.com/adfinis/ember-validated-form/workflows/Test/badge.svg)](https://github.com/adfinis/ember-validated-form/actions?query=workflow%3ATest)
-[![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+This is a fork of [adfinis/ember-validated-form](https://github.com/adfinis/ember-validated-form) with bug fixes and Ember 5.x compatibility.
 
-Easily create forms with client side validations.
+## 🚀 Key Improvements
 
-![gif](https://raw.githubusercontent.com/adfinis/ember-validated-form/main/demo.gif)
+- ✅ **Ember 5.12+ compatibility**
+- ✅ **Fixed passed-or-default.js WeakMap bug**
+- ✅ **Removed @embroider/macros dependencies**
+- ✅ **Built-in styling support**
+- ✅ **Improved component resolution**
 
-Want to try it yourself? [View the docs here.](https://adfinis.github.io/ember-validated-form)
+## Installation
 
-# Contributing
+```bash
+npm install @chepworth/ember-validated-form
+# or
+yarn add @chepworth/ember-validated-form
 
-Bug reports, suggestions and pull requests are always welcome!
-
-See the [Contributing](CONTRIBUTING.md) guide for details.
-
-### License
-
-This project is licensed under the [MIT License](LICENSE.md).
+Changes from Original
+See README-BRANZ.md for detailed documentation of all changes made.
+Original Documentation [View the docs here.](https://adfinis.github.io/ember-validated-form)

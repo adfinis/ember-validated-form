@@ -1,6 +1,5 @@
 import { action } from "@ember/object";
 import { scheduleOnce } from "@ember/runloop";
-import { macroCondition, getOwnConfig } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { resolve } from "rsvp";
@@ -45,15 +44,7 @@ export default class ValidatedFormComponent extends Component {
     await model.validate();
 
     if (model.get("isInvalid")) {
-      if (macroCondition(getOwnConfig().scrollErrorIntoView)) {
-        if (model.errors[0]?.key) {
-          document
-            .querySelector(
-              `[name=${model.errors[0].key.replaceAll(".", "\\.")}]`,
-            )
-            ?.scrollIntoView({ behavior: "smooth" });
-        }
-      }
+      // Simplified version without macros for now
       this.runCallback(PROP_ON_INVALID_SUBMIT);
     } else {
       this.runCallback(PROP_ON_SUBMIT);

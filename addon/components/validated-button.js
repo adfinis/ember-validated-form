@@ -1,5 +1,4 @@
 import { action } from "@ember/object";
-import { macroCondition, getOwnConfig } from "@embroider/macros";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { resolve } from "rsvp";
@@ -40,11 +39,11 @@ export default class ValidatedButtonComponent extends Component {
 
     await model.validate();
 
-    if (macroCondition(getOwnConfig().scrollErrorIntoView)) {
-      if (model.errors[0]?.key) {
-        document
-          .querySelector(`[name=${model.errors[0].key.replaceAll(".", "\\.")}]`)
-          ?.scrollIntoView({ behavior: "smooth" });
+    // Simplified version without macros - scroll to error if present
+    if (model.get("isInvalid") && model.errors[0]?.key) {
+      const errorElement = document.querySelector(`[name=${model.errors[0].key.replaceAll(".", "\\.")}]`);
+      if (errorElement) {
+        errorElement.scrollIntoView({ behavior: "smooth" });
       }
     }
 

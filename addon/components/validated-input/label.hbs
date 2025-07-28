@@ -1,7 +1,6 @@
-<label
-  class={{if (macroCondition (macroGetOwnConfig "isUikit")) "uk-form-label"}}
-  for={{@inputId}}
+<div
+  class="Form-field-label"
   ...attributes
 >
-  {{yield}}{{@label}}{{if (and @label @required) " *"}}
-</label>
+  {{yield}}{{@label}}{{#if (and @label @required)}} <span class="required">*</span>{{/if}}
+</div>

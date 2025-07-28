@@ -1,10 +1,7 @@
-<small
+<div
   id={{@id}}
-  class={{class-list
-    (if (macroCondition (macroGetOwnConfig "isUikit")) "uk-text-muted")
-    (if
-      (macroCondition (macroGetOwnConfig "isBootstrap")) "form-text text-muted"
-    )
-  }}
+  class="Form-field-hint"
   ...attributes
->{{yield}}{{@hint}}</small>
+>
+  {{yield}}{{@hint}}
+</div>

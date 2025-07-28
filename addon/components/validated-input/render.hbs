@@ -1,10 +1,5 @@
 {{! template-lint-disable no-autofocus-attribute }}
-<div
-  class={{class-list
-    (if (macroCondition (macroGetOwnConfig "isUikit")) "uk-margin")
-    (if (macroCondition (macroGetOwnConfig "isBootstrap")) "form-group")
-  }}
->
+<div>
   {{#if (not-eq @type "checkbox")}}
     <@labelComponent />
   {{/if}}
