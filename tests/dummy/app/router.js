@@ -13,9 +13,11 @@ Router.map(function () {
     this.route("usage");
     this.route("quickstart");
     this.route("configuration");
+    this.route("global-defaults");
     this.route("customization");
     this.route("troubleshooting");
     this.route("migration-v6");
+    this.route("migration-v8");
 
     this.route("components", function () {
       this.route("validated-form");

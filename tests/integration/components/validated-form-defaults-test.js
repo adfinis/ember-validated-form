@@ -1,17 +1,14 @@
 import { render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
-import { module } from "qunit";
+import { module, test } from "qunit";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
-import { testCustomComponents } from "dummy/tests/helpers/scenarios";
 
 module("Integration | Component | validated form defaults", function (hooks) {
   setupRenderingTest(hooks);
 
-  testCustomComponents("renders custom components", async function (assert) {
-    assert.expect(4);
-
-    this.set("model", { error: { test1: { validation: ["Error"] } } });
+  test("renders custom hint component", async function (assert) {
+    assert.expect(2);
 
     await render(hbs`<ValidatedForm as |f|>
   <f.input
@@ -19,52 +16,10 @@ module("Integration | Component | validated form defaults", function (hooks) {
     @type="text"
     @label="Label!"
     @hint="Hint!"
-    @submitted={{true}}
-    @model={{this.model}}
   />
 </ValidatedForm>`);
 
-    assert.dom("custom-render").exists();
-    assert.dom("custom-label").exists();
-    assert.dom("custom-hint").exists();
-    assert.dom("custom-error").exists();
+    assert.dom("small > svg.fa-circle-question").exists();
+    assert.dom("small").hasText("Hint!");
   });
-
-  testCustomComponents(
-    "renders custom button components",
-    async function (assert) {
-      assert.expect(1);
-
-      await render(hbs`<ValidatedForm as |f|>
-  <f.submit @label="Submit!" />
-</ValidatedForm>`);
-
-      assert.dom("custom-button").exists();
-    },
-  );
-
-  testCustomComponents(
-    "renders custom type components",
-    async function (assert) {
-      assert.expect(7);
-
-      await render(hbs`<ValidatedForm as |f|>
-  <f.input @type="checkbox" />
-  <f.input @type="checkbox-group" />
-  <f.input @type="text" />
-  <f.input @type="radio-group" />
-  <f.input @type="select" />
-  <f.input @type="textarea" />
-  <f.input @type="date" />
-</ValidatedForm>`);
-
-      assert.dom("custom-checkbox").exists();
-      assert.dom("custom-checkbox-group").exists();
-      assert.dom("custom-input").exists();
-      assert.dom("custom-radio-group").exists();
-      assert.dom("custom-select").exists();
-      assert.dom("custom-textarea").exists();
-      assert.dom("custom-date").exists();
-    },
-  );
 });

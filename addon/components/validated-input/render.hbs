@@ -1,127 +1,152 @@
-{{! template-lint-disable no-autofocus-attribute }}
-<div
-  class={{evf-class-list
-    (if (evf-theme "uikit") "uk-margin")
-    (if (evf-theme "bootstrap") "form-group")
-  }}
->
-  {{#if (not-eq @type "checkbox")}}
-    <@labelComponent />
-  {{/if}}
-
-  <ValidatedInput::Render::Wrapper>
-    {{#if (eq @type "select")}}
-      <this.selectComponent
-        @disabled={{@disabled}}
-        @inputId={{@inputId}}
-        @isInvalid={{@isInvalid}}
-        @isValid={{@isValid}}
-        @multiple={{@multiple}}
-        @name={{or @inputName @name}}
-        @optionLabelPath={{@optionLabelPath}}
-        @options={{@options}}
-        @optionTargetPath={{@optionTargetPath}}
-        @optionValuePath={{@optionValuePath}}
-        @prompt={{@prompt}}
-        @promptIsSelectable={{@promptIsSelectable}}
-        @setDirty={{@setDirty}}
-        @update={{@update}}
-        @value={{@value}}
-        ...attributes
-      />
-    {{else if (or (eq @type "radioGroup") (eq @type "radio-group"))}}
-      <this.radioGroupComponent
-        @disabled={{@disabled}}
-        @inputId={{@inputId}}
-        @isInvalid={{@isInvalid}}
-        @isValid={{@isValid}}
-        @name={{or @inputName @name}}
-        @options={{@options}}
-        @setDirty={{@setDirty}}
-        @update={{@update}}
-        @value={{@value}}
-        ...attributes
-      />
-    {{else if (or (eq @type "checkboxGroup") (eq @type "checkbox-group"))}}
-      <this.checkboxGroupComponent
-        @disabled={{@disabled}}
-        @inputId={{@inputId}}
-        @isInvalid={{@isInvalid}}
-        @isValid={{@isValid}}
-        @name={{or @inputName @name}}
-        @options={{@options}}
-        @setDirty={{@setDirty}}
-        @update={{@update}}
-        @value={{@value}}
-        ...attributes
-      />
-    {{else if (eq @type "checkbox")}}
-      <this.checkboxComponent
-        @disabled={{@disabled}}
-        @inputId={{@inputId}}
-        @isInvalid={{@isInvalid}}
-        @isValid={{@isValid}}
-        @labelComponent={{@labelComponent}}
-        @name={{or @inputName @name}}
-        @options={{@options}}
-        @setDirty={{@setDirty}}
-        @update={{@update}}
-        @value={{@value}}
-        ...attributes
-      />
-    {{else if (eq @type "textarea")}}
-      <this.textareaComponent
-        autocomplete={{@autocomplete}}
-        autofocus={{@autofocus}}
-        cols={{@cols}}
-        disabled={{@disabled}}
-        id={{@inputId}}
-        name={{or @inputName @name}}
-        placeholder={{@placeholder}}
-        rows={{@rows}}
-        value={{@value}}
-        @isInvalid={{@isInvalid}}
-        @isValid={{@isValid}}
-        @setDirty={{@setDirty}}
-        @update={{@update}}
-        ...attributes
-      />
-    {{else if
-      (and (eq @type "date") (not-eq this.dateComponent this.inputComponent))
+{{#let
+  (ensure-safe-component
+    (or @selectComponent (component "validated-input/types/select"))
+  )
+  (ensure-safe-component
+    (or @radioGroupComponent (component "validated-input/types/radio-group"))
+  )
+  (ensure-safe-component
+    (or
+      @checkboxGroupComponent (component "validated-input/types/checkbox-group")
+    )
+  )
+  (ensure-safe-component
+    (or @checkboxComponent (component "validated-input/types/checkbox"))
+  )
+  (ensure-safe-component
+    (or @textareaComponent (component "validated-input/types/textarea"))
+  )
+  (ensure-safe-component
+    (or @dateComponent (component "validated-input/types/date"))
+  )
+  (ensure-safe-component
+    (or @inputComponent (component "validated-input/types/input"))
+  )
+  as |SelectComponent RadioGroupComponent CheckboxGroupComponent CheckboxComponent TextareaComponent DateComponent InputComponent|
+}}
+  {{! template-lint-disable no-autofocus-attribute }}
+  <div
+    class={{evf-class-list
+      (if (evf-theme "uikit") "uk-margin")
+      (if (evf-theme "bootstrap") "form-group")
     }}
-      <this.dateComponent
-        @autocomplete={{@autocomplete}}
-        @autofocus={{@autofocus}}
-        @disabled={{@disabled}}
-        @id={{@inputId}}
-        @name={{or @inputName @name}}
-        @placeholder={{@placeholder}}
-        @value={{@value}}
-        @isInvalid={{@isInvalid}}
-        @isValid={{@isValid}}
-        @setDirty={{@setDirty}}
-        @update={{@update}}
-        ...attributes
-      />
-    {{else}}
-      <this.inputComponent
-        autocomplete={{@autocomplete}}
-        autofocus={{@autofocus}}
-        disabled={{@disabled}}
-        id={{@inputId}}
-        name={{or @inputName @name}}
-        placeholder={{@placeholder}}
-        type={{@type}}
-        value={{@value}}
-        @isInvalid={{@isInvalid}}
-        @isValid={{@isValid}}
-        @setDirty={{@setDirty}}
-        @update={{@update}}
-        ...attributes
-      />
+  >
+    {{#if (not-eq @type "checkbox")}}
+      <@labelComponent />
     {{/if}}
-  </ValidatedInput::Render::Wrapper>
 
-  <@hintComponent />
-  <@errorComponent />
-</div>
+    <ValidatedInput::Render::Wrapper>
+      {{#if (eq @type "select")}}
+        <SelectComponent
+          @disabled={{@disabled}}
+          @inputId={{@inputId}}
+          @isInvalid={{@isInvalid}}
+          @isValid={{@isValid}}
+          @multiple={{@multiple}}
+          @name={{or @inputName @name}}
+          @optionLabelPath={{@optionLabelPath}}
+          @options={{@options}}
+          @optionTargetPath={{@optionTargetPath}}
+          @optionValuePath={{@optionValuePath}}
+          @prompt={{@prompt}}
+          @promptIsSelectable={{@promptIsSelectable}}
+          @setDirty={{@setDirty}}
+          @update={{@update}}
+          @value={{@value}}
+          ...attributes
+        />
+      {{else if (or (eq @type "radioGroup") (eq @type "radio-group"))}}
+        <RadioGroupComponent
+          @disabled={{@disabled}}
+          @inputId={{@inputId}}
+          @isInvalid={{@isInvalid}}
+          @isValid={{@isValid}}
+          @name={{or @inputName @name}}
+          @options={{@options}}
+          @setDirty={{@setDirty}}
+          @update={{@update}}
+          @value={{@value}}
+          ...attributes
+        />
+      {{else if (or (eq @type "checkboxGroup") (eq @type "checkbox-group"))}}
+        <CheckboxGroupComponent
+          @disabled={{@disabled}}
+          @inputId={{@inputId}}
+          @isInvalid={{@isInvalid}}
+          @isValid={{@isValid}}
+          @name={{or @inputName @name}}
+          @options={{@options}}
+          @setDirty={{@setDirty}}
+          @update={{@update}}
+          @value={{@value}}
+          ...attributes
+        />
+      {{else if (eq @type "checkbox")}}
+        <CheckboxComponent
+          @disabled={{@disabled}}
+          @inputId={{@inputId}}
+          @isInvalid={{@isInvalid}}
+          @isValid={{@isValid}}
+          @labelComponent={{@labelComponent}}
+          @name={{or @inputName @name}}
+          @options={{@options}}
+          @setDirty={{@setDirty}}
+          @update={{@update}}
+          @value={{@value}}
+          ...attributes
+        />
+      {{else if (eq @type "textarea")}}
+        <TextareaComponent
+          autocomplete={{@autocomplete}}
+          autofocus={{@autofocus}}
+          cols={{@cols}}
+          disabled={{@disabled}}
+          id={{@inputId}}
+          name={{or @inputName @name}}
+          placeholder={{@placeholder}}
+          rows={{@rows}}
+          value={{@value}}
+          @isInvalid={{@isInvalid}}
+          @isValid={{@isValid}}
+          @setDirty={{@setDirty}}
+          @update={{@update}}
+          ...attributes
+        />
+      {{else if (eq @type "date")}}
+        <DateComponent
+          @autocomplete={{@autocomplete}}
+          @autofocus={{@autofocus}}
+          @disabled={{@disabled}}
+          @id={{@inputId}}
+          @name={{or @inputName @name}}
+          @placeholder={{@placeholder}}
+          @value={{@value}}
+          @isInvalid={{@isInvalid}}
+          @isValid={{@isValid}}
+          @setDirty={{@setDirty}}
+          @update={{@update}}
+          ...attributes
+        />
+      {{else}}
+        <InputComponent
+          autocomplete={{@autocomplete}}
+          autofocus={{@autofocus}}
+          disabled={{@disabled}}
+          id={{@inputId}}
+          name={{or @inputName @name}}
+          placeholder={{@placeholder}}
+          type={{@type}}
+          value={{@value}}
+          @isInvalid={{@isInvalid}}
+          @isValid={{@isValid}}
+          @setDirty={{@setDirty}}
+          @update={{@update}}
+          ...attributes
+        />
+      {{/if}}
+    </ValidatedInput::Render::Wrapper>
+
+    <@hintComponent />
+    <@errorComponent />
+  </div>
+{{/let}}

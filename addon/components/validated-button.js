@@ -4,14 +4,10 @@ import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { resolve } from "rsvp";
 
-import passedOrDefault from "ember-validated-form/passed-or-default";
-
 const ON_CLICK = "on-click";
 const ON_INVALID_CLICK = "on-invalid-click";
 export default class ValidatedButtonComponent extends Component {
   @tracked _loading;
-
-  @passedOrDefault("button") buttonComponent;
 
   get loading() {
     return this.args.loading || this._loading;

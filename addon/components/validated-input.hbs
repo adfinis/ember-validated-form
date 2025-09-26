@@ -1,83 +1,95 @@
-{{#if (has-block)}}
-  <this.labelComponent
-    @label={{@label}}
-    @required={{this.required}}
-    @isValid={{this.isValid}}
-    @isInvalid={{this.isInvalid}}
-    @inputId={{this.inputId}}
-  />
-
-  {{yield
-    (hash
-      value=this._val
-      update=this.update
-      setDirty=this.setDirty
-      model=@model
-      name=@name
-      inputId=this.inputId
-      isValid=this.isValid
-      isInvalid=this.isInvalid
+{{#let
+  (component
+    (ensure-safe-component
+      (or @labelComponent (component "validated-input/label"))
     )
-  }}
+    label=@label
+    required=this.required
+    isValid=this.isValid
+    isInvalid=this.isInvalid
+    inputId=this.inputId
+  )
+  (component
+    (ensure-safe-component
+      (or @errorComponent (component "validated-input/error"))
+    )
+    errors=this.errors
+    id=this.errorId
+  )
+  (component
+    (ensure-safe-component
+      (or @hintComponent (component "validated-input/hint"))
+    )
+    hint=@hint
+    id=this.hintId
+  )
+  as |LabelComponent ErrorComponent HintComponent|
+}}
+  {{#if (has-block)}}
+    <LabelComponent />
 
-  {{#if @hint}}
-    <this.hintComponent @hint={{@hint}} id={{this.hintId}} />
-  {{/if}}
-
-  {{#if (and this.showValidity this.errors)}}
-    <this.errorComponent @errors={{this.errors}} id={{this.errorId}} />
-  {{/if}}
-{{else}}
-  <this.renderComponent
-    @type={{this.type}}
-    @value={{this._val}}
-    @inputId={{this.inputId}}
-    @options={{@options}}
-    @name={{@name}}
-    @inputName={{@inputName}}
-    @disabled={{@disabled}}
-    @autofocus={{@autofocus}}
-    @autocomplete={{@autocomplete}}
-    @rows={{@rows}}
-    @cols={{@cols}}
-    @model={{@model}}
-    @isValid={{this.isValid}}
-    @isInvalid={{this.isInvalid}}
-    @placeholder={{@placeholder}}
-    @class={{@class}}
-    @prompt={{@prompt}}
-    @promptIsSelectable={{@promptIsSelectable}}
-    @optionLabelPath={{@optionLabelPath}}
-    @optionValuePath={{@optionValuePath}}
-    @optionTargetPath={{@optionTargetPath}}
-    @multiple={{@multiple}}
-    @update={{this.update}}
-    @setDirty={{this.setDirty}}
-    @submitted={{@submitted}}
-    @labelComponent={{component
-      (ensure-safe-component this.labelComponent)
-      label=@label
-      required=@required
-      isValid=this.isValid
-      isInvalid=this.isInvalid
-      inputId=this.inputId
-    }}
-    @hintComponent={{if
-      @hint
-      (component
-        (ensure-safe-component this.hintComponent) hint=@hint id=this.hintId
+    {{yield
+      (hash
+        value=this._val
+        update=this.update
+        setDirty=this.setDirty
+        model=@model
+        name=@name
+        inputId=this.inputId
+        isValid=this.isValid
+        isInvalid=this.isInvalid
       )
     }}
-    @errorComponent={{if
-      (and this.showValidity this.errors)
+
+    {{#if @hint}}
+      <HintComponent />
+    {{/if}}
+
+    {{#if (and this.showValidity this.errors)}}
+      <ErrorComponent />
+    {{/if}}
+  {{else}}
+    {{#let
       (component
-        (ensure-safe-component this.errorComponent)
-        errors=this.errors
-        id=this.errorId
+        (ensure-safe-component
+          (or @renderComponent (component "validated-input/render"))
+        )
+        type=this.type
+        value=this._val
+        inputId=this.inputId
+        options=@options
+        name=@name
+        inputName=@inputName
+        disabled=@disabled
+        autofocus=@autofocus
+        autocomplete=@autocomplete
+        rows=@rows
+        cols=@cols
+        model=@model
+        isValid=this.isValid
+        isInvalid=this.isInvalid
+        placeholder=@placeholder
+        class=@class
+        prompt=@prompt
+        promptIsSelectable=@promptIsSelectable
+        optionLabelPath=@optionLabelPath
+        optionValuePath=@optionValuePath
+        optionTargetPath=@optionTargetPath
+        multiple=@multiple
+        update=this.update
+        setDirty=this.setDirty
+        submitted=@submitted
+        labelComponent=LabelComponent
+        hintComponent=(if @hint HintComponent)
+        errorComponent=(if (and this.showValidity this.errors) ErrorComponent)
       )
+      as |RenderComponent|
     }}
-    aria-invalid={{if this.isInvalid "true"}}
-    aria-describedby={{if this.isInvalid this.errorId this.hintId}}
-    ...attributes
-  />
-{{/if}}
+      <RenderComponent
+        aria-invalid={{if this.isInvalid "true"}}
+        aria-describedby={{if this.isInvalid this.errorId this.hintId}}
+        ...attributes
+      />
+    {{/let}}
+  {{/if}}
+{{/let}}

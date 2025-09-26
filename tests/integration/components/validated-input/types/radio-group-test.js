@@ -1,13 +1,12 @@
 import { render } from "@ember/test-helpers";
 import hbs from "htmlbars-inline-precompile";
-import { module } from "qunit";
+import { module, test } from "qunit";
 
 import {
   setupRenderingTest,
   setupUikit,
   setupBootstrap,
 } from "dummy/tests/helpers";
-import { test } from "dummy/tests/helpers/scenarios";
 
 module(
   "Integration | Component | validated-input/types/radio-group",

@@ -3,11 +3,10 @@ import { run } from "@ember/runloop";
 import { render, click, blur, fillIn, focus } from "@ember/test-helpers";
 import { validateLength } from "ember-changeset-validations/validators";
 import hbs from "htmlbars-inline-precompile";
-import { module } from "qunit";
+import { module, test } from "qunit";
 import { defer } from "rsvp";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
-import { test } from "dummy/tests/helpers/scenarios";
 import UserValidations from "dummy/validations/user";
 
 module("Integration | Component | validated form", function (hooks) {

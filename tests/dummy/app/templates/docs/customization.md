@@ -155,7 +155,7 @@ This is on purpose due to there being many date picker components/addons
 available. And not every date picker fits every theme.
 
 If you would like to configure a custom date picker, configure a custom date
-component as specified in the _Defaults_ section of <DocsLink @route="docs.configuration">`Configuration`</DocsLink>.
+component as specified in <DocsLink @route="docs.global-defaults">global defaults</DocsLink>.
 
 <!-- prettier-ignore-start -->
 <DocsDemo as |demo|>
@@ -172,8 +172,7 @@ component as specified in the _Defaults_ section of <DocsLink @route="docs.confi
   </demo.example>
 
   <demo.snippet @name='custom-date-input-template.hbs' />
-  <demo.snippet @name='flatpickr-wrapper.hbs' @label='myapp/components/flatpickr-wrapper.hbs' />
-  <demo.snippet @name='config-custom-date.js' @label='ember-cli-build.js' />
+  <demo.snippet @name='flatpickr-wrapper.hbs' @label='components/flatpickr-wrapper.hbs' />
 </DocsDemo>
 <!-- prettier-ignore-end -->
 
