@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/ember-validated-form.svg)](https://badge.fury.io/js/ember-validated-form)
 [![Ember Observer Score](https://emberobserver.com/badges/ember-validated-form.svg)](https://emberobserver.com/addons/ember-validated-form)
-[![Test](https://github.com/adfinis/ember-validated-form/workflows/Test/badge.svg)](https://github.com/adfinis/ember-validated-form/actions?query=workflow%3ATest)
+[![CI](https://github.com/adfinis/ember-validated-form/actions/workflows/ci.yml/badge.svg)](https://github.com/adfinis/ember-validated-form/actions/workflows/ci.yml)
 [![Code Style: Prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 Easily create forms with client side validations.

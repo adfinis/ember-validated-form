@@ -32,7 +32,7 @@ accordingly to test each of those scenarios:
 
 ## Running the dummy application
 
-- `ember serve`
+- `pnpm start`
 - Visit the dummy application at [http://localhost:4200](http://localhost:4200).
 
 For more information on using ember-cli, visit [https://cli.emberjs.com/release/](https://cli.emberjs.com/release/).
