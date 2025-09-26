@@ -4,10 +4,9 @@ import { setComponentTemplate } from "@ember/component";
 import { render } from "@ember/test-helpers";
 import Component from "@glimmer/component";
 import hbs from "htmlbars-inline-precompile";
-import { module } from "qunit";
+import { module, test } from "qunit";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
-import { test } from "dummy/tests/helpers/scenarios";
 
 module("Integration | Component | validated label", function (hooks) {
   setupRenderingTest(hooks);

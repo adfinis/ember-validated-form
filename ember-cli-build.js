@@ -8,33 +8,6 @@ module.exports = function (defaults) {
     "ember-validated-form": {
       theme: "bootstrap",
       scrollErrorIntoView: false,
-      defaults: {
-        hint: "dummy/components/permanent-custom-hint",
-      },
-      ...(process.env.TEST_SCENARIO === "CUSTOM_COMPONENTS"
-        ? {
-            defaults: {
-              error: "dummy/components/x-custom-error",
-              hint: "dummy/components/x-custom-hint",
-              label: "dummy/components/x-custom-label",
-              render: "dummy/components/x-custom-render",
-              button: "dummy/components/x-custom-button",
-              "types/checkbox": "dummy/components/x-custom-checkbox",
-              "types/checkbox-group":
-                "dummy/components/x-custom-checkbox-group",
-              "types/input": "dummy/components/x-custom-input",
-              "types/select": "dummy/components/x-custom-select",
-              "types/radio-group": "dummy/components/x-custom-radio-group",
-              "types/textarea": "dummy/components/x-custom-textarea",
-              "types/date": "dummy/components/x-custom-date",
-            },
-          }
-        : {}),
-    },
-    "@embroider/macros": {
-      setOwnConfig: {
-        testScenario: process.env.TEST_SCENARIO ?? "DEFAULT",
-      },
     },
     babel: {
       plugins: [

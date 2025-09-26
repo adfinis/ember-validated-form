@@ -1,0 +1,16 @@
+{{! template-lint-disable no-autofocus-attribute }}
+<ValidatedInput::Types::Input
+  autocomplete={{@autocomplete}}
+  autofocus={{@autofocus}}
+  disabled={{@disabled}}
+  id={{@id}}
+  name={{@name}}
+  placeholder={{@placeholder}}
+  type="date"
+  value={{@value}}
+  @isInvalid={{@isInvalid}}
+  @isValid={{@isValid}}
+  @setDirty={{@setDirty}}
+  @update={{@update}}
+  ...attributes
+/>

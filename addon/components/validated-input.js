@@ -4,8 +4,6 @@ import { isEmpty } from "@ember/utils";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 
-import passedOrDefault from "ember-validated-form/passed-or-default";
-
 /**
  * This component wraps form inputs.
  *
@@ -34,11 +32,6 @@ export default class ValidatedInputComponent extends Component {
   @tracked required;
   @tracked type;
   @tracked validateBeforeSubmit;
-
-  @passedOrDefault("error") errorComponent;
-  @passedOrDefault("hint") hintComponent;
-  @passedOrDefault("label") labelComponent;
-  @passedOrDefault("render") renderComponent;
 
   constructor(...args) {
     super(...args);

@@ -1,10 +1,9 @@
 import { render, click, fillIn, settled } from "@ember/test-helpers";
 import Changeset from "ember-changeset";
 import { hbs } from "ember-cli-htmlbars";
-import { module } from "qunit";
+import { module, test } from "qunit";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
-import { test } from "dummy/tests/helpers/scenarios";
 
 module("Integration | Component | validated input", function (hooks) {
   setupRenderingTest(hooks);

@@ -1,19 +1,19 @@
-{{#if (has-block)}}
-  <this.buttonComponent
-    @onClick={{this.click}}
-    @loading={{this.loading}}
-    @disabled={{or @disabled this.loading}}
-    @label={{@label}}
-    @type={{@type}}
-    ...attributes
-  >{{yield}}</this.buttonComponent>
-{{else}}
-  <this.buttonComponent
-    @onClick={{this.click}}
-    @loading={{this.loading}}
-    @disabled={{or @disabled this.loading}}
-    @label={{@label}}
-    @type={{@type}}
-    ...attributes
-  />
-{{/if}}
+{{#let
+  (component
+    (ensure-safe-component
+      (or @buttonComponent (component "validated-button/button"))
+    )
+    onClick=this.click
+    loading=this.loading
+    disabled=(or @disabled this.loading)
+    label=@label
+    type=@type
+  )
+  as |ButtonComponent|
+}}
+  {{#if (has-block)}}
+    <ButtonComponent ...attributes>{{yield}}</ButtonComponent>
+  {{else}}
+    <ButtonComponent ...attributes />
+  {{/if}}
+{{/let}}

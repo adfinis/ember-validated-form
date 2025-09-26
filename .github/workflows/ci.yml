@@ -30,7 +30,7 @@ jobs:
       - name: Lint
         run: pnpm lint
       - name: Run Tests
-        run: pnpm ember try:each --skip-cleanup
+        run: pnpm test:ember
 
   floating:
     name: "Floating Dependencies"
@@ -47,7 +47,7 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --no-lockfile
       - name: Run Tests
-        run: pnpm ember try:each --skip-cleanup
+        run: pnpm test:ember
 
   try-scenarios:
     name: ${{ matrix.try-scenario }}
@@ -78,6 +78,4 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
       - name: Run Tests
-        run: ./node_modules/.bin/ember try:each --skip-cleanup
-        env:
-          EMBER_SCENARIO: ${{ matrix.try-scenario }}
+        run: ./node_modules/.bin/ember try:one ${{ matrix.try-scenario }}

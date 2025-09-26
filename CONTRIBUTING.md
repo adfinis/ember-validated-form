@@ -13,19 +13,9 @@
 
 ## Running tests
 
-Since `ember-validated-form` uses build time configuration, there are various
-test scenarios which can't be tested in the same run as the build changes each
-time. The following scenarios exist and contain tests:
-
-- `CUSTOM_COMPONENTS`, tests custom default components
-
-In order to be sure that the written code works, the developer needs to make
-sure that each scenario succeeds. For that, `ember-try` was configured
-accordingly to test each of those scenarios:
-
-- `ember try:each` – Runs the test suite on the current Ember version
-- `TEST_SCENARIO=[...] ember test --server` – Runs the test suite with the given scenario in "watch mode"
-- `EMBER_SCENARIO=[...] ember try:each` – Runs the test suite against multiple Ember versions
+- `pnpm test` – Runs the test suite on the current Ember version
+- `pnpm test:ember -- --server` – Runs the test suite in "watch mode"
+- `pnpm test:ember-compatibility` – Runs the test suite against multiple Ember versions
 
 ## Running the dummy application
 
