@@ -43,7 +43,7 @@
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
     "ember-changeset": "^4.1.2",
-    "ember-changeset-validations": "^4.1.1",
+    "ember-changeset-validations": "^5.0.0",
     "ember-cli-babel": "^8.2.0",
     "ember-cli-htmlbars": "^6.3.0",
     "ember-template-imports": "^4.3.0",
