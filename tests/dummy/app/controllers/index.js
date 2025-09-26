@@ -37,10 +37,9 @@ export default class IndexController extends Controller {
     ];
   }
 
-  @task
-  *submit(model) {
-    yield timeout(1000);
-    yield model.save();
-  }
+  submit = task(async (model) => {
+    await timeout(1000);
+    await model.save();
+  });
 }
 // END-SNIPPET
