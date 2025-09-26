@@ -190,6 +190,32 @@ component as specified in the _Defaults_ section of <DocsLink @route="docs.confi
 - `<Boolean>` **disabled** Whether the field is disabled
 - `<Boolean>` **autocomplete** Whether to enable autocompletion on the field
 
+### Internationalisation
+
+By default, the underlying `ember-changeset-validations` returns errors as plain
+strings. However, to deal with internationalisation (i18n), it may be
+preferrable to receive more context information.
+
+`ember-changeset-validations` can be [configured to return error
+objects instead of plain strings][gh:ecv:rawoutput] as follows:
+
+<!-- prettier-ignore-start -->
+<DocsSnippet @name='config-i18n.js' @title='config/environment.js' />
+<!-- prettier-ignore-end -->
+
+As the default input error component assumes plain strings, this also requires
+specifying a custom input error component handler:
+
+<!-- prettier-ignore-start -->
+<DocsDemo as |demo|>
+  <demo.snippet @name='i18n-template.hbs' @label='templates/form.hbs' />
+  <demo.snippet @name='i18n-component-handlebar.hbs' @label='components/i18n-input-error.hbs' />
+  <demo.snippet @name='i18n-component-javascript.js' @label='components/i18n-input-error.js' />
+</DocsDemo>
+<!-- prettier-ignore-end -->
+
+[gh:ecv:rawoutput]: https://github.com/adopted-ember-addons/ember-changeset-validations/?tab=readme-ov-file#raw-error-output
+
 ## validated-button
 
 <!-- prettier-ignore-start -->
