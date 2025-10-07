@@ -38,9 +38,7 @@ const app = new EmberAddon(defaults, {
   // ...
   "ember-validated-form": {
     theme: "bootstrap",
-    features: {
-      scrollErrorIntoView: true,
-    },
+    scrollErrorIntoView: true,
     defaults: {
       error: "myapp/components/some-component",
       // ...

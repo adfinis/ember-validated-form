@@ -36,6 +36,6 @@ For instance:
 ## Other features
 
 If you want to scroll the first invalid field into view, you can set the
-`scrollErrorIntoView` property to `true` (default: false).
+`scrollErrorIntoView` property to `true` (default: `false`).
 
 <DocsSnippet @name='config-features.js' @title='ember-cli-build.js' />
