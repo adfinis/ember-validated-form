@@ -15,4 +15,3 @@ updates:
       time: "12:00"
       timezone: "Europe/Zurich"
     open-pull-requests-limit: 10
-    versioning-strategy: increase
