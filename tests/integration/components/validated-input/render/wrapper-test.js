@@ -2,19 +2,19 @@ import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
 import { module } from "qunit";
 
-import { setupRenderingTest } from "dummy/tests/helpers";
 import {
-  testDefault,
-  testUikit,
-  testBootstrap,
-} from "dummy/tests/helpers/scenarios";
+  setupRenderingTest,
+  setupUikit,
+  setupBootstrap,
+} from "dummy/tests/helpers";
+import { test } from "dummy/tests/helpers/scenarios";
 
 module(
   "Integration | Component | validated-input/render/wrapper",
   function (hooks) {
     setupRenderingTest(hooks);
 
-    testDefault("it renders", async function (assert) {
+    test("it renders", async function (assert) {
       await render(
         hbs`<ValidatedInput::Render::Wrapper>Test</ValidatedInput::Render::Wrapper>`,
       );
@@ -22,20 +22,28 @@ module(
       assert.dom(this.element).hasText("Test");
     });
 
-    testBootstrap("it renders", async function (assert) {
-      await render(
-        hbs`<ValidatedInput::Render::Wrapper>Test</ValidatedInput::Render::Wrapper>`,
-      );
+    module("bootstrap", function (hooks) {
+      setupBootstrap(hooks);
 
-      assert.dom(this.element).hasText("Test");
+      test("it renders", async function (assert) {
+        await render(
+          hbs`<ValidatedInput::Render::Wrapper>Test</ValidatedInput::Render::Wrapper>`,
+        );
+
+        assert.dom(this.element).hasText("Test");
+      });
     });
 
-    testUikit("it renders", async function (assert) {
-      await render(
-        hbs`<ValidatedInput::Render::Wrapper>Test</ValidatedInput::Render::Wrapper>`,
-      );
+    module("uikit", function (hooks) {
+      setupUikit(hooks);
 
-      assert.dom("div.uk-form-controls").hasText("Test");
+      test("it renders", async function (assert) {
+        await render(
+          hbs`<ValidatedInput::Render::Wrapper>Test</ValidatedInput::Render::Wrapper>`,
+        );
+
+        assert.dom("div.uk-form-controls").hasText("Test");
+      });
     });
   },
 );

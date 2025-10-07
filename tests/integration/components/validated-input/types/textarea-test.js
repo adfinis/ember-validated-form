@@ -1,20 +1,20 @@
 import { render } from "@ember/test-helpers";
-import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module } from "qunit";
 
 import {
-  testDefault,
-  testUikit,
-  testBootstrap,
-} from "dummy/tests/helpers/scenarios";
+  setupRenderingTest,
+  setupUikit,
+  setupBootstrap,
+} from "dummy/tests/helpers";
+import { test } from "dummy/tests/helpers/scenarios";
 
 module(
   "Integration | Component | validated-input/types/textarea",
   function (hooks) {
     setupRenderingTest(hooks);
 
-    testDefault("it renders", async function (assert) {
+    test("it renders", async function (assert) {
       await render(hbs`<ValidatedInput::Types::Textarea
   @update={{fn (mut this.value)}}
   @setDirty={{fn (mut this.dirty) true}}
@@ -23,22 +23,30 @@ module(
       assert.dom("textarea").exists();
     });
 
-    testUikit("it renders", async function (assert) {
-      await render(hbs`<ValidatedInput::Types::Textarea
+    module("uikit", function (hooks) {
+      setupUikit(hooks);
+
+      test("it renders", async function (assert) {
+        await render(hbs`<ValidatedInput::Types::Textarea
   @update={{fn (mut this.value)}}
   @setDirty={{fn (mut this.dirty) true}}
 />`);
 
-      assert.dom("textarea").hasClass("uk-textarea");
+        assert.dom("textarea").hasClass("uk-textarea");
+      });
     });
 
-    testBootstrap("it renders", async function (assert) {
-      await render(hbs`<ValidatedInput::Types::Textarea
+    module("bootstrap", function (hooks) {
+      setupBootstrap(hooks);
+
+      test("it renders", async function (assert) {
+        await render(hbs`<ValidatedInput::Types::Textarea
   @update={{fn (mut this.value)}}
   @setDirty={{fn (mut this.dirty) true}}
 />`);
 
-      assert.dom("textarea").hasClass("form-control");
+        assert.dom("textarea").hasClass("form-control");
+      });
     });
   },
 );

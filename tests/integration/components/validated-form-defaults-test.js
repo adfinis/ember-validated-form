@@ -1,8 +1,8 @@
 import { render } from "@ember/test-helpers";
-import { setupRenderingTest } from "ember-qunit";
 import hbs from "htmlbars-inline-precompile";
 import { module } from "qunit";
 
+import { setupRenderingTest } from "dummy/tests/helpers";
 import { testCustomComponents } from "dummy/tests/helpers/scenarios";
 
 module("Integration | Component | validated form defaults", function (hooks) {
