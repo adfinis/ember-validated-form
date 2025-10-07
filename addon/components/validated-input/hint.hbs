@@ -1,10 +1,8 @@
 <small
   id={{@id}}
-  class={{class-list
-    (if (macroCondition (macroGetOwnConfig "isUikit")) "uk-text-muted")
-    (if
-      (macroCondition (macroGetOwnConfig "isBootstrap")) "form-text text-muted"
-    )
+  class={{evf-class-list
+    (if (evf-theme "uikit") "uk-text-muted")
+    (if (evf-theme "bootstrap") "form-text text-muted")
   }}
   ...attributes
 >{{yield}}{{@hint}}</small>

@@ -1,31 +1,29 @@
 "use strict";
 
+const defaultConfig = {
+  theme: "default",
+  scrollErrorIntoView: false,
+};
+
 module.exports = {
   name: require("./package").name,
+
+  config() {
+    const app = this._findHost(this);
+
+    const appConfig = app.options["ember-validated-form"] ?? {};
+
+    return {
+      "ember-validated-form": { defaultConfig, ...appConfig },
+    };
+  },
 
   included(...args) {
     this._super.included.apply(this, ...args);
 
     const app = this._findHost(this);
 
-    const {
-      theme = null,
-      scrollErrorIntoView = false,
-      defaults = {},
-    } = app.options["ember-validated-form"] ?? {};
-
-    // Theming options
-    this.options["@embroider/macros"].setOwnConfig.isDefault = ![
-      "uikit",
-      "bootstrap",
-    ].includes(theme);
-    this.options["@embroider/macros"].setOwnConfig.isUikit = theme === "uikit";
-    this.options["@embroider/macros"].setOwnConfig.isBootstrap =
-      theme === "bootstrap";
-
-    // Features
-    this.options["@embroider/macros"].setOwnConfig.scrollErrorIntoView =
-      scrollErrorIntoView;
+    const { defaults = {} } = app.options["ember-validated-form"] ?? {};
 
     // Component defaults
     this.options["@embroider/macros"].setOwnConfig.error =

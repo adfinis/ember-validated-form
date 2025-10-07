@@ -1,16 +1,16 @@
 <input
-  class={{class-list
+  class={{evf-class-list
     (if
-      (macroCondition (macroGetOwnConfig "isUikit"))
-      (class-list
+      (evf-theme "uikit")
+      (evf-class-list
         "uk-input"
         (if @isValid "uk-form-success")
         (if @isInvalid "uk-form-danger")
       )
     )
     (if
-      (macroCondition (macroGetOwnConfig "isBootstrap"))
-      (class-list
+      (evf-theme "bootstrap")
+      (evf-class-list
         "form-control" (if @isValid "is-valid") (if @isInvalid "is-invalid")
       )
     )

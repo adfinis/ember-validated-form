@@ -30,6 +30,20 @@ function setupApplicationTest(hooks, options) {
 function setupRenderingTest(hooks, options) {
   upstreamSetupRenderingTest(hooks, options);
 
+  hooks.beforeEach(function () {
+    this.setTheme = (theme) => {
+      this.owner.resolveRegistration("config:environment")[
+        "ember-validated-form"
+      ].theme = theme;
+    };
+
+    this.setTheme("default");
+  });
+
+  hooks.afterEach(function () {
+    this.setTheme("default");
+  });
+
   // Additional setup for rendering tests can be done here.
 }
 
