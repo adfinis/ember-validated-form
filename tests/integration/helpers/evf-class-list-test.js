@@ -1,8 +1,9 @@
 import { render } from "@ember/test-helpers";
 import { hbs } from "ember-cli-htmlbars";
-import { module, test } from "qunit";
+import { module } from "qunit";
 
 import { setupRenderingTest } from "dummy/tests/helpers";
+import { test } from "dummy/tests/helpers/scenarios";
 
 module("Integration | Helper | evf-class-list", function (hooks) {
   setupRenderingTest(hooks);

@@ -53,4 +53,22 @@ function setupTest(hooks, options) {
   // Additional setup for unit tests can be done here.
 }
 
-export { setupApplicationTest, setupRenderingTest, setupTest };
+function setupUikit(hooks) {
+  hooks.beforeEach(function () {
+    this.setTheme("uikit");
+  });
+}
+
+function setupBootstrap(hooks) {
+  hooks.beforeEach(function () {
+    this.setTheme("bootstrap");
+  });
+}
+
+export {
+  setupApplicationTest,
+  setupRenderingTest,
+  setupTest,
+  setupUikit,
+  setupBootstrap,
+};

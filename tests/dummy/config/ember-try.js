@@ -7,16 +7,8 @@ const config = {
   packageManager: "pnpm",
   scenarios: [
     {
-      name: "theme-default",
-      env: { TEST_SCENARIO: "THEME_DEFAULT" },
-    },
-    {
-      name: "theme-uikit",
-      env: { TEST_SCENARIO: "THEME_UIKIT" },
-    },
-    {
-      name: "theme-bootstrap",
-      env: { TEST_SCENARIO: "THEME_BOOTSTRAP" },
+      name: "default",
+      env: {},
     },
     {
       name: "custom-components",

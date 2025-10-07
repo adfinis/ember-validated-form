@@ -17,9 +17,6 @@ Since `ember-validated-form` uses build time configuration, there are various
 test scenarios which can't be tested in the same run as the build changes each
 time. The following scenarios exist and contain tests:
 
-- `THEME_UIKIT`, tests UIkit specific code
-- `THEME_BOOTSTRAP`, tests Bootstrap specific code
-- `THEME_DEFAULT`, tests theme unspecific code
 - `CUSTOM_COMPONENTS`, tests custom default components
 
 In order to be sure that the written code works, the developer needs to make
