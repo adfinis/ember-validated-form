@@ -30,9 +30,7 @@ module.exports = function (defaults) {
     snippetPaths: ["tests/dummy/app/snippets"],
     "ember-validated-form": {
       theme: "bootstrap",
-      features: {
-        scrollErrorIntoView: false,
-      },
+      scrollErrorIntoView: false,
       defaults: {
         hint: "dummy/components/permanent-custom-hint",
       },
