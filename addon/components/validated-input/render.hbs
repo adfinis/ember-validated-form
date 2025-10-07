@@ -1,8 +1,8 @@
 {{! template-lint-disable no-autofocus-attribute }}
 <div
-  class={{class-list
-    (if (macroCondition (macroGetOwnConfig "isUikit")) "uk-margin")
-    (if (macroCondition (macroGetOwnConfig "isBootstrap")) "form-group")
+  class={{evf-class-list
+    (if (evf-theme "uikit") "uk-margin")
+    (if (evf-theme "bootstrap") "form-group")
   }}
 >
   {{#if (not-eq @type "checkbox")}}

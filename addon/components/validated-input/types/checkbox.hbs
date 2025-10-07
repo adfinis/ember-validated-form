@@ -1,4 +1,4 @@
-{{#if (macroCondition (macroGetOwnConfig "isUikit"))}}
+{{#if (evf-theme "uikit")}}
   <@labelComponent
     class="{{if @isValid 'uk-text-success'}} {{if @isInvalid 'uk-text-danger'}}"
   >
@@ -13,7 +13,7 @@
       ...attributes
     />
   </@labelComponent>
-{{else if (macroCondition (macroGetOwnConfig "isBootstrap"))}}
+{{else if (evf-theme "bootstrap")}}
   <div class="custom-control custom-checkbox">
     <input
       class="custom-control-input

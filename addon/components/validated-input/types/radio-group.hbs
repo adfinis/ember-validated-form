@@ -1,5 +1,5 @@
 {{#each @options as |option i|}}
-  {{#if (macroCondition (macroGetOwnConfig "isUikit"))}}
+  {{#if (evf-theme "uikit")}}
     {{#if (not-eq i 0)}}<br />{{/if}}
     <label
       class="uk-form-label
@@ -19,7 +19,7 @@
       />
       {{option.label}}
     </label>
-  {{else if (macroCondition (macroGetOwnConfig "isBootstrap"))}}
+  {{else if (evf-theme "bootstrap")}}
     <div class="custom-control custom-radio">
       <input
         type="radio"
