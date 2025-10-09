@@ -78,7 +78,7 @@
     "ember-cli-sri": "2.1.1",
     "ember-cli-terser": "4.0.2",
     "ember-cli-test-loader": "3.1.0",
-    "ember-concurrency": "4.0.6",
+    "ember-concurrency": "5.1.0",
     "ember-data": "5.7.0",
     "ember-flatpickr": "8.0.1",
     "ember-load-initializers": "3.0.1",
