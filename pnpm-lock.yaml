@@ -156,9 +156,6 @@ importers:
       ember-template-lint:
         specifier: 7.9.3
         version: 7.9.3
-      ember-template-lint-plugin-prettier:
-        specifier: 5.0.0
-        version: 5.0.0(ember-template-lint@7.9.3)(prettier@3.6.2)
       ember-truth-helpers:
         specifier: 3.1.1
         version: 3.1.1
@@ -1658,11 +1655,6 @@ packages:
   '@pnpm/npm-conf@2.3.1':
     resolution: {integrity: sha512-c83qWb22rNRuB0UaVCI0uRPNRr8Z0FWnEIvT47jiHAmOIUHbBOg5XvV7pM5x+rKn9HRpjxquDbXYSXr3fAKFcw==}
     engines: {node: '>=12'}
-
-  '@prettier/sync@0.2.1':
-    resolution: {integrity: sha512-7ls1R6//+GPYD9vof1XaL5psViv83CwpdwlS8oUkWldYgbPhzZ3WgxIQMWqGyBmWPmoBfQg8C7jj7KI/ZuDHhQ==}
-    peerDependencies:
-      prettier: ^3.0.0
 
   '@rtsao/scc@1.1.0':
     resolution: {integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==}
@@ -4145,13 +4137,6 @@ packages:
   ember-template-imports@4.3.0:
     resolution: {integrity: sha512-jZ5D6KLKU8up/AynZltmKh4lkXBPgTGSPgomprI/55XvIVqn42UNUpEz7ra/mO3QiGODDZOUesbggPe49i38sQ==}
     engines: {node: 16.* || >= 18}
-
-  ember-template-lint-plugin-prettier@5.0.0:
-    resolution: {integrity: sha512-aXUYM4yuIdPZ80+AsAU8QBwGSJJ/aAkRsNcQ5vI5HmXiBjzHlDc/ZhmP6iVcYuCmoA/3iKcssMAYwIDbuby4pg==}
-    engines: {node: ^16.0.0 || ^18.0.0 || >=20.0.0}
-    peerDependencies:
-      ember-template-lint: '>= 4.0.0'
-      prettier: '>= 3.0.0'
 
   ember-template-lint@7.9.3:
     resolution: {integrity: sha512-iqC4rv/oVlXViGuf7hlOA/bC550ZqacZKAc8WvQV0ueeCtIYPkYYK+Tc7FwpM8qGx3jiwu/ZsTuNfPInI5pL7Q==}
@@ -10579,10 +10564,6 @@ snapshots:
       '@pnpm/network.ca-file': 1.0.2
       config-chain: 1.1.13
 
-  '@prettier/sync@0.2.1(prettier@3.6.2)':
-    dependencies:
-      prettier: 3.6.2
-
   '@rtsao/scc@1.1.0': {}
 
   '@sec-ant/readable-stream@0.4.1': {}
@@ -14390,13 +14371,6 @@ snapshots:
       ember-cli-version-checker: 5.1.2
     transitivePeerDependencies:
       - supports-color
-
-  ember-template-lint-plugin-prettier@5.0.0(ember-template-lint@7.9.3)(prettier@3.6.2):
-    dependencies:
-      '@prettier/sync': 0.2.1(prettier@3.6.2)
-      ember-template-lint: 7.9.3
-      prettier: 3.6.2
-      prettier-linter-helpers: 1.0.0
 
   ember-template-lint@7.9.3:
     dependencies:
