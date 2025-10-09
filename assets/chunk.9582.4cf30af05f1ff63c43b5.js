@@ -1,4 +1,4 @@
-/*! For license information please see chunk.9582.ba1a1ac2ae67b9485b7e.js.LICENSE.txt */
+/*! For license information please see chunk.9582.4cf30af05f1ff63c43b5.js.LICENSE.txt */
 (globalThis.webpackChunk_ember_auto_import_=globalThis.webpackChunk_ember_auto_import_||[]).push([[9582],{67:(e,t,r)=>{"use strict"
 Object.defineProperty(t,"__esModule",{value:!0}),t.default=void 0
 var n=r(6722)
@@ -299,8 +299,7 @@ return new d.N(t)}getModifier(e){if(b(e))return m[e].bind(null,this)}getOptions(
 if(this._taskGroupPath){if(t=e[this._taskGroupPath],!(t instanceof d.N))throw new Error(`Expected group '${this._taskGroupPath}' to be defined but was not found.`)
 r=t.scheduler}else{let e=new this._schedulerPolicyClass(this._maxConcurrency)
 r=this.getScheduler(e,n&&"function"==typeof n)}return{context:e,debug:this._debug,env:this.env,name:this.name,group:t,scheduler:r,hasEnabledEvents:this._hasEnabledEvents,onStateCallback:n,enabledModifiers:this._enabledModifiers,modifierOptions:this.getOptions()}}setBufferPolicy(e){return function(e){if(e._hasSetBufferPolicy)throw new Error(`Cannot set multiple buffer policies on a task or task group. ${e._schedulerPolicyClass} has already been set for task or task group '${e.name}'`)}(this),this._hasSetBufferPolicy=!0,this._hasSetConcurrencyConstraint=!0,this._schedulerPolicyClass=e,function(e){if(e._hasSetConcurrencyConstraint&&e._taskGroupPath)throw new Error("Cannot use both 'group' and other concurrency-constraining task modifiers (e.g. 'drop', 'enqueue', 'restartable')")}(this),this}setDebug(e){return this._debug=e,this}setEvented(e){return this._hasEnabledEvents=e,this}setMaxConcurrency(e){return this._hasSetConcurrencyConstraint=!0,this._maxConcurrency=e,this}setGroup(e){return this._taskGroupPath=e,this}setName(e){return this.name=e,this}setOnState(e){return this._onStateCallback=e,this}setTaskDefinition(e){return this.taskDefinition=e,this}_processModifierOptions(e){if(e)for(let t of Object.keys(e)){let r=e[t],n=this.getModifier(t)
-"function"==typeof n&&n(r)&&this._enabledModifiers.push(t)}}}},471:(e,t,r)=>{"use strict"
-function n(e){return e?.__esModule?e:{default:e,...e}}r.d(t,{A:()=>n})},479:(e,t)=>{"use strict"
+"function"==typeof n&&n(r)&&this._enabledModifiers.push(t)}}}},479:(e,t)=>{"use strict"
 var r
 Object.defineProperty(t,"__esModule",{value:!0}),t.replaceCodePoint=t.fromCodePoint=void 0
 var n=new Map([[0,65533],[128,8364],[130,8218],[131,402],[132,8222],[133,8230],[134,8224],[135,8225],[136,710],[137,8240],[138,352],[139,8249],[140,338],[142,381],[145,8216],[146,8217],[147,8220],[148,8221],[149,8226],[150,8211],[151,8212],[152,732],[153,8482],[154,353],[155,8250],[156,339],[158,382],[159,376]])
@@ -2786,7 +2785,7 @@ for(let[s,o]of r)if(n.match(s+"$"))return c&&i&&r.has(i)&&(o=g(o),s=g(s)),e.repl
 for(const[s,o]of t)if(s.test(e))return e.replace(s,o)
 return e}a.C.irregularPairs.forEach(e=>{x.set(e[0].toLowerCase(),e[1]),x.set(e[1].toLowerCase(),e[1]),C.set(e[1].toLowerCase(),e[0]),C.set(e[0].toLowerCase(),e[0])})},5239:(e,t,r)=>{"use strict"
 r.d(t,{lL:()=>c.lL,Ay:()=>c.il,o:()=>c.o})
-var n=r(1603),a=r(9177),i=(r(2923),r(471)),c=r(131)
+var n=r(1603),a=r(9177),i=(r(2923),r(6881)),c=r(131)
 {let e=!1,t=!1,c=!1
 if(e=!0,!c){const{buildSignalConfig:e}=(0,i.A)(r(3826));(0,a.s)(e)}if(!c){const r=["Using WarpDrive with EmberJS requires configuring it to use Ember's reactivity system.","Previously this was provided by installing the package '@ember-data/tracking', but this package is now deprecated.","","To resolve this deprecation, follow these steps:",!!e&&'- remove "@ember-data/tracking" and (if needed) "@ember-data-types/tracking" from your project in both your package.json and tsconfig.json',!t&&'- add "@warp-drive/ember" to your project in your package.json (and run install)',"- add the following import to your app.js file:","","\t```","\timport '@warp-drive/ember/install';","\t```","","- mark this deprecation as resolved in your project by adding the following to your WarpDrive config in ember-cli-build.js:","","\t```",'\tconst { setConfig } = await import("@warp-drive/build-config");',"\tsetConfig(app, __dirname, {","\t  deprecations: {","\t    DEPRECATE_TRACKING_PACKAGE: false,","\t  },","\t});","\t```","","For more information, see the Package Unification RFC: https://rfcs.emberjs.com/id/1075-warp-drive-package-unification/"].filter(e=>!1!==e).join("\n");(0,n.deprecate)(r,!1,{id:"warp-drive.deprecate-tracking-package",until:"6.0.0",for:"warp-drive",since:{enabled:"5.3.4",available:"4.13"},url:"https://deprecations.emberjs.com/id/warp-drive.deprecate-tracking-package"})}}},5284:(e,t,r)=>{"use strict"
 Object.defineProperty(t,"__esModule",{value:!0})
@@ -3309,7 +3308,8 @@ return n}function _(e,t){return e.map(function(e){return e.parentNode=t,e})}t.ba
 r.d(t,{Jn:()=>i,Vt:()=>s,W5:()=>n,aV:()=>o,f6:()=>c,iw:()=>a,qs:()=>l})
 const n="TaskCancelation"
 function a(e){return e&&e.name===n}const i="explicit",c="yielded",s="lifespan_end",o="parent_cancel"
-class l{constructor(e,t){this.kind=e,this.reason=t,this.promise=new Promise(e=>{this.finalize=e})}}},6916:(e,t)=>{"use strict"
+class l{constructor(e,t){this.kind=e,this.reason=t,this.promise=new Promise(e=>{this.finalize=e})}}},6881:(e,t,r)=>{"use strict"
+function n(e){return e?.__esModule?e:{default:e,...e}}r.d(t,{A:()=>n})},6916:(e,t)=>{"use strict"
 Object.defineProperty(t,"__esModule",{value:!0}),t.default=new Uint16Array("Ȁaglq\tɭ\0\0p;䀦os;䀧t;䀾t;䀼uot;䀢".split("").map(function(e){return e.charCodeAt(0)}))},6932:(e,t,r)=>{"use strict"
 r.r(t),r.d(t,{attr:()=>ze,belongsTo:()=>Me,buildSchema:()=>ye,default:()=>he,hasMany:()=>we,instantiateRecord:()=>xe,modelFor:()=>ke,teardownRecord:()=>Ce})
 var n=r(4471),a=r.n(n),i=r(131),c=r(7880),s=r(1603),o=r(5236)
