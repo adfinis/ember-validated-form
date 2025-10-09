@@ -1,9 +1,10 @@
-import { getOwner } from "@ember/application";
 import { action } from "@ember/object";
 import { scheduleOnce } from "@ember/runloop";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { resolve } from "rsvp";
+
+import { scrollErrorIntoViewEnabled } from "ember-validated-form/-private/features";
 
 const PROP_ON_SUBMIT = "on-submit";
 const PROP_ON_INVALID_SUBMIT = "on-invalid-submit";
@@ -45,12 +46,7 @@ export default class ValidatedFormComponent extends Component {
     await model.validate();
 
     if (model.get("isInvalid")) {
-      if (
-        getOwner(this).resolveRegistration("config:environment")[
-          "ember-validated-form"
-        ].scrollErrorIntoView &&
-        model.errors[0]?.key
-      ) {
+      if (scrollErrorIntoViewEnabled(this) && model.errors[0]?.key) {
         document
           .querySelector(`[name=${model.errors[0].key.replaceAll(".", "\\.")}]`)
           ?.scrollIntoView({ behavior: "smooth" });
