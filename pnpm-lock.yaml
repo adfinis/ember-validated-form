@@ -11,21 +11,12 @@ importers:
       '@babel/core':
         specifier: ^7.24.6
         version: 7.28.4
-      '@glimmer/component':
-        specifier: ^1.1.2
-        version: 1.1.2(@babel/core@7.28.4)
-      '@glimmer/tracking':
-        specifier: ^1.1.2
-        version: 1.1.2
+      '@embroider/util':
+        specifier: ^1.13.0
+        version: 1.13.4(ember-source@6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5))
       ember-auto-import:
         specifier: ^2.11.0
         version: 2.11.0(webpack@5.101.3)
-      ember-changeset:
-        specifier: ^4.1.2
-        version: 4.2.0(ember-data@5.7.0(@ember/test-helpers@4.0.4(@babel/core@7.28.4)(ember-source@6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5)))(@ember/test-waiters@3.1.0)(qunit@2.24.1))(ember-source@6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5))(webpack@5.101.3)
-      ember-changeset-validations:
-        specifier: ^4.1.1
-        version: 4.2.0(@ember/string@3.1.1)(ember-source@6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5))(webpack@5.101.3)
       ember-cli-babel:
         specifier: ^8.2.0
         version: 8.2.0(@babel/core@7.28.4)
@@ -35,9 +26,6 @@ importers:
       ember-template-imports:
         specifier: ^4.3.0
         version: 4.3.0
-      ember-truth-helpers:
-        specifier: ^3.1.0
-        version: 3.1.1
     devDependencies:
       '@adfinis/eslint-config':
         specifier: 3.0.2
@@ -84,12 +72,24 @@ importers:
       '@fortawesome/free-solid-svg-icons':
         specifier: 7.0.1
         version: 7.0.1
+      '@glimmer/component':
+        specifier: 1.1.2
+        version: 1.1.2(@babel/core@7.28.4)
+      '@glimmer/tracking':
+        specifier: 1.1.2
+        version: 1.1.2
       broccoli-asset-rev:
         specifier: 3.0.0
         version: 3.0.0
       concurrently:
         specifier: 9.2.1
         version: 9.2.1
+      ember-changeset:
+        specifier: 4.2.0
+        version: 4.2.0(ember-data@5.7.0(@ember/test-helpers@4.0.4(@babel/core@7.28.4)(ember-source@6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5)))(@ember/test-waiters@3.1.0)(qunit@2.24.1))(ember-source@6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5))(webpack@5.101.3)
+      ember-changeset-validations:
+        specifier: 4.2.0
+        version: 4.2.0(@ember/string@3.1.1)(ember-source@6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5))(webpack@5.101.3)
       ember-cli:
         specifier: 6.7.0
         version: 6.7.0(@types/node@24.7.0)(babel-core@6.26.3)(handlebars@4.7.8)(underscore@1.13.7)
@@ -159,6 +159,9 @@ importers:
       ember-template-lint-plugin-prettier:
         specifier: 5.0.0
         version: 5.0.0(ember-template-lint@7.9.3)(prettier@3.6.2)
+      ember-truth-helpers:
+        specifier: 3.1.1
+        version: 3.1.1
       ember-try:
         specifier: 4.0.0
         version: 4.0.0

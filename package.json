@@ -38,15 +38,10 @@
   },
   "dependencies": {
     "@babel/core": "^7.24.6",
-    "@glimmer/component": "^1.1.2",
-    "@glimmer/tracking": "^1.1.2",
     "ember-auto-import": "^2.11.0",
-    "ember-changeset": "^4.1.2",
-    "ember-changeset-validations": "^4.1.1",
     "ember-cli-babel": "^8.2.0",
     "ember-cli-htmlbars": "^6.3.0",
-    "ember-template-imports": "^4.3.0",
-    "ember-truth-helpers": "^3.1.0"
+    "ember-template-imports": "^4.3.0"
   },
   "devDependencies": {
     "@adfinis/eslint-config": "3.0.2",
@@ -64,8 +59,12 @@
     "@fortawesome/ember-fontawesome": "3.1.0",
     "@fortawesome/fontawesome-svg-core": "7.1.0",
     "@fortawesome/free-solid-svg-icons": "7.0.1",
+    "@glimmer/component": "1.1.2",
+    "@glimmer/tracking": "1.1.2",
     "broccoli-asset-rev": "3.0.0",
     "concurrently": "9.2.1",
+    "ember-changeset": "4.2.0",
+    "ember-changeset-validations": "4.2.0",
     "ember-cli": "6.7.0",
     "ember-cli-addon-docs": "8.0.8",
     "ember-cli-clean-css": "3.0.0",
@@ -89,6 +88,7 @@
     "ember-source-channel-url": "3.0.0",
     "ember-template-lint": "7.9.3",
     "ember-template-lint-plugin-prettier": "5.0.0",
+    "ember-truth-helpers": "3.1.1",
     "ember-try": "4.0.0",
     "eslint": "9.37.0",
     "eslint-config-prettier": "10.1.8",
@@ -113,7 +113,11 @@
     "webpack": "5.101.3"
   },
   "peerDependencies": {
-    "ember-source": ">= 4.0.0"
+    "@embroider/util": "^1.13.0",
+    "ember-changeset": "^4.1.2",
+    "ember-changeset-validations": "^4.1.1",
+    "ember-source": ">= 4.0.0",
+    "ember-truth-helpers": "^3.1.0"
   },
   "packageManager": "pnpm@9.15.3",
   "pnpm": {
