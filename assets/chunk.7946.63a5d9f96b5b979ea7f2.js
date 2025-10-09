@@ -175,7 +175,7 @@ const t=function(e){return e[Ge]=!0,e}(e)
 return Promise.resolve().then(()=>{const{owner:e}=t
 e._emberTestHelpersMockOwner&&(e.lookup("event_dispatcher:main")||y().EventDispatcher.create()).setup({},"#ember-testing")
 const n=e.factoryFor?e.factoryFor("view:-outlet"):e._lookupFactory("view:-outlet"),r=e.lookup("-environment:main"),o=e.lookup("template:-outlet"),s=n.create({template:o,environment:r})
-return e.register("-top-level-view:main",{create:()=>s}),nt(ze).then(()=>((0,h.run)(s,"appendTo",qe()),Pe()))}).then(()=>(Object.defineProperty(t,"element",{configurable:!0,enumerable:!0,value:!1!==L.EmberENV._APPLICATION_TEMPLATE_WRAPPER?qe().querySelector(".ember-view"):qe(),writable:!1}),t))}et=(0,n(6881).A)(n(2015)).renderSettled
+return e.register("-top-level-view:main",{create:()=>s}),nt(ze).then(()=>((0,h.run)(s,"appendTo",qe()),Pe()))}).then(()=>(Object.defineProperty(t,"element",{configurable:!0,enumerable:!0,value:!1!==L.EmberENV._APPLICATION_TEMPLATE_WRAPPER?qe().querySelector(".ember-view"):qe(),writable:!1}),t))}et=(0,n(471).A)(n(2015)).renderSettled
 var st=et
 function it(){return st()}const lt=Object.freeze({isValid:!0,message:null}),ut=Object.freeze({isValid:!1,message:"error handler should have re-thrown the provided error"})
 function at(e=y().onerror){if(null==e)return lt
