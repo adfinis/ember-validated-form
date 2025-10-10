@@ -214,14 +214,14 @@ importers:
         specifier: 24.2.9
         version: 24.2.9(typescript@5.9.2)
       stylelint:
-        specifier: 16.24.0
-        version: 16.24.0(typescript@5.9.2)
+        specifier: 16.25.0
+        version: 16.25.0(typescript@5.9.2)
       stylelint-config-standard:
         specifier: 39.0.0
-        version: 39.0.0(stylelint@16.24.0(typescript@5.9.2))
+        version: 39.0.0(stylelint@16.25.0(typescript@5.9.2))
       stylelint-prettier:
         specifier: 5.0.3
-        version: 5.0.3(prettier@3.6.2)(stylelint@16.24.0(typescript@5.9.2))
+        version: 5.0.3(prettier@3.6.2)(stylelint@16.25.0(typescript@5.9.2))
       webpack:
         specifier: 5.101.3
         version: 5.101.3
@@ -834,14 +834,14 @@ packages:
     resolution: {integrity: sha512-bkFqkLhh3pMBUQQkpVgWDWq/lqzc2678eUyDlTBhRqhCHFguYYGM0Efga7tYk4TogG/3x0EEl66/OQ+WGbWB/Q==}
     engines: {node: '>=6.9.0'}
 
-  '@cacheable/memoize@2.0.2':
-    resolution: {integrity: sha512-wPrr7FUiq3Qt4yQyda2/NcOLTJCFcQSU3Am2adP+WLy+sz93/fKTokVTHmtz+rjp4PD7ee0AEOeRVNN6IvIfsg==}
+  '@cacheable/memoize@2.0.3':
+    resolution: {integrity: sha512-hl9wfQgpiydhQEIv7fkjEzTGE+tcosCXLKFDO707wYJ/78FVOlowb36djex5GdbSyeHnG62pomYLMuV/OT8Pbw==}
 
-  '@cacheable/memory@2.0.2':
-    resolution: {integrity: sha512-sJTITLfeCI1rg7P3ssaGmQryq235EGT8dXGcx6oZwX5NRnKq9IE6lddlllcOl+oXW+yaeTRddCjo0xrfU6ZySA==}
+  '@cacheable/memory@2.0.3':
+    resolution: {integrity: sha512-R3UKy/CKOyb1LZG/VRCTMcpiMDyLH7SH3JrraRdK6kf3GweWCOU3sgvE13W3TiDRbxnDKylzKJvhUAvWl9LQOA==}
 
-  '@cacheable/utils@2.0.2':
-    resolution: {integrity: sha512-JTFM3raFhVv8LH95T7YnZbf2YoE9wEtkPPStuRF9a6ExZ103hFvs+QyCuYJ6r0hA9wRtbzgZtwUCoDWxssZd4Q==}
+  '@cacheable/utils@2.1.0':
+    resolution: {integrity: sha512-ZdxfOiaarMqMj+H7qwlt5EBKWaeGihSYVHdQv5lUsbn8MJJOTW82OIwirQ39U5tMZkNvy3bQE+ryzC+xTAb9/g==}
 
   '@cnakazawa/watch@1.0.4':
     resolution: {integrity: sha512-v9kIhKwjeZThiWrLmj0y17CWoyddASLj9O2yvbZkbvw/N3rWOYy9zkV66ursAoVr0mV15bL8g0c4QZUE6cdDoQ==}
@@ -1414,8 +1414,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@keyv/bigmap@1.0.2':
-    resolution: {integrity: sha512-KR03xkEZlAZNF4IxXgVXb+uNIVNvwdh8UwI0cnc7WI6a+aQcDp8GL80qVfeB4E5NpsKJzou5jU0r6yLSSbMOtA==}
+  '@keyv/bigmap@1.0.3':
+    resolution: {integrity: sha512-jUEkNlnE9tYzX2AIBeoSe1gVUvSOfIOQ5EFPL5Un8cFHGvjD9L/fxpxlS1tEivRLHgapO2RZJ3D93HYAa049pg==}
     engines: {node: '>= 18'}
 
   '@keyv/serialize@1.1.1':
@@ -2847,8 +2847,8 @@ packages:
     resolution: {integrity: sha512-Oj3cAGPCqOZX7Rz64Uny2GYAZNliQSqfbePrgAQ1wKAihYmCUnraBtJtKcGR4xz7wF+LoJC+ssFZvv5BgF9Igg==}
     engines: {node: '>=8'}
 
-  cacheable@2.0.2:
-    resolution: {integrity: sha512-dWjhLx8RWnPsAWVKwW/wI6OJpQ/hSVb1qS0NUif8TR9vRiSwci7Gey8x04kRU9iAF+Rnbtex5Kjjfg/aB5w8Pg==}
+  cacheable@2.1.0:
+    resolution: {integrity: sha512-zzL1BxdnqwD69JRT0dihnawAcLkBMwAH+hZSKjUzeBbPedVhk3qYPjRw9VOMYWwt5xRih5xd8S+3kEdGohZm/g==}
 
   calculate-cache-key-for-tree@2.0.0:
     resolution: {integrity: sha512-Quw8a6y8CPmRd6eU+mwypktYCwUcf8yVFIRbNZ6tPQEckX9yd+EBVEPC/GSZZrMWH9e7Vz4pT7XhpmyApRByLQ==}
@@ -4727,8 +4727,8 @@ packages:
     resolution: {integrity: sha512-f7ccFPK3SXFHpx15UIGyRJ/FJQctuKZ0zVuN3frBo4HnK3cay9VEW0R6yPYFHC0AgqhukPzKjq22t5DmAyqGyw==}
     engines: {node: '>=16'}
 
-  flat-cache@6.1.14:
-    resolution: {integrity: sha512-ExZSCSV9e7v/Zt7RzCbX57lY2dnPdxzU/h3UE6WJ6NtEMfwBd8jmi1n4otDEUfz+T/R+zxrFDpICFdjhD3H/zw==}
+  flat-cache@6.1.17:
+    resolution: {integrity: sha512-Jzse4YoiUJBVYTwz5Bwl4h/2VQM7e2KK3MVAMlXzX9uamIHAH/TXUlRKU1AQGQOryQhN0EsmufiiF40G057YXA==}
 
   flatpickr@4.6.13:
     resolution: {integrity: sha512-97PMG/aywoYpB4IvbvUJi0RQi8vearvU0oov1WW3k0WZPBMrTQVqekSX5CjSG/M4Q3i6A/0FKXC7RyAoAUUSPw==}
@@ -7046,6 +7046,10 @@ packages:
 
       (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
 
+  qified@0.5.0:
+    resolution: {integrity: sha512-Zj6Q/Vc/SQ+Fzc87N90jJUzBzxD7MVQ2ZvGyMmYtnl2u1a07CejAhvtk4ZwASos+SiHKCAIylyGHJKIek75QBw==}
+    engines: {node: '>=20'}
+
   qs@1.0.2:
     resolution: {integrity: sha512-tHuOP9TN/1VmDM/ylApGK1QF3PSIP8I6bHDEfoKNQeViREQ/sfu1bAUrA1hoDun8p8Tpm7jcsz47g+3PiGoYdg==}
 
@@ -7889,8 +7893,8 @@ packages:
       prettier: '>=3.0.0'
       stylelint: '>=16.0.0'
 
-  stylelint@16.24.0:
-    resolution: {integrity: sha512-7ksgz3zJaSbTUGr/ujMXvLVKdDhLbGl3R/3arNudH7z88+XZZGNLMTepsY28WlnvEFcuOmUe7fg40Q3lfhOfSQ==}
+  stylelint@16.25.0:
+    resolution: {integrity: sha512-Li0avYWV4nfv1zPbdnxLYBGq4z8DVZxbRgx4Kn6V+Uftz1rMoF1qiEI3oL4kgWqyYgCgs7gT5maHNZ82Gk03vQ==}
     engines: {node: '>=18.12.0'}
     hasBin: true
 
@@ -9431,19 +9435,21 @@ snapshots:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.27.1
 
-  '@cacheable/memoize@2.0.2':
+  '@cacheable/memoize@2.0.3':
     dependencies:
-      '@cacheable/utils': 2.0.2
+      '@cacheable/utils': 2.1.0
 
-  '@cacheable/memory@2.0.2':
+  '@cacheable/memory@2.0.3':
     dependencies:
-      '@cacheable/memoize': 2.0.2
-      '@cacheable/utils': 2.0.2
-      '@keyv/bigmap': 1.0.2
+      '@cacheable/memoize': 2.0.3
+      '@cacheable/utils': 2.1.0
+      '@keyv/bigmap': 1.0.3
       hookified: 1.12.1
       keyv: 5.5.3
 
-  '@cacheable/utils@2.0.2': {}
+  '@cacheable/utils@2.1.0':
+    dependencies:
+      keyv: 5.5.3
 
   '@cnakazawa/watch@1.0.4':
     dependencies:
@@ -10319,7 +10325,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@keyv/bigmap@1.0.2':
+  '@keyv/bigmap@1.0.3':
     dependencies:
       hookified: 1.12.1
 
@@ -12545,13 +12551,14 @@ snapshots:
       normalize-url: 4.5.1
       responselike: 1.0.2
 
-  cacheable@2.0.2:
+  cacheable@2.1.0:
     dependencies:
-      '@cacheable/memoize': 2.0.2
-      '@cacheable/memory': 2.0.2
-      '@cacheable/utils': 2.0.2
+      '@cacheable/memoize': 2.0.3
+      '@cacheable/memory': 2.0.3
+      '@cacheable/utils': 2.1.0
       hookified: 1.12.1
       keyv: 5.5.3
+      qified: 0.5.0
 
   calculate-cache-key-for-tree@2.0.0:
     dependencies:
@@ -15075,7 +15082,7 @@ snapshots:
 
   file-entry-cache@10.1.4:
     dependencies:
-      flat-cache: 6.1.14
+      flat-cache: 6.1.17
 
   file-entry-cache@8.0.0:
     dependencies:
@@ -15218,9 +15225,9 @@ snapshots:
       flatted: 3.3.3
       keyv: 4.5.4
 
-  flat-cache@6.1.14:
+  flat-cache@6.1.17:
     dependencies:
-      cacheable: 2.0.2
+      cacheable: 2.1.0
       flatted: 3.3.3
       hookified: 1.12.1
 
@@ -17500,6 +17507,10 @@ snapshots:
 
   q@1.5.1: {}
 
+  qified@0.5.0:
+    dependencies:
+      hookified: 1.12.1
+
   qs@1.0.2: {}
 
   qs@6.13.0:
@@ -18468,22 +18479,22 @@ snapshots:
 
   styled_string@0.0.1: {}
 
-  stylelint-config-recommended@17.0.0(stylelint@16.24.0(typescript@5.9.2)):
+  stylelint-config-recommended@17.0.0(stylelint@16.25.0(typescript@5.9.2)):
     dependencies:
-      stylelint: 16.24.0(typescript@5.9.2)
+      stylelint: 16.25.0(typescript@5.9.2)
 
-  stylelint-config-standard@39.0.0(stylelint@16.24.0(typescript@5.9.2)):
+  stylelint-config-standard@39.0.0(stylelint@16.25.0(typescript@5.9.2)):
     dependencies:
-      stylelint: 16.24.0(typescript@5.9.2)
-      stylelint-config-recommended: 17.0.0(stylelint@16.24.0(typescript@5.9.2))
+      stylelint: 16.25.0(typescript@5.9.2)
+      stylelint-config-recommended: 17.0.0(stylelint@16.25.0(typescript@5.9.2))
 
-  stylelint-prettier@5.0.3(prettier@3.6.2)(stylelint@16.24.0(typescript@5.9.2)):
+  stylelint-prettier@5.0.3(prettier@3.6.2)(stylelint@16.25.0(typescript@5.9.2)):
     dependencies:
       prettier: 3.6.2
       prettier-linter-helpers: 1.0.0
-      stylelint: 16.24.0(typescript@5.9.2)
+      stylelint: 16.25.0(typescript@5.9.2)
 
-  stylelint@16.24.0(typescript@5.9.2):
+  stylelint@16.25.0(typescript@5.9.2):
     dependencies:
       '@csstools/css-parser-algorithms': 3.0.5(@csstools/css-tokenizer@3.0.4)
       '@csstools/css-tokenizer': 3.0.4
