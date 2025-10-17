@@ -32,7 +32,7 @@ importers:
         version: 3.0.2(@babel/core@7.28.4)(@babel/eslint-parser@7.28.4(@babel/core@7.28.4)(eslint@9.37.0(jiti@2.6.1)))(@babel/plugin-proposal-decorators@7.28.0(@babel/core@7.28.4))(eslint-config-prettier@10.1.8(eslint@9.37.0(jiti@2.6.1)))(eslint-plugin-ember@12.7.4(@babel/core@7.28.4)(eslint@9.37.0(jiti@2.6.1))(typescript@5.9.2))(eslint-plugin-import@2.32.0(eslint@9.37.0(jiti@2.6.1)))(eslint-plugin-n@17.23.1(eslint@9.37.0(jiti@2.6.1))(typescript@5.9.2))(eslint-plugin-prettier@5.5.4(@types/eslint@9.6.1)(eslint-config-prettier@10.1.8(eslint@9.37.0(jiti@2.6.1)))(eslint@9.37.0(jiti@2.6.1))(prettier@3.6.2))(eslint-plugin-qunit@8.2.5(eslint@9.37.0(jiti@2.6.1)))(eslint@9.37.0(jiti@2.6.1))(prettier@3.6.2)
       '@adfinis/semantic-release-config':
         specifier: 5.0.0
-        version: 5.0.0(@types/node@24.7.0)(typescript@5.9.2)
+        version: 5.0.0(@types/node@24.8.1)(typescript@5.9.2)
       '@babel/eslint-parser':
         specifier: 7.28.4
         version: 7.28.4(@babel/core@7.28.4)(eslint@9.37.0(jiti@2.6.1))
@@ -41,7 +41,7 @@ importers:
         version: 7.28.0(@babel/core@7.28.4)
       '@commitlint/cli':
         specifier: 20.1.0
-        version: 20.1.0(@types/node@24.7.0)(typescript@5.9.2)
+        version: 20.1.0(@types/node@24.8.1)(typescript@5.9.2)
       '@commitlint/config-conventional':
         specifier: 20.0.0
         version: 20.0.0
@@ -55,8 +55,8 @@ importers:
         specifier: 4.0.4
         version: 4.0.4(@babel/core@7.28.4)(ember-source@6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5))
       '@embroider/macros':
-        specifier: 1.18.2
-        version: 1.18.2
+        specifier: 1.19.2
+        version: 1.19.2
       '@embroider/test-setup':
         specifier: 4.0.0
         version: 4.0.0
@@ -92,7 +92,7 @@ importers:
         version: 5.0.0(@babel/core@7.28.4)(@ember/string@3.1.1)(ember-source@6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5))
       ember-cli:
         specifier: 6.7.0
-        version: 6.7.0(@types/node@24.7.0)(babel-core@6.26.3)(handlebars@4.7.8)(underscore@1.13.7)
+        version: 6.7.0(@types/node@24.8.1)(babel-core@6.26.3)(handlebars@4.7.8)(underscore@1.13.7)
       ember-cli-addon-docs:
         specifier: 8.0.8
         version: 8.0.8(@babel/core@7.28.4)(@ember-data/adapter@5.7.0)(@ember-data/model@5.7.0)(@ember-data/serializer@5.7.0)(@ember-data/store@5.7.0(@ember-data/tracking@5.7.0(@ember/test-waiters@3.1.0))(@ember/test-waiters@3.1.0))(@ember/string@3.1.1)(@ember/test-helpers@4.0.4(@babel/core@7.28.4)(ember-source@6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5)))(ember-data@5.7.0(@ember/test-helpers@4.0.4(@babel/core@7.28.4)(ember-source@6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5)))(@ember/test-waiters@3.1.0)(qunit@2.24.2))(ember-source@6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5))(webpack@5.101.3)
@@ -101,7 +101,7 @@ importers:
         version: 3.0.0
       ember-cli-dependency-checker:
         specifier: 3.3.3
-        version: 3.3.3(ember-cli@6.7.0(@types/node@24.7.0)(babel-core@6.26.3)(handlebars@4.7.8)(underscore@1.13.7))
+        version: 3.3.3(ember-cli@6.7.0(@types/node@24.8.1)(babel-core@6.26.3)(handlebars@4.7.8)(underscore@1.13.7))
       ember-cli-deploy:
         specifier: 2.0.0
         version: 2.0.0
@@ -1153,8 +1153,8 @@ packages:
     resolution: {integrity: sha512-gcJuHiXgnrzaU8NyU+2bMbtS6PNOr5v5B8OXBqaBvTCsMpXLvKo8OBOQFCoUN0rPX2J6VaFqrbi/371sMvzZug==}
     engines: {node: 12.* || 14.* || >= 16}
 
-  '@embroider/macros@1.18.2':
-    resolution: {integrity: sha512-mkgk0yjcYgujZQv9IGLD3yPb4a+d6EDKm22GK6TUyBCF8veTeg6HBXwHfu6K2DCnG0LEwnb2MJ0WCFGmTiatPw==}
+  '@embroider/macros@1.19.2':
+    resolution: {integrity: sha512-lCG8Y58ZGz9kFvvEJjs3c8VDKDtLYV6iszEuQDyBgOtf1F+zizuZJFchLHSP4Vw5ND3Q4iF5I7tFQLGh0wODDg==}
     engines: {node: 12.* || 14.* || >= 16}
     peerDependencies:
       '@glint/template': ^1.0.0
@@ -1861,6 +1861,9 @@ packages:
 
   '@types/node@24.7.0':
     resolution: {integrity: sha512-IbKooQVqUBrlzWTi79E8Fw78l8k1RNtlDDNWsFZs7XonuQSJ8oNYfEeclhprUldXISRMLzBpILuKgPlIxm+/Yw==}
+
+  '@types/node@24.8.1':
+    resolution: {integrity: sha512-alv65KGRadQVfVcG69MuB4IzdYVpRwMG/mq8KWOaoOdyY617P5ivaDiMCGOFDWD2sAn5Q0mR3mRtUOgm99hL9Q==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -8653,9 +8656,9 @@ snapshots:
       eslint-plugin-n: 17.23.1(eslint@9.37.0(jiti@2.6.1))(typescript@5.9.2)
       eslint-plugin-qunit: 8.2.5(eslint@9.37.0(jiti@2.6.1))
 
-  '@adfinis/semantic-release-config@5.0.0(@types/node@24.7.0)(typescript@5.9.2)':
+  '@adfinis/semantic-release-config@5.0.0(@types/node@24.8.1)(typescript@5.9.2)':
     dependencies:
-      '@commitlint/cli': 19.8.1(@types/node@24.7.0)(typescript@5.9.2)
+      '@commitlint/cli': 19.8.1(@types/node@24.8.1)(typescript@5.9.2)
       '@commitlint/config-conventional': 19.8.1
       '@semantic-release/changelog': 6.0.3(semantic-release@24.2.9(typescript@5.9.2))
       '@semantic-release/commit-analyzer': 13.0.1(semantic-release@24.2.9(typescript@5.9.2))
@@ -9460,11 +9463,11 @@ snapshots:
   '@colors/colors@1.5.0':
     optional: true
 
-  '@commitlint/cli@19.8.1(@types/node@24.7.0)(typescript@5.9.2)':
+  '@commitlint/cli@19.8.1(@types/node@24.8.1)(typescript@5.9.2)':
     dependencies:
       '@commitlint/format': 19.8.1
       '@commitlint/lint': 19.8.1
-      '@commitlint/load': 19.8.1(@types/node@24.7.0)(typescript@5.9.2)
+      '@commitlint/load': 19.8.1(@types/node@24.8.1)(typescript@5.9.2)
       '@commitlint/read': 19.8.1
       '@commitlint/types': 19.8.1
       tinyexec: 1.0.1
@@ -9473,11 +9476,11 @@ snapshots:
       - '@types/node'
       - typescript
 
-  '@commitlint/cli@20.1.0(@types/node@24.7.0)(typescript@5.9.2)':
+  '@commitlint/cli@20.1.0(@types/node@24.8.1)(typescript@5.9.2)':
     dependencies:
       '@commitlint/format': 20.0.0
       '@commitlint/lint': 20.0.0
-      '@commitlint/load': 20.1.0(@types/node@24.7.0)(typescript@5.9.2)
+      '@commitlint/load': 20.1.0(@types/node@24.8.1)(typescript@5.9.2)
       '@commitlint/read': 20.0.0
       '@commitlint/types': 20.0.0
       tinyexec: 1.0.1
@@ -9562,7 +9565,7 @@ snapshots:
       '@commitlint/rules': 20.0.0
       '@commitlint/types': 20.0.0
 
-  '@commitlint/load@19.8.1(@types/node@24.7.0)(typescript@5.9.2)':
+  '@commitlint/load@19.8.1(@types/node@24.8.1)(typescript@5.9.2)':
     dependencies:
       '@commitlint/config-validator': 19.8.1
       '@commitlint/execute-rule': 19.8.1
@@ -9570,7 +9573,7 @@ snapshots:
       '@commitlint/types': 19.8.1
       chalk: 5.6.2
       cosmiconfig: 9.0.0(typescript@5.9.2)
-      cosmiconfig-typescript-loader: 6.1.0(@types/node@24.7.0)(cosmiconfig@9.0.0(typescript@5.9.2))(typescript@5.9.2)
+      cosmiconfig-typescript-loader: 6.1.0(@types/node@24.8.1)(cosmiconfig@9.0.0(typescript@5.9.2))(typescript@5.9.2)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -9578,7 +9581,7 @@ snapshots:
       - '@types/node'
       - typescript
 
-  '@commitlint/load@20.1.0(@types/node@24.7.0)(typescript@5.9.2)':
+  '@commitlint/load@20.1.0(@types/node@24.8.1)(typescript@5.9.2)':
     dependencies:
       '@commitlint/config-validator': 20.0.0
       '@commitlint/execute-rule': 20.0.0
@@ -9586,7 +9589,7 @@ snapshots:
       '@commitlint/types': 20.0.0
       chalk: 5.6.2
       cosmiconfig: 9.0.0(typescript@5.9.2)
-      cosmiconfig-typescript-loader: 6.1.0(@types/node@24.7.0)(cosmiconfig@9.0.0(typescript@5.9.2))(typescript@5.9.2)
+      cosmiconfig-typescript-loader: 6.1.0(@types/node@24.8.1)(cosmiconfig@9.0.0(typescript@5.9.2))(typescript@5.9.2)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -9723,7 +9726,7 @@ snapshots:
   '@ember-data/adapter@5.7.0':
     dependencies:
       '@ember/edition-utils': 1.2.0
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       '@warp-drive/core': 5.7.0
       '@warp-drive/legacy': 5.7.0(@warp-drive/core@5.7.0)(@warp-drive/utilities@5.7.0(@warp-drive/core@5.7.0))
       '@warp-drive/utilities': 5.7.0(@warp-drive/core@5.7.0)
@@ -9740,7 +9743,7 @@ snapshots:
       '@ember-data/request-utils': 5.7.0
       '@ember-data/store': 5.7.0(@ember-data/tracking@5.7.0(@ember/test-waiters@3.1.0))(@ember/test-waiters@3.1.0)
       '@ember/edition-utils': 1.2.0
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       '@warp-drive/core': 5.7.0
       '@warp-drive/core-types': 5.7.0
     transitivePeerDependencies:
@@ -9749,7 +9752,7 @@ snapshots:
 
   '@ember-data/graph@5.7.0':
     dependencies:
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       '@warp-drive/core': 5.7.0
     transitivePeerDependencies:
       - '@glint/template'
@@ -9757,7 +9760,7 @@ snapshots:
 
   '@ember-data/json-api@5.7.0':
     dependencies:
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       '@warp-drive/core': 5.7.0
       '@warp-drive/json-api': 5.7.0(@warp-drive/core@5.7.0)
       '@warp-drive/utilities': 5.7.0(@warp-drive/core@5.7.0)
@@ -9767,7 +9770,7 @@ snapshots:
 
   '@ember-data/legacy-compat@5.7.0':
     dependencies:
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       '@warp-drive/core': 5.7.0
       '@warp-drive/legacy': 5.7.0(@warp-drive/core@5.7.0)(@warp-drive/utilities@5.7.0(@warp-drive/core@5.7.0))
       '@warp-drive/utilities': 5.7.0(@warp-drive/core@5.7.0)
@@ -9778,7 +9781,7 @@ snapshots:
   '@ember-data/model@5.7.0':
     dependencies:
       '@ember/edition-utils': 1.2.0
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       '@warp-drive/core': 5.7.0
       '@warp-drive/legacy': 5.7.0(@warp-drive/core@5.7.0)(@warp-drive/utilities@5.7.0(@warp-drive/core@5.7.0))
       '@warp-drive/utilities': 5.7.0(@warp-drive/core@5.7.0)
@@ -9791,7 +9794,7 @@ snapshots:
 
   '@ember-data/request-utils@5.7.0':
     dependencies:
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       '@warp-drive/core': 5.7.0
       '@warp-drive/utilities': 5.7.0(@warp-drive/core@5.7.0)
     transitivePeerDependencies:
@@ -9800,7 +9803,7 @@ snapshots:
 
   '@ember-data/request@5.7.0':
     dependencies:
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       '@warp-drive/core': 5.7.0
     transitivePeerDependencies:
       - '@glint/template'
@@ -9811,7 +9814,7 @@ snapshots:
   '@ember-data/serializer@5.7.0':
     dependencies:
       '@ember/edition-utils': 1.2.0
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       '@warp-drive/core': 5.7.0
       '@warp-drive/legacy': 5.7.0(@warp-drive/core@5.7.0)(@warp-drive/utilities@5.7.0(@warp-drive/core@5.7.0))
       '@warp-drive/utilities': 5.7.0(@warp-drive/core@5.7.0)
@@ -9824,7 +9827,7 @@ snapshots:
 
   '@ember-data/store@5.7.0(@ember-data/tracking@5.7.0(@ember/test-waiters@3.1.0))(@ember/test-waiters@3.1.0)':
     dependencies:
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       '@warp-drive/core': 5.7.0
     optionalDependencies:
       '@ember-data/tracking': 5.7.0(@ember/test-waiters@3.1.0)
@@ -9836,7 +9839,7 @@ snapshots:
   '@ember-data/tracking@5.7.0(@ember/test-waiters@3.1.0)':
     dependencies:
       '@ember/test-waiters': 3.1.0
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       '@warp-drive/core': 5.7.0
     transitivePeerDependencies:
       - '@glint/template'
@@ -9893,7 +9896,7 @@ snapshots:
 
   '@ember/render-modifiers@2.1.0(@babel/core@7.28.4)(ember-source@6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5))':
     dependencies:
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       ember-cli-babel: 7.26.11
       ember-modifier-manager-polyfill: 1.2.0(@babel/core@7.28.4)
       ember-source: 6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5)
@@ -9910,7 +9913,7 @@ snapshots:
   '@ember/test-helpers@3.3.1(@babel/core@7.28.4)(ember-source@6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5))(webpack@5.101.3)':
     dependencies:
       '@ember/test-waiters': 3.1.0
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       '@simple-dom/interface': 1.4.0
       broccoli-debug: 0.6.5
       broccoli-funnel: 3.0.8
@@ -9929,7 +9932,7 @@ snapshots:
     dependencies:
       '@ember/test-waiters': 3.1.0
       '@embroider/addon-shim': 1.10.0
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       '@simple-dom/interface': 1.4.0
       decorator-transforms: 2.3.0(@babel/core@7.28.4)
       dom-element-descriptors: 0.5.1
@@ -9957,7 +9960,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@embroider/macros@1.18.2':
+  '@embroider/macros@1.19.2':
     dependencies:
       '@embroider/shared-internals': 3.0.1
       assert-never: 1.4.0
@@ -10012,7 +10015,7 @@ snapshots:
 
   '@embroider/util@1.13.4(ember-source@6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5))':
     dependencies:
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       broccoli-funnel: 3.0.8
       ember-cli-babel: 7.26.11
       ember-source: 6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5)
@@ -10070,7 +10073,7 @@ snapshots:
   '@fortawesome/ember-fontawesome@3.1.0(@fortawesome/fontawesome-svg-core@7.1.0)(@glimmer/component@1.1.2(@babel/core@7.28.4))':
     dependencies:
       '@embroider/addon-shim': 1.10.0
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       '@fortawesome/fontawesome-svg-core': 7.1.0
       '@glimmer/component': 1.1.2(@babel/core@7.28.4)
     transitivePeerDependencies:
@@ -10284,12 +10287,12 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.3': {}
 
-  '@inquirer/external-editor@1.0.2(@types/node@24.7.0)':
+  '@inquirer/external-editor@1.0.2(@types/node@24.8.1)':
     dependencies:
       chardet: 2.1.0
       iconv-lite: 0.7.0
     optionalDependencies:
-      '@types/node': 24.7.0
+      '@types/node': 24.8.1
 
   '@inquirer/figures@1.0.13': {}
 
@@ -10849,7 +10852,7 @@ snapshots:
 
   '@types/fs-extra@5.1.0':
     dependencies:
-      '@types/node': 24.7.0
+      '@types/node': 24.8.1
 
   '@types/fs-extra@8.1.5':
     dependencies:
@@ -10857,7 +10860,7 @@ snapshots:
 
   '@types/glob@9.0.0':
     dependencies:
-      glob: 10.4.5
+      glob: 8.1.0
 
   '@types/http-errors@2.0.5': {}
 
@@ -10878,6 +10881,10 @@ snapshots:
   '@types/minimatch@3.0.5': {}
 
   '@types/node@24.7.0':
+    dependencies:
+      undici-types: 7.14.0
+
+  '@types/node@24.8.1':
     dependencies:
       undici-types: 7.14.0
 
@@ -10924,7 +10931,7 @@ snapshots:
   '@warp-drive/build-config@5.7.0':
     dependencies:
       '@embroider/addon-shim': 1.10.0
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       babel-import-util: 2.1.1
       semver: 7.7.3
     transitivePeerDependencies:
@@ -10933,7 +10940,7 @@ snapshots:
 
   '@warp-drive/core-types@5.7.0':
     dependencies:
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       '@warp-drive/core': 5.7.0
     transitivePeerDependencies:
       - '@glint/template'
@@ -10941,7 +10948,7 @@ snapshots:
 
   '@warp-drive/core@5.7.0':
     dependencies:
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       '@warp-drive/build-config': 5.7.0
     transitivePeerDependencies:
       - '@glint/template'
@@ -10950,7 +10957,7 @@ snapshots:
   '@warp-drive/ember@5.7.0(@ember/test-waiters@3.1.0)':
     dependencies:
       '@ember/test-waiters': 3.1.0
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       '@warp-drive/core': 5.7.0
     transitivePeerDependencies:
       - '@glint/template'
@@ -10958,7 +10965,7 @@ snapshots:
 
   '@warp-drive/json-api@5.7.0(@warp-drive/core@5.7.0)':
     dependencies:
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       '@warp-drive/core': 5.7.0
       fuse.js: 7.1.0
       json-to-ast: 2.1.0
@@ -10968,7 +10975,7 @@ snapshots:
 
   '@warp-drive/legacy@5.7.0(@warp-drive/core@5.7.0)(@warp-drive/utilities@5.7.0(@warp-drive/core@5.7.0))':
     dependencies:
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       '@warp-drive/core': 5.7.0
       '@warp-drive/utilities': 5.7.0(@warp-drive/core@5.7.0)
     transitivePeerDependencies:
@@ -10977,7 +10984,7 @@ snapshots:
 
   '@warp-drive/utilities@5.7.0(@warp-drive/core@5.7.0)':
     dependencies:
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       '@warp-drive/core': 5.7.0
     transitivePeerDependencies:
       - '@glint/template'
@@ -12989,9 +12996,9 @@ snapshots:
       object-assign: 4.1.1
       vary: 1.1.2
 
-  cosmiconfig-typescript-loader@6.1.0(@types/node@24.7.0)(cosmiconfig@9.0.0(typescript@5.9.2))(typescript@5.9.2):
+  cosmiconfig-typescript-loader@6.1.0(@types/node@24.8.1)(cosmiconfig@9.0.0(typescript@5.9.2))(typescript@5.9.2):
     dependencies:
-      '@types/node': 24.7.0
+      '@types/node': 24.8.1
       cosmiconfig: 9.0.0(typescript@5.9.2)
       jiti: 2.6.1
       typescript: 5.9.2
@@ -13343,7 +13350,7 @@ snapshots:
 
   ember-arg-types@1.1.0(webpack@5.101.3):
     dependencies:
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       ember-auto-import: 2.11.1(webpack@5.101.3)
       ember-cli-babel: 7.26.11
       ember-cli-typescript: 5.3.0
@@ -13362,7 +13369,7 @@ snapshots:
       '@babel/plugin-proposal-private-methods': 7.18.6(@babel/core@7.28.4)
       '@babel/plugin-transform-class-static-block': 7.28.3(@babel/core@7.28.4)
       '@babel/preset-env': 7.28.3(@babel/core@7.28.4)
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       '@embroider/shared-internals': 2.9.1
       babel-loader: 8.4.1(@babel/core@7.28.4)(webpack@5.101.3)
       babel-plugin-ember-modules-api-polyfill: 3.5.0
@@ -13411,7 +13418,7 @@ snapshots:
     dependencies:
       '@ember/string': 3.1.1
       '@embroider/addon-shim': 1.10.0
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       ember-source: 6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5)
       ember-validators: 5.0.0(@babel/core@7.28.4)(ember-source@6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5))
       validated-changeset: 1.4.1
@@ -13423,7 +13430,7 @@ snapshots:
   ember-changeset@5.0.0(@babel/core@7.28.4)(@ember-data/model@5.7.0)(ember-data@5.7.0(@ember/test-helpers@4.0.4(@babel/core@7.28.4)(ember-source@6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5)))(@ember/test-waiters@3.1.0)(qunit@2.24.2))(ember-source@6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5)):
     dependencies:
       '@embroider/addon-shim': 1.10.0
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       decorator-transforms: 2.3.0(@babel/core@7.28.4)
       ember-source: 6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5)
       validated-changeset: 1.4.1
@@ -13631,7 +13638,7 @@ snapshots:
   ember-cli-clipboard@1.3.0(@babel/core@7.28.4)(@ember/test-helpers@4.0.4(@babel/core@7.28.4)(ember-source@6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5)))(webpack@5.101.3):
     dependencies:
       '@ember/test-helpers': 4.0.4(@babel/core@7.28.4)(ember-source@6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5))
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       clipboard: 2.0.11
       ember-arg-types: 1.1.0(webpack@5.101.3)
       ember-auto-import: 2.11.1(webpack@5.101.3)
@@ -13645,10 +13652,10 @@ snapshots:
       - supports-color
       - webpack
 
-  ember-cli-dependency-checker@3.3.3(ember-cli@6.7.0(@types/node@24.7.0)(babel-core@6.26.3)(handlebars@4.7.8)(underscore@1.13.7)):
+  ember-cli-dependency-checker@3.3.3(ember-cli@6.7.0(@types/node@24.8.1)(babel-core@6.26.3)(handlebars@4.7.8)(underscore@1.13.7)):
     dependencies:
       chalk: 2.4.2
-      ember-cli: 6.7.0(@types/node@24.7.0)(babel-core@6.26.3)(handlebars@4.7.8)(underscore@1.13.7)
+      ember-cli: 6.7.0(@types/node@24.8.1)(babel-core@6.26.3)(handlebars@4.7.8)(underscore@1.13.7)
       find-yarn-workspace-root: 2.0.0
       is-git-url: 1.0.0
       resolve: 1.22.10
@@ -13906,7 +13913,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  ember-cli@6.7.0(@types/node@24.7.0)(babel-core@6.26.3)(handlebars@4.7.8)(underscore@1.13.7):
+  ember-cli@6.7.0(@types/node@24.8.1)(babel-core@6.26.3)(handlebars@4.7.8)(underscore@1.13.7):
     dependencies:
       '@ember-tooling/blueprint-blueprint': 0.0.2
       '@ember-tooling/blueprint-model': 0.0.2
@@ -13961,7 +13968,7 @@ snapshots:
       heimdalljs-logger: 0.1.10
       http-proxy: 1.18.1
       inflection: 2.0.1
-      inquirer: 9.3.8(@types/node@24.7.0)
+      inquirer: 9.3.8(@types/node@24.8.1)
       is-git-url: 1.0.0
       is-language-code: 3.1.0
       isbinaryfile: 5.0.6
@@ -14124,7 +14131,7 @@ snapshots:
       '@ember-data/tracking': 5.7.0(@ember/test-waiters@3.1.0)
       '@ember/edition-utils': 1.2.0
       '@ember/test-waiters': 3.1.0
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       '@warp-drive/core': 5.7.0
       '@warp-drive/core-types': 5.7.0
       '@warp-drive/ember': 5.7.0(@ember/test-waiters@3.1.0)
@@ -14189,7 +14196,7 @@ snapshots:
 
   ember-get-config@2.1.1:
     dependencies:
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       ember-cli-babel: 7.26.11
     transitivePeerDependencies:
       - '@glint/template'
@@ -14214,7 +14221,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.28.4
       '@ember/string': 3.1.1
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       '@embroider/util': 1.13.4(ember-source@6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5))
       ember-cli-babel: 8.2.0(@babel/core@7.28.4)
       ember-cli-htmlbars: 6.3.0
@@ -14251,7 +14258,7 @@ snapshots:
     dependencies:
       '@ember/test-helpers': 4.0.4(@babel/core@7.28.4)(ember-source@6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5))
       '@embroider/addon-shim': 1.10.0
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       qunit: 2.24.2
       qunit-theme-ember: 1.0.0
     transitivePeerDependencies:
@@ -14350,7 +14357,7 @@ snapshots:
 
   ember-svg-jar@2.7.0:
     dependencies:
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       broccoli-caching-writer: 3.0.3
       broccoli-concat: 4.2.5
       broccoli-funnel: 3.0.8
@@ -14441,7 +14448,7 @@ snapshots:
   ember-validators@5.0.0(@babel/core@7.28.4)(ember-source@6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5)):
     dependencies:
       '@embroider/addon-shim': 1.10.0
-      '@embroider/macros': 1.18.2
+      '@embroider/macros': 1.19.2
       decorator-transforms: 2.3.0(@babel/core@7.28.4)
       ember-source: 6.7.0(@glimmer/component@1.1.2(@babel/core@7.28.4))(rsvp@4.8.5)
     transitivePeerDependencies:
@@ -15938,9 +15945,9 @@ snapshots:
       strip-ansi: 6.0.1
       through: 2.3.8
 
-  inquirer@9.3.8(@types/node@24.7.0):
+  inquirer@9.3.8(@types/node@24.8.1):
     dependencies:
-      '@inquirer/external-editor': 1.0.2(@types/node@24.7.0)
+      '@inquirer/external-editor': 1.0.2(@types/node@24.8.1)
       '@inquirer/figures': 1.0.13
       ansi-escapes: 4.3.2
       cli-width: 4.1.0
