@@ -80,7 +80,7 @@
     "ember-cli-test-loader": "3.1.0",
     "ember-concurrency": "5.1.0",
     "ember-data": "5.7.0",
-    "ember-flatpickr": "9.0.1",
+    "ember-flatpickr": "9.0.2",
     "ember-load-initializers": "3.0.1",
     "ember-qunit": "9.0.4",
     "ember-resolver": "13.1.1",
