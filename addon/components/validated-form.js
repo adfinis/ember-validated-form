@@ -39,7 +39,7 @@ export default class ValidatedFormComponent extends Component {
     const model = this.args.model;
 
     if (!model || !model.validate) {
-      this.runCallback(PROP_ON_SUBMIT);
+      this.runCallback(PROP_ON_SUBMIT, event);
       return false;
     }
 
@@ -51,22 +51,22 @@ export default class ValidatedFormComponent extends Component {
           .querySelector(`[name=${model.errors[0].key.replaceAll(".", "\\.")}]`)
           ?.scrollIntoView({ behavior: "smooth" });
       }
-      this.runCallback(PROP_ON_INVALID_SUBMIT);
+      this.runCallback(PROP_ON_INVALID_SUBMIT, event);
     } else {
-      this.runCallback(PROP_ON_SUBMIT);
+      this.runCallback(PROP_ON_SUBMIT, event);
     }
 
     return false;
   }
 
-  runCallback(callbackProp) {
+  runCallback(callbackProp, event) {
     const callback = this.args[callbackProp];
     if (typeof callback !== "function") {
       return;
     }
 
     this.loading = true;
-    resolve(callback(this.args.model)).finally(() => {
+    resolve(callback(this.args.model, event)).finally(() => {
       this.loading = false;
     });
   }

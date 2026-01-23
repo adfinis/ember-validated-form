@@ -1,6 +1,8 @@
 import EmberObject from "@ember/object";
 import { run } from "@ember/runloop";
 import { render, click, blur, fillIn, focus } from "@ember/test-helpers";
+import { Changeset } from "ember-changeset";
+import lookupValidator from "ember-changeset-validations";
 import { validateLength } from "ember-changeset-validations/validators";
 import hbs from "htmlbars-inline-precompile";
 import { module, test } from "qunit";
@@ -511,5 +513,38 @@ module("Integration | Component | validated form", function (hooks) {
     await render(hbs`<ValidatedForm @autocomplete="off" />`);
 
     assert.dom("form").hasAttribute("autocomplete", "off");
+  });
+
+  test("it passed model and event to submit methods", async function (assert) {
+    this.assertArguments = (type, model, event) => {
+      assert.true(model instanceof Object);
+      assert.true(event instanceof Event);
+
+      assert.step(type);
+    };
+
+    const validations = { foo: [validateLength({ min: 3 })] };
+    this.changeset = new Changeset(
+      { foo: "x" },
+      lookupValidator(validations),
+      validations,
+    );
+
+    await render(hbs`<ValidatedForm
+  @model={{this.changeset}}
+  @on-submit={{fn this.assertArguments "submit"}}
+  @on-invalid-submit={{fn this.assertArguments "invalid-submit"}}
+  as |f|
+>
+  <f.input @label="Foo" @name="foo" />
+  <f.submit />
+</ValidatedForm>`);
+
+    await click("button");
+    assert.verifySteps(["invalid-submit"]);
+
+    await fillIn("input[name=foo]", "testyy");
+    await click("button");
+    assert.verifySteps(["submit"]);
   });
 });
