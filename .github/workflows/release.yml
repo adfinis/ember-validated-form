@@ -6,12 +6,15 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write # to enable use of OIDC for trusted publishing and npm provenance
     steps:
       - uses: actions/checkout@v6
         with:
           ref: ${{ github.event.ref }}
           fetch-depth: 0
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
+          persist-credentials: true
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v6
         with:
@@ -28,6 +31,5 @@ jobs:
 
       - name: Release on NPM
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
         run: pnpm semantic-release
