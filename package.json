@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@adfinis/eslint-config": "3.0.2",
-    "@adfinis/semantic-release-config": "5.0.0",
+    "@adfinis/semantic-release-config": "6.0.0",
     "@babel/eslint-parser": "7.28.6",
     "@babel/plugin-proposal-decorators": "7.28.6",
     "@commitlint/cli": "20.3.1",
@@ -105,7 +105,7 @@
     "prettier-plugin-ember-template-tag": "2.1.2",
     "qunit": "2.25.0",
     "qunit-dom": "3.5.0",
-    "semantic-release": "25.0.2",
+    "semantic-release": "25.0.3",
     "stylelint": "17.0.0",
     "stylelint-config-standard": "40.0.0",
     "stylelint-prettier": "5.0.3",
