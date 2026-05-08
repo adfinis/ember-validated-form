@@ -547,4 +547,35 @@ module("Integration | Component | validated form", function (hooks) {
     await click("button");
     assert.verifySteps(["submit"]);
   });
+
+  test("it yields the submit action", async function (assert) {
+    const validations = {
+      firstName: [validateLength({ min: 3, max: 40 })],
+    };
+
+    this.changeset = new Changeset(
+      { firstName: "x" },
+      lookupValidator(validations),
+      validations,
+    );
+
+    this.step = assert.step.bind(assert);
+
+    await render(hbs`<ValidatedForm
+  @model={{this.changeset}}
+  @on-submit={{fn this.step "submit"}}
+  @on-invalid-submit={{fn this.step "invalid-submit"}}
+  as |f|
+>
+  <f.input @label="first name" @name="firstName" />
+  <button {{on "click" f.submitAction}}>foo</button>
+</ValidatedForm>`);
+
+    await click("button");
+    assert.verifySteps(["invalid-submit"]);
+
+    await fillIn("input", "valid");
+    await click("button");
+    assert.verifySteps(["submit"]);
+  });
 });
