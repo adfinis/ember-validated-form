@@ -2,6 +2,7 @@ import { action } from "@ember/object";
 import { scheduleOnce } from "@ember/runloop";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
+import { modifier } from "ember-modifier";
 import { resolve } from "rsvp";
 
 import { scrollErrorIntoViewEnabled } from "ember-validated-form/-private/features";
@@ -13,6 +14,13 @@ export default class ValidatedFormComponent extends Component {
   @tracked loading = false;
   @tracked submitted = false;
   @tracked validateBeforeSubmit = true;
+
+  /** @type {HTMLFormElement?} */
+  #element = null;
+
+  elementModifier = modifier((element) => {
+    this.#element = element;
+  });
 
   constructor(...args) {
     super(...args);
@@ -57,6 +65,11 @@ export default class ValidatedFormComponent extends Component {
     }
 
     return false;
+  }
+
+  /** Trigger a native `submit` event */
+  @action submitAction() {
+    this.#element.requestSubmit();
   }
 
   runCallback(callbackProp, event) {
