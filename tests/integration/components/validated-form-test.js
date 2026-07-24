@@ -1,6 +1,14 @@
 import EmberObject from "@ember/object";
 import { run } from "@ember/runloop";
-import { render, click, blur, fillIn, focus } from "@ember/test-helpers";
+import {
+  render,
+  click,
+  blur,
+  fillIn,
+  focus,
+  find,
+  settled,
+} from "@ember/test-helpers";
 import { Changeset } from "ember-changeset";
 import lookupValidator from "ember-changeset-validations";
 import { validateLength } from "ember-changeset-validations/validators";
@@ -518,7 +526,7 @@ module("Integration | Component | validated form", function (hooks) {
   test("it passed model and event to submit methods", async function (assert) {
     this.assertArguments = (type, model, event) => {
       assert.true(model instanceof Object);
-      assert.true(event instanceof Event);
+      assert.true(event instanceof SubmitEvent);
 
       assert.step(type);
     };
@@ -568,7 +576,7 @@ module("Integration | Component | validated form", function (hooks) {
   as |f|
 >
   <f.input @label="first name" @name="firstName" />
-  <button {{on "click" f.submitAction}}>foo</button>
+  <button type="button" {{on "click" f.submitAction}}>foo</button>
 </ValidatedForm>`);
 
     await click("button");
@@ -576,6 +584,30 @@ module("Integration | Component | validated form", function (hooks) {
 
     await fillIn("input", "valid");
     await click("button");
+    assert.verifySteps(["submit"]);
+  });
+  test("it submits through the form submit event", async function (assert) {
+    this.submit = (model, event) => {
+      assert.strictEqual(model, this.changeset);
+      assert.true(event instanceof SubmitEvent);
+      assert.strictEqual(event.type, "submit");
+      assert.step("submit");
+    };
+
+    this.changeset = new Changeset({}, lookupValidator({}), {});
+
+    await render(hbs`<ValidatedForm
+  @model={{this.changeset}}
+  @on-submit={{this.submit}}
+  as |f|
+>
+  <f.input @label="Foo" @name="foo" />
+  <f.submit />
+</ValidatedForm>`);
+
+    find("form").requestSubmit();
+    await settled();
+
     assert.verifySteps(["submit"]);
   });
 });

@@ -1,13 +1,15 @@
 <form
   autocomplete={{@autocomplete}}
   class={{if this.submitted "submitted"}}
+  {{this.elementModifier}}
+  {{on "submit" this.submit}}
   ...attributes
 >
   {{yield
     (hash
       model=@model
       loading=this.loading
-      submitAction=this.submit
+      submitAction=this.submitAction
       input=(component
         "validated-input"
         model=@model
@@ -19,7 +21,7 @@
         type="submit"
         loading=this.loading
         label="Save"
-        action=this.submit
+        action=this.submitAction
       )
       button=(component
         "validated-button"

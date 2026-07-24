@@ -16,10 +16,14 @@ export default class ValidatedButtonComponent extends Component {
 
   @action
   async click(event) {
-    // handle only clicks for custom buttons
-    // everything else is handled by the validated form itself
     if (this.args.type !== "button") {
-      return this.args.action(event);
+      const target = event.currentTarget;
+      if (target.type === "submit") {
+        // click -> (native) submission event -> the `validated-form`'s `{{on "submit"}}` handler
+        return;
+      }
+      // backwards compatibility for custom buttons
+      return this.args.action?.(event);
     }
 
     event.preventDefault();
