@@ -1,3 +1,10 @@
+## [8.0.2](https://github.com/adfinis/ember-validated-form/compare/v8.0.1...v8.0.2) (2026-07-29)
+
+
+### Bug Fixes
+
+* use native form submit events ([a0722db](https://github.com/adfinis/ember-validated-form/commit/a0722dbda542a44a0f9a2ca3944d6c5d8db39aee))
+
 ## [8.0.1](https://github.com/adfinis/ember-validated-form/compare/v8.0.0...v8.0.1) (2026-05-20)
 
 
