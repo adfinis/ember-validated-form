@@ -6,6 +6,7 @@ import { modifier } from "ember-modifier";
 import { resolve } from "rsvp";
 
 import { scrollErrorIntoViewEnabled } from "ember-validated-form/-private/features";
+import hasProperty from "ember-validated-form/-private/has-property";
 
 const PROP_ON_SUBMIT = "on-submit";
 const PROP_ON_INVALID_SUBMIT = "on-invalid-submit";
@@ -25,7 +26,7 @@ export default class ValidatedFormComponent extends Component {
   constructor(...args) {
     super(...args);
 
-    if (this.args.model && this.args.model.validate) {
+    if (hasProperty(this.args.model, "validate") && this.args.model.validate) {
       scheduleOnce("actions", this, "validateModel", this.args.model);
     }
   }
@@ -46,7 +47,7 @@ export default class ValidatedFormComponent extends Component {
     this.submitted = true;
     const model = this.args.model;
 
-    if (!model || !model.validate) {
+    if (!hasProperty(model, "validate") || !model.validate) {
       this.runCallback(PROP_ON_SUBMIT, event);
       return false;
     }

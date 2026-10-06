@@ -4,6 +4,7 @@ import { tracked } from "@glimmer/tracking";
 import { resolve } from "rsvp";
 
 import { scrollErrorIntoViewEnabled } from "ember-validated-form/-private/features";
+import hasProperty from "ember-validated-form/-private/has-property";
 
 const ON_CLICK = "on-click";
 const ON_INVALID_CLICK = "on-invalid-click";
@@ -34,7 +35,7 @@ export default class ValidatedButtonComponent extends Component {
 
     const model = this.args.model;
 
-    if (!model || !model.validate) {
+    if (!hasProperty(model, "validate") || !model.validate) {
       this.runCallback(ON_CLICK);
       return;
     }

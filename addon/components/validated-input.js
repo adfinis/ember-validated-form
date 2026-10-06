@@ -4,6 +4,8 @@ import { isEmpty } from "@ember/utils";
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 
+import hasProperty from "ember-validated-form/-private/has-property";
+
 /**
  * This component wraps form inputs.
  *
@@ -53,9 +55,9 @@ export default class ValidatedInputComponent extends Component {
 
   get errors() {
     const errors =
-      (this.args.model &&
-        get(this.args.model, `error.${this.args.name}.validation`)) ??
-      [];
+      (hasProperty(this.args.model, "error")
+        ? get(this.args.model, `error.${this.args.name}.validation`)
+        : undefined) ?? [];
 
     if (!Array.isArray(errors)) {
       return [errors];
