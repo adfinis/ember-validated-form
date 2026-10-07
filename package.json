@@ -34,6 +34,7 @@
     "test": "concurrently \"pnpm:lint\" \"pnpm:test:*\" --names \"lint,test:\" --prefixColors auto",
     "test:ember": "ember test",
     "test:ember-compatibility": "ember try:each",
+    "test:node": "node --test node-tests/*-test.js",
     "prepare": "husky"
   },
   "dependencies": {
