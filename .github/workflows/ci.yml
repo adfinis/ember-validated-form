@@ -33,6 +33,8 @@ jobs:
         run: pnpm lint
       - name: Run Tests
         run: pnpm test:ember
+      - name: Run Node Tests
+        run: pnpm test:node
 
   floating:
     name: "Floating Dependencies"
