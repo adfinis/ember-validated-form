@@ -21,6 +21,7 @@
 /eslint.config.mjs
 /testem.js
 /tests/
+/node-tests/
 /tsconfig.declarations.json
 /tsconfig.json
 /yarn-error.log
